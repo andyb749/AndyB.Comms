@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AndyB.Comms</id>
+    <version>0.0.0-alpha</version>
+    <authors>AndyB</authors>
+    <description>Communications for DotNet</description>
+    <copyright>Copyright (C) 1994-2021, AndyB</copyright>
+    <dependencies>
+      <group targetFramework=".NETStandard2.1">
+        <dependency id="Microsoft.Win32.Registry" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="NLog" version="4.7.11" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Debug\netstandard2.1\AndyB.Comms.dll" target="lib\netstandard2.1\AndyB.Comms.dll" />
+    <file src="D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Debug\netstandard2.1\AndyB.Comms.xml" target="lib\netstandard2.1\AndyB.Comms.xml" />
+  </files>
+</package>

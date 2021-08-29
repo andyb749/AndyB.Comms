@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "1aS2q1jfmLRYyEOMA7CD9IPPByONXqJMJdJ4BoBIRl6dard4quZjCF8uVPN3gqumrzJ3IlB1n3u1IQHpf70TDA==",
+  "success": true,
+  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialCommsTest\\SerialCommsTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.11\\nlog.4.7.11.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,3357 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AndyB.Comms</name>
+    </assembly>
+    <members>
+        <member name="T:AndyB.Comms.ASCII">
+            <summary>
+            ASCII Control character enumeration
+            </summary>
+            <remarks>
+            <para>
+            This enumeration lists the control codes (control characters) in ASCII and in newer 
+            character code standards like Unicode, which generally try to be compatible with 
+            ASCII in the ASCII code range (positions 0 through 127).
+            </para>
+            <para>Descriptions are from C0 of ISO 646</para>
+            </remarks>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.NUL">
+            <summary>
+            Null control code - 0x00.
+            <para/>
+            A control character used to accomplish media-fill or time-fill. 
+            Null characters may be inserted into or removed from a stream of data without 
+            affecting the information content of that stream. But then the addition or 
+            removal of these characters may affect the information layout and/or the 
+            control of equipment.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SOH">
+            <summary>
+            Start of Heading - 0x01
+            <para/>
+            A transmission control character used as the first character of a heading 
+            of an information message.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.STX">
+            <summary>
+            Start of Text - 0x02
+            <para/>
+            A transmission control character which precedes a text and which is used 
+            to terminate a heading.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.ETX">
+            <summary>
+            End of Text - 0x03
+            <para/>
+            A transmission control character which terminates a text.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.EOT">
+            <summary>
+            End of Transmission - 0x04
+            <para/>
+            A transmission control character used to indicate the conclusion of the 
+            transmission of one or more texts..
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.ENQ">
+            <summary>
+            Enquiry - 0x05
+            <para/>
+            A transmission control character used as a request for a response 
+            from a remote station; the response may include station identification 
+            and/or station status. When a "Who are you" function is required on the 
+            general switched transmission network, the first use of ENQ after the 
+            connection is established shall have the meaning "Who are you" (station 
+            identification). Subsequent use of ENQ may, or may not, include the 
+            function "Who are you", as determined by agreement.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.ACK">
+            <summary>
+            Acknowledge - 0x06
+            <para/>
+            A transmission control character transmitted by a receiver as an 
+            affirmative response to the sender.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.BEL">
+            <summary>
+            Bell - 0x07
+            <para/>
+            A control character that is used when there is a need to call for 
+            attention; it may control alarm or attention devices.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.BS">
+            <summary>
+            Backspace - 0x08
+            <para/>
+            A format effector which moves the active position one character 
+            position backwards on the same line.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.HT">
+            <summary>
+            Horizontal Tabulation - 0x09
+            <para/>
+            A format effector which advances the active position to the next 
+            pre-determined character position on the same line.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.LF">
+            <summary>
+            Line Feed - 0x0a
+            <para/>
+            A format effector which advances the active position to the same 
+            character position of the next line.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.VT">
+            <summary>
+            Vertical Tabulation - 0x0b
+            <para/>
+            A format effector which advances the active position to the same 
+            character position on the next pre-determined line.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.FF">
+            <summary>
+            Form Feed - 0x0c
+            <para/>
+            A format effector which advances the active position to the same 
+            character position on a pre-determined line of the next form or page.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.CR">
+            <summary>
+            Carriage Return - 0x0d
+            <para/>
+            A format effector which moves the active position to the first character 
+            position on the same line.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SO">
+            <summary>
+            Shift Out - 0x0e
+            <para/>
+            A control character which is used in conjunction with SHIFT IN and 
+            ESCAPE to extend the graphic character set of the code. It may alter 
+            the meaning of octets 33 - 126 (dec.). The effect of this character 
+            when using code extension techniques is described in International Standard ISO 2022. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SI">
+            <summary>
+            Shift In - 0x0f
+            <para/>
+            A control character which is used in conjunction with SHIFT OUT 
+            and ESCAPE to extend the graphic character set of the code. It may 
+            reinstate the standard meanings of the octets which follow it. The 
+            effect of this character when using code extension techniques is described 
+            in International Standard ISO 2022. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DLE">
+            <summary>
+            Data Link Escape 0x10
+            <para/>
+            A transmission control character which will change the meaning of a limited 
+            number of contiguously following characters. Its is used exclusively to 
+            provide supplementary data transmission control functions. Only graphic 
+            characters and transmission control characters can be used in DLE sequences.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DC1">
+            <summary>
+            Device Control One - 0x11
+            <para/>
+            A device control character which is primarily intended for turning on or 
+            starting an ancillary device. If it is not required for this purpose, it 
+            may be used to restore a device to the basic mode of operation (see also 
+            DC2 and DC3), or for any other device control function not provided by other DCs. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DC2">
+            <summary>
+            Device Control Two 0x12
+            <para/>
+            A device control character which is primarily intended for turning on or 
+            starting an ancillary device. If it is not required for this purpose, it 
+            may be used to set a device to a special mode of operation (in which case 
+            DC1 is used to restore normal operation), or for any other device control 
+            function not provided by other DCs. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DC3">
+            <summary>
+            Device Control Three - 0x13
+            <para/>
+            A device control character which is primarily intended for turning off 
+            or stopping an ancillary device. This function may be a secondary level 
+            stop, for example, wait, pause, stand-by or halt (in which case DC1 is 
+            used to restore normal operation). If it is not required for this purpose, 
+            it may be used for any other device control function not provided by other DCs. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DC4">
+            <summary>
+            Device Control Four - 0x14
+            <para/>
+            A device control character which is primarily intended for turning off, 
+            stopping or interrupting an ancillary device. If it is not required for 
+            this purpose, it may be used for any other device control function not 
+            provided by other DCs. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.NAK">
+            <summary>
+            Negative Acknowledge - 0x15
+            <para/>
+            A transmission control character transmitted by a receiver as a negative response 
+            to the sender.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SYN">
+            <summary>
+            Synchronous Idle - 0x16
+            <para/>
+            A transmission control character used by a synchronous transmission system 
+            in the absence of any other character (idle condition) to provide a signal 
+            from which synchronism may be achieved or retained between data terminal equipment. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.ETB">
+            <summary>
+            End of Transmission Block - 0x17
+            <para/>
+            A transmission control character used to indicate the end of a transmission 
+            block of data where data is divided into such blocks for transmission purposes.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.CAN">
+            <summary>
+            Cancel - 0x18
+            <para/>
+            A character, or the first character of a sequence, indicating that the 
+            data preceding it is in error. As a result, this data is to be ignored. 
+            The specific meaning of this character must be defined for each application 
+            and/or between sender and recipient. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.EM">
+            <summary>
+            End of Medium - 0x19
+            <para/>
+            A control character that may be used to identify the physical end of a 
+            medium, or the end of the used portion of a medium, or the end of the wanted 
+            portion of data recorded on a medium. The position of this character does 
+            not necessarily correspond to the physical end of the medium.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SUB">
+            <summary>
+            Substitute - 0x1a
+            <para/>
+            A control character used in the place of a character that has been found 
+            to be invalid or in error. SUB is intended to be introduced by automatic means. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.ESC">
+            <summary>
+            Escape - 0x1b
+            <para/>
+            A control character which is used to provide additional control functions. 
+            It alters the meaning of a limited number of contiguously following bit 
+            combinations. The use of this character is specified in International 
+            Standard ISO 2022.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.FS">
+            <summary>
+            File Separator - 0x1c
+            <para/>
+            A control character used to separate and qualify data logically; 
+            its specific meaning has to be specified for each application. If this 
+            character is used in hierarchical order, it delimits a data item called a file. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.GS">
+            <summary>
+            Group Separator - 0x1d
+            <para/>
+            A control character used to separate and qualify data logically; 
+            its specific meaning has to be specified for each application. If this 
+            character is used in hierarchical order, it delimits a data item called a group. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.RS">
+            <summary>
+            Record Separator - 0x1e
+            <para/>
+            A control character used to separate and qualify data logically; 
+            its specific meaning has to be specified for each application. If this 
+            character is used in hierarchical order, it delimits a data item called a record. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.US">
+            <summary>
+            Unit Separator - 0x1f
+            <para/>
+            A control character used to separate and qualify data logically; 
+            its specific meaning has to be specified for each application. If this 
+            character is used in hierarchical order, it delimits a data item called a unit. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.SP">
+            <summary>
+            Space - 0x20
+            <para/>
+            The ASCII space character - not in the ISO specification.  
+            Can be classified and processed as a control character or a graphics 
+            character, or both depending on context
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ASCII.DEL">
+            <summary>
+            Delete - 0x7f
+            <para/>
+            Not in the ISO specification.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.ByteArrayExtensions">
+            <summary>
+            Extension methods for an array of <see cref="T:System.Byte"/>
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToUShort(System.Byte[],AndyB.Comms.ByteOrder)">
+            <summary>
+            Returns a <see cref="T:System.UInt16"/> from two bytes passed in an array
+            </summary>
+            <param name="bytes">The bytes to make the <see cref="T:System.UInt16"/> from</param>
+            <param name="endian">Specifies the order of the bytes</param>
+            <returns>A newly created <see cref="T:System.UInt16"/></returns>
+            <remarks>When <paramref name="endian"/> is <see cref="F:AndyB.Comms.ByteOrder.B0B1"/>
+            the first byte in the sequence will be used for the low byte.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToUShort(System.Byte[],System.Int32,AndyB.Comms.ByteOrder)">
+            <summary>
+            Returns a <see cref="T:System.UInt16"/> from two bytes passed in an array
+            </summary>
+            <param name="bytes">The bytes to make the <see cref="T:System.UInt16"/> from</param>
+            <param name="start">The starting index of the first byte in the array</param>
+            <param name="endian">Specifies the order of the bytes</param>
+            <returns>A newly created <see cref="T:System.UInt16"/></returns>
+            <remarks>When <paramref name="endian"/> is <see cref="F:AndyB.Comms.ByteOrder.B0B1"/>
+            the first byte in the sequence will be used for the high byte.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToUInt(System.Byte[],AndyB.Comms.WordOrder)">
+            <summary>
+            Makes a <see cref="T:System.UInt32"/> from an array of four bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.UInt32"/> from</param>
+            <param name="wordOrder">The word ordering to use</param>
+            <returns>A newly created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToUInt(System.Byte[],System.Int32,AndyB.Comms.WordOrder)">
+            <summary>
+            Makes a <see cref="T:System.UInt32"/> from an array of four bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.UInt32"/> from</param>
+            <param name="start">The starting index within the <see cref="T:System.Byte"/> array</param>
+            <param name="wordOrder">The word order to use</param>
+            <returns>A newly created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToULong(System.Byte[])">
+            <summary>
+            Makes a <see cref="T:System.UInt64"/> from an array of eight bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.UInt64"/> from</param>
+            <returns>A newly created <see cref="T:System.UInt64"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToULong(System.Byte[],System.Int32)">
+            <summary>
+            Makes a <see cref="T:System.UInt64"/> from an array of eight bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.UInt64"/> from</param>
+            <param name="start">The starting index within the <see cref="T:System.Byte"/> array</param>
+            <returns>A newly created <see cref="T:System.UInt64"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToFloat(System.Byte[])">
+            <summary>
+            Makes a <see cref="T:System.Single"/> from an array of four bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.Single"/> from</param>
+            <returns>A newly created <see cref="T:System.Single"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteArrayExtensions.ToFloat(System.Byte[],System.Int32)">
+            <summary>
+            Makes a <see cref="T:System.Single"/> from an array of four bytes
+            </summary>
+            <param name="bytes">The byte array to create the <see cref="T:System.Single"/> from</param>
+            <param name="start">The starting index within the <see cref="T:System.Byte"/> array</param>
+            <returns>A newly created <see cref="T:System.Single"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="T:AndyB.Comms.ByteBuilder">
+            <summary>
+            Represents a mutable array of <see cref="T:System.Byte"/>s.
+            </summary>
+            <remarks><para>The <see cref="T:AndyB.Comms.ByteBuilder"/> class design is based on the <see cref="T:System.Text.StringBuilder"/> class,
+            particularly with the memory allocation and buffer resizing.</para>
+            <note type="warning">Try to avoid making calls to <see cref="T:System.BitConverter"/> as it uses the byte ordering 
+            from the host machine, whereas <see cref="T:AndyB.Comms.ByteBuilder"/> allows the programmer to define the byte and word
+            ordering using <see cref="P:AndyB.Comms.ByteBuilder.ByteOrder"/> and <see cref="P:AndyB.Comms.ByteBuilder.WordOrder"/></note>
+            </remarks>
+        </member>
+        <member name="F:AndyB.Comms.ByteBuilder.DefaultMaxCapacity">
+            <summary>
+            The default maximum capacity of <see cref="T:AndyB.Comms.ByteBuilder"/> if
+            not specified in the constructor.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.ByteBuilder"/> class
+            with the default maximum capacity
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.#ctor(System.UInt32)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.ByteBuilder"/> class
+            with the specified capacity
+            </summary>
+            <param name="capacity">The maximum size in bytes of this instance</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="capacity"/> is less than zero.</exception>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.#ctor(System.Byte[])">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.ByteBuilder"/> class with the
+            specified array of <see cref="T:System.Byte"/>
+            </summary>
+            <param name="values">The array of <see cref="T:System.Byte"/> used to initialise this instance.
+            If <paramref name="values"/> is <c>null</c> the new <see cref="T:AndyB.Comms.ByteBuilder"/> will contain the
+            an empty buffer.</param>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.#ctor(System.UInt32,System.Byte[])">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.ByteBuilder"/>
+            object with the supplied maximum capacity and data bytes.
+            </summary>
+            <param name="capacity">The maximum capacity</param>
+            <param name="values">The bytes to add to the buffer</param>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.Capacity">
+            <summary>
+            Gets the maximum capacity of this instance
+            </summary>
+            <value>The maximum number of bytes this instance can hold</value>
+            <remarks><para>The maximum capacity for this implementation is 256. You can explicitly set the maximum
+            capacity of a <see cref="T:AndyB.Comms.ByteBuilder"/> object by calling the <see cref="M:AndyB.Comms.ByteBuilder.#ctor(System.UInt32)"/>
+            constructor.</para>
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.Count">
+            <summary>
+            Gets the number of items in the <see cref="T:AndyB.Comms.ByteBuilder"/> object
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.Item(System.Int32)">
+            <summary>
+            Gets/sets the byte at the specified byte position in this instance
+            </summary>
+            <param name="index">The position of the byte</param>
+            <returns>The byte at position <paramref name="index"/></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is outside the bounds of this instance while setting a byte</exception>
+            <exception cref="T:System.IndexOutOfRangeException"><paramref name="index"/> is outside the bounds of this instance while getting a byte</exception>
+            <remarks><para>The <paramref name="index"/> parameter is the position of a byte within the <see cref="T:AndyB.Comms.ByteBuilder"/>.  The first byte in
+            the buffer is at index 0. The length of a <see cref="T:AndyB.Comms.ByteBuilder"/> is the number of bytes it contains. The last accessible byte of a 
+            <see cref="T:AndyB.Comms.ByteBuilder"/> object is at <see cref="P:AndyB.Comms.ByteBuilder.Count"/> - 1.</para>
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.ByteOrder">
+            <summary>
+            Gets/sets the byte ordering when reading/writing 16 bit values
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.WordOrder">
+            <summary>
+            Gets/sets the word orders when reading/writing 32 bit values
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Add(System.Byte)">
+            <summary>
+            Adds the supplied byte to the buffer
+            </summary>
+            <param name="b">Te byte to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Add(System.Byte[])">
+            <summary>
+            Adds the specified number of bytes to the buffer starting at the specified 
+            index
+            </summary>
+            <param name="bytes">The bytes</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Add(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Adds the supplied bytes to the buffer
+            </summary>
+            <param name="bytes">The bytes to add</param>
+            <param name="start">Starting offset in the buffer</param>
+            <param name="count">Count of bytes to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Add(AndyB.Comms.ByteOrder,System.UInt16[])">
+            <summary>
+            Adds the supplied array of <see cref="T:System.UInt16"/> to the buffer
+            using the specified byte order
+            </summary>
+            <param name="order">The byte order</param>
+            <param name="values">The values to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Add(AndyB.Comms.WordOrder,System.UInt32[])">
+            <summary>
+            Adds the supplied array of <see cref="T:System.UInt32"/> to the buffer
+            using the specified word and byte ordering
+            </summary>
+            <param name="wOrder">The word order</param>
+            <param name="values">The array of values to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Insert(System.Byte)">
+            <summary>
+            Inserts the supplied <see cref="T:System.Byte"/> to the buffer.
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Insert(System.Int32,System.Byte)">
+            <summary>
+            Inserts the supplied <see cref="T:System.Byte"/> to the buffer.
+            </summary>
+            <param name="index">The position in the buffer to insert the byte.</param>
+            <param name="b">The <see cref="T:System.Byte"/> to add</param>
+            <returns>A reference to this object to allow method chaining.</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Remove(System.Int32,System.Int32)">
+            <summary>
+            Removes one of more bytes from this byte builder
+            </summary>
+            <param name="index">The starting index</param>
+            <param name="count">The number of bytes to remove</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.Clear">
+            <summary>
+            Removes all bytes from the current <see cref="T:AndyB.Comms.ByteBuilder"/> instance
+            </summary>
+            <returns>A <see cref="T:AndyB.Comms.ByteBuilder"/> object with no data bytes.</returns>
+        </member>
+        <member name="P:AndyB.Comms.ByteBuilder.Buffer">
+            <summary>
+            Gets a reference to the underlying buffer
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.GetUShort(System.Int32)">
+            <summary>
+            Gets an <see cref="T:System.UInt16"/> from the buffer using the default
+            byte order
+            </summary>
+            <param name="start">The starting index of the first byte</param>
+            <returns>The <see cref="T:System.UInt16"/> from the buffer</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.GetUShort(AndyB.Comms.ByteOrder,System.Int32)">
+            <summary>
+            Gets the 
+            </summary>
+            <param name="order">The byte order</param>
+            <param name="start">The starting byte in the buffer</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.ToByteArray(System.Int32,System.Int32)">
+            <summary>
+            Gets the buffer as an array of bytes
+            </summary>
+            <param name="start">The starting position in the buffer</param>
+            <param name="count">The number of bytes to retreive</param>
+            <returns>A reference to this object to allow method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.ToString(System.Int32,System.Int32)">
+            <summary>
+            Returns the underlying buffer as a string comprising
+            of the hexadecimal equivalent of each byte
+            </summary>
+            <param name="index">The starting index</param>
+            <param name="count">The count of bytes to include in the returned string</param>
+            <returns>A formatted string with each byte formatted as a hexadecimal value</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilder.System#Collections#IEnumerable#GetEnumerator">
+            <inheritdoc/>
+        </member>
+        <member name="T:AndyB.Comms.ByteBuilderExtensions">
+            <summary>
+            Extension methods to <see cref="T:AndyB.Comms.ByteBuilder"/>
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.Add(AndyB.Comms.ByteBuilder,System.Char)">
+            <summary>
+            Appends the supplied <see cref="T:System.Char"/> to the buffer
+            </summary>
+            <param name="builder">The object that this method extends</param>
+            <param name="ch">The <see cref="T:System.Char"/> to add</param>
+            <returns>A reference to this object to allow chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.Add(AndyB.Comms.ByteBuilder,AndyB.Comms.ASCII)">
+            <summary>
+            Appends the supplied <see cref="T:AndyB.Comms.ASCII"/> character to the buffer
+            </summary>
+            <param name="builder">The object that this method extends</param>
+            <param name="a">The <see cref="T:AndyB.Comms.ASCII"/> character to add</param>
+            <returns>A reference to this object to allow chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.AddNull(AndyB.Comms.ByteBuilder)">
+            <summary>
+            Appends a null byte to the buffer
+            </summary>
+            <param name="builder">The object that this method extends</param>
+            <returns>A reference to this object to allow chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.Add(AndyB.Comms.ByteBuilder,System.String)">
+            <summary>
+            Appends the ASCII string to the buffer
+            </summary>
+            <param name="builder">The object that this method extends</param>
+            <param name="str">The string to add</param>
+            <returns>A reference to this object to allow chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.Add(AndyB.Comms.ByteBuilder,System.UInt16[])">
+            <summary>
+            Append an array of <see cref="T:System.UInt16"/> to the buffer using the default
+            byte order
+            </summary>
+            <param name="builder">The object that this object extends</param>
+            <param name="values">The <see cref="T:System.UInt16"/> to add</param>
+            <returns>A reference to this object to allow chaining</returns>
+            <remarks>This method uses the <see cref="P:AndyB.Comms.ByteBuilder.ByteOrder"/> property
+            to determine how the values should be added to the buffer.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteBuilderExtensions.Add(AndyB.Comms.ByteBuilder,System.UInt32[])">
+            <summary>
+            Append an array of <see cref="T:System.UInt32"/> to the buffer using the
+            default word and byte order
+            </summary>
+            <param name="builder">The object that this method extends</param>
+            <param name="values">The <see cref="T:System.UInt32"/> to add</param>
+            <returns>A reference to this object to allow method chaining</returns>
+            <remarks>This method uses the <see cref="P:AndyB.Comms.ByteBuilder.WordOrder"/> property
+            to determine how the values should be added to the buffer.</remarks>
+        </member>
+        <member name="T:AndyB.Comms.ByteConverter">
+            <summary>
+            Methods to convert bytes to and from other data types
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToUShort(System.Byte,System.Byte)">
+            <summary>
+            Makes a <see cref="T:System.UInt16"/> from two <see cref="T:System.Byte"/>s.
+            </summary>
+            <param name="b1">The most significant byte</param>
+            <param name="b0">The least significant byte</param>
+            <returns>The created <see cref="T:System.UInt16"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToShort(System.Byte,System.Byte)">
+            <summary>
+            Makes a <see cref="T:System.Int16"/> from two <see cref="T:System.Byte"/>s.
+            </summary>
+            <param name="b1">The most significant byte</param>
+            <param name="b0">The least significant byte</param>
+            <returns>The created <see cref="T:System.Int16"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToUInt(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Makes a <see cref="T:System.UInt16"/> from four <see cref="T:System.Byte"/>s
+            </summary>
+            <param name="b3">The most significant byte</param>
+            <param name="b2">The 2nd most significant byte</param>
+            <param name="b1">The 3rd most significant byte</param>
+            <param name="b0">The least significant byte</param>
+            <returns>The created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToUInt(System.UInt16,System.UInt16)">
+            <summary>
+            Makes a <see cref="T:System.UInt32"/> from two <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="u1">The most significant word</param>
+            <param name="u0">The least signifiant word</param>
+            <returns>The created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independent</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToULong(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Makes a <see cref="T:System.UInt64"/> from four <see cref="T:System.Byte"/>s.
+            </summary>
+            <param name="b7">The most significant byte</param>
+            <param name="b6">The 2nd most significant byte</param>
+            <param name="b5">The 3rd most significant byte</param>
+            <param name="b4">The 4th most significant byte</param>
+            <param name="b3">The 5th most significant byte</param>
+            <param name="b2">The 6th most significant byte</param>
+            <param name="b1">The 7th most significant byte</param>
+            <param name="b0">The least significant byte</param>
+            <returns>The created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToULong(System.UInt32,System.UInt32)">
+            <summary>
+            Makes a <see cref="T:System.UInt64"/> from two <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="u1">The most significant uint</param>
+            <param name="u0">The least signifiant uint</param>
+            <returns>The created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteConverter.ToFloat(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Makes a <see cref="T:System.Single"/> from four <see cref="T:System.Byte"/>s.
+            </summary>
+            <param name="b3">The most significant byte</param>
+            <param name="b2">The 2nd most significant byte</param>
+            <param name="b1">The 3rd most significant byte</param>
+            <param name="b0">The least significant byte</param>
+            <returns>The created <see cref="T:System.UInt32"/></returns>
+            <remarks>This method is endian independant</remarks>
+        </member>
+        <member name="T:AndyB.Comms.ByteExtensions">
+            <summary>
+            Extension methods for bytes
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ByteExtensions.BitMask(System.Byte,System.Int32)">
+            <summary>
+            Returns a bit mask composed of bit <paramref name="bit"/> set
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> that this extension method operates on</param>
+            <param name="bit">The bit to set</param>
+            <returns>The bit mask</returns>
+        </member>
+        <member name="M:AndyB.Comms.ByteExtensions.SetBit(System.Byte@,System.Int32)">
+            <summary>
+            Sets bit <paramref name="bit"/>
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> that this extension method operates on</param>
+            <param name="bit">The bit to set</param>
+            <returns>The object with the relevant bit set</returns>
+            <remarks>This extension method will not store the value in the original object</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteExtensions.ClearBit(System.Byte@,System.Int32)">
+            <summary>
+            Clears bit <paramref name="bit"/>
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> that this extension method operates on</param>
+            <param name="bit">The bit to clear</param>
+            <returns>The object with the relevant bit cleared</returns>
+            <remarks>This extension method will not store the value in the original object</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteExtensions.PutBit(System.Byte@,System.Int32,System.Boolean)">
+            <summary>
+            Set the specified bit of the object to the specified value
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> that this extension method operates on</param>
+            <param name="bit">The bit that is to be set</param>
+            <param name="value">The value for the bit</param>
+            <returns>The original <see cref="T:System.Byte"/> with the appropriate bit set/reset</returns>
+            <remarks>This extension method will not store the value in the original object</remarks>
+        </member>
+        <member name="M:AndyB.Comms.ByteExtensions.IsSet(System.Byte,System.Int32)">
+            <summary>
+            Tests the specified bit
+            </summary>
+            <param name="b">The <see cref="T:System.Byte"/> that this extension method operates on</param>
+            <param name="bit">The bit to check</param>
+            <returns><c>true</c> if set; <c>false</c> otherwise</returns>
+        </member>
+        <member name="T:AndyB.Comms.ByteOrder">
+            <summary>
+            Enumeration of the endian (byte ordering) types
+            </summary>
+            <remarks><para>Endianness refers to the byte ordering within
+            a binary representation of a number.   A big endian architecture places its
+            most significant bytes first, with the least significant last. Little endian 
+            is the reverse placing the least significant byte first in the buffer.</para>
+            <para>The Intel x86 and most Arm implementations use little endian, whereas big
+            endian is the format for networking protocols including TCP, IP, UDP.</para>
+            <para>Some protocols use a mixture of byte ordering for 32 bit and larger
+            formats</para>
+            </remarks>
+        </member>
+        <member name="F:AndyB.Comms.ByteOrder.B1B0">
+            <summary>
+            High byte, then low byte (big endian)
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.ByteOrder.B0B1">
+            <summary>
+            Low byte, then high byte (little endian)
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.CommsException">
+            <summary>
+            The exception that is thrown when a serial port error occurs. 
+            </summary>
+            <remarks><para>A <see cref="T:AndyB.Comms.CommsException"/> is thrown by various classes in this assembly when an error 
+            occurs with the port.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.CommsException.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.CommsException"/> class
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.CommsException.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.CommsException"/> class
+            with the supplied message
+            </summary>
+            <param name="message">The message</param>
+        </member>
+        <member name="M:AndyB.Comms.CommsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.CommsException"/> class
+            with the supplied message and inner exception
+            </summary>
+            <param name="message">The message</param>
+            <param name="inner">The inner exception</param>
+        </member>
+        <member name="T:AndyB.Comms.DoubleExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Double"/>.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.FloatExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Single"/>
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.FloatExtensions.GetBytes(System.Single)">
+            <summary>
+            Converts the supplied value into an array of bytes
+            </summary>
+            <param name="val">The <see cref="T:System.Single"/> that this method extends</param>
+            <returns>An array of bytes that represents the supplied value</returns>
+        </member>
+        <member name="T:AndyB.Comms.FloatUnion">
+            <summary>
+            A structure to allow byte conversions between floats and bytes
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.#ctor(System.Single)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.FloatUnion"/> structure from
+            the supplied <see cref="T:System.Single"/> value
+            </summary>
+            <param name="f">The floating value of the new instance</param>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.FloatUnion"/> structure from 
+            the supplied bytes.
+            </summary>
+            <param name="b3">The most significant byte</param>
+            <param name="b2">The second most significant byte</param>
+            <param name="b1">The third most significant byte</param>
+            <param name="b0">The least significant byte</param>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.#ctor(System.Byte[])">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.FloatUnion"/> structure from
+            the supplied byte array
+            </summary>
+            <param name="bytes">The array of bytes of the new instance</param>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.#ctor(System.Byte[],System.Int32)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.FloatUnion"/> structure from
+            the supplied byte array
+            </summary>
+            <param name="bytes">The array of bytes of the new instance</param>
+            <param name="index">The starting index in the byte array</param>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.AsFloat">
+            <summary>
+            Returns the value of the instance as a float
+            </summary>
+            <returns>The value of the instance as a <see cref="T:System.Single"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.FloatUnion.GetBytes">
+            <summary>
+            Returns the value of the instance as a byte array
+            </summary>
+            <returns>The value of the instance as a <see cref="T:System.Byte"/>[]</returns>
+        </member>
+        <member name="T:AndyB.Comms.Serial.DataBits">
+            <summary>
+            Enumeration of the number of bits in the transmitted word (byte?).
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Five">
+            <summary>
+            Five bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Six">
+            <summary>
+            Six bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Seven">
+            <summary>
+            Seven bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Eight">
+            <summary>
+            Eight bits per data byte.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ConnectedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.Connected"/> event.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.ConnectedEventArgs.#ctor(System.Boolean)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.ConnectedEventArgs"/> object
+            with the supplied status.
+            </summary>
+            <param name="state"><c>true</c> if connected; <c>false</c> if disconnected.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ConnectedEventArgs.Status">
+            <summary>
+            Gets/sets the status of the connection.
+            </summary>
+            <value><c>true</c> if connected; <c>false</c> if disconnected.</value>
+        </member>
+        <member name="T:AndyB.Comms.Serial.PinChangedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.PinChangedEventArgs.#ctor(AndyB.Comms.Serial.ModemPinEvent,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.PinChangedEventArgs"/> object
+            with the specified values.
+            </summary>
+            <param name="pinState">The current set of modem pin states.</param>
+            <param name="ctsState">The status of the CTS pin.</param>
+            <param name="dsrState">The status of the DRS pin.</param>
+            <param name="rlsdState">The status of the RLSD (DCD) pin.</param>
+            <param name="ringState">The status of the RING pin.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.PinState">
+            <summary>
+            Gets/sets the pinstate
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.CtsState">
+            <summary>
+            Gets/sets the state of the CTS pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.DsrState">
+            <summary>
+            Gets/sets the state of the DSR pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.RlsdState">
+            <summary>
+            Gets/sets the state of the RLSD pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.RingState">
+            <summary>
+            Gets/sets the state of the Ring pin
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ErrorReceivedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event.
+            </summary>
+            <remarks>This class is used with the <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.ErrorReceivedEventArgs.#ctor(AndyB.Comms.Serial.SerialError)">
+            <summary>
+            Initialises a new <see cref="T:AndyB.Comms.Serial.ErrorReceivedEventArgs"/> object with the
+            <see cref="T:AndyB.Comms.Serial.SerialError"/> event type.
+            </summary>
+            <param name="eventType">The event type that caused the exception.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ErrorReceivedEventArgs.EventType">
+            <summary>
+            Gets the event type.
+            </summary>
+            <remarks>This property contains information about the event type that caused the 
+            <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event.</remarks>
+            <value>One of the <see cref="T:AndyB.Comms.Serial.SerialError"/> values.</value>
+        </member>
+        <member name="T:AndyB.Comms.Serial.DataReceivedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event.
+            </summary>
+            <remarks>This class is used with the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.DataReceivedEventArgs.ReceiveBuffer">
+            <summary>
+            Gets the receive buffer.
+            </summary>
+            <remarks>This property contains the received bytes from the serial port.</remarks>
+            <value>A <see cref="T:System.Byte"/> array containing the received data.</value>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ModemPinEvent">
+            <summary>
+            Specifies the type of change that occurred on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks><para>This enumeration is used with the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.</para>
+            <para>A serial port pin changes state when it is asserted or unasserted.</para></remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.CtsChanged">
+            <summary>
+            The Clear To Send (CTS) pin changed state. This signal is used to indicate whether
+            data can be sent over the serial port.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.DsrChanged">
+            <summary>
+            The Data Set Ready (DSR) pin changed state. This signal is used to indicate whether
+            the device on the serial port is ready to operate.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.RlsdChanged">
+            <summary>
+            Received Line Signal Detect (RLSD) or Carrier Detect (CD) pin changed state. This pin
+            is used to indicate whether a modem is connected to a working phone line and a data carrier
+            signal is detected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.RingChanged">
+            <summary>
+            A ring indicator pin changed state.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.Break">
+            <summary>
+            A Break was detected on input.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Parity">
+            <summary>
+            Enumeration of the available parity settings
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Parity.None">
+            <summary>
+            Characters do not have a parity bit.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Parity.Odd">
+            <summary>
+            Set if there are an odd number of 1s in the character.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Parity.Even">
+            <summary>
+            Set if there are an even number of 1s in the character.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Parity.Mark">
+            <summary>
+            The parity bit is always 1.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Parity.Space">
+            <summary>
+            The parity bit is always 0.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.PinStates">
+            <summary>
+            RTS and DTR pin states.
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.PinStates.Disable">
+            <summary>
+            Pin is never asserted.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.PinStates.Enable">
+            <summary>
+            Pin is asserted when port is open.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.PinStates.Handshake">
+            <summary>
+            Pin is asserted when able to receive data.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.PinStates.Toggle">
+            <summary>
+            Pin (RTS only) is asserted when transmitting data.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialError">
+            <summary>
+            Specifies errors that occur on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>This enumeration can be useful when handling the <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event to 
+            detect and respond to errors when communicating data through a <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.SerialError.Frame">
+            <summary>
+            The hardware detected a framing error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.SerialError.Overrun">
+            <summary>
+            Either a character overrun in the UART was detected on the receive buffer was full.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.SerialError.Parity">
+            <summary>
+            The hardware detected a parity error.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialPort">
+            <summary>
+            Implements a serial port object.
+            </summary>
+            
+            <remarks><para>The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class provides a rich set of methods and properties for serial 
+            communications.</para>
+            
+            <para>The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class follows the .NET Framework 
+            naming pattern for asynchronous methods; for example, the synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method 
+            corresponds to the asynchronous <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> and <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> methods.</para>
+            
+            <para>The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class supports three main programming models:
+            <list type="bullet">
+            <item>Synchronous.  Calls are made to the blocking functions <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> and <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/>.  
+            These function will block until they are completed or the programmable timeout period is exceeded.</item>
+            <item>Asynchronous.  Call are made to the non-blocking functions <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> and 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>
+            methods.  These functions will return immediately.  The application can then wait for completion using a <see cref="T:System.AsyncCallback"/>
+            function passed to the BeginXxxx function or by polling the <see cref="P:System.IAsyncResult.IsCompleted"/> property.  The <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/>
+            or <see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> function must be called at completion.</item>
+            <item>Event Driven.  The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class will provide an event for every received characters, on the transmit buffer going
+            empty, a line error or a modem status change.</item>
+            </list>
+            </para>
+            
+            <para>If you perform multiple asynchronous operations on a <see cref="T:AndyB.Comms.Serial.SerialPort"/>, they do not 
+            necessarily complete in the order in which they are started.</para>
+            </remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.SerialPort.InfiniteTimeout">
+            <summary>
+            Indicates that no time-out should occur.
+            </summary>
+            <remarks>This value is used with the <see cref="P:AndyB.Comms.Serial.SerialPort.RxTimeout"/> and <see cref="P:AndyB.Comms.Serial.SerialPort.TxTimeout"/> properties.</remarks>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialPort.AsyncMethod">
+            <summary>
+            The <see cref="T:AndyB.Comms.Serial.SerialPort.AsyncMethod"/> <c>delegate</c> is used to get the framework
+            to automagically generate asynchronous methods for the read and write
+            functions.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that is the storage location for the 
+            received or transmitted data. </param>
+            <param name="offset">The zero-based position in the buffer parameter at which to store/fetch the 
+            data.</param>
+            <param name="size">The number of bytes to transmit/receive.</param>
+            <returns>The number of bytes transmitted/received.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the com port to use for subsequent
+            operations.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+            <param name="baudRate">The baudrate of the line.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,AndyB.Comms.Serial.DataBits)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the com port to use for subsequent
+            operations.</param>
+            <param name="baudRate">The baudrate of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,AndyB.Comms.Serial.DataBits,AndyB.Comms.Serial.Parity)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the com port to use for subsequent
+            operations.</param>
+            <param name="baudRate">The baudrate of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+            <param name="parity">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> enumeration values representing the
+            type of parity present.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,AndyB.Comms.Serial.DataBits,AndyB.Comms.Serial.Parity,AndyB.Comms.Serial.StopBits)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the com port to use for subsequent
+            operations.</param>
+            <param name="baudRate">The baudrate of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+            <param name="parity">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> enumeration values representing the
+            type of parity present.</param>
+            <param name="stopBits">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> enumeration values representing the
+            number of stop bits.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.SetUart(System.Int32,AndyB.Comms.Serial.DataBits,AndyB.Comms.Serial.Parity,AndyB.Comms.Serial.StopBits)">
+            <summary>
+            Sets baud rates, parity, data bits and stop bits in
+            the UART
+            </summary>
+            <param name="baudRate">The baudrate of the line.</param>
+            <param name="dataBits">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Databits"/> enumeration values representing the number of
+            data bits.</param>
+            <param name="parity">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> enumeration values representing the
+            type of parity present.</param>
+            <param name="stopBits">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> enumeration values representing the
+            number of stop bits.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.BaudRate">
+            <summary>
+            Gets/Sets the baud rate
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Databits">
+            <summary>
+            Gets/Sets the word length of the UART
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Databits"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Parity">
+            <summary>
+            Gets/Sets the parity
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.StopBits">
+            <summary>
+            Gets/Sets the number of of stop bits
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Settings">
+            <summary>
+            Gets the current port settings as a reference to a <see cref="T:AndyB.Comms.Serial.SerialSettings"/> object.
+            </summary>
+            <value>The current serial port setting as a <see cref="T:AndyB.Comms.Serial.SerialSettings"/>.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.CtsState">
+            <summary>
+            Returns the status of the CTS pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.DsrState">
+            <summary>
+            Returns the status of the DSR pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RlsdState">
+            <summary>
+            Returns the status of the RLSD pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RingState">
+            <summary>
+            Returns the status of the ring indicator pin
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.ResetCounters">
+            <summary>
+            Resets the error counters.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.BreakCount">
+            <summary>
+            Gets the number of breaks that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of received breaks.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.FramingErrorCount">
+            <summary>
+            Gets the number of framing errors that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of framing errors.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.OverrunErrorCount">
+            <summary>
+            Gets the number of overruns that have occurred.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of received breaks.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.ParityErrorCount">
+            <summary>
+            Gets the number of parity errors that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of parity errors.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RingCount">
+            <summary>
+            Gets the number of rings that has been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of rings.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.PortName">
+            <summary>
+            Gets or sets the name of the com port, including but not limited to all available COM ports.
+            </summary>
+            <exception cref="T:System.ArgumentException"><para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a value with a length of zero.</para>
+            <para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a value that starts with "\\".</para>
+            <para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> was not not valid.</para></exception>
+            <exception cref="T:System.ArgumentNullException">The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a null reference.</exception>
+            <exception cref="T:System.InvalidOperationException">The port is already open.</exception>
+            <remarks>The list of valid port names can be obtained using the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Connect">
+            <summary>
+            Establishes a serial port connection.
+            </summary>
+            <returns><c>true if the port was opened; otherwise <c>false</c></c></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Disconnect">
+            <summary>
+            Closes the <see cref="T:AndyB.Comms.Serial.SerialPort"/> connection and releases all associated resources. 
+            </summary>
+            <remarks>The <see cref="M:AndyB.Comms.Serial.SerialPort.Disconnect"/> method closes the connection and releases all managed and 
+            unmanaged resources associated with the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. Upon closing, the 
+            <see cref="P:AndyB.Comms.Serial.SerialPort.IsConnected"/> property is set to <c>false</c>.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.IsConnected">
+            <summary>
+            Gets a value that indicates whether a <see cref="T:AndyB.Comms.Serial.SerialPort"/> is connected.
+            </summary>
+            <value><c>true</c> if the <see cref="T:AndyB.Comms.Serial.SerialPort"/> is connected; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Receives data from a <see cref="T:AndyB.Comms.Serial.SerialPort"/> into a receive buffer.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that is the storage location 
+            for the received data. </param>
+            <param name="offset">The offset in the buffer array to begin reading.</param>
+            <param name="size">The number of bytes to read.</param>
+            <returns>The number of bytes received.</returns>
+            <remarks><para>The <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method reads data into the <paramref name="buffer"/>
+            parameter and returns the number of bytes successfully read. </para>
+            <para>This overload only requires you to provide a receive buffer. The buffer offset defaults to 0, and
+            the size defaults to the length of the buffer parameter.</para>
+            <para>You must either call <see cref="M:AndyB.Comms.Serial.SerialPort.Connect"/> to establish a connection prior to calling 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/>. </para>
+            <para>If no data is available for reading, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will block until 
+            data is available, unless a time-out value was set by using <see cref="P:AndyB.Comms.Serial.SerialPort.RxTimeout"/>. 
+            If the time-out value was exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> call will throw a 
+            <see cref="T:AndyB.Comms.CommsException"/>. If you are in non-blocking mode, and there is no data 
+            available in the in the buffer, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will complete immediately 
+            and throw a <see cref="T:AndyB.Comms.CommsException"/>.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Begins to asynchronously receive data from a connected <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that is the storage location for the 
+            received data. </param>
+            <param name="offset">The zero-based position in the buffer parameter at which to store the 
+            received data.</param>
+            <param name="size">The number of bytes to receive.</param>
+            <param name="callback">An <see cref="T:System.AsyncCallback"/> delegate that references the method to invoke 
+            when the operation is complete. </param>
+            <param name="state">A user-defined object that contains information about the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/>
+            operation. This object is passed to the <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> delegate when the operation is 
+            complete.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> that references the asynchronous read.</returns>
+            <remarks><para>The asynchronous <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> 
+            operation must be completed by calling the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> method. Typically, the method is invoked by the callback delegate.</para>
+            <para>This method does not block until the operation is complete. To block until the operation is 
+            complete, use one of the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method overloads.</para>
+            <para>To cancel a pending <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>, 
+            call the <see cref="M:AndyB.Comms.Serial.SerialPort.Disconnect"/> method.</para>
+            <para>For detailed information about using the asynchronous programming model, see Calling 
+            Synchronous Methods Asynchronously.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)">
+            <summary>
+            Ends a pending asynchronous read.
+            </summary>
+            <param name="asyncResult">An <see cref="T:System.IAsyncResult"/> that stores state information and any 
+            user defined data for this asynchronous operation.</param>
+            <returns>The number of bytes received.</returns>
+            <remarks><para>The <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> method completes the asynchronous read operation started 
+            in the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method.</para>
+            <para>Before calling <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>, 
+            you need to create a callback method that 
+            implements the <see cref="T:System.AsyncCallback"/> delegate. This callback method executes in a separate 
+            thread and is called by the system after <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> returns. 
+            The callback method 
+            must accept the <see cref="T:System.IAsyncResult"/> returned by the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>
+            method as a parameter.</para>
+            <para>Within the callback method, call the <see cref="T:System.AsyncCallback"/> method of the 
+            <see cref="T:System.IAsyncResult"/> to obtain the state object passed to the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>
+            method. Extract the receiving <see cref="T:AndyB.Comms.Serial.SerialPort"/> from this state object. After obtaining the 
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/>, you can call the <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> method to successfully complete 
+            the read operation and return the number of bytes read.</para>
+            <para>The <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> method will block until data is available. 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.EndReceive(System.IAsyncResult)"/> will read as much data as is available up to the number of bytes you 
+            specified in the size parameter of the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method.</para>
+            <para>To obtain the received data, call the <see cref="T:System.AsyncCallback"/> method of the 
+            <see cref="T:System.IAsyncResult"/>, and extract the buffer contained in the resulting state object.</para>
+            <para>To cancel a pending <see cref="M:AndyB.Comms.Serial.SerialPort.BeginReceive(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>, 
+            call the <see cref="M:AndyB.Comms.Serial.SerialPort.Disconnect"/> method.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to a connected <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that contains the data to be sent. </param>
+            <param name="offset">The offset in the buffer array to begin writing.</param>
+            <param name="size">The number of bytes to write.</param>
+            <returns>The number of bytes sent to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. </returns>
+            <remarks><para>Send synchronously sends data to the port and returns the number of bytes successfully 
+            sent. </para>
+            <para>This overload requires a buffer that contains the data you want to send. The buffer offset defaults to 0, 
+            and the number of bytes to send defaults to the size of the buffer.</para>
+            <para>You must call <see cref="M:AndyB.Comms.Serial.SerialPort.Connect"/> before calling this method, or <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> will 
+            throw a <see cref="T:AndyB.Comms.CommsException"/>.</para>
+            <para><see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> will block until all of the bytes in the buffer are sent, unless a time-out 
+            was set by using <see cref="P:AndyB.Comms.Serial.SerialPort.TxTimeout"/>. If the time-out value was exceeded, the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/>. A successful completion of the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method means that the underlying system has 
+            had room to buffer your data for a send. </para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
+            <summary>
+            Sends data asynchronously to a connected <see cref="T:AndyB.Comms.Serial.SerialPort"/>
+            </summary>
+            <param name="buffer">An array of type Byte that contains the data to send.</param>
+            <param name="offset">The zero-based position in the buffer parameter at which to begin sending data.</param>
+            <param name="size">The number of bytes to send.</param>
+            <param name="callback">The AsyncCallback delegate.</param>
+            <param name="state">An object that contains state information for this request.</param>
+            <returns>An <see cref="T:System.IAsyncResult"/> that references the asynchronous send.</returns>
+            <remarks><para>The <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method starts an asynchronous send 
+            operation to the serial port. Calling the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method gives 
+            you the ability to send data within a separate execution thread.</para>
+            <para>You can create a callback method that implements the <see cref="T:System.AsyncCallback"/> delegate and 
+            pass its name to the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method. To do this, 
+            at the very minimum, your state 
+            parameter must contain the <see cref="T:AndyB.Comms.Serial.SerialPort"/> being used for communication. If your callback 
+            needs more information, you can create a small class or structure to hold the <see cref="T:AndyB.Comms.Serial.SerialPort"/>
+            and the other required information. Pass an instance of this class to the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>
+            method through the state parameter.</para>
+            <para>Your callback method should invoke the <see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> method. When your application 
+            calls <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>, the system will use a separate thread 
+            to execute the specified callback method, and will block on <see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> until the <see cref="T:AndyB.Comms.Serial.SerialPort"/>
+            sends the number of bytes requested or throws an exception. If you want the original thread to 
+            block after you call the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method, use the 
+            <see cref="M:System.Threading.WaitHandle.WaitOne"/>
+            method. Call the <see cref="M:System.Threading.EventWaitHandle.Set"/> method on a 
+            <see cref="T:System.Threading.ManualResetEvent"/> in the callback method when you want the original 
+            thread to continue executing. For additional information on writing callback methods see 
+            Callback Sample.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)">
+            <summary>
+            Ends a pending asynchronous send.
+            </summary>
+            <param name="asyncResult">An <see cref="T:System.IAsyncResult"/> that stores state information for this 
+            asynchronous operation.</param>
+            <returns>If successful, the number of bytes sent to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>; 
+            otherwise, an invalid <see cref="T:AndyB.Comms.Serial.SerialPort"/> error. </returns>
+            <remarks><para><see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> completes the asynchronous send operation started in 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>.</para>
+            <para>Before calling <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>, you need to create a callback method that implements 
+            the <see cref="T:System.AsyncCallback"/> delegate. This callback method executes in a separate thread and 
+            is called by the system after <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> returns. The callback method must accept 
+            the <see cref="T:System.IAsyncResult"/> returned by the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method as a parameter.</para>
+            <para>Within the callback method, call the <see cref="T:System.AsyncCallback"/> method of the 
+            <see cref="T:System.IAsyncResult"/> parameter to obtain the sending <see cref="T:AndyB.Comms.Serial.SerialPort"/>. After obtaining 
+            the <see cref="T:AndyB.Comms.Serial.SerialPort"/>, you can call the <see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> method to successfully complete 
+            the send operation and return the number of bytes sent.</para>
+            <para><see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> will block until some of the buffer was sent. If the return value from 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.EndSend(System.IAsyncResult)"/> indicates that the buffer was not completely sent, call the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/>
+            method again, modifying the buffer to hold the unsent data.</para>
+            <para>There is no guarantee that the data you send will appear on the serial port immediately. 
+            A successful completion of the <see cref="M:AndyB.Comms.Serial.SerialPort.BeginSend(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> method means that the underlying system has had 
+            room to buffer your data for a network send. </para>
+            <note>All I/O initiated by a given thread is cancelled when that thread exits. A pending asynchronous 
+            operation can fail if the thread exits before the operation completes.</note>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.SendExt(AndyB.Comms.Serial.ExtCodes)">
+            <summary>
+            Sends an extended function to the serial port.
+            </summary>
+            <param name="code">Extended function code.</param>
+            <returns><c>true</c> if function executed successfully.</returns>
+            <remarks>Sends one of the set/reset commands to the underlying UART of the
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.  Use one of the <see cref="T:AndyB.Comms.Serial.ExtCodes"/> enumeration
+            values for the required function.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.SetDtr(System.Boolean)">
+            <summary>
+            Sets the state of the DTR pin.
+            </summary>
+            <param name="state">The state to set</param>
+            <returns><c>true</c> if successful; otherwise <c>false</c>.</returns>
+            <remarks>If the handshaking mode is set to DTR_CONTROL_HANDSHAKE, then it is
+            an error to use this method.
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.SetRts(System.Boolean)">
+            <summary>
+            Sets the state of the RTS pin.
+            </summary>
+            <param name="state">The state to set</param>
+            <returns><c>true</c> if successful; otherwise <c>false</c>.</returns>
+            <remarks>If the handshaking mode is set to RTS_CONTROL_HANDSHAKE, the it is 
+            an error to use this method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RxTimeout">
+            <summary>
+            Gets or sets a value that specifies the amount of time after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/>
+            call will time out. 
+            </summary>
+            <value>The time-out value, in milliseconds. The default value is 0, which indicates an infinite 
+            time-out period.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.TxTimeout">
+            <summary>
+            Gets or sets a value that specifies the amount of time after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/>
+            call will time out. 
+            </summary>
+            <value>The time-out value, in milliseconds. If you set the property with a value between 1 and 499,
+            the value will be changed to 100.  The default value is 0, which indicates an infinite 
+            time-out period.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RxIntervalTimout">
+            <summary>
+            Gets or sets a value that specifies the amount of time between second and
+            subsequent characters after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> call will time out.
+            </summary>
+            <value>The time-out value, in milliseconds. The default value is 0, which indicates the property is
+            not used.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.DsrFlowControl">
+            <summary>
+            Enables or disables DTR/DSR flow control.
+            </summary>
+            <remarks>When <c>true</c> sending disabled unless DSR
+            asserted.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.CtsFlowControl">
+            <summary>
+            Enables or disables RTS/CTS flow control.
+            </summary>
+            <remarks>When <c>true</c> sending disabled unless CTS
+            asserted.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.DtrControl">
+            <summary>
+            Gets/sets the DTR flow control.
+            </summary>
+            <value><para>One of the <see cref="T:AndyB.Comms.Serial.PinStates"/> enumeration:
+            <list type="bullet">
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Disable"/>: disables the line when the device
+            is opened and leaves it disabled.</item>
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Enable"/>: enables the line when the device is
+            opened and leaves it on.</item>
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Handshake"/>: enables handshaking. In this mode, the line
+            cannot be changed using <see cref="M:AndyB.Comms.Serial.SerialPort.SetDtr(System.Boolean)"/>.</item>
+            </list>
+            </para></value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RtsControl">
+            <summary>
+            Gets/sets the RTS flow control.
+            </summary>
+            <value><para>One of the <see cref="T:AndyB.Comms.Serial.PinStates"/> enumeration:
+            <list type="bullet">
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Disable"/>: disables the line when the device
+            is opened and leaves it disabled.</item>
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Enable"/>: enables the line when the device is
+            opened and leaves it on.</item>
+            <item><see cref="F:AndyB.Comms.Serial.PinStates.Handshake"/>: enables handshaking. In this mode, the line
+            cannot be changed using <see cref="M:AndyB.Comms.Serial.SerialPort.SetDtr(System.Boolean)"/>.</item>
+            </list>
+            </para></value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XoffCharacter">
+            <summary>
+            Gets/Sets the XOFF character
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XonCharacter">
+            <summary>
+            Gets/Sets the XON character
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XonXoffFlowControl">
+            <summary>
+            Enables or disables xon/xoff flow control
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.RxFlush">
+            <summary>
+            Empties the receive queue
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.TxFlush">
+            <summary>
+            Empties the transmit queue
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Status">
+            <summary>
+            Gets the status of this <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.UpdateDCB">
+            <summary>
+            Updates the device control block, but only if connected. If not
+            connected we can wait until open is called
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Dispose">
+            <summary>
+            Releases the managed resources used by the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+            <remarks><para>Call <see cref="M:System.IDisposable.Dispose"/> when you are finished using the 
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/>. The <see cref="M:System.IDisposable.Dispose"/> method leaves the 
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/> in an unusable state. After calling <see cref="M:System.IDisposable.Dispose"/>, 
+            you must release all references to the <see cref="T:AndyB.Comms.Serial.SerialPort"/> so the garbage collector can 
+            reclaim the memory that the <see cref="T:AndyB.Comms.Serial.SerialPort"/> was occupying. For more information, see 
+            Cleaning Up Unmanaged Resources and Implementing a Dispose Method.</para>
+            <para>Note: Always call <see cref="M:System.IDisposable.Dispose"/> before you release your last 
+            reference to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. Otherwise, the resources it is using will not be freed 
+            until the garbage collector calls the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object's <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> method.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)">
+            <summary>
+            Releases the managed resources used by the <see cref="T:AndyB.Comms.Serial.SerialPort"/>, and optionally disposes of the
+            managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; 
+            <c>false</c> to releases only unmanaged resources.</param>
+            <remarks><para>This method is called by the public <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> method and the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> method. <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> invokes the protected 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)"/> method with the disposing parameter set to <c>true</c>.
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> invokes <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)"/> with disposing set to <c>false</c>.</para>
+            <para>When the disposing parameter is <c>true</c>, this method releases all resources held by any 
+            managed objects that this <see cref="T:AndyB.Comms.Serial.SerialPort"/> references. This method invokes the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> method of each referenced object.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Finalize">
+            <summary>
+            Use C# destructor syntax for finalization code.
+            This destructor will run only if the Dispose method 
+            does not get called.
+            It gives your base class the opportunity to finalize.
+            Do not provide destructors in types derived from this class.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.BackgroundThread(System.Threading.CancellationToken)">
+            <summary>
+            Background thread procedure.
+            </summary>
+        </member>
+        <member name="E:AndyB.Comms.Serial.SerialPort.Connected">
+            <summary>
+            Represents the method that will handle the <see cref="E:AndyB.Comms.Serial.SerialPort.Connected"/> event
+            of a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>
+            When you create a <see cref="E:AndyB.Comms.Serial.SerialPort.Connected"/> delegate, you identify the method 
+            that will handle the event. To associate the event with your event handler, add an 
+            instance of the delegate to the event. The event handler is called whenever the event 
+            occurs, unless you remove the delegate. For more information about event-handler 
+            delegates, see Events and Delegates.
+            </remarks>
+        </member>
+        <member name="E:AndyB.Comms.Serial.SerialPort.TransmitComplete">
+            <summary>
+            Represents the method that will handle the <see cref="E:AndyB.Comms.Serial.SerialPort.TransmitComplete"/> event
+            of a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>
+            When you create a <see cref="E:AndyB.Comms.Serial.SerialPort.TransmitComplete"/> delegate, you identify the method 
+            that will handle the event. To associate the event with your event handler, add an 
+            instance of the delegate to the event. The event handler is called whenever the event 
+            occurs, unless you remove the delegate. For more information about event-handler 
+            delegates, see Events and Delegates.
+            </remarks>
+        </member>
+        <member name="E:AndyB.Comms.Serial.SerialPort.PinChanged">
+            <summary>
+            Represents the method that will handle the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event
+            of a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>
+            When you create a <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> delegate, you identify the method 
+            that will handle the event. To associate the event with your event handler, add an 
+            instance of the delegate to the event. The event handler is called whenever the event 
+            occurs, unless you remove the delegate. For more information about event-handler 
+            delegates, see Events and Delegates.
+            </remarks>
+        </member>
+        <member name="E:AndyB.Comms.Serial.SerialPort.DataReceived">
+            <summary>
+            Represents the method that will handle the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event
+            of a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>
+            When you create a <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> delegate, you identify the method 
+            that will handle the event. To associate the event with your event handler, add an 
+            instance of the delegate to the event. The event handler is called whenever the event 
+            occurs, unless you remove the delegate. For more information about event-handler 
+            delegates, see Events and Delegates.
+            </remarks>
+        </member>
+        <member name="E:AndyB.Comms.Serial.SerialPort.ErrorReceived">
+            <summary>
+            Represents the method that will handle the <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event
+            of a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks>
+            When you create a <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> delegate, you identify the method 
+            that will handle the event. To associate the event with your event handler, add an 
+            instance of the delegate to the event. The event handler is called whenever the event 
+            occurs, unless you remove the delegate. For more information about event-handler 
+            delegates, see Events and Delegates.
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.OnConnect(System.Boolean)">
+            <summary>
+            Method that is called when the device is connected or disconnected.
+            </summary>
+            <param name="state"><c>true</c> if connected; <c>false</c> if disconnected.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.OnPinChanged(AndyB.Comms.Serial.ModemPinEvent)">
+            <summary>
+            Method that is called when a modem pin changes state
+            </summary>
+            <param name="pinState">The model event.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.OnReceiveData(System.Byte[])">
+            <summary>
+            Method called when data is received by the port.
+            </summary>
+            <param name="data">The data received.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.OnTransmitComplete">
+            <summary>
+            The method called when data transmission is completed.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.GetPortNames">
+            <summary>
+            Gets an array of serial port names for the current computer.
+            </summary>
+            <returns>An array of serial port names for the current computer.</returns>
+            <remarks><para>The order of port names returned from <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> is not specified.</para>
+            <para>Use the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method to query the current computer for a list of 
+            valid serial port names. For example, you can use this method to determine whether COM1 and COM2 
+            are valid serial ports for the current computer.</para>
+            <para>In Windows 98 environments, the port names are obtained from the system registry 
+            (HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\SERIALCOMM). If the registry contains stale or otherwise 
+            incorrect data then the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method will return incorrect data.</para>
+            </remarks>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialSettings">
+            <summary>
+            A class of settings used with the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.Baudrate">
+            <summary>
+            Gets/Sets the baudrate of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.DataBits">
+            <summary>
+            Gets/Sets the number of databits of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.Parity">
+            <summary>
+            Gets/Sets the parity setting of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.StopBits">
+            <summary>
+            Gets/Sets the stopbits of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowCts">
+            <summary>
+            Get/Set CTS(in)/RTS(out) hardware flow control. If true, transmission 
+            is halted unless CTS is asserted by the remote station (default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowDsr">
+            <summary>
+            Get/Set DSR(in)/DTR(out) hardware flow control. If true, transmission 
+            is halted unless DSR is asserted by the remote station (default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.DtrControl">
+            <summary>
+            Get/Set the DTR flow control mode (default: Disable)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.RtsControl">
+            <summary>
+            Get/Set the RTS flow control mode (default: Disable)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.RxDsrSense">
+            <summary>
+            Get/Set the DSR sensitivity flag. If true, received characters are ignored 
+            unless DSR is asserted by the remote station (default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxContinue">
+            <summary>
+            Get/Set the TX continue flag. If false, transmission is suspended when this 
+            station has sent Xoff to the remote station. If false, the remote station
+            treats any character as an Xon.(default: true)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowXoff">
+            <summary>
+            Get/Set the transmitter software flow control flag.(default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.RxFlowXoff">
+            <summary>
+            Gets/Set the received software flow control flag (default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.XonChar">
+            <summary>
+            Get/Set the XON flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.XoffChar">
+            <summary>
+            Get/Set the XOFF flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.ErrorChar">
+            <summary>
+            Get/Set the error character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.EofChar">
+            <summary>
+            Get/Set the end-of-file character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.EventChar">
+            <summary>
+            Get/Set the event signalling character.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialStatus">
+            <summary>
+            Class to represent the serial port state.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.OverflowError">
+            <summary>
+            Gets/sets the overflow error status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.ParityError">
+            <summary>
+            Gets/sets the parity error status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.OverrunError">
+            <summary>
+            Gets/sets the overrun error status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.FramingError">
+            <summary>
+            Gets/sets the framing error status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.BreakCondition">
+            <summary>
+            Gets/sets the break condition status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.TxBufFullError">
+            <summary>
+            Gets/sets the TX Buffer full error.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.DeviceIOError">
+            <summary>
+            Gets/sets a device IO error.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.CtsHold">
+            <summary>
+            Gets/sets the CTS hold status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.DsrHold">
+            <summary>
+            Gets/sets the DSR hold status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.RlsdHold">
+            <summary>
+            Gets/sets the RLSD hold status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.XoffHold">
+            <summary>
+            Gets/sets the XOFF hold status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.XoffSent">
+            <summary>
+            Gets/sets the XOFF send status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.Eof">
+            <summary>
+            Gets/sets the EOF status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.Trim">
+            <summary>
+            Gets/sets the trim status.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.RxQueue">
+            <summary>
+            Gets/sets the number of chars in the RX queue.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialStatus.TxQueue">
+            <summary>
+            Gets/sets the number of chars in the TX queue.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.StopBits">
+            <summary>
+            Enumeration of the available stop bits
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.StopBits.One">
+            <summary>
+            Line is asserted for 1 bit duration at end of each character
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.StopBits.OnePointFive">
+            <summary>
+            Line is asserted for 1.5 bit duration at end of each character
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.StopBits.Two">
+            <summary>
+            Line is asserted for 2 bit duration at end of each character
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Comm">
+            <summary>
+            Base com port class. Contains methods for the most basic
+            operations - i.e. opening, closing, reading, writing
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Comm.PURGE_TXABORT">
+            <summary>
+            Terminates all outstanding overlapped write operations and returns 
+            immediately, even if the write operations have not been completed.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Comm.PURGE_RXABORT">
+            <summary>
+            Terminates all outstanding overlapped read operations and returns 
+            immediately, even if the read operations have not been completed.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Comm.PURGE_TXCLEAR">
+            <summary>
+            Clears the output buffer (if the device driver has one).
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Comm.PURGE_RXCLEAR">
+            <summary>
+            Clears the input buffer (if the device driver has one).
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)">
+            <summary>
+            The CreateFile function creates or opens any of the following 
+            objects and returns a handle that can be used to access the object: 
+            Consoles, Communications resources, Directories (open only), 
+            Disk devices, Files, Mailslots, Pipes 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.CloseHandle(System.IntPtr)">
+            <summary>
+            The CloseHandle function closes an open object handle.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)">
+            <summary>
+            The ReadFile function reads data from a file, starting at the 
+            position indicated by the file pointer. After the read operation 
+            has been completed, the file pointer is adjusted by the number 
+            of bytes actually read, unless the file handle is created with the 
+            overlapped attribute. If the file handle is created for overlapped 
+            input and output (I/O), the application must adjust the position of 
+            the file pointer after the read operation. 
+            This function is designed for both synchronous and asynchronous 
+            operation. The ReadFileEx function is designed solely for asynchronous 
+            operation. It lets an application perform other processing during a 
+            file read operation.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.WriteFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)">
+            <summary>
+            The WriteFile function writes data to a file and is designed for both 
+            synchronous and asynchronous operation. The function starts writing data 
+            to the file at the position indicated by the file pointer. After the write 
+            operation has been completed, the file pointer is adjusted by the number of 
+            bytes actually written, except when the file is opened with FILE_FLAG_OVERLAPPED. 
+            If the file handle was created for overlapped input and output (I/O), the 
+            application must adjust the position of the file pointer after the write 
+            operation is finished. 
+            This function is designed for both synchronous and asynchronous operation. 
+            The WriteFileEx function is designed solely for asynchronous operation. 
+            It lets an application perform other processing during a file write operation.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.CancelIo(System.IntPtr)">
+            <summary>
+            The CancelIo function cancels all pending input and output 
+            (I/O) operations that were issued by the calling thread for 
+            the specified file handle. The function does not cancel I/O 
+            operations issued for the file handle by other threads. 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.PurgeComm(System.IntPtr,System.UInt32)">
+            <summary>
+            The PurgeComm function discards all characters from the output or input 
+            buffer of a specified communications resource. It can also terminate any 
+            pending read or write operations on the resource. 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.TransmitCommChar(System.IntPtr,System.Byte)">
+            <summary>
+            The TransmitCommChar function transmits a specified character ahead of 
+            any pending data in the output buffer of the specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.GetLastError">
+            <summary>
+            Gets the last error from 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Comm._handle">
+            <summary>
+            Com device handle.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Open(System.String)">
+            <summary>
+            Create and open a comm file object.
+            </summary>
+            <param name="portName">Device name - i.e. "COM1".</param>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Close">
+            <summary>
+            Closes an open object handle.
+            </summary>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Read data from a comm object. 
+            </summary>
+            <param name="buf">Buffer into which data is read.</param>
+            <param name="nToRead">Number of bytes to read.</param>
+            <param name="nRead">Number of byutes actually read.</param>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)">
+            <overloads>
+            <summary>
+            Write data to a comm object.
+            </summary>
+            <returns>True if executed successfully.</returns>
+            </overloads>
+            <param name="buf">Buffer to write from</param>
+            <param name="nToSend">Number to buyes to send.</param>
+            <param name="nSent">Number of actually bytes sent.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Write(System.String,System.UInt32@)">
+            <inheritdoc/>
+            <param name="buf">Buffer to write from</param>
+            <param name="nSent">Number of actually bytes sent.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Flush">
+            <summary>
+            Discards all characters from the comm objects I/O buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.FlushRx">
+            <summary>
+            Discards all characters from the comm objects receive buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.FlushTx">
+            <summary>
+            Discards all characters from the comm objects transmit buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Comm.Cancel">
+            <summary>
+            Cancel all pending I/O operations issued for the comm object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Comm.Handle">
+            <summary>
+            Get the com port file handle.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Dcb">
+            <summary>
+            Wrapper class controlling access to the DCB structure and
+            kernel32.dll functions: GetCommState(), SetCommState().
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DTR_CONTROL_DISABLE">
+            <summary>
+            Disables the DTR line when the device is opened and leaves it disabled.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DTR_CONTROL_ENABLE">
+            <summary>
+            Enables the DTR line when the device is opened and leaves it on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DTR_CONTROL_HANDSHAKE">
+            <summary>
+            Enables DTR handshaking. If handshaking is enabled, it is an error for the 
+            application to adjust the line by using the EscapeCommFunction function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.RTS_CONTROL_DISABLE">
+            <summary>
+            Disables the RTS line when the device is opened and leaves it disabled.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.RTS_CONTROL_ENABLE">
+            <summary>
+            Enables the RTS line when the device is opened and leaves it on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.RTS_CONTROL_HANDSHAKE">
+            <summary>
+            Enables RTS handshaking. The driver raises the RTS line when the 
+            "type-ahead" (input) buffer is less than one-half full and lowers the 
+            RTS line when the buffer is more than three-quarters full. If handshaking 
+            is enabled, it is an error for the application to adjust the line by using 
+            the EscapeCommFunction function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.RTS_CONTROL_TOGGLE">
+            <summary>
+            Windows NT/2000/XP: Specifies that the RTS line will be high if bytes are 
+            available for transmission. After all buffered bytes have been sent, the 
+            RTS line will be low.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Dcb.DCB">
+            <summary>
+            The DCB structure defines the control setting for a serial communications device. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.dcbLength">
+            <summary>
+            Length, in bytes, of the DCB structure
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.baudRate">
+            <summary>
+            Baud rate at which the communications device operates.
+            Supported Rates: 110, 300, 600, 1200, 2400, 4800, 9600
+            14400, 19200, 38400, 56000, 57600, 115200, 128000, 256000
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.bitfield">
+            <summary>
+            Packed bitfield from win32 struct. 
+            </summary>
+            fBinary:1 - Indicates whether binary mode is enabled. 
+            Windows does not support nonbinary mode transfers, so this member must be TRUE.
+              
+            fParity:1 - Indicates whether parity checking is enabled. 
+            If this member is TRUE, parity checking is performed and errors are reported. 
+            
+            fOutxCtsFlow:1 - Indicates whether the CTS (clear-to-send) signal is monitored 
+            for output flow control. If this member is TRUE and CTS is turned off, output 
+            is suspended until CTS is sent again. 
+            
+            fOutxDsrFlow:1 - Indicates whether the DSR (data-set-ready) signal is monitored 
+            for output flow control. If this member is TRUE and DSR is turned off, output is 
+            suspended until DSR is sent again. 
+            
+            fDtrControl:2 - DTR (data-terminal-ready) flow control. This member can be one 
+            of the following values. 
+            	DTR_CONTROL_DISABLE		Disables the DTR line when the device is opened and
+            							leaves it disabled. 
+            	DTR_CONTROL_ENABLE		Enables the DTR line when the device is opened and
+            							leaves it on. 
+            	DTR_CONTROL_HANDSHAKE	Enables DTR handshaking. If handshaking is enabled,
+            							it is an error for the application to adjust the line
+            							by using the EscapeCommFunction function. 
+            
+            fDsrSensitivity:1 - Indicates whether the communications driver is sensitive to 
+            the state of the DSR signal. If this member is TRUE, the driver ignores any bytes 
+            received, unless the DSR modem input line is high. 
+            
+            fTXContinueOnXoff:1 - Indicates whether transmission stops when the input buffer 
+            is full and the driver has transmitted the XoffChar character. If this member is 
+            TRUE, transmission continues after the input buffer has come within XoffLim bytes 
+            of being full and the driver has transmitted the XoffChar character to stop 
+            receiving bytes. If this member is FALSE, transmission does not continue until 
+            the input buffer is within XonLim bytes of being empty and the driver has 
+            transmitted the XonChar character to resume reception. 
+            
+            fOutX:1 - Indicates whether XON/XOFF flow control is used during transmission. 
+            If this member is TRUE, transmission stops when the XoffChar character is received 
+            and starts again when the XonChar character is received.
+            
+            fInX:1 -  Indicates whether XON/XOFF flow control is used during reception. 
+            If this member is TRUE, the XoffChar character is sent when the input buffer 
+            comes within XoffLim bytes of being full, and the XonChar character is sent 
+            when the input buffer comes within XonLim bytes of being empty. 
+            
+            fErrorChar: 1 -  Indicates whether bytes received with parity errors are replaced 
+            with the character specified by the ErrorChar member. If this member is TRUE and 
+            the fParity member is TRUE, replacement occurs.
+            
+            fNull:1 - Indicates whether null bytes are discarded. If this member is TRUE, 
+            null bytes are discarded when received.
+            
+            fRtsControl:2 - RTS (request-to-send) flow control. This member can be one of the 
+            following values.
+            	RTS_CONTROL_DISABLE		Disables the RTS line when the device is opened and 
+            							leaves it disabled. 
+            	RTS_CONTROL_ENABLE		Enables the RTS line when the device is opened and 
+            							leaves it on. 
+            	RTS_CONTROL_HANDSHAKE	Enables RTS handshaking. The driver raises the RTS line
+            							when the "type-ahead" (input) buffer is less than 1/2 
+            							full and lowers the RTS line when the buffer is more than
+            							three-quarters full. If handshaking is enabled, it is 
+            							an error for the application to adjust the line by using
+            							the EscapeCommFunction function.
+            	RTS_CONTROL_TOGGLE		Windows NT/2000/XP: Specifies that the RTS line will be
+            							high if bytes are available for transmission. After all
+            							buffered bytes have been sent, the RTS line will be low. 
+            
+            fAbortOnError:1 - Indicates whether read and write operations are terminated if an 
+            error occurs. If this member is TRUE, the driver terminates all read and write 
+            operations with an error status if an error occurs. The driver will not accept 
+            any further communications operations until the application has acknowledged the 
+            error by calling the ClearCommError function.
+            
+            fDummy2:17 - Reserved; do not use. 
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.wReserved">
+            <summary>
+            Reserved; must be zero.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.xonLim">
+            <summary>
+            Minimum number of bytes allowed in the input buffer before flow control 
+            is activated to inhibit the sender. Note that the sender may transmit 
+            characters after the flow control signal has been activated, so this value 
+            should never be zero. This assumes that either XON/XOFF, RTS, or DTR input 
+            flow control is specified in fInX, fRtsControl, or fDtrControl.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.xoffLim">
+            <summary>
+            Maximum number of bytes allowed in the input buffer before flow control 
+            is activated to allow transmission by the sender. This assumes that either 
+            XON/XOFF, RTS, or DTR input flow control is specified in fInX, fRtsControl, 
+            or fDtrControl. The maximum number of bytes allowed is calculated by 
+            subtracting this value from the size, in bytes, of the input buffer.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.byteSize">
+            <summary>
+            Number of bits in the bytes transmitted and received. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.prtyByte">
+            <summary>
+            Parity scheme to be used. This member can be one of the following values.
+            Even, Mark, None, Odd, Space 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.stopBits">
+            <summary>
+            Number of stop bits to be used. This member can be 1, 1.5, or 2 stop bits.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.xonChar">
+            <summary>
+            Value of the XON character for both transmission and reception. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.xoffChar">
+            <summary>
+            Value of the XOFF character for both transmission and reception. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.errorChar">
+            <summary>
+            Value of the character used to replace bytes received with a parity error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.eofChar">
+            <summary>
+            Value of the character used to signal the end of data.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.evtChar">
+            <summary>
+            Value of the character used to signal an event.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Dcb.DCB.wReserved1">
+            <summary>
+            Reserved; do not use.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.GetCommState(System.IntPtr,AndyB.Comms.Serial.Win32Dcb.DCB@)">
+            <summary>
+            The GetCommState function retrieves the current control settings for 
+            a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.SetCommState(System.IntPtr,AndyB.Comms.Serial.Win32Dcb.DCB@)">
+            <summary>
+            The SetCommState function configures a communications device according to the 
+            specifications in a device control block (a DCB structure). The function 
+            reinitializes all hardware and control settings, but it does not empty output 
+            or input queues.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.#ctor(System.IntPtr)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Dcb"/> class
+            for the supplied file handle
+            </summary>
+            <param name="handle">The operating system handle for the port</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.Get">
+            <summary>
+            Read the device control settings to the class DCB structure.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.Set">
+            <summary>
+            Write the device control settings from the class DCB structure.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.BaudRate">
+            <summary>
+            Get/Set the line speed in bits/second.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.DataBits">
+            <summary>
+            Get/Set the data character size in bits.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.ParityBit">
+            <summary>
+            Get/Set the data character parity.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.StopBits">
+            <summary>
+            Get/Set the number of character stop bits.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.XonChar">
+            <summary>
+            Get/Set the XON flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.XoffChar">
+            <summary>
+            Get/Set the XOFF flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.ErrorChar">
+            <summary>
+            Get/Set the error character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.EofChar">
+            <summary>
+            Get/Set the end-of-file character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.EventChar">
+            <summary>
+            Get/Sets the event signalling character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.TxFlowCts">
+            <summary>
+            Gets/sets whether CTS flow control is enabled
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Dcb.SetBitField(System.Int32,System.Boolean)">
+            <summary>
+            Sets/Clears the specified bit of the bitfield
+            </summary>
+            <param name="bit">The bit number</param>
+            <param name="value">The value to set/clear</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.TxFlowDsr">
+            <summary>
+            Gets/sets whether DSR flow control is enabled
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.DtrControl">
+            <summary>
+            Gets/set DTRDSR flow control.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.RxDsrSense">
+            <summary>
+            Gets/Sets DSR sensitivity.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.TxContinue">
+            <summary>
+            Gets/sets if tx continues after a XOFF.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.TxFlowXoff">
+            <summary>
+            Gets/Sets if tx xon/xoff is enabled.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.RxFlowXoff">
+            <summary>
+            Gets/Sets if rx xon/xoff is enabled.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Dcb.RtsControl">
+            <summary>
+            Gets/Sets if RTSCTS flow control is enabled.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ExtCodes">
+            <summary>
+            Extended function codes.
+            </summary>
+            <remarks>Codes for use with the EscapeCommFunction.</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.SETXOFF">
+            <summary>
+            Causes transmission to act as if an XOFF character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.SETXON">
+            <summary>
+            Causes transmission to act as if an XON character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.SETRTS">
+            <summary>
+            Sends the RTS (request-to-send) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.CLRRTS">
+            <summary>
+            Clears the RTS (request-to-send) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.SETDTR">
+            <summary>
+            Sends the DTR (data-terminal-ready) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.CLRDTR">
+            <summary>
+            Clears the DTR (data-terminal-ready) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.RESETDEV">
+            <summary>
+            Reset device if possible.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.SETBREAK">
+            <summary>
+            Suspends character transmission and places the transmission 
+            line in a break state until the ClearCommBreak function is 
+            called (or EscapeCommFunction is called with the CLRBREAK 
+            extended function code). The SETBREAK extended function code 
+            is identical to the SetCommBreak function. Note that this 
+            extended function does not flush data that has not been 
+            transmitted.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ExtCodes.CLRBREAK">
+            <summary>
+            Restores character transmission and places the transmission 
+            line in a nonbreak state. The CLRBREAK extended function code 
+            is identical to the ClearCommBreak function. 
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Escape">
+            <summary>
+            Wrapper class controlling access to the 
+            kernel32.dll function: EscapeCommFunction().
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Escape.EscapeCommFunction(System.IntPtr,System.UInt32)">
+            <summary>
+            The EscapeCommFunction function directs a specified communications 
+            device to perform an extended function.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Escape.#ctor(System.IntPtr)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="handle">Com device handle.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Escape.ExtFunc(AndyB.Comms.Serial.ExtCodes)">
+            <summary>
+            Directs the comm object to perform an extended function.
+            </summary>
+            <param name="code">Escape function code.</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Events">
+            <summary>
+            Wrapper class controlling access to the kernel32.dll 
+            functions: SetCommMask(), WaitCommEvent().
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_RXCHAR">
+            <summary>
+            A character was received and placed in the input buffer.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_RXFLAG">
+            <summary>
+            The event character was received and placed in the input buffer. 
+            The event character is specified in the device's DCB structure, 
+            which is applied to a serial port by using the SetCommState function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_TXEMPTY">
+            <summary>
+            The last character in the output buffer was sent.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_CTS">
+            <summary>
+            The CTS (clear-to-send) signal changed state.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_DSR">
+            <summary>
+            The DSR (data-set-ready) signal changed state.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_RLSD">
+            <summary>
+            The RLSD (receive-line-signal-detect) signal changed state.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_BREAK">
+            <summary>
+            A break was detected on input.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_ERR">
+            <summary>
+            A line-status error occurred. Line-status errors are 
+            CE_FRAME, CE_OVERRUN, CE_IOE, CE_TXFULL, CE_RXOVER and CE_RXPARITY.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_RING">
+            <summary>
+            A ring indicator was detected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_DEFAULT">
+            <summary>
+            Default mask.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Events.EV_MODEM">
+            <summary>
+            Modem signal stat mask.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.GetCommMask(System.IntPtr,System.IntPtr@)">
+            <summary>
+            The GetCommMask function retrieves the value of the event mask 
+            for a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.SetCommMask(System.IntPtr,System.UInt32)">
+            <summary>
+            The SetCommMask function specifies a set of events to be monitored 
+            for a communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.WaitCommEvent(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>
+            The WaitCommEvent function waits for an event to occur 
+            for a specified communications device. The set of events 
+            that are monitored by this function is contained in the 
+            event mask associated with the device handle. 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.#ctor(System.IntPtr)">
+            <summary>
+            Default constructor. Initializes the class members.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.Finalize">
+            <summary>
+            Destructor. Free event pointer memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.Get(System.UInt32@)">
+            <summary>
+            Get the event mask.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.Set(System.UInt32)">
+            <summary>
+            Set the event mask.
+            </summary>
+            <param name="watchEvents">Watch event mask.</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Events.Wait(System.UInt32@)">
+            <summary>
+            Waits for an event to occur on the comm object.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Modem">
+            <summary>
+            Wrapper class controlling access to the modem structure and
+            kernel32.dll function: GetCommModemStatus
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Modem.MS_CTS_ON">
+            <summary>
+            The CTS (clear-to-send) signal is on
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Modem.MS_DSR_ON">
+            <summary>
+            The DSR (data-set-ready) signal is on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Modem.MS_RING_ON">
+            <summary>
+            The ring indicator signal is on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Modem.MS_RLSD_ON">
+            <summary>
+            The RLSD (receive-line-signal-detect) signal is on.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Modem.GetCommModemStatus(System.IntPtr,System.UInt32@)">
+            <summary>
+            Retrieves the modem control-register value.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Modem.#ctor(System.IntPtr)">
+            <summary>
+            Default modem status constructor.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Modem.UpdateStatus">
+            <summary>
+            Gets the modem control register value.
+            </summary>
+            <returns><c>true</c> if successful; otherwise <c>false</c> if any errors detected.</returns>
+            <remarks>The <see cref="M:AndyB.Comms.Serial.Win32Modem.UpdateStatus"/> method updates the status of the modem pins of
+            the UART (CTS, DSR, RLSD and RI).  The port must have been opened and a valid
+            handle supplied to the default constructor otherwise the function will fail. Applications can
+            get the status of the bits from the individual XxxState methods.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Modem.Status">
+            <summary>
+            Get the modem status register value.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Modem.CtsState">
+            <summary>
+            Get the Clear To Send signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Modem.DsrState">
+            <summary>
+            Get the Data Set Ready signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Modem.RlsdState">
+            <summary>
+            Get the Receive Line Status Detection signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Modem.RingState">
+            <summary>
+            Get the Ring Detection signal.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Overlap">
+            <summary>
+            Wrapper class controlling access to the OVERLAPPED structure and
+            kernel32.dll function: GetOverlappedResult()
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED">
+            <summary>
+            The OVERLAPPED structure contains information used in asynchronous I/O.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.internalLow">
+            <summary>
+            Reserved for operating system use. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.internalHigh">
+            <summary>
+            Reserved for operating system use.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.offset">
+            <summary>
+            Specifies a file position at which to start the transfer. 
+            The file position is a byte offset from the start of the file. 
+            The calling process sets this member before calling the ReadFile 
+            or WriteFile function. This member is ignored when reading from 
+            or writing to named pipes and communications devices and should be zero.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.offsetHigh">
+            <summary>
+            Specifies the high word of the byte offset at which to start the transfer. 
+            This member is ignored when reading from or writing to named pipes and 
+            communications devices and should be zero.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.hEvent">
+            <summary>
+            Handle to an event set to the signaled state when the operation has 
+            been completed. The calling process must set this member either to 
+            zero or a valid event handle before calling any overlapped functions. 
+            To create an event object, use the CreateEvent function. Functions 
+            such as WriteFile set the event to the nonsignaled state before they 
+            begin an I/O operation.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Overlap.GetOverlappedResult(System.IntPtr,System.IntPtr,System.UInt32@,System.Boolean)">
+            <summary>
+            The GetOverlappedResult function retrieves the results 
+            of an overlapped operation on the specified file, named 
+            pipe, or communications device.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.ol">
+            <summary>
+            Overlap structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Overlap.memPtr">
+            <summary>
+            Pointer to overlap struct in memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Overlap.Finalize">
+            <summary>
+            Destructor. Free overlap memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Overlap.Get(System.UInt32@,System.Boolean)">
+            <summary>
+            Updates the class overlap structure (in memory).
+            </summary>
+            <returns>True if read update successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Overlap.MemPtr">
+            <summary>
+            Get/Set the overlap structure memory pointer.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Overlap.Fault">
+            <summary>
+            Get the last class fault description string.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Status">
+            <summary>
+            Wrapper class controlling access to the COMMSTAT and flag structures and
+            kernel32.dll function: ClearCommError()
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_RXOVER">
+            <summary>
+            An input buffer overflow has occurred. 
+            There is either no room in the input buffer, 
+            or a character was received after the EOF character.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_OVERRUN">
+            <summary>
+            A character-buffer overrun has occurred. 
+            The next character is lost.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_RXPARITY">
+            <summary>
+            The hardware detected a parity error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_FRAME">
+            <summary>
+            The hardware detected a framing error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_BREAK">
+            <summary>
+            The hardware detected a break condition
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_TXFULL">
+            <summary>
+            The application tried to transmit a 
+            character, but the output buffer was full.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_PTO">
+            <summary>
+            Windows 95/98/Me: A time-out occurred on a parallel device.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_IOE">
+            <summary>
+            An I/O error occurred during communications with the device.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_DNS">
+            <summary>
+            Windows 95/98/Me: A parallel device is not selected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_OOP">
+            <summary>
+            Windows 95/98/Me: A parallel device signaled that it is out of paper.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CE_MODE">
+            <summary>
+            The requested mode is not supported, or the file handle 
+            parameter is invalid. If this value is specified, it is the only valid error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.CTS_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            for the CTS (clear-to-send) signal to be sent. 
+            If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.DSR_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            for the DSR (data-set-ready) signal to be sent. 
+            If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.RLSD_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting for 
+            the RLSD (receive-line-signal-detect) signal 
+            to be sent. If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.XOFF_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            because the XOFF character was received. 
+            If this member is TRUE, transmission is waiting. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.XOFF_SENT_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            because the XOFF character was transmitted. 
+            If this member is TRUE, transmission is waiting. 
+            Transmission halts when the XOFF character is 
+            transmitted to a system that takes the next 
+            character as XON, regardless of the actual character.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.EOF_BIT">
+            <summary>
+            Indicates whether the end-of-file (EOF) character 
+            has been received. If this member is TRUE, the 
+            EOF character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.TRIM_BIT">
+            <summary>
+            If this member is TRUE, there is a character 
+            queued for transmission that has come to the 
+            communications device by way of the TransmitCommChar 
+            function. The communications device transmits such a 
+            character ahead of other characters in the device's output buffer.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Status.COMMSTAT">
+            <summary>
+            The COMMSTAT structure contains information about a communications 
+            device. This structure is filled by the ClearCommError function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.COMMSTAT.bitfield">
+            <summary>
+            Packed status bitfield.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.COMMSTAT.cbInQue">
+            <summary>
+            Number of bytes received by the serial provider 
+            but not yet read by a ReadFile operation.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.COMMSTAT.cbOutQue">
+            <summary>
+            Number of bytes of user data remaining to be 
+            transmitted for all write operations. This value 
+            will be zero for a nonoverlapped write.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Status.COMMERRS">
+            <summary>
+            ClearCommError() lpErrors parameter converted to flags.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Status.COMMHOLD">
+            <summary>
+            COMMSTAT structure's bitfield member converted to flags.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Status.ClearCommError(System.IntPtr,System.UInt32@,System.IntPtr)">
+            <summary>
+            The ClearCommError function retrieves information about a 
+            communications error and reports the current status of a 
+            communications device. The function is called when a 
+            communications error occurs, and it clears the device's 
+            error flag to enable additional input and output (I/O) operations.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status.cs">
+            <summary>
+            COMMSTAT structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status._error">
+            <summary>
+            COMMERRS structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Win32Status._state">
+            <summary>
+            COMMHOLD structure.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Status.#ctor(System.IntPtr)">
+            <summary>
+            Default constructor. Creates the class structures.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Status.GetStatus">
+            <summary>
+            Gets the current status of the port.
+            </summary>
+            <returns>A <see cref="T:AndyB.Comms.Serial.SerialStatus"/> instance if successful.</returns>
+            <exception cref="T:AndyB.Comms.CommsException">The ClearCommError function failed.</exception>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Status.State">
+            <summary>
+            Get a copy of the state record.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Status.Errs">
+            <summary>
+            Get a copy of the error record.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Timeout">
+            <summary>
+            Wrapper class controlling access to the COMMTIMEOUTS structure and
+            kernel32.dll functions: GetCommTimeouts(...), SetCommTimeouts(...)
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Win32Timeout.COMMTIMEOUTS">
+            <summary>
+            The COMMTIMEOUTS structure is used in the SetCommTimeouts and GetCommTimeouts 
+            functions to set and query the time-out parameters for a communications device. 
+            The parameters determine the behaviour of ReadFile, WriteFile, ReadFileEx, and 
+            WriteFileEx operations on the device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.GetCommTimeouts(System.IntPtr,AndyB.Comms.Serial.Win32Timeout.COMMTIMEOUTS@)">
+            <summary>
+            The GetCommTimeouts function retrieves the time-out parameters for
+            all read and write operations on a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.SetCommTimeouts(System.IntPtr,AndyB.Comms.Serial.Win32Timeout.COMMTIMEOUTS@)">
+            <summary>
+            The SetCommTimeouts function sets the time-out parameters for all read and 
+            write operations on a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(System.IntPtr)">
+            <summary>
+            Timeouts constructor. Creates and initializes the class structure.
+            </summary>
+            <remarks>This overload sets the timeouts so that <see cref="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/>
+            returns immediately with the bytes already read from the port and
+            <see cref="M:AndyB.Comms.Serial.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(System.IntPtr,System.UInt32,System.UInt32)">
+            <summary>
+            Timeouts constructor. Creates and initializes the class structure.
+            </summary>
+            <remarks>This overload allows the caller to set the write timeouts, whilst
+            <see cref="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately with the bytes already read.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(System.IntPtr,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Timeouts constructor. Creates and initializes the class structure.
+            </summary>
+            <param name="handle">Comms port handle created by <see cref="M:AndyB.Comms.Serial.Win32Comm.Open(System.String)"/> method.</param>
+            <param name="rit">Read interval timeout in milliseconds.</param>
+            <param name="rttm">Read total timeout multiplier in milliseconds.</param>
+            <param name="rttc">Read total timeout constant in milliseconds.</param>
+            <param name="wttc">Write total timeout constant in milliseconds.</param>
+            <param name="wttm">Write total timeout multiplier in milliseconds.</param>
+            <remarks><para>
+            ReadIntervalTimeout is the maximum time allowed to elapse between the arrival of 
+            two bytes on the communications line, in milliseconds. During a <see cref="M:AndyB.Comms.Serial.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> 
+            operation, the time period begins when the first byte is received. If the interval between the 
+            arrival of any two bytes exceeds this amount, the <see cref="M:AndyB.Comms.Serial.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> operation 
+            is completed and any buffered data is returned. A value of zero indicates that interval 
+            time-outs are not used.
+            </para>
+            <para>A value of MAXDWORD, combined with zero values for both the ReadTotalTimeoutConstant 
+            and ReadTotalTimeoutMultiplier members, specifies that the read operation is to return immediately 
+            with the bytes that have already been received, even if no bytes have been received.
+            </para>
+            <para>ReadTotalTimeoutMultiplier is used to calculate the total time-out period for read operations, in 
+            milliseconds. For each read operation, this value is multiplied by the requested number of bytes to 
+            be read.
+            </para>
+            <para>ReadTotalTimeoutConstant is used to calculate the total time-out period for read operations, 
+            in milliseconds. For each read operation, this value is added to the product of the 
+            ReadTotalTimeoutMultiplier member and the requested number of bytes. 
+            </para>
+            <para>A value of zero for both the ReadTotalTimeoutMultiplier and ReadTotalTimeoutConstant members 
+            indicates that total time-outs are not used for read operations.
+            </para>
+            <para>WriteTotalTimeoutMultiplier is the used to calculate the total time-out period for write operations, 
+            in milliseconds. For each write operation, this value is multiplied by the number of bytes to be 
+            written.
+            </para>
+            <para>WriteTotalTimeoutConstant is used to calculate the total time-out period for write operations, 
+            in milliseconds. For each write operation, this value is added to the product of the 
+            WriteTotalTimeoutMultiplier member and the number of bytes to be written.</para>
+            <para>A value of zero for both the WriteTotalTimeoutMultiplier and WriteTotalTimeoutConstant members 
+            indicates that total time-outs are not used for write operations.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.Get">
+            <summary>
+            Update the class timeout structure for this port instance.
+            </summary>
+            <returns>True if read update successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Win32Timeout.Set">
+            <summary>
+            Update the port timeouts from this instance's current timeout structure.
+            </summary>
+            <returns>True if write update successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadInterval">
+            <summary>
+            Get/Set the readIntervalTimeout member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadConstant">
+            <summary>
+            Get/Set the readTotalTimeoutConstant member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadMultiplier">
+            <summary>
+            Get/Set the readTotalTimeoutMultiplier member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Timeout.WriteConstant">
+            <summary>
+            Get/Set the writeTotalTimeoutConstant member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Win32Timeout.WriteMultiplier">
+            <summary>
+            Get/Set the writeTotalTimeoutMultiplier member.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.UIntExtensions">
+            <summary>
+            Extensions methods for <see cref="T:System.UInt32"/>
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.UIntExtensions.LowWord(System.UInt32)">
+            <summary>
+            Gets the low word of the <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt32"/> that this method extends.</param>
+            <returns>The low 16 bit word of the <see cref="T:System.UInt32"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.UIntExtensions.HighWord(System.UInt32)">
+            <summary>
+            Gets the high word of the <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt32"/> that this method extends.</param>
+            <returns>The high 16 bit word of the <see cref="T:System.UInt32"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.UIntExtensions.GetBytes(System.UInt32,AndyB.Comms.WordOrder)">
+            <summary>
+            Gets an array of bytes
+            </summary>
+            <param name="this">The <see cref="T:System.UInt32"/> that this method extends.</param>
+            <param name="wOrder">The word order.</param>
+            <returns>An array of bytes from the <see cref="T:System.UInt32"/>.</returns>
+        </member>
+        <member name="M:AndyB.Comms.UIntExtensions.SwopWords(System.UInt32@)">
+            <summary>
+            Swops the two <see cref="T:System.UInt16"/> of the <see cref="T:System.UInt32"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt32"/> that this method extends.</param>
+            <returns>A <see cref="T:System.UInt32"/> that has been word swopped</returns>
+            <remarks>This method does not change the original <see cref="T:System.UInt32"/> and the user has to use
+            the return value.</remarks>
+        </member>
+        <member name="T:AndyB.Comms.ULongExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.UInt32"/>.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.ULongExtensions.LowInt(System.UInt64)">
+            <summary>
+            Gets the low <see cref="T:System.UInt32"/> of the <see cref="T:System.UInt64"/>.
+            </summary>
+            <param name="u">The <see cref="T:System.UInt64"/> that this method extends.</param>
+            <returns>The low 32 bits of the <see cref="T:System.UInt64"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.ULongExtensions.HighInt(System.UInt64)">
+            <summary>
+            Gets the high <see cref="T:System.UInt32"/>of the <see cref="T:System.UInt64"/>.
+            </summary>
+            <param name="u">The <see cref="T:System.UInt64"/> that this method extends.</param>
+            <returns>The high 32 bits of the <see cref="T:System.UInt64"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.ULongExtensions.GetBytes(System.UInt64)">
+            <summary>
+            Converts the supplied value into an array of bytes
+            </summary>
+            <param name="u">The <see cref="T:System.UInt64"/> that this method extends.</param>
+            <returns>An array of bytes that represents the supplied value</returns>
+        </member>
+        <member name="M:AndyB.Comms.ULongExtensions.SwopInts(System.UInt64@)">
+            <summary>
+            Swops the two <see cref="T:System.UInt32"/>of the <see cref="T:System.UInt64"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt64"/> that this method extends.</param>
+            <returns>A <see cref="T:System.UInt64"/> that has been int swopped</returns>
+            <remarks>This method does not change the original <see cref="T:System.UInt64"/> and the user has to use
+            the return value.</remarks>
+        </member>
+        <member name="T:AndyB.Comms.UShortExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.UInt16"/>
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.UShortExtensions.LowByte(System.UInt16)">
+            <summary>
+            Gets the low byte of the supplied <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt16"/> this method extends.</param>
+            <returns>The low 8 bit byte of the <see cref="T:System.UInt16"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.UShortExtensions.HighByte(System.UInt16)">
+            <summary>
+            Gets the high byte of the supplied <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="u">The <see cref="T:System.UInt16"/> this method extends.</param>
+            <returns>The high 8 bit byte of the <see cref="T:System.UInt16"/></returns>
+        </member>
+        <member name="M:AndyB.Comms.UShortExtensions.GetBytes(System.UInt16,AndyB.Comms.ByteOrder)">
+            <summary>
+            Gets an array of bytes from the <see cref="T:System.UInt16"/>
+            </summary>
+            <param name="this">The object that this method extends.</param>
+            <param name="order">The byte order.</param>
+            <returns>An array of bytes</returns>
+        </member>
+        <member name="M:AndyB.Comms.UShortExtensions.SwopBytes(System.UInt16@)">
+            <summary>
+            Swops the two bytes of a <see cref="T:System.UInt16"/>.
+            </summary>
+            <param name="u">The <see cref="T:System.UInt16"/> that this method extends.</param>
+            <returns>A <see cref="T:System.UInt16"/> that has been byte swopped.</returns>
+            <remarks>This method does not change the original <see cref="T:System.UInt16"/> and the user has to use
+            the return value.</remarks>
+        </member>
+        <member name="T:AndyB.Comms.WordOrder">
+            <summary>
+            Enumeration of word order endian types.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.WordOrder.B3B2B1B0">
+            <summary>
+            High word, low word, high byte low byte (full big endian)
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.WordOrder.B2B3B0B1">
+            <summary>
+            High word, low word, low byte, high byte (words big endian, bytes little endian)
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.WordOrder.B1B0B3B2">
+            <summary>
+            Low word, high word, high byte, low byte (words low endian, bytes big endian)
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.WordOrder.B0B1B2B3">
+            <summary>
+            low word, high word, low byte, high byte (full little endian)
+            </summary>
+        </member>
+    </members>
+</doc>

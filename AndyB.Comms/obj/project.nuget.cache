@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "gcCkZKsgk2tslbCFrGWeBGbtnszkSAt4OHOqJTx28jWWDk+T4Rq0HKN1EhK0ZaZgBG21c6u2khHkyqtRH/bsDw==",
+  "success": true,
+  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.11\\nlog.4.7.11.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
