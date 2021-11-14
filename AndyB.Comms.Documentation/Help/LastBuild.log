@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shfbBuild product="Sandcastle Help File Builder and Tools" version="2021.4.9.0" projectFile="D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\AndyB.Comms.Documentation.shfbproj" started="31-Aug-2021 12:13:18">
+<buildStep step="Initializing">
+Finding tools...
+The Sandcastle tools are located in &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\&#39;
+Searching for HTML Help 1 compiler...
+Found HTML Help 1 compiler in &#39;C:\Program Files (x86)\HTML Help Workshop\&#39;
+Locating components in the following folder(s):
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation
+    C:\ProgramData\EWSoftware\Sandcastle Help File Builder\Components and Plug-Ins\
+    D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\
+Using framework reflection data for &#39;.NET Core/.NET Standard/.NET 5.0+&#39; located in &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\Data\.NET&#39;
+Using presentation style &#39;VS2013&#39; located in &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013&#39;
+Loading and initializing plug-ins...
+Lightweight Website Style Version 2021.4.9.0
+Copyright &#169; 2006-2021, Eric Woodruff, All Rights Reserved
+Portions Copyright &#169; 2014, Sam Harwell, All Rights Reserved
+</buildStep>
+<buildStep step="ValidatingDocumentationSources">
+Validating and copying documentation source information
+Source: D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.csproj
+    Found project &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.csproj&#39;
+
+Parsing project files
+    Found assembly &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Debug\netstandard2.1\AndyB.Comms.dll&#39; (.NETStandard 2.1)
+
+References to include:
+    Microsoft.Extensions.Logging.Abstractions
+    Microsoft.Win32.Primitives
+    Microsoft.Win32.Registry
+    mscorlib
+    netstandard
+    NLog
+    System
+    System.AppContext
+    System.Buffers
+    System.CodeDom
+    System.Collections
+    System.Collections.Concurrent
+    System.Collections.NonGeneric
+    System.Collections.Specialized
+    System.ComponentModel
+    System.ComponentModel.Composition
+    System.ComponentModel.EventBasedAsync
+    System.ComponentModel.Primitives
+    System.ComponentModel.TypeConverter
+    System.Console
+    System.Core
+    System.Data
+    System.Data.Common
+    System.Diagnostics.Contracts
+    System.Diagnostics.Debug
+    System.Diagnostics.FileVersionInfo
+    System.Diagnostics.Process
+    System.Diagnostics.StackTrace
+    System.Diagnostics.TextWriterTraceListener
+    System.Diagnostics.Tools
+    System.Diagnostics.TraceSource
+    System.Diagnostics.Tracing
+    System.Drawing
+    System.Drawing.Primitives
+    System.Dynamic.Runtime
+    System.Globalization
+    System.Globalization.Calendars
+    System.Globalization.Extensions
+    System.IO
+    System.IO.Compression
+    System.IO.Compression.FileSystem
+    System.IO.Compression.ZipFile
+    System.IO.FileSystem
+    System.IO.FileSystem.DriveInfo
+    System.IO.FileSystem.Primitives
+    System.IO.FileSystem.Watcher
+    System.IO.IsolatedStorage
+    System.IO.MemoryMappedFiles
+    System.IO.Pipes
+    System.IO.UnmanagedMemoryStream
+    System.Linq
+    System.Linq.Expressions
+    System.Linq.Parallel
+    System.Linq.Queryable
+    System.Management
+    System.Memory
+    System.Net
+    System.Net.Http
+    System.Net.NameResolution
+    System.Net.NetworkInformation
+    System.Net.Ping
+    System.Net.Primitives
+    System.Net.Requests
+    System.Net.Security
+    System.Net.Sockets
+    System.Net.WebHeaderCollection
+    System.Net.WebSockets
+    System.Net.WebSockets.Client
+    System.Numerics
+    System.Numerics.Vectors
+    System.ObjectModel
+    System.Reflection
+    System.Reflection.DispatchProxy
+    System.Reflection.Emit
+    System.Reflection.Emit.ILGeneration
+    System.Reflection.Emit.Lightweight
+    System.Reflection.Extensions
+    System.Reflection.Primitives
+    System.Resources.Reader
+    System.Resources.ResourceManager
+    System.Resources.Writer
+    System.Runtime
+    System.Runtime.CompilerServices.VisualC
+    System.Runtime.Extensions
+    System.Runtime.Handles
+    System.Runtime.InteropServices
+    System.Runtime.InteropServices.RuntimeInformation
+    System.Runtime.Numerics
+    System.Runtime.Serialization
+    System.Runtime.Serialization.Formatters
+    System.Runtime.Serialization.Json
+    System.Runtime.Serialization.Primitives
+    System.Runtime.Serialization.Xml
+    System.Security.AccessControl
+    System.Security.Claims
+    System.Security.Cryptography.Algorithms
+    System.Security.Cryptography.Csp
+    System.Security.Cryptography.Encoding
+    System.Security.Cryptography.Primitives
+    System.Security.Cryptography.X509Certificates
+    System.Security.Principal
+    System.Security.Principal.Windows
+    System.Security.SecureString
+    System.ServiceModel.Web
+    System.Text.Encoding
+    System.Text.Encoding.Extensions
+    System.Text.RegularExpressions
+    System.Threading
+    System.Threading.Overlapped
+    System.Threading.Tasks
+    System.Threading.Tasks.Extensions
+    System.Threading.Tasks.Parallel
+    System.Threading.Thread
+    System.Threading.ThreadPool
+    System.Threading.Timer
+    System.Transactions
+    System.ValueTuple
+    System.Web
+    System.Windows
+    System.Xml
+    System.Xml.Linq
+    System.Xml.ReaderWriter
+    System.Xml.Serialization
+    System.Xml.XDocument
+    System.Xml.XmlDocument
+    System.Xml.XmlSerializer
+    System.Xml.XPath
+    System.Xml.XPath.XDocument
+
+Copying XML comments files
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.xml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\AndyB.Comms.xml
+</buildStep>
+<buildStep step="GenerateSharedContent">
+Generating shared content files (en-US, English (United States))...
+<plugIn name="Lightweight Website Style" behavior="After" priority="1000">
+</plugIn>    Last step completed in 00:00:00.0050
+</buildStep>
+<buildStep step="GenerateApiFilter">
+Generating API filter for MRefBuilder...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="GenerateReflectionInfo">
+Generating reflection information...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - GenerateRefInfo-2c54224a-7698-4da7-9e74-1df889293762.proj]
+Build started 31-Aug-2021 12:13:20.
+Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\GenerateRefInfo-2c54224a-7698-4da7-9e74-1df889293762.proj&quot; on node 1 (default targets).
+PrepareForBuild:
+  Creating directory &quot;obj\Debug\&quot;.
+GenerateBindingRedirects:
+  No suggested binding redirects from ResolveAssemblyReferences.
+GenerateRefInfo:
+  MRefBuilder (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  No source code context base path specified.  Source context information is unavailable.
+  Loaded 1 assemblies for reflection and 133 dependency assemblies.
+  Wrote information on 2 namespaces, 27 types, and 237 members
+  Merging duplicate type and member information
+  Merged 0 duplicate type(s) and 0 duplicate member(s)
+Done Building Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\GenerateRefInfo-2c54224a-7698-4da7-9e74-1df889293762.proj&quot; (default targets).
+    Last step completed in 00:00:01.0728
+</buildStep>
+<buildStep step="TransformReflectionInfo">
+Transforming reflection output...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - TransformManifest.proj]
+Build started 31-Aug-2021 12:13:20.
+Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\TransformManifest.proj&quot; on node 1 (default targets).
+TransformManifest:
+  XslTransform (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\ApplyVSDocModel.xsl&#39;.
+  Copying file from &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\reflection.xml&quot; to &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\reflection.nofilenames&quot;.
+  XslTransform (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\AddFilenames.xsl&#39;.
+  XslTransform (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\ProductionTransforms\ReflectionToManifest.xsl&#39;.
+Done Building Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\TransformManifest.proj&quot; (default targets).
+    Last step completed in 00:00:00.7098
+</buildStep>
+<buildStep step="GenerateNamespaceSummaries">
+Generating namespace summary information...
+    Last step completed in 00:00:00.5069
+</buildStep>
+<buildStep step="GenerateInheritedDocumentation">
+Generating inherited documentation...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - GenerateInheritedDocs.proj]
+Sandcastle Help File Builder and Tools, version 2021.4.9.0
+Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Reflection information will be retrieved from &#39;reflection.xml&#39;
+Inherited documentation will be written to &#39;_InheritedDocs_.xml&#39;
+Indexing C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\5.0.0\ref\net5.0\*.xml
+Indexing C:\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\5.0.0\ref\net5.0\*.xml
+Indexing C:\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\*.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\netstandard.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\System.CodeDom.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\System.Management.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\System.Security.Principal.Windows.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\System.Security.AccessControl.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Microsoft.Win32.Registry.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Microsoft.Extensions.Logging.Abstractions.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\NLog.xml
+Indexing D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\AndyB.Comms.xml
+Indexed 116768 members in 293 file(s).  9 file(s) to scan for &lt;inheritdoc /&gt; tags.
+Merging inherited documentation...
+
+
+Documentation merged successfully
+    Last step completed in 00:00:01.9379
+</buildStep>
+<buildStep step="CopyConceptualContent">
+Copying conceptual content...
+Copying standard token shared content file...
+Checking for other token files...
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Token.tokens -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Token.tokens
+Checking for code snippets files...
+Copying images and creating the media map file...
+Generating conceptual topic files
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Welcome.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Welcome.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\67a53317-1d45-4779-9fe1-95be4ce83a54.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\AndyB.Comms.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\AndyB.Comms.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\e420eefa-090d-4261-8d51-814664d1c55e.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Getting Started.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Getting Started.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\27118ad1-8e58-408c-8764-f18c4c7bb589.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\VersionHistory\VersionHistory.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\VersionHistory\VersionHistory.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\c7e87bd6-755f-4fc9-9f53-c3130cbc1ece.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\VersionHistory\v0.0.1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\VersionHistory\v0.0.1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\452e399f-ea6f-469c-8252-0e270bf833bb.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\User Manual.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\User Manual.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\91bdbb4c-de2a-43bd-a273-d30da33a3def.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\How To1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\How To1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\28e7df92-0c9d-46eb-9855-b3d30aab4cda.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Walkthrough1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Walkthrough1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\c2176101-e463-4323-8956-1e8bbeb8832f.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Troubleshooting1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Troubleshooting1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\10c3b69a-8318-4771-a4f7-dfb52fa05f05.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Sample1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Sample1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\ca30a67c-b343-4a05-8c79-94e0542836d4.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Error Message1.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Error Message1.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\73a8d099-13eb-4011-9845-f7813cba6331.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Serial Comms.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Serial Comms.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\a9f49a4c-0657-4429-bf29-c5f8dcc9cc6e.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Known Issues.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Known Issues.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\5a1ccdf9-ea57-45cc-9bc2-b1f55111c61e.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Copyright.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Copyright.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\02484de3-45fe-4105-93ac-fe7dd3b2fc7b.xml
+    Parsing topic file &#39;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Glossary.aml&#39;
+    D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Content\Glossary.aml -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\ddueXml\868eb86f-0cb2-457d-8cce-42a83b8e6683.xml
+    Last step completed in 00:00:00.2773
+</buildStep>
+<buildStep step="CreateConceptualTopicConfigs">
+Creating conceptual topic configuration files...
+    Companion files
+    _ContentMetadata_.xml
+    Merging topic IDs into manifest.xml
+    Last step completed in 00:00:00.0150
+</buildStep>
+<buildStep step="CopyAdditionalContent">
+Copying additional content files...
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\icons\Help.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\Help.png
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="MergeTablesOfContents">
+Merging conceptual and additional tables of contents...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateIntermediateTableOfContents">
+Generating intermediate table of contents file...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - GenerateIntermediateTOC.proj]
+Build started 31-Aug-2021 12:13:24.
+Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; on node 1 (default targets).
+GenerateIntermediateTOC:
+  XslTransform (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  Applying XSL transformation &#39;D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\\ProductionTransforms\CreateVSToc.xsl&#39;.
+Done Building Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\GenerateIntermediateTOC.proj&quot; (default targets).
+Generating conceptual content intermediate TOC file...
+    Last step completed in 00:00:00.3502
+</buildStep>
+<buildStep step="CreateBuildAssemblerConfigs">
+Creating Sandcastle configuration files...
+    sandcastle.config
+    Last step completed in 00:00:00.5173
+</buildStep>
+<buildStep step="MergeCustomConfigs">
+Merging custom build component configurations
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\sandcastle.config
+  Updating reference topic configurations.
+  Updating conceptual topic configurations.
+    Removing unused ExampleComponent.
+    Last step completed in 00:00:00.0030
+</buildStep>
+<buildStep step="BuildTopics">
+Building help topics...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - BuildTopics.proj]
+Build started 31-Aug-2021 12:13:25.
+Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\BuildTopics.proj&quot; on node 1 (default targets).
+BuildTopics:
+  BuildAssembler (v2021.4.9.0)
+  Copyright &#184; 2006-2021, Microsoft Corporation, All Rights Reserved.
+  Portions Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved.
+  Loading configuration...
+  Processing topics...
+BuildAssembler : warning : ResolveReferenceLinksComponent: [M:AndyB.Comms.Serial.SerialDevice.GetPortNames] Invalid reference link target &#39;!:System.IO.Ports.SerialPort.GetPortNames&#39;. [D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\BuildTopics.proj]
+  Processed 255 topic(s)
+  1 warning(s)
+  CopyFromIndexComponent: &quot;metadata&quot; in-memory cache entries used: 1 of 15.
+  ResolveArtLinksComponent: Copying media files...
+  CopyFromIndexComponent: &quot;reflection&quot; in-memory cache entries used: 4 of 15.
+  CopyFromIndexComponent: &quot;comments&quot; in-memory cache entries used: 3 of 30.
+Done Building Project &quot;D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\BuildTopics.proj&quot; (default targets).
+    Last step completed in 00:00:09.8628
+</buildStep>
+<buildStep step="CombiningIntermediateTocFiles">
+Combining conceptual and API intermediate TOC files...
+    Last step completed in 00:00:00.0020
+</buildStep>
+<buildStep step="ExtractingHtmlInfo">
+Extracting HTML info for HTML Help 1 and/or website...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - ExtractHtmlInfo.proj]
+Sandcastle Help File Builder and Tools, version 2021.4.9.0
+Copyright &#184; 2006-2021, Eric Woodruff, All Rights Reserved
+E-Mail: Eric@EWoodruff.us
+
+Using LCID &#39;1033&#39;, code page &#39;65001&#39;, encoding charset &#39;UTF-8&#39;.
+
+Processing Help 1 files in D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1
+Processed 255 HTML files
+Sorting keywords and generating See Also indices
+Saving HTML Help 1 keyword index to D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\AndyB.Comms.Documentation.hhk
+Saving HTML Help 1 table of contents to D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\AndyB.Comms.Documentation.hhc
+    Last step completed in 00:00:01.5406
+</buildStep>
+<buildStep step="CopyStandardHelpContent">
+Copying standard help content...
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertCaution.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\AlertCaution.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertNote.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\AlertNote.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\AlertSecurity.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\AlertSecurity.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CFW.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\CFW.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\CodeExample.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\CodeExample.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\favicon.ico -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\favicon.ico
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privclass.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privclass.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privdelegate.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privdelegate.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privenumeration.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privenumeration.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privevent.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privevent.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privextension.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privextension.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privfield.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privfield.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privinterface.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privinterface.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privmethod.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privmethod.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privproperty.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privproperty.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\privstructure.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\privstructure.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protclass.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protclass.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protdelegate.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protdelegate.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protenumeration.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protenumeration.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protevent.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protevent.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protextension.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protextension.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protfield.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protfield.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protinterface.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protinterface.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protmethod.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protmethod.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protoperator.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protoperator.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protproperty.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protproperty.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\protstructure.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\protstructure.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubclass.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubclass.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubdelegate.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubdelegate.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubenumeration.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubenumeration.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubevent.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubevent.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubextension.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubextension.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubfield.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubfield.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubinterface.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubinterface.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubmethod.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubmethod.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\puboperator.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\puboperator.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubproperty.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubproperty.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\pubstructure.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\pubstructure.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionCollapsed.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\SectionCollapsed.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\SectionExpanded.png -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\SectionExpanded.png
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\slMobile.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\slMobile.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\static.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\static.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\icons\xna.gif -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\icons\xna.gif
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\scripts\branding.js -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\scripts\branding.js
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-cs-CZ.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-cs-CZ.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-de-DE.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-de-DE.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-en-US.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-en-US.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-es-ES.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-es-ES.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-fr-FR.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-fr-FR.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Help1.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-Help1.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-HelpViewer.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-HelpViewer.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-it-IT.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-it-IT.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ja-JP.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-ja-JP.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ko-KR.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-ko-KR.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pl-PL.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-pl-PL.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-pt-BR.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-pt-BR.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-ru-RU.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-ru-RU.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-tr-TR.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-tr-TR.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-Website.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-Website.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-CN.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-zh-CN.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding-zh-TW.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding-zh-TW.css
+D:\Program Files (x86)\EWSoftware\Sandcastle Help File Builder\PresentationStyles\VS2013\styles\branding.css -&gt; D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\styles\branding.css
+    Last step completed in 00:00:00.3174
+</buildStep>
+<buildStep step="GenerateHelpFormatTableOfContents">
+Generating HTML Help 1 table of contents file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpFileIndex">
+Generating HTML Help 1 index file...
+    Last step completed in 00:00:00.0000
+</buildStep>
+<buildStep step="GenerateHelpProject">
+Generating HTML Help 1 project file...
+    Last step completed in 00:00:00.0040
+</buildStep>
+<buildStep step="CompilingHelpFile">
+Compiling HTML Help 1 file...
+[D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe - Build1xHelpFile.proj]
+  Microsoft HTML Help Compiler 4.74.8702
+  
+  
+  
+  Compiling d:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\AndyB.Comms.Documentation.chm
+  
+  
+  
+  
+  
+  Compile time: 0 minutes, 2 seconds
+  
+  257	Topics
+  
+  2,725	Local links
+  
+  0	Internet links
+  
+  0	Graphics
+  
+  
+  
+  
+  
+  Created d:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Documentation\Help\Working\Output\HtmlHelp1\AndyB.Comms.Documentation.chm, 403,597 bytes
+  
+  Compression decreased file by 2,083,854 bytes.
+  
+    Last step completed in 00:00:02.8620
+</buildStep>
+<buildStep step="CleanIntermediates">
+Removing intermediate files...
+    Last step completed in 00:00:00.1488
+</buildStep>
+<buildStep step="Completed">
+
+Build completed successfully at 31-Aug-2021 12:13:39.  Total time: 00:00:21.3032
+
+</buildStep>
+</shfbBuild>

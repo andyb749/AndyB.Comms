@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="a9f49a4c-0657-4429-bf29-c5f8dcc9cc6e" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>Serial communications is a bit of a black art and many engineers and technician struggle 
+      with the basic concepts.  In this section I'm going to attempt to explain the various aspects of
+      serial communications.
+      </para>
+    </introduction>
+
+    <section address="Section1">
+      <title>DTEs and DCEs</title>
+      <content>
+        <para>Traditionally, serial communications was between DTE (data terminal equipment) and DCE (data communications equipment.
+        DTEs are typically end devices such as computers, video display units (VDU) and terminals.  DCEs are typically modems,
+        multiplexors,  and radios.  DTEs connect to DCE with a straight through cable, which means that the directions of the
+        signals on each connector differ depending on whether the device is a DTE or DCE.</para>
+      </content>
+    </section>
+
+    <section address="Section2">
+      <title>Voltage levels</title>
+      <content>
+        <para>There are a series of standards that define the voltage levels on the signals.  In the US, EIA (Electronics Industries 
+        Association have RS232, RS423, RS422 and RS485, whilst in Europe the CCITT equivalents are V24/V28, V10, and V11.</para>
+        <para>RS232 and RS423 are single ended voltages referenced to ground at +/- 15V and +/- 5V respectively.  RS422 and RS485
+        are differential pairs for each signal at +/- 15V.  The main difference between RS422 and RS485 is that RS485 can support
+        multiple transmitters on the line at the same time.</para>
+      </content>
+    </section>
+
+    <section address="Section3">
+      <title>Signals</title>
+      <content>
+        <para>For a minimalistic implementation, communications can be achieved with only three signals (three wires in the case of 
+        RS232 or RS423).  A complete implementation of signals for RS422 has a lot more.  We are going to limit this description to
+        the signals found on a Personal Computer (PC).  The original IBM PC had a 25 way D-Type connector, which was the industry 
+        standard for serial communications for decades.  The IBM AT was launched with a 9 way D-Type connector.  Both of these have
+        been implemented as DTE and have the same signals, even although some firmware and drivers don't support the RING signal
+        correctly.</para>
+        <para>The table below shows the 9 signals present on a PC, showing both 25 way and 9 way connectors.</para>
+        <table>
+          <tableHeader>
+            <row>
+              <entry>
+                <para>Signal</para></entry>
+              <entry>
+                <para>Description</para>
+              </entry>
+              <entry>
+                <para>Direction</para>
+              </entry>
+              <entry>
+                <para>CCT</para>
+                <para>EIA</para>
+              </entry>
+              <entry>
+                <para>CCT</para>
+                <para>CCITT</para>
+              </entry>
+              <entry>
+                <para>DB25</para>
+                <para>RS232</para>
+              </entry>
+              <entry>
+                <para>DB9</para>
+                <para>TIA457</para>
+              </entry>
+              <entry>
+                <para>RJ45</para>
+                <para>RS232D</para>
+              </entry>
+            </row>
+          </tableHeader>
+          <row>
+            <entry>
+              <para>SHLD</para>
+            </entry>
+            <entry>
+              <para>Shield Ground</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;-->DCE</para>
+            </entry>
+            <entry>
+              <para>AA</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+            <entry>
+              <para>1</para>
+            </entry>
+            <entry>
+              <para></para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>GND</para>
+            </entry>
+            <entry>
+              <para>Signal Ground</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;-->DCE</para>
+            </entry>
+            <entry>
+              <para>AB</para>
+            </entry>
+            <entry>
+              <para>102</para>
+            </entry>
+            <entry>
+              <para>7</para>
+            </entry>
+            <entry>
+              <para>5</para>
+            </entry>
+            <entry>
+              <para>4</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>TXD</para>
+            </entry>
+            <entry>
+              <para>Transmitted data</para>
+            </entry>
+            <entry>
+              <para>DTE-->DCE</para>
+            </entry>
+            <entry>
+              <para>BA</para>
+            </entry>
+            <entry>
+              <para>103</para>
+            </entry>
+            <entry>
+              <para>2</para>
+            </entry>
+            <entry>
+              <para>3</para>
+            </entry>
+            <entry>
+              <para>6</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>RXD</para>
+            </entry>
+            <entry>
+              <para>Received Data</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;--DCE</para>
+            </entry>
+            <entry>
+              <para>BB</para>
+            </entry>
+            <entry>
+              <para>104</para>
+            </entry>
+            <entry>
+              <para>3</para>
+            </entry>
+            <entry>
+              <para>2</para>
+            </entry>
+            <entry>
+              <para>5</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>RTS</para>
+            </entry>
+            <entry>
+              <para>Request to Send</para>
+            </entry>
+            <entry>
+              <para>DTE-->DCE</para>
+            </entry>
+            <entry>
+              <para>CA</para>
+            </entry>
+            <entry>
+              <para>105</para>
+            </entry>
+            <entry>
+              <para>4</para>
+            </entry>
+            <entry>
+              <para>7</para>
+            </entry>
+            <entry>
+              <para>8</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>CTS</para>
+            </entry>
+            <entry>
+              <para>Clear to send</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;--DCE</para>
+            </entry>
+            <entry>
+              <para>CB</para>
+            </entry>
+            <entry>
+              <para>106</para>
+            </entry>
+            <entry>
+              <para>5</para>
+            </entry>
+            <entry>
+              <para>8</para>
+            </entry>
+            <entry>
+              <para>7</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>DSR</para>
+            </entry>
+            <entry>
+              <para>Data Set Ready</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;--DCE</para>
+            </entry>
+            <entry>
+              <para>CC</para>
+            </entry>
+            <entry>
+              <para>107</para>
+            </entry>
+            <entry>
+              <para>6</para>
+            </entry>
+            <entry>
+              <para>6</para>
+            </entry>
+            <entry>
+              <para>1</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>DTR</para>
+            </entry>
+            <entry>
+              <para>Data Terminal Ready</para>
+            </entry>
+            <entry>
+              <para>DTE-->DCE</para>
+            </entry>
+            <entry>
+              <para>CD</para>
+            </entry>
+            <entry>
+              <para>108.2</para>
+            </entry>
+            <entry>
+              <para>20</para>
+            </entry>
+            <entry>
+              <para>4</para>
+            </entry>
+            <entry>
+              <para>3</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>RI</para>
+            </entry>
+            <entry>
+              <para>Ring Indicator</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;--DCE</para>
+            </entry>
+            <entry>
+              <para>CE</para>
+            </entry>
+            <entry>
+              <para>125</para>
+            </entry>
+            <entry>
+              <para>22</para>
+            </entry>
+            <entry>
+              <para>9</para>
+            </entry>
+            <entry>
+              <para>1</para>
+            </entry>
+          </row>
+          <row>
+            <entry>
+              <para>RLSD</para>
+            </entry>
+            <entry>
+              <para>Received Line Signal Detect</para>
+            </entry>
+            <entry>
+              <para>DTE&lt;--DCE</para>
+            </entry>
+            <entry>
+              <para>CF</para>
+            </entry>
+            <entry>
+              <para>109</para>
+            </entry>
+            <entry>
+              <para>8</para>
+            </entry>
+            <entry>
+              <para>1</para>
+            </entry>
+            <entry>
+              <para>2</para>
+            </entry>
+          </row>
+        </table>
+      </content>
+      <sections>
+        <section>
+          <title>Transmitted Data</title>
+          <content>
+            <para>Transmitted Data (TXD) is sent from the DTE to the DCE.  An asynchronous format is used for each byte of data.  This
+            will be described below.</para>
+          </content>
+        </section>
+        <section>
+          <title>Received Data</title>
+          <content>
+            <para>Received Data (RXD) is sent from the DCE to the DTE.  The data format is usually identical to TXD.</para>
+          </content>
+        </section>
+        <section>
+          <title>Request to Send</title>
+          <content>
+            <para>Request to Send (RTS) is sent from the DTE to the DCE when it has data to send.  The DCE will suspend
+            transmission when the line goes inactive, resuming when it goes active again.</para>
+          </content>
+        </section>
+        <section>
+          <title>Clear to Send</title>
+          <content>
+            <para>Clear to Send (CTS), is sent from the DCE to the DTE.  It is activated to indicate that it can receive data.</para>
+          </content>
+        </section>
+        <section>
+          <title>Data Set Ready</title>
+          <content>
+            <para>DSR, or data set ready, is send from the DCE to the DTE.  It is activated to indicate that it is ready and powered on.
+            Data will be accepted by the DCE when DSR is active.</para>
+          </content>
+        </section>
+        <section>
+          <title>Received Line Signal Detect</title>
+          <content>
+            <para>Received Line Signal Detect, or RLSD, also know as Data Carrier Detect (DCD) is sent from the DCE to the DTE.  It is activated
+            when a data carrier is detected on the communications medium.</para>
+          </content>
+        </section>
+        <section>
+          <title>Data Terminal Ready</title>
+          <content>
+            <para>Data Terminal Ready (DTR), is send from the DTE to the DSR.  It is activated to indicated that it is ready and powered on.
+            Data will be accepted by the DTE when DTR is active.</para>
+          </content>
+        </section>
+        <section>
+          <title>Ring Indicator</title>
+          <content>
+            <para>Ring Indicator (RI) is sent from the DCE to DTE.  It is activated to indicated that a callup modem has detected an incoming
+            call.</para>
+          </content>
+        </section>
+      </sections>
+    </section>
+    <section>
+      <title>Voltage Levels and Data Format</title>
+      <content>
+        <para>For RS232 voltage level, a logic 0 is transmitted on the line as between -5 and -15 Volts.  A logic 1 is transmitted as between
+        +5 and -15 Volts.  Normally the data line is inactive at logic 1, also called marking.  A line at logic 0 is called spacing.</para>
+        <para>An asynchronous serial line does not have any clocks, therefore the transmitter and receiver must agree on a data transmission rate,
+        known as the baudrate.  The baudrate is a measure of the number of bits per second.  Early electro-mechanical equipment was not capable of
+        high baudrates and typical rates were 110 for mechanical teletypes, 300, 600, 1200 for printers, and 2400, 4800 and 9600 for video terminals
+        and personal computers.  Modern systems are capable of way higher rates and 19200, 38400, 57600, 115200 are all possible and in common use.
+        </para>
+        <para>The asynchronous data format starts with a quiet time with the line marking.  The transmission of a byte of data consists of a start 
+        bit which is always logic 0, followed by 5, 6, 7 or 8 data bits which can be either logic 0 or logic 1, followed by an optional parity bit
+        and ending with a stop bit of either 1, 1.5 or 2 bits width at logic 1.</para>
+        <para>The receiver uses the falling edge of the start bit to start its reception logic and samples the remaining bit cells in the centre of
+        their time slot.  The stop bit is the quiet time on the line.</para>
+      </content>
+    </section>
+    <section>
+      <title>Parity</title>
+      <content>
+        <para>An option parity byte can be transmitted with the data.  Most implementations allow for a space (logic 0) bit, mark (logic 1) bit, 
+        even parity or odd parity bit.  Parity is calculated by counting the number of logic 1 bits in the data.  For even parity, if the count
+        is odd, the parity bit will be 1 to make the overall number of 1s in the data and parity an even number.  Odd parity is the reverse, such
+        that the overall number of bits at 1 in both data and parity will be an odd number.</para>
+        <para>The transmitter generates the parity based on the sent data, whilst the receiver checks the incoming parity bit against its calculated
+        bit.  If there is a difference between the received and the calculated bit, then it is likely that the incoming data has been corrupted, and
+        therefore a parity error is generated and should be detected by the receiver.</para>
+      </content>
+    </section>
+    <section>
+      <title>Error Conditions</title>
+      <content>
+        <para>An indicated above, one of the received line detected errors is a parity error.  Other errors include framing errors, breaks, and
+        overruns.  A framing error is detected when the receiver has not seen the stop bits a set time after the start bit, based on the data 
+        format.  A break is a special type of framing error where the line stays in the asserted state for more than one full data transfer.
+        Overrun is where the receiver can not keep up with the transmission of characters and some are lost.</para>
+      </content>
+    </section>
+    <section>
+      <title>Cables</title>
+      <content>
+        <para>For a DTE to a DCE, a straight through cable is required, with each pin wired 1-1, 2-2 ... etc.  DTE to DTE circuits require
+        a null modem.  DCE to DCE circuits require a tail circuit cable.</para>
+        <para>There are a number of varities of a null modem cable.  The most simple one crosses over RXD and TXD at one end, with no handshake 
+        signals.  A more complex example has RTS to CTS and DTR, DSR and DCD linked out at each end.  A full null modem cable has TXD and RXD 
+        crossed over, RTS crossed over with CTS, and DTR is crossed over with DSR and linked to DCD.  It depends on the facilities and 
+        features of each system as to how many handshake signals are implemented and can be switched off or configured.</para>
+        <para>The classic tail circuit cable has TXD and RXD crossed, RTS and DCD crossed, DTR and DSR crossed with CTS not terminated at either
+          end.</para>
+      </content>
+    </section>
+    <relatedTopics/>
+  </developerConceptualDocument>
+</topic>

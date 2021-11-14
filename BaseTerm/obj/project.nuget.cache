@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "dgSpecHash": "HV6bndHCeLwsyZiB1qIn1bJ6IZJUgUgYBBo4qyWF53or41lYiUm1Th16pCRu1QLf1hja5oTCxDEOWKkhksbf1g==",
+  "success": true,
+  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\BaseTerm\\BaseTerm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\andyb\\.nuget\\packages\\andyb.commons\\5.1.1\\andyb.commons.5.1.1.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.12\\nlog.4.7.12.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

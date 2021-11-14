@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <item id="LongName">Token content</item>
+  <item id="SHFB"><ddue:externalLink xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">
+    <ddue:linkText>Sandcastle Help File Builder</ddue:linkText>
+    <ddue:linkUri>https://GitHub.com/EWSoftware/SHFB</ddue:linkUri>
+    </ddue:externalLink></item>
+  <item id="ShortName">Add token content here</item>
+  <item id="WebSite"><ddue:externalLink xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5">
+    <ddue:linkText><token>LongName</token></ddue:linkText>
+    <ddue:linkUri>https://GitHub.com/andyb749/AndyB.Comms</ddue:linkUri>
+    </ddue:externalLink></item>
+</content>

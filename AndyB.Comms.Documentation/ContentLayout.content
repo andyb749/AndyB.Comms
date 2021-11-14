@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Topics>
+  <Topic id="67a53317-1d45-4779-9fe1-95be4ce83a54" visible="True" isDefault="true" title="Welcome to the [TODO: Add project name]">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="Welcome" />
+    </HelpKeywords>
+  </Topic>
+  <Topic id="e420eefa-090d-4261-8d51-814664d1c55e" visible="True" title="AndyB.Comms Class Libraries" />
+  <Topic id="27118ad1-8e58-408c-8764-f18c4c7bb589" visible="True" title="Getting Started" />
+  <Topic id="c7e87bd6-755f-4fc9-9f53-c3130cbc1ece" visible="True" title="Version History">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="version, history" />
+    </HelpKeywords>
+    <Topic id="452e399f-ea6f-469c-8252-0e270bf833bb" visible="True" title="Version 0.0.1">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="version, 0.0.1" />
+      </HelpKeywords>
+    </Topic>
+  </Topic>
+  <Topic id="91bdbb4c-de2a-43bd-a273-d30da33a3def" visible="True" isExpanded="true" apiParentMode="InsertAfter">
+    <Topic id="28e7df92-0c9d-46eb-9855-b3d30aab4cda" visible="True" />
+    <Topic id="c2176101-e463-4323-8956-1e8bbeb8832f" visible="True" />
+    <Topic id="10c3b69a-8318-4771-a4f7-dfb52fa05f05" visible="True" />
+    <Topic id="ca30a67c-b343-4a05-8c79-94e0542836d4" visible="True" />
+    <Topic id="73a8d099-13eb-4011-9845-f7813cba6331" visible="True" />
+  </Topic>
+  <Topic id="a9f49a4c-0657-4429-bf29-c5f8dcc9cc6e" visible="True" isSelected="true" title="Serial Communications">
+    <HelpKeywords>
+      <HelpKeyword index="K" term="serial" />
+    </HelpKeywords>
+  </Topic>
+  <Topic id="5a1ccdf9-ea57-45cc-9bc2-b1f55111c61e" visible="True" title="Known Issues and FAQ" />
+  <Topic id="02484de3-45fe-4105-93ac-fe7dd3b2fc7b" visible="True" />
+  <Topic id="868eb86f-0cb2-457d-8cce-42a83b8e6683" visible="True" />
+</Topics>

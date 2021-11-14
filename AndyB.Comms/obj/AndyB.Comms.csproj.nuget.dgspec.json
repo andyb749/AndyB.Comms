@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj": {
-      "version": "0.0.0-alpha",
+      "version": "0.0.1-alpha",
       "restore": {
         "projectUniqueName": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
         "projectName": "AndyB.Comms",
@@ -47,13 +47,29 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
+            "AndyB.Commons": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.Win32.Registry": {
               "target": "Package",
               "version": "[5.0.0, )"
             },
             "NLog": {
               "target": "Package",
-              "version": "[4.7.11, )"
+              "version": "[4.7.12, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Security.Permissions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -71,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

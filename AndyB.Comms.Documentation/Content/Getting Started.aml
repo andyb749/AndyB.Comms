@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="27118ad1-8e58-408c-8764-f18c4c7bb589" revisionNumber="1">
+  <developerOrientationDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>
+        Welcome to <token>LongName</token>.  These class libraries are a set of communication functions that are intended for use
+        in a variety of projects.
+      </para>
+    </introduction>
+
+    <inThisSection>
+      <content>
+        <para>
+          he <token>ShortName</token> managed class library is a library of classes, interface
+          and values types that are included in <token>ShortName</token>.
+        </para>
+        <para>
+          <link xlink:href="27118ad1-8e58-408c-8764-f18c4c7bb589" /> Provides introductory documentation for <token>ShortName</token>.
+        </para>
+        <para>
+          <link xlink:href="c7e87bd6-755f-4fc9-9f53-c3130cbc1ece" /> Describes new features and changes in <token>ShortName</token>.
+        </para>
+        <para>
+          <link xlink:href="91bdbb4c-de2a-43bd-a273-d30da33a3def" /> Describes how to use <token>ShortName</token>.
+        </para>
+        <para>
+          <codeEntityReference qualifyHint="false">N:AndyB.Comms</codeEntityReference>
+          Class library reference.
+        </para>
+        <para>
+          <link xlink:href="5a1ccdf9-ea57-45cc-9bc2-b1f55111c61e" /> Details any known issues and frequently asked questions.
+        </para>
+      </content>
+    </inThisSection>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID">Link text</link>
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+    </relatedTopics>
+  </developerOrientationDocument>
+</topic>

@@ -1,0 +1,177 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj": {}
+  },
+  "projects": {
+    "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj": {
+      "version": "0.0.1-alpha",
+      "restore": {
+        "projectUniqueName": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
+        "projectName": "AndyB.Comms",
+        "projectPath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
+        "packagesPath": "C:\\Users\\andyb\\.nuget\\packages\\",
+        "outputPath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\andyb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {},
+          "https://pkgs.dev.azure.com/andyb749/_packaging/andyb749/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "AndyB.Commons": {
+              "target": "Package",
+              "version": "[5.1.1, )"
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.12, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Security.Permissions": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
+        "projectName": "SerialTestApp",
+        "projectPath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
+        "packagesPath": "C:\\Users\\andyb\\.nuget\\packages\\",
+        "outputPath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\andyb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/nuget": {},
+          "https://pkgs.dev.azure.com/andyb749/_packaging/andyb749/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj": {
+                "projectPath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "Krypton.Docking": {
+              "target": "Package",
+              "version": "[5.550.2108.1, )"
+            },
+            "Krypton.Ribbon": {
+              "target": "Package",
+              "version": "[5.550.2108.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[4.7.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
