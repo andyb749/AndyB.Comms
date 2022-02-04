@@ -1,7 +1,8 @@
 ﻿using AndyB.Win32;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
 	/// <summary>
 	/// Specifies the parity bit for a <see cref="SerialPort"/> object.
 	/// </summary>
@@ -41,4 +42,5 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		Space = Win32Dcb.SPACEPARITY
 	};
+#endif
 }

@@ -29,4 +29,5 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		Toggle
 	};
+
 }

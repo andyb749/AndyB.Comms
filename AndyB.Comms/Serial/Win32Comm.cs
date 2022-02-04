@@ -1,31 +1,78 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Collections.Generic;
+#define UseSafeHandles
+using System;
+using System.IO;
 using System.Text;
+using System.Threading;
+using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-[assembly:InternalsVisibleTo("AndyB.Comms.Tests")]
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.Serial.Interop
 {
 	/// <summary>
-	/// Windows Win32 API functions, structures etc.
+	/// Base comm port class. Contains methods for the most basic
+	/// operations - i.e. opening, closing, reading, writing
 	/// </summary>
-	internal partial class Win32Comm
+	internal class Win32Comm
 	{
-		private readonly SafeFileHandle _handle;
 		private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+#if UseSafeHandles
+		private SafeFileHandle _handle;
+#else
+		private IntPtr _handle;
+#endif
+
+		public Win32Comm (SafeFileHandle handle) => _handle = handle;
 
 		/// <summary>
-		/// Initialises a new instance of the <see cref="Win32Comm"/> object
-		/// with the supplied windows handle.
+		/// Create and open a comm file object.
 		/// </summary>
-		/// <param name="handle">The comm port handle.</param>
-		public Win32Comm (SafeFileHandle handle)
+		/// <param name="portName">Device name - i.e. "COM1".</param>
+		/// <returns>True if executed successfully.</returns>
+		public bool Open(string portName)
 		{
-			_handle = handle;
+#if true
+			return true;
+#else
+			_handle = CreateFile (
+				portName, READ_WRITE, 0, IntPtr.Zero,
+				OPEN_EXISTING, FILE_FLAG_OVERLAPPED, IntPtr.Zero
+				);
+
+			if (_handle == (IntPtr)INVALID_HANDLE_VALUE)
+			{
+				var error = Marshal.GetLastWin32Error();
+				// FIXME: surely SerialException doesn't care about individual codes
+				if (error == ERROR_ACCESS_DENIED)
+				{
+					throw new CommsException();
+				}
+				if (error == ERROR_FILE_NOT_FOUND)
+				{
+					throw new CommsException();
+				}
+				else
+				{
+					throw new CommsException();
+				}
+			}
+			return true;
+#endif
+		}
+
+
+		/// <summary>
+		/// Closes an open object handle.
+		/// </summary>
+		/// <returns>True if executed successfully.</returns>
+		internal bool Close()
+		{
+			if (CloseHandle(_handle) == false)
+			{
+				//this.SetFault("CloseHandle()");
+				return false;
+			}
+			return true;
 		}
 
 
@@ -38,24 +85,27 @@ namespace AndyB.Comms.Serial
 		/// <returns>True if executed successfully.</returns>
 		internal bool Read(byte[] buf, uint nToRead, out uint nRead)
 		{
-			throw new NotImplementedException();
 			// Create a write event and pass it to an overlap structure class
-			var readEvent = new ManualResetEvent(false);
-			//var readOverlap = new Win32Overlap(_handle, readEvent.SafeWaitHandle);
+			ManualResetEvent readEvent = new ManualResetEvent(false);
+			Win32Overlap readOverlap = new Win32Overlap(Handle, readEvent.SafeWaitHandle.DangerousGetHandle());
 
-			//if (ReadFile(this._handle, buf, nToRead, out nRead, readOverlap.MemPtr) == false)
-			//{
-			//	throw new SerialException();
-			//}
-			//readOverlap.Get(out nToRead, true);
-			//return true;
+			if (ReadFile(Handle, buf, nToRead, out nRead, readOverlap.MemPtr) == false)
+			{
+				var error = Marshal.GetLastWin32Error();
+				if (error != ERROR_IO_PENDING)
+				{
+					throw new CommsException();
+				}
+			}
+			readOverlap.Get(out nRead, true);
+			return true;
 		}
 
 
 		internal bool ReadImmediate(byte[] buf, uint nToRead, out uint nRead)
 		{
 			// Save the read timeouts prior to temporarily to setting to read immediate
-			Win32Timeout timeout = new Win32Timeout(_handle);
+			Win32Timeout timeout = new Win32Timeout(Handle);
 			timeout.Get();
 			uint readInterval = timeout.ReadInterval;
 			uint readConstant = timeout.ReadConstant;
@@ -66,7 +116,7 @@ namespace AndyB.Comms.Serial
 			timeout.ReadMultiplier = 0;
 			timeout.Set();
 
-			bool success = Read(buf, nToRead, out nRead);
+			bool success = Read (buf, nToRead, out nRead);
 
 			timeout.ReadInterval = readInterval;
 			timeout.ReadConstant = readConstant;
@@ -76,126 +126,6 @@ namespace AndyB.Comms.Serial
 			return success;
 		}
 
-		unsafe internal IAsyncResult BeginWrite(byte[] buf, int offset, int size, AsyncCallback? callback, object? state)
-		{
-#if false
-			// Create and store specific data in the async result
-			var result = new SerialPortAsyncResult
-			{
-				UserCallback = callback,
-				AsyncState = state,
-				IsWrite = true,
-				WaitEvent = new ManualResetEvent(false),
-				IsCompleted = false
-			};
-
-
-			// Kick off a async write with an overlapped structure
-			result.Overlapped = new Win32Overlap(_handle, result.AsyncWaitHandle.SafeWaitHandle);
-			if (!WriteFile(_handle, buf, (uint)size, out uint sent, result.Overlapped.MemPtr))
-            {
-				// Check if its really an error or if we're waiting for an overlapped
-				// operation to complete.
-				var status = Marshal.GetLastWin32Error();
-				if (status != Win32Comm.ERROR_IO_PENDING)
-					throw new SerialException();
-				//overlapped.Get(out nSent, true);
-			}
-			else
-            {
-				// Completed synchronously
-				result.CompletedSynchronously = true;
-				callback?.Invoke(result);
-            }
-#else
-			// Create and store specific data in the async result
-			var result = new SerialPortAsyncResult
-			{
-				UserCallback = callback,
-				AsyncState = state,
-				IsWrite = true,
-				WaitEvent = new ManualResetEvent(false),
-				IsCompleted = false
-			};
-
-			// Create a managed overlapped class and pack it and save in the
-			// async result
-			var overlapped = new Overlapped(0, 0, result.AsyncWaitHandle.SafeWaitHandle.DangerousGetHandle(), result);
-			var pOverlapped = overlapped.Pack(AsyncFSCallback, null);
-			result.Overlapped = pOverlapped;
-
-			// Kick off an async write
-			_logger.Trace($"BeginWrite started for {size} bytes");
-			if (!WriteFile(_handle, buf, (uint)size, IntPtr.Zero, pOverlapped))
-            {
-				var status = Marshal.GetLastWin32Error();
-				if (status != Win32Comm.ERROR_IO_PENDING)
-					throw new SerialException();
-            }
-            else
-            {
-				result.CompletedSynchronously = true;
-            }
-#endif
-#if false
-			var overlapped = new Overlapped(0, 0, waitHandle.SafeWaitHandle.DangerousGetHandle(), result);
-			var nativeOverlapped = overlapped.Pack((err, numBytes, pOver) =>
-			{
-				// Recreate the overlapped structure
-				overlapped = Overlapped.Unpack(pOver);
-
-				// Extract the async result
-				var ar = (SerialPortAsyncResult)overlapped.AsyncResult;
-
-				Overlapped.Free(pOver);
-			}, state);
-#endif
-			return result;
-        }
-
-		unsafe public void EndWrite (IAsyncResult iar)
-        {
-			// TODO: check if we're in break
-			_logger.Debug("EndWrite called");
-			if (iar == null)
-				throw new ArgumentNullException(nameof(iar));
-
-			var spar = iar as SerialPortAsyncResult;
-			if (spar == null || !spar.IsWrite)
-				throw new InvalidOperationException("Incorrect async result");
-
-			// We should check if we've been called twice
-
-			var wait = spar.AsyncWaitHandle;
-			if (wait != null && !wait.SafeWaitHandle.IsInvalid)
-            {
-                try
-                {
-					_logger.Debug("Starting wait");
-                    wait.WaitOne();
-                }
-                finally
-                {
-					wait.Close();
-					wait.Dispose();
-					wait = null;
-                }
-            }
-
-			// Free memory and handles
-			if (spar.Overlapped != null)
-            {
-				Overlapped.Free(spar.Overlapped);
-				//spar.Overlapped.Dispose();
-				//spar.Overlapped = null;
-            }				
-
-			// Look for errors
-			if (spar.ErrorCode != 0)
-				InternalResources.WinIOError(spar.ErrorCode, "Serial Port");
-
-			// The number of bytes written is spar.NumBytes
-        }
 
 		/// <overloads>
 		/// <summary>
@@ -208,248 +138,358 @@ namespace AndyB.Comms.Serial
 		/// <param name="nSent">Number of actually bytes sent.</param>
 		internal bool Write(byte[] buf, uint nToSend, out uint nSent)
 		{
-
-			var ptr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(uint)));
-			Marshal.WriteInt32(ptr, 0);
-//			if (WriteFile(_handle, buf, nToSend, ptr, IntPtr.Zero))
- //           {
-	//			// error
-				throw new SerialException();
-      //      }
-#if false
 			// Create a write event and pass it to an overlap structure class
-			var writeEvent = new ManualResetEvent(false);
-			var writeOverlap = new Win32Overlap(_handle, writeEvent.SafeWaitHandle);
+			ManualResetEvent writeEvent = new ManualResetEvent(false);
+			Win32Overlap writeOverlap = new Win32Overlap(Handle, writeEvent.SafeWaitHandle.DangerousGetHandle());
 
 			// Kick off the write data and wait for a completion.
-			if (!WriteFile(_handle, buf, nToSend, out nSent, writeOverlap.MemPtr))
-            {
-				// Check if its really an error or if we're waiting for an overlapped
-				// operation to complete.
-				var status = Marshal.GetLastWin32Error();
-				if (status != Win32Comm.ERROR_IO_PENDING)
-					throw new SerialException();
+			bool status = WriteFile(Handle, buf, nToSend, out nSent, writeOverlap.MemPtr);
 
-				writeOverlap.Get(out nSent, true);
+			writeOverlap.Get(out nSent, true);
+			
+			return true;
+		}
 
-			}
-#endif
+		/// <inheritdoc/>
+		/// <param name="buf">Buffer to write from</param>
+		/// <param name="nSent">Number of actually bytes sent.</param>
+		internal bool Write(string buf, out uint nSent)
+		{
 			nSent = 0;
 			return true;
 		}
 
-		unsafe private static void AsyncFSCallback(uint errorCode, uint numBytes, NativeOverlapped* pOverlapped)
-        {
-			_logger.Debug("AsyncFSCallback");
-			// unpack the overlapped structure and extract the async result
-			var overlapped = Overlapped.Unpack(pOverlapped);
-			var asyncResult = overlapped.AsyncResult as SerialPortAsyncResult;
-			if (asyncResult == null)
-				throw new InvalidOperationException("Not an serial port async result");
-
-			// Update the async result with the completion error codes and number of
-			// bytes transferred.
-			asyncResult.ErrorCode = errorCode;
-			asyncResult.NumBytes = numBytes;
-			_logger.Info($"ErrorCode = {errorCode}");
-			_logger.Info($"NumBytes = {numBytes}");
-
-			// TODO: is this the correct order?
-
-			// The OS does not signal this event, seemingly we must
-			// do it ourselves.  If its null then EndXXX has already been called.
-			ManualResetEvent wait = asyncResult.WaitEvent;
-			_logger.Debug($"Setting the wait event");
-			if (wait != null && !wait.SafeWaitHandle.IsInvalid)
-				wait.Set();
-
-			asyncResult.CompletedSynchronously = false;
-			asyncResult.IsCompleted = true;
-
-			// Call the user supplied callback
-			asyncResult.UserCallback?.Invoke(asyncResult);
-
+#if false
+		/// <summary>
+		/// Transmit the specified character ahead of any pending data in the 
+		/// output buffer of the comm object.
+		/// </summary>
+		/// <param name="chr"></param>
+		/// <returns></returns>
+		internal bool TxChar(byte chr)
+		{
+			if (TransmitCommChar(this.handle, chr) == false)
+			{
+				this.SetFault("TransmitCommChar()");
+				return false;
+			}
+			return true;
 		}
+#endif
+
+
+		/// <summary>
+		/// Discards all characters from the comm objects I/O buffers.
+		/// </summary>
+		/// <returns></returns>
+		internal bool Flush()
+		{
+			if (PurgeComm(Handle, PURGE_TXABORT |
+				PURGE_RXABORT | PURGE_TXCLEAR | PURGE_RXCLEAR) == false)
+			{
+				throw new CommsException();
+			}
+			return true;
+		}
+
+
+		/// <summary>
+		/// Discards all characters from the comm objects receive buffers.
+		/// </summary>
+		/// <returns></returns>
+		internal bool FlushRx()
+		{
+			if (PurgeComm(Handle, PURGE_RXABORT | PURGE_RXCLEAR) == false)
+			{
+				throw new CommsException();
+			}
+			return true;
+		}
+
+
+		/// <summary>
+		/// Discards all characters from the comm objects transmit buffers.
+		/// </summary>
+		/// <returns></returns>
+		internal bool FlushTx()
+		{
+			if (PurgeComm(Handle, PURGE_TXABORT |	PURGE_TXCLEAR) == false)
+			{
+				throw new CommsException();
+			}
+			return true;
+		}
+
+
+		/// <summary>
+		/// Cancel all pending I/O operations issued for the comm object.
+		/// </summary>
+		/// <returns></returns>
+		internal bool Cancel()
+		{
+			if (CancelIo(Handle) == false)
+			{
+				throw new CommsException();
+			}
+			return true;
+		}
+
+
+
+		/// <summary>
+		/// Get the comm port file handle.
+		/// </summary>
+		internal IntPtr Handle
+		{
+			get { return _handle.DangerousGetHandle(); }
+		}
+
+
+		/// <summary>
+		/// Gets the comm port safe file handle.
+		/// </summary>
+		internal SafeHandle SafeHandle => _handle;
+
 
 		#region Win32 Interop
 
-		// --- File ---
-		public const uint FILE_READ_DATA = (0x0001),
-		FILE_LIST_DIRECTORY = (0x0001),
-		FILE_WRITE_DATA = (0x0002),
-		FILE_ADD_FILE = (0x0002),
-		FILE_APPEND_DATA = (0x0004),
-		FILE_ADD_SUBDIRECTORY = (0x0004),
-		FILE_CREATE_PIPE_INSTANCE = (0x0004),
-		FILE_READ_EA = (0x0008),
-		FILE_WRITE_EA = (0x0010),
-		FILE_EXECUTE = (0x0020),
-		FILE_TRAVERSE = (0x0020),
-		FILE_DELETE_CHILD = (0x0040),
-		FILE_READ_ATTRIBUTES = (0x0080),
-		FILE_WRITE_ATTRIBUTES = (0x0100),
-		FILE_SHARE_READ = 0x00000001,
-		FILE_SHARE_WRITE = 0x00000002,
-		FILE_SHARE_DELETE = 0x00000004,
-		FILE_ATTRIBUTE_READONLY = 0x00000001,
-		FILE_ATTRIBUTE_HIDDEN = 0x00000002,
-		FILE_ATTRIBUTE_SYSTEM = 0x00000004,
-		FILE_ATTRIBUTE_DIRECTORY = 0x00000010,
-		FILE_ATTRIBUTE_ARCHIVE = 0x00000020,
-		FILE_ATTRIBUTE_NORMAL = 0x00000080,
-		FILE_ATTRIBUTE_TEMPORARY = 0x00000100,
-		FILE_ATTRIBUTE_COMPRESSED = 0x00000800,
-		FILE_ATTRIBUTE_OFFLINE = 0x00001000,
-		FILE_NOTIFY_CHANGE_FILE_NAME = 0x00000001,
-		FILE_NOTIFY_CHANGE_DIR_NAME = 0x00000002,
-		FILE_NOTIFY_CHANGE_ATTRIBUTES = 0x00000004,
-		FILE_NOTIFY_CHANGE_SIZE = 0x00000008,
-		FILE_NOTIFY_CHANGE_LAST_WRITE = 0x00000010,
-		FILE_NOTIFY_CHANGE_LAST_ACCESS = 0x00000020,
-		FILE_NOTIFY_CHANGE_CREATION = 0x00000040,
-		FILE_NOTIFY_CHANGE_SECURITY = 0x00000100,
-		FILE_ACTION_ADDED = 0x00000001,
-		FILE_ACTION_REMOVED = 0x00000002,
-		FILE_ACTION_MODIFIED = 0x00000003,
-		FILE_ACTION_RENAMED_OLD_NAME = 0x00000004,
-		FILE_ACTION_RENAMED_NEW_NAME = 0x00000005,
-		FILE_CASE_SENSITIVE_SEARCH = 0x00000001,
-		FILE_CASE_PRESERVED_NAMES = 0x00000002,
-		FILE_UNICODE_ON_DISK = 0x00000004,
-		FILE_PERSISTENT_ACLS = 0x00000008,
-		FILE_FILE_COMPRESSION = 0x00000010,
-		OPEN_EXISTING = 3,
-		OPEN_ALWAYS = 4,
-		FILE_FLAG_WRITE_THROUGH = 0x80000000,
-		FILE_FLAG_OVERLAPPED = 0x40000000,
-		FILE_FLAG_NO_BUFFERING = 0x20000000,
-		FILE_FLAG_RANDOM_ACCESS = 0x10000000,
-		FILE_FLAG_SEQUENTIAL_SCAN = 0x08000000,
-		FILE_FLAG_DELETE_ON_CLOSE = 0x04000000,
-		FILE_FLAG_BACKUP_SEMANTICS = 0x02000000,
-		FILE_FLAG_POSIX_SEMANTICS = 0x01000000,
-		FILE_TYPE_UNKNOWN = 0x0000,
-		FILE_TYPE_DISK = 0x0001,
-		FILE_TYPE_CHAR = 0x0002,
-		FILE_TYPE_PIPE = 0x0003,
-		FILE_TYPE_REMOTE = 0x8000,
-		FILE_VOLUME_IS_COMPRESSED = 0x00008000;
+		internal const uint FILE_TYPE_UNKNOWN = 0x0000,
+							FILE_TYPE_DISK = 0x0001,
+							FILE_TYPE_CHAR = 0x0002,
+							FILE_TYPE_PIPE = 0x0003,
+							FILE_TYPE_REMOTE = 0x8000;
+
+		// Constants taken from WINERROR.H
+		internal const uint ERROR_FILE_NOT_FOUND = 2,
+							ERROR_PATH_NOT_FOUND = 3,
+							ERROR_ACCESS_DENIED = 5,
+							ERROR_INVALID_HANDLE = 6,
+							ERROR_SHARING_VIOLATION = 32,
+							ERROR_INVALID_PARAMETER = 87,
+							ERROR_FILENAME_EXCED_RANGE = 0xCE,
+							ERROR_IO_PENDING = 997;
+
+		// Constants taken from WINBASE.H
+		internal const int INVALID_HANDLE_VALUE = -1;
+		internal const uint FILE_FLAG_OVERLAPPED = 0x40000000;    //dwFlagsAndAttributes
+		internal const uint OPEN_EXISTING = 3;                    //dwCreationDisposition
+
+		// Constants taken from WINNT.H
+		internal const uint GENERIC_READ = 0x80000000;            //dwDesiredAccess
+		internal const uint GENERIC_WRITE = 0x40000000;
+		internal const uint READ_WRITE = GENERIC_READ | GENERIC_WRITE;
 
 
-		public const uint GENERIC_READ = 0x80000000;
-		public const uint GENERIC_WRITE = 0x40000000;
+		/*********************************************************************/
+		/******************** PURGE CONSTANTS - WINBASE.H ********************/
+		/*********************************************************************/
+		/// <summary>
+		/// Terminates all outstanding overlapped write operations and returns 
+		/// immediately, even if the write operations have not been completed.
+		/// </summary>
+		internal const uint PURGE_TXABORT = 0x0001;
 
+		/// <summary>
+		/// Terminates all outstanding overlapped read operations and returns 
+		/// immediately, even if the read operations have not been completed.
+		/// </summary>
+		internal const uint PURGE_RXABORT = 0x0002;
 
+		/// <summary>
+		/// Clears the output buffer (if the device driver has one).
+		/// </summary>
+		internal const uint PURGE_TXCLEAR = 0x0004;
 
+		/// <summary>
+		/// Clears the input buffer (if the device driver has one).
+		/// </summary>
+		internal const uint PURGE_RXCLEAR = 0x0008;
+
+#if UseSafeHandles
 		/// <summary>
 		/// Opening Testing and Closing the Port Handle.
 		/// </summary>
+		/// <remarks>This is the one using SafeFileHandle</remarks>
 		[DllImport("kernel32.dll", SetLastError = true)]
-		internal static extern SafeFileHandle CreateFile(String lpFileName, UInt32 dwDesiredAccess, UInt32 dwShareMode,
-			IntPtr lpSecurityAttributes, UInt32 dwCreationDisposition, UInt32 dwFlagsAndAttributes,
+		internal static extern SafeFileHandle CreateFile(
+            string lpFileName,
+            uint dwDesiredAccess,
+            uint dwShareMode,
+			IntPtr lpSecurityAttributes,
+            uint dwCreationDisposition,
+            uint dwFlagsAndAttributes,
 			IntPtr hTemplateFile);
 
-		//Constants for return value:
-		internal const Int32 INVALID_HANDLE_VALUE = -1;
-
-
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean CloseHandle(IntPtr hObject);
-
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean GetHandleInformation(IntPtr hObject, out UInt32 lpdwFlags);
-
-		/// <summary>
-		/// Reading and writing.
-		/// </summary>
-		//		[DllImport("kernel32.dll", SetLastError = true)]
-		//		internal static extern Boolean WriteFile(IntPtr fFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToWrite,
-		//			out UInt32 lpNumberOfBytesWritten, IntPtr lpOverlapped);
-
-		//		[DllImport("kernel32.dll", SetLastError = true)]
-		//		internal static extern Boolean WriteFile(SafeFileHandle fFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToWrite,
-		//			out UInt32 lpNumberOfBytesWritten, IntPtr lpOverlapped);
-
-//		[DllImport("kernel32.dll", SetLastError = true)]
-//		internal static extern Boolean WriteFile(SafeFileHandle fFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToWrite,
-//			IntPtr lpNumberOfBytesWritten, IntPtr lpOverlapped);
-
-		[DllImport("kernel32.dll", SetLastError = true)]
-		unsafe internal static extern Boolean WriteFile(SafeFileHandle fFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToWrite,
-			IntPtr lpNumberOfBytesWritten, NativeOverlapped* lpOverlapped);
-
-//		[DllImport("kernel32.dll", SetLastError = true)]
-//		internal static extern Boolean WriteFile(SafeFileHandle fFile, Byte[] lpBuffer, UInt32 nNumberOfBytesToWrite,
-//			out UInt32 lpNumberOfBytesWritten, IntPtr lpOverlapped);
-
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean CancelIo(SafeFileHandle hFile);
-
-		[DllImport("kernel32.dll", SetLastError = true)]
-		internal static extern Boolean ReadFile(SafeFileHandle hFile, [Out] Byte[] lpBuffer, UInt32 nNumberOfBytesToRead,
-			out UInt32 nNumberOfBytesRead, IntPtr lpOverlapped);
 
 		[DllImport("kernel32.dll", SetLastError = true)]
 		internal static extern int GetFileType(
 			SafeFileHandle hFile   // handle to file
 			);
 
-
-		//		[DllImport("kernel32.dll")]
-		//        internal static extern Boolean BuildCommDCBAndTimeouts(String lpDef, ref DCB lpDCB, ref COMMTIMEOUTS lpCommTimeouts);
-
 		/// <summary>
-		/// Manipulating the communications settings.
+		/// The CloseHandle function closes an open object handle.
 		/// </summary>
+		[DllImport("kernel32.dll", SetLastError =true)]
+		internal static extern bool CloseHandle
+		(
+			SafeFileHandle hObject
+		);
 
 		[DllImport("kernel32.dll")]
-		internal static extern Boolean SetupComm(SafeFileHandle hFile, UInt32 dwInQueue, UInt32 dwOutQueue);
-
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean TransmitCommChar(SafeFileHandle hFile, Byte cChar);
-
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean GetCommProperties(SafeFileHandle hFile, out COMMPROP cp);
+		internal static extern bool GetCommProperties(SafeFileHandle hFile, out COMMPROP cp);
 
 		[StructLayout(LayoutKind.Sequential)]
 		internal struct COMMPROP
 		{
-			internal UInt16 wPacketLength;
-			internal UInt16 wPacketVersion;
-			internal UInt32 dwServiceMask;
-			internal UInt32 dwReserved1;
-			internal UInt32 dwMaxTxQueue;
-			internal UInt32 dwMaxRxQueue;
-			internal UInt32 dwMaxBaud;
-			internal UInt32 dwProvSubType;
-			internal UInt32 dwProvCapabilities;
-			internal UInt32 dwSettableParams;
-			internal UInt32 dwSettableBaud;
-			internal UInt16 wSettableData;
-			internal UInt16 wSettableStopParity;
-			internal UInt32 dwCurrentTxQueue;
-			internal UInt32 dwCurrentRxQueue;
-			internal UInt32 dwProvSpec1;
-			internal UInt32 dwProvSpec2;
-			internal Byte wcProvChar;
+			internal ushort wPacketLength;
+			internal ushort wPacketVersion;
+			internal uint dwServiceMask;
+			internal uint dwReserved1;
+			internal uint dwMaxTxQueue;
+			internal uint dwMaxRxQueue;
+			internal uint dwMaxBaud;
+			internal uint dwProvSubType;
+			internal uint dwProvCapabilities;
+			internal uint dwSettableParams;
+			internal uint dwSettableBaud;
+			internal ushort wSettableData;
+			internal ushort wSettableStopParity;
+			internal uint dwCurrentTxQueue;
+			internal uint dwCurrentRxQueue;
+			internal uint dwProvSpec1;
+			internal uint dwProvSpec2;
+			internal byte wcProvChar;
 		}
+#else
+		/// <summary>
+		/// The CreateFile function creates or opens any of the following 
+		/// objects and returns a handle that can be used to access the object: 
+		/// Consoles, Communications resources, Directories (open only), 
+		/// Disk devices, Files, Mailslots, Pipes 
+		/// </summary>
+		/// <remarks>This was the original.</remarks>
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern IntPtr CreateFile
+		(
+			String lpFileName,
+			UInt32 dwDesiredAccess,
+			UInt32 dwShareMode,
+			IntPtr lpSecurityAttributes,
+			UInt32 dwCreationDisposition,
+			UInt32 dwFlagsAndAttributes,
+			IntPtr hTemplateFile
+		);
 
 		/// <summary>
-		/// Messages
+		/// The CloseHandle function closes an open object handle.
 		/// </summary>
-		public const int FORMAT_MESSAGE_ALLOCATE_BUFFER = 0x00000100;
-		public const int FORMAT_MESSAGE_IGNORE_INSERTS = 0x00000200;
-		public const int FORMAT_MESSAGE_FROM_STRING = 0x00000400;
-		public const int FORMAT_MESSAGE_FROM_HMODULE = 0x00000800;
-		public const int FORMAT_MESSAGE_FROM_SYSTEM = 0x00001000;
-		public const int FORMAT_MESSAGE_ARGUMENT_ARRAY = 0x00002000;
-		public const int FORMAT_MESSAGE_MAX_WIDTH_MASK = 0x000000FF;
+		[DllImport("kernel32.dll")]
+		private static extern Boolean CloseHandle
+		(
+			IntPtr hObject
+		);
+
+#endif
+		/// <summary>
+		/// The ReadFile function reads data from a file, starting at the 
+		/// position indicated by the file pointer. After the read operation 
+		/// has been completed, the file pointer is adjusted by the number 
+		/// of bytes actually read, unless the file handle is created with the 
+		/// overlapped attribute. If the file handle is created for overlapped 
+		/// input and output (I/O), the application must adjust the position of 
+		/// the file pointer after the read operation. 
+		/// This function is designed for both synchronous and asynchronous 
+		/// operation. The ReadFileEx function is designed solely for asynchronous 
+		/// operation. It lets an application perform other processing during a 
+		/// file read operation.
+		/// </summary>
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern bool ReadFile
+		(
+			IntPtr hFile,
+			[Out] byte[] lpBuffer,
+            uint nNumberOfBytesToRead,
+			out uint nNumberOfBytesRead,
+			IntPtr lpOverlapped
+		);
+
+		/// <summary>
+		/// The WriteFile function writes data to a file and is designed for both 
+		/// synchronous and asynchronous operation. The function starts writing data 
+		/// to the file at the position indicated by the file pointer. After the write 
+		/// operation has been completed, the file pointer is adjusted by the number of 
+		/// bytes actually written, except when the file is opened with FILE_FLAG_OVERLAPPED. 
+		/// If the file handle was created for overlapped input and output (I/O), the 
+		/// application must adjust the position of the file pointer after the write 
+		/// operation is finished. 
+		/// This function is designed for both synchronous and asynchronous operation. 
+		/// The WriteFileEx function is designed solely for asynchronous operation. 
+		/// It lets an application perform other processing during a file write operation.
+		/// </summary>
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern bool WriteFile
+		(
+			IntPtr fFile,
+            byte[] lpBuffer,
+            uint nNumberOfBytesToWrite,
+			out uint lpNumberOfBytesWritten,
+			IntPtr lpOverlapped
+		);
+
+		/// <summary>
+		/// The CancelIo function cancels all pending input and output 
+		/// (I/O) operations that were issued by the calling thread for 
+		/// the specified file handle. The function does not cancel I/O 
+		/// operations issued for the file handle by other threads. 
+		/// </summary>
+		[DllImport("kernel32.dll")]
+		private static extern bool CancelIo
+		(
+			IntPtr hFile
+		);
+
+		/// <summary>
+		/// The PurgeComm function discards all characters from the output or input 
+		/// buffer of a specified communications resource. It can also terminate any 
+		/// pending read or write operations on the resource. 
+		/// </summary>
+		[DllImport("kernel32.dll")]
+		private static extern bool PurgeComm
+		(
+			IntPtr hFile,
+			uint flags
+		);
+
+		/// <summary>
+		/// The TransmitCommChar function transmits a specified character ahead of 
+		/// any pending data in the output buffer of the specified communications device.
+		/// </summary>
+		[DllImport("kernel32.dll")]
+		private static extern bool TransmitCommChar
+		(
+			IntPtr hFile,
+            byte cChar
+		);
+
+		/// <summary>
+		/// Gets the last error from 
+		/// </summary>
+		/// <returns></returns>
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern uint GetLastError();
+
+		internal const int FORMAT_MESSAGE_ALLOCATE_BUFFER = 0x00000100;
+		internal const int FORMAT_MESSAGE_IGNORE_INSERTS = 0x00000200;
+		internal const int FORMAT_MESSAGE_FROM_STRING = 0x00000400;
+		internal const int FORMAT_MESSAGE_FROM_HMODULE = 0x00000800;
+		internal const int FORMAT_MESSAGE_FROM_SYSTEM = 0x00001000;
+		internal const int FORMAT_MESSAGE_ARGUMENT_ARRAY = 0x00002000;
+		internal const int FORMAT_MESSAGE_MAX_WIDTH_MASK = 0x000000FF;
 
 		[DllImport("kernel32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto, SetLastError = true, BestFitMapping = true)]
-		//[SuppressMessage("Microsoft.Security", "CA2101:SpecifyMarshalingForPInvokeStringArguments")]
-		public static unsafe extern int FormatMessage(int dwFlags, IntPtr lpSource_mustBeNull, uint dwMessageId,
+		internal static unsafe extern int FormatMessage(int dwFlags, IntPtr lpSource_mustBeNull, uint dwMessageId,
 			int dwLanguageId, StringBuilder lpBuffer, int nSize, IntPtr[] arguments);
 
-#endregion
+		#endregion
 	}
 }

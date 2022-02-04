@@ -1,79 +1,25 @@
 ﻿using System;
 using System.IO;
-using System.Security;
+using System.Collections.Generic;
 using System.Text;
 using Marshal = System.Runtime.InteropServices.Marshal;
-using Microsoft.Win32;
-using AndyB.Comms;
-using AndyB.Win32;
+using SR = AndyB.Comms.Properties.SR;
 
-namespace AndyB.Comms.Serial
+
+namespace AndyB.Comms.Serial.Interop
 {
-    using Properties;
-
-
-    internal static class InternalResources
+    internal class InternalResources
     {
-        // Beginning of static Error methods
-        internal static void EndOfFile()
+        internal static void WinIOError(string str)
         {
-            throw new EndOfStreamException(SR.IO_EOF_ReadBeyondEOF);
-        }
-
-        internal static String GetMessage(uint errorCode)
-        {
-#if true
-            StringBuilder sb = new StringBuilder(512);
-            int result = Win32Comm.FormatMessage(Win32Comm.FORMAT_MESSAGE_IGNORE_INSERTS |
-                Win32Comm.FORMAT_MESSAGE_FROM_SYSTEM | Win32Comm.FORMAT_MESSAGE_ARGUMENT_ARRAY,
-                IntPtr.Zero, (uint)errorCode, 0, sb, sb.Capacity, null);
-            if (result != 0)
-            {
-                // result is the # of characters copied to the StringBuilder on NT,
-                // but on Win9x, it appears to be the number of MBCS bytes.
-                // Just give up and return the String as-is...
-                String s = sb.ToString();
-                return s;
-            }
-            else
-#endif
-            {
-                return string.Format (SR.IO_UnknownError, errorCode);
-            }
-        }
-
-        internal static void FileNotOpen()
-        {
-            throw new ObjectDisposedException(null, SR.Port_not_open);
-        }
-
-        internal static void WrongAsyncResult()
-        {
-            throw new ArgumentException(SR.Arg_WrongAsyncResult);
-        }
-
-        internal static void EndReadCalledTwice()
-        {
-            // Should ideally be InvalidOperationExc but we can't maintain parity with Stream and SerialStream without some work
-            throw new ArgumentException(SR.InvalidOperation_EndReadCalledMultiple);
-        }
-
-        internal static void EndWriteCalledTwice()
-        {
-            // Should ideally be InvalidOperationExc but we can't maintain parity with Stream and SerialStream without some work
-            throw new ArgumentException(SR.InvalidOperation_EndWriteCalledMultiple);
+            var errorCode = (uint)Marshal.GetLastWin32Error();
+            WinIOError(errorCode, str);
         }
 
         internal static void WinIOError()
         {
             var errorCode = (uint)Marshal.GetLastWin32Error();
             WinIOError(errorCode, String.Empty);
-        }
-
-        internal static void WinIOError(string str)
-        {
-            var errorCode = (uint)Marshal.GetLastWin32Error();
-            WinIOError(errorCode, str);
         }
 
         // After calling GetLastWin32Error(), it clears the last error field,
@@ -112,6 +58,24 @@ namespace AndyB.Comms.Serial
                     throw new IOException(GetMessage(errorCode), MakeHRFromErrorCode(errorCode));
             }
         }
+        internal static string GetMessage(uint errorCode)
+        {
+            StringBuilder sb = new StringBuilder(512);
+            int result = Win32Comm.FormatMessage(Win32Comm.FORMAT_MESSAGE_IGNORE_INSERTS |
+                Win32Comm.FORMAT_MESSAGE_FROM_SYSTEM | Win32Comm.FORMAT_MESSAGE_ARGUMENT_ARRAY,
+                IntPtr.Zero, (uint)errorCode, 0, sb, sb.Capacity, null);
+            if (result != 0)
+            {
+                // result is the # of characters copied to the StringBuilder on NT,
+                // but on Win9x, it appears to be the number of MBCS bytes.
+                // Just give up and return the String as-is...
+                return sb.ToString();
+            }
+            else
+            {
+                return string.Format(SR.IO_UnknownError, errorCode);
+            }
+        }
 
         // Use this to translate error codes like the above into HRESULTs like
         // 0x80070006 for ERROR_INVALID_HANDLE
@@ -119,6 +83,5 @@ namespace AndyB.Comms.Serial
         {
             return (int)(0x80070000 | errorCode);
         }
-
     }
 }

@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "HV6bndHCeLwsyZiB1qIn1bJ6IZJUgUgYBBo4qyWF53or41lYiUm1Th16pCRu1QLf1hja5oTCxDEOWKkhksbf1g==",
+  "dgSpecHash": "bm5/YrTtXZFT8x+FtTIif3qPAXE6kLPqb/RqZp/PQK8NI4inNFKDqqBZlnV1HoVTHegvFlRfRBJmq4qhbZTstg==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\BaseTerm\\BaseTerm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyb\\.nuget\\packages\\andyb.commons\\5.1.1\\andyb.commons.5.1.1.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",

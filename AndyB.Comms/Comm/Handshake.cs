@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Standard handshake methods
 	/// </summary>
@@ -26,5 +27,5 @@ namespace AndyB.Comms.Comm
 		/// </summary>
 		DsrDtr
 	}
-
+#endif
 }

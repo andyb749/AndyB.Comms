@@ -89,11 +89,11 @@ namespace BaseTerm
 			FillASCII(comboBoxXoff);
 			FillASCII(comboBoxBRK);
 
-            this.comboBoxPort.Items.Clear();
+            comboBoxPort.Items.Clear();
             var ports = AndyB.Comms.Serial.SerialPort.GetPortNames();
             foreach (var port in ports)
             {
-                this.comboBoxPort.Items.Add(port.Value + ":");
+                this.comboBoxPort.Items.Add(port + ":");
             }
 		}
 

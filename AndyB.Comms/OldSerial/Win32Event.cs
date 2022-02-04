@@ -3,8 +3,9 @@ using System.Threading;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     using AndyB.Win32;
 
 
@@ -54,10 +55,10 @@ namespace AndyB.Comms.Serial
         public unsafe WinEvents Wait()
         {
             // Create an event and pass it to an overlap structure class
-            _waitEvent.Reset(); // FIXME: Do we need for an autoreset?
-
+            _waitEvent.Reset();
             var overlapped = new Overlapped(0, 0, _waitEvent.GetSafeWaitHandle().DangerousGetHandle(), null);
             var intOverlapped = overlapped.Pack(freeNativeOverlappedCallback, null);
+
             if (WaitCommEvent(_handle, _eventPointer, (IntPtr)intOverlapped) == false)
             {
                 var error = Marshal.GetLastWin32Error();
@@ -131,7 +132,7 @@ namespace AndyB.Comms.Serial
 
         internal const UInt32 ALL_EVENTS = 0x1ff;   // every else uses 0x1fb - no EV_TXEMPTY
 
-        #region Win32 Interop
+#region Win32 Interop
 
         // --- Comm Events ---
         // Constants for dwEvtMask:
@@ -155,7 +156,7 @@ namespace AndyB.Comms.Serial
         [DllImport("kernel32.dll", SetLastError = true)]
         private static extern Boolean WaitCommEvent(SafeFileHandle hFile, IntPtr lpEvtMask, IntPtr lpOverlapped);
 
-        #endregion
+#endregion
     }
 
     [Flags]
@@ -177,4 +178,5 @@ namespace AndyB.Comms.Serial
 
         Modem = Cts | Dsr | Rlsd | Ring
     }
+#endif
 }

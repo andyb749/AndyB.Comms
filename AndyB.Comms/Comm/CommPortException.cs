@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Exception used for all errors.
 	/// </summary>
@@ -21,5 +22,5 @@ namespace AndyB.Comms.Comm
 		/// <param name="e">Inner exception raised on receive thread</param>
 		public CommPortException(Exception e) : base("Receive Thread Exception", e) { }
 	}
-
+#endif
 }

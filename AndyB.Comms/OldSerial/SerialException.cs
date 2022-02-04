@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
 	/// <summary>
 	/// The exception that is thrown when a serial port error occurs. 
 	/// </summary>
@@ -17,4 +18,5 @@ namespace AndyB.Comms.Serial
 	public class SerialException : Win32Exception
     {
     }
+#endif
 }

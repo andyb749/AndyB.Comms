@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Represents the current condition of the port queues.
 	/// </summary>
@@ -132,5 +133,5 @@ namespace AndyB.Comms.Comm
 			return m.ToString();
 		}
 	}
-
+#endif
 }

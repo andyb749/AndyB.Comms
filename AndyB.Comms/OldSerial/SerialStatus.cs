@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     /// <summary>
     /// Class that indicates the status of a serial port.
     /// </summary>
@@ -120,4 +121,5 @@ namespace AndyB.Comms.Serial
         {
         }
     }
+#endif
 }

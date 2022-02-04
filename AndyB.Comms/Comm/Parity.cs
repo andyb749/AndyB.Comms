@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Parity settings
 	/// </summary>
@@ -30,4 +31,5 @@ namespace AndyB.Comms.Comm
 		/// </summary>
 		space = 4
 	};
+#endif
 }

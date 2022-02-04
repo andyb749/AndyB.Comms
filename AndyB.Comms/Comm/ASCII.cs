@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Byte type with enumeration constants for ASCII control codes.
 	/// </summary>
@@ -14,5 +15,5 @@ namespace AndyB.Comms.Comm
 		DC2 = 0x12, DC3 = 0x13, DC4 = 0x14, NAK = 0x15, SYN = 0x16, ETB = 0x17, CAN = 0x18, EM = 0x19,
 		SUB = 0x1A, ESC = 0x1B, FS = 0x1C, GS = 0x1D, RS = 0x1E, US = 0x1F, SP = 0x20, DEL = 0x7F
 	}
-
+#endif
 }

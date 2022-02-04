@@ -6,6 +6,7 @@ using System.IO;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Overlays CommBase to provide line or packet oriented communications to derived classes. ASCII strings
 	/// are sent and received and the Transact method is added which transmits a string and then blocks until
@@ -139,5 +140,5 @@ namespace AndyB.Comms.Comm
 			}
 		}
 	}
-
+#endif
 }

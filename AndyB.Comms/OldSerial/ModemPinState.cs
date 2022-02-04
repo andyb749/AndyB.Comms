@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     /// <summary>
     /// An enumeration of the modem pins.
     /// </summary>
@@ -30,4 +31,5 @@ namespace AndyB.Comms.Serial
         /// </summary>
         Rlsd = Win32Modem.MS_RLSD_ON
     }
+#endif
 }

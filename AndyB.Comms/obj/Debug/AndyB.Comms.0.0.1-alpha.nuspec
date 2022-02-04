@@ -9,7 +9,6 @@
     <dependencies>
       <group targetFramework=".NETStandard2.1">
         <dependency id="AndyB.Commons" version="5.1.1" exclude="Build,Analyzers" />
-        <dependency id="Microsoft.Extensions.Logging.Abstractions" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="Microsoft.Win32.Registry" version="5.0.0" exclude="Build,Analyzers" />
         <dependency id="NLog" version="4.7.12" exclude="Build,Analyzers" />
         <dependency id="System.Management" version="5.0.0" exclude="Build,Analyzers" />

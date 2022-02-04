@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     internal sealed class SerialPortAsyncResult : IAsyncResult
     {
+        internal ManualResetEvent WaitEvent { get; set; } = new ManualResetEvent(false);
+
         /// <summary>
         /// Gets/set the manual reset event.
         /// </summary>
-        internal ManualResetEvent WaitEvent { get; set; }
+        private ManualResetEvent AsyncWaitEvent { get; set; } = new ManualResetEvent(false);
 
-        #region IAsyncResult
+
+#region IAsyncResult
 
         /// <summary>
         /// Gets the user's state object
@@ -22,7 +26,7 @@ namespace AndyB.Comms.Serial
         /// <summary>
         /// Gets/sets the asynchronous wait handle
         /// </summary>
-        public WaitHandle AsyncWaitHandle { get => WaitEvent; }
+        public WaitHandle AsyncWaitHandle { get => AsyncWaitEvent; }
 
         /// <summary>
         /// Returns <c>true</c> if the user callback was called by the thread that
@@ -39,10 +43,10 @@ namespace AndyB.Comms.Serial
         /// </summary>
         public bool IsCompleted { get; internal set; }
 
-        #endregion
+#endregion
 
         /// <summary>
-        /// Gets/set the delegrate that will be called when the operation completes.
+        /// Gets/set the delegate that will be called when the operation completes.
         /// </summary>
         internal AsyncCallback UserCallback { get; set;}
 
@@ -50,7 +54,6 @@ namespace AndyB.Comms.Serial
         /// Gets/set the point to the native overlapped structure.
         /// </summary>
         unsafe internal NativeOverlapped* Overlapped { get; set; }
-//        internal Win32Overlap Overlapped { get; set; }
 
         /// <summary>
         /// Gets/sets if this asynchronous operation is a write.
@@ -67,4 +70,5 @@ namespace AndyB.Comms.Serial
         /// </summary>
         public uint NumBytes { get; internal set; }
     }
+#endif
 }

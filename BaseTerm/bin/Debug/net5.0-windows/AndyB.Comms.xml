@@ -612,153 +612,263 @@
             Status Functions.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Comm">
+        <member name="T:AndyB.Comms.Serial.Baudrate">
             <summary>
-            Windows Win32 API functions, structures etc.
+            Baud rate settings.
+            Supported Rates: 110, 300, 600, 1200, 2400, 4800, 9600
+            14400, 19200, 38400, 56000, 57600, 115200, 128000, 256000
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud110">
+            <summary>
+            Specifies a baud rate of 110
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud300">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Comm"/> object
-            with the supplied windows handle.
-            </summary>
-            <param name="handle">The comm port handle.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)">
-            <summary>
-            Read data from a comm object. 
-            </summary>
-            <param name="buf">Buffer into which data is read.</param>
-            <param name="nToRead">Number of bytes to read.</param>
-            <param name="nRead">Number of bytes actually read.</param>
-            <returns>True if executed successfully.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)">
-            <overloads>
-            <summary>
-            Write data to a comm object.
-            </summary>
-            <returns>True if executed successfully.</returns>
-            </overloads>
-            <param name="buf">Buffer to write from</param>
-            <param name="nToSend">Number to bytes to send.</param>
-            <param name="nSent">Number of actually bytes sent.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)">
-            <summary>
-            Opening Testing and Closing the Port Handle.
+            Specifies a baud rate of 300
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.WriteFile(Microsoft.Win32.SafeHandles.SafeFileHandle,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud600">
             <summary>
-            Reading and writing.
+            Specifies a baud rate of 600
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Comm.SetupComm(Microsoft.Win32.SafeHandles.SafeFileHandle,System.UInt32,System.UInt32)">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud1200">
             <summary>
-            Manipulating the communications settings.
+            Specifies a baud rate of 1200
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Comm.FORMAT_MESSAGE_ALLOCATE_BUFFER">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud2400">
             <summary>
-            Messages
+            Specifies a baud rate of 2400
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Handshake">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud4800">
             <summary>
-            Specifies the control protocol used in establishing a serial port communication
-            for a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
-            </summary>
-            <remarks>This enumeration is used with the <see cref="!:SerialPort.Handshake"/> property.</remarks>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Handshake.None">
-            <summary>
-            No control is used for the handshake.
+            Specifies a baud rate of 4800
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Handshake.XOnXOff">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud9600">
             <summary>
-            The XON/XOFF software control protocol is used. The XOFF control is sent to
-            stop the transmission of data. The XON control is sent to resume the 
-            transmission. These software controls are used instead of Request To Send
-            (RTS) and Clear To Send (CTS) hardware controls.
+            Specifies a baud rate of 9600
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Handshake.RequestToSend">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud14400">
             <summary>
-            Request to send (RTS) hardware control is used. RTS signals that data is available
-            for transmission.  If the input buffer becomes full, the RTS line will be set to
-            <c>false</c>. The RTS line will be set to <c>true</c> when more room becomes available
-            in the input buffer.
+            Specifies a baud rate of 14400
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Handshake.RequestToSendXOnXOff">
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud19200">
             <summary>
-            Both the Request To Send (RTS) hardware control and the XONXOFF software controls are used.
+            Specifies a baud rate of 19200
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud38400">
+            <summary>
+            Specifies a baud rate of 38400
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud56000">
+            <summary>
+            Specifies a baud rate of 56000
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud57600">
+            <summary>
+            Specifies a baud rate of 57600
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud115200">
+            <summary>
+            Specifies a baud rate of 115200
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud128000">
+            <summary>
+            Specifies a baud rate of 128000
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Baudrate.Baud256000">
+            <summary>
+            Specifies a baud rate of 256000
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.CommsException">
+            <summary>
+            The exception that is thrown when a serial port error occurs. 
+            </summary>
+            <remarks><para>A <see cref="T:AndyB.Comms.Serial.CommsException"/> is thrown by the <see cref="T:AndyB.Comms.Serial.SerialPort"/> classes when an error 
+            occurs with the port.</para>
+            <para>The inherited constructor for the <see cref="T:AndyB.Comms.Serial.CommsException"/> class sets the <see cref="P:System.Runtime.InteropServices.ExternalException.ErrorCode"/>
+            property to the last operating system serial port error that occurred. For more information about 
+            serial port error codes, see the Windows API error code documentation on MSDN.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.CommsException.#ctor">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.CommsException"/> class
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.CommsException.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.CommsException"/> class
+            with the supplied message
+            </summary>
+            <param name="message">The message</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.CommsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.CommsException"/> class
+            with the supplied message and inner exception
+            </summary>
+            <param name="message">The message</param>
+            <param name="inner">The inner exception</param>
+        </member>
+        <member name="T:AndyB.Comms.Serial.DataBits">
+            <summary>
+            Enumeration of the number of bits in the transmitted word (byte?).
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Five">
+            <summary>
+            Five bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Six">
+            <summary>
+            Six bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Seven">
+            <summary>
+            Seven bits per data byte.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.DataBits.Eight">
+            <summary>
+            Eight bits per data byte.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ModemPinEvent">
+            <summary>
+            Specifies the type of change that occurred on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+            <remarks><para>This enumeration is used with the <see cref="M:AndyB.Comms.Serial.SerialPort.ModemEvent(System.Action{AndyB.Comms.Serial.ModemPinState})"/> event.</para>
+            <para>A serial port pin changes state when it is asserted or unasserted.</para></remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.CtsChanged">
+            <summary>
+            The Clear To Send (CTS) pin changed state. This signal is used to indicate whether
+            data can be sent over the serial port.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.DsrChanged">
+            <summary>
+            The Data Set Ready (DSR) pin changed state. This signal is used to indicate whether
+            the device on the serial port is ready to operate.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.RlsdChanged">
+            <summary>
+            Received Line Signal Detect (RLSD) or Carrier Detect (CD) pin changed state. This pin
+            is used to indicate whether a modem is connected to a working phone line and a data carrier
+            signal is detected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.RingChanged">
+            <summary>
+            A ring indicator pin changed state.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ModemPinEvent.Break">
+            <summary>
+            A Break was detected on input.
             </summary>
         </member>
         <member name="T:AndyB.Comms.Serial.ModemPinState">
             <summary>
-            An enumeration of the modem pins.
+            Provides data for the <see cref="M:AndyB.Comms.Serial.SerialPort.ModemEvent(System.Action{AndyB.Comms.Serial.ModemPinState})"/> event.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.ModemPinState.Cts">
+        <member name="M:AndyB.Comms.Serial.ModemPinState.#ctor(AndyB.Comms.Serial.ModemPinEvent,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Clear to send.
+            Initialises a new <see cref="T:AndyB.Comms.Serial.ModemPinEvent"/> object with the
+            <see cref="T:AndyB.Comms.Serial.ModemPinEvent"/> event type.
+            </summary>
+            <param name="eventType">The event type that caused the exception.</param>
+            <param name="dsr">Status of DSR pin.</param>
+            <param name="ring">Status of RI pin.</param>
+            <param name="rlsd">Status of RLSD pin.</param>
+            <param name="cts">Status of RTS pin.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ModemPinState.EventType">
+            <summary>
+            Gets the event type.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.ModemPinState.Dsr">
+        <member name="P:AndyB.Comms.Serial.ModemPinState.Cts">
             <summary>
-            Data set ready.
+            Gets the state of CTS
+            </summary>
+            <remarks>This property contains the state of the CTS pin when the event occurred.</remarks>
+            <value><c>true</c> if the pin is asserted; otherwise <c>false</c>.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ModemPinState.Dsr">
+            <summary>
+            Gets the state of DSR
+            </summary>
+            <remarks>This property contains the state of the DSR pin when the event occurred.</remarks>
+            <value><c>true</c> if the pin is asserted; otherwise <c>false</c>.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ModemPinState.Rlsd">
+            <summary>
+            Gets the state of RLSD
+            </summary>
+            <remarks>This property contains the state of the RLSD pin when the event occurred.</remarks>
+            <value><c>true</c> if the pin is asserted; otherwise <c>false</c>.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.ModemPinState.Ring">
+            <summary>
+            Gets the state of RI
+            </summary>
+            <remarks>This property contains the state of the RI pin when the event occurred.</remarks>
+            <value><c>true</c> if the pin is asserted; otherwise <c>false</c>.</value>
+        </member>
+        <member name="T:AndyB.Comms.Serial.ParityBit">
+            <summary>
+            Enumeration of the available parity settings
+            </summary>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.ParityBit.None">
+            <summary>
+            Characters do not have a parity bit.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.ModemPinState.Ring">
+        <member name="F:AndyB.Comms.Serial.ParityBit.Odd">
             <summary>
-            Ring Indicator.
+            Set if there are an odd number of 1s in the character.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.ModemPinState.Rlsd">
+        <member name="F:AndyB.Comms.Serial.ParityBit.Even">
             <summary>
-            Receive line signal detect.
+            Set if there are an even number of 1s in the character.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Parity">
+        <member name="F:AndyB.Comms.Serial.ParityBit.Mark">
             <summary>
-            Specifies the parity bit for a <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
-            </summary>
-            <remarks><para>Use this enumeration when setting the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> for a
-            serial port connection.
-            </para>
-            <para>Parity is an error-checking procedure in which the number of 1s must always be
-            the same - either odd or even - for each group of bits that is transmitted without error.
-            In modem-to-modem communications, parity if often one of the parameters that must be
-            agreed upon by sending parties and receiving parties before transmission can take place.	
-            </para>
-            </remarks>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Parity.None">
-            <summary>
-            No parity bit check occurs.
+            The parity bit is always 1.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Parity.Odd">
+        <member name="F:AndyB.Comms.Serial.ParityBit.Space">
             <summary>
-            Sets the parity bit so that the count of bits set is odd.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Parity.Even">
-            <summary>
-            Sets the parity bit so that the count of bits set is even.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Parity.Mark">
-            <summary>
-            Leaves the parity bit set to 1.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Parity.Space">
-            <summary>
-            Leaves the parity bit set to 0.
+            The parity bit is always 0.
             </summary>
         </member>
         <member name="T:AndyB.Comms.Serial.PinStates">
@@ -788,520 +898,451 @@
             Pin (RTS only) is asserted when transmitting data.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.SerialErrors">
+        <member name="T:AndyB.Comms.Serial.SerialConfig">
             <summary>
-            An enumeration of the errors codes.
+            Class for the configuration of a serial port
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.RxOver">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.Name">
             <summary>
-            Receiver overrun.
+            Name of the serial port
+            </summary>
+            <remarks>This property is the name of the device as known by the operating system, e.g. 
+            COM1</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialConfig.BaudRate">
+            <summary>
+            Gets/sets the baudrate
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.Overrun">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.DataBits">
             <summary>
-            Received overrun.
+            Gets/sets the number of databits
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.RxParity">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.ParityBit">
             <summary>
-            Received parity error.
+            Gets/sets the parity bit
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.Frame">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.StopBits">
             <summary>
-            Framing error.
+            Gets/sets the stopbits
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.Break">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.DtrDsrHandshake">
             <summary>
-            Break condition detected.
+            Gets/sets the DTR/DSR handshake
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.SerialErrors.TxFull">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.RtsCtsHandshake">
             <summary>
-            Transmitter buffer full.
+            Gets/sets the RTS/CTS handshake
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.PinChangedEventArgs">
+        <member name="P:AndyB.Comms.Serial.SerialConfig.XonXoffHandshake">
             <summary>
-            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.
+            Gets/sets XON/XOFF handshake
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.PinChangedEventArgs.#ctor(AndyB.Comms.Serial.ModemPinState,AndyB.Comms.Serial.ModemPinState)">
+        <member name="T:AndyB.Comms.Serial.SerialError">
             <summary>
-            Initialises a new <see cref="T:AndyB.Comms.Serial.PinChangedEventArgs"/> object with the
-            specified values.
+            Specifies errors that occur on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
             </summary>
-            <param name="eventType">The event type that caused the exception.</param>
-            <param name="pinState">Status of the modem pins.</param>
+            <remarks>This enumeration can be useful when handling the <see cref="M:AndyB.Comms.Serial.SerialPort.ErrorEvent(System.Action{AndyB.Comms.Serial.SerialError})"/> event to 
+            detect and respond to errors when communicating data through a <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</remarks>
         </member>
-        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.EventType">
+        <member name="F:AndyB.Comms.Serial.SerialError.Frame">
             <summary>
-            Gets the event type.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.PinChangedEventArgs.PinState">
-            <summary>
-            Gets the state of the modem pins.
+            The hardware detected a framing error.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.DataReceivedEventArgs">
+        <member name="F:AndyB.Comms.Serial.SerialError.Overrun">
             <summary>
-            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event.
+            Either a character overrun in the UART was detected on the receive buffer was full.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.DataReceivedEventArgs.#ctor(System.Byte[])">
+        <member name="F:AndyB.Comms.Serial.SerialError.Parity">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.DataReceivedEventArgs"/> with the
-            supplied receive data.
-            </summary>
-            <param name="receiveBuffer">A buffer holding the received data.</param>
-        </member>
-        <member name="P:AndyB.Comms.Serial.DataReceivedEventArgs.ReceiveBuffer">
-            <summary>
-            Gets the receive buffer.
-            </summary>
-            <remarks>This property contains the received bytes from the serial port.</remarks>
-            <value>A <see cref="T:System.Byte"/> array containing the received data.</value>
-        </member>
-        <member name="T:AndyB.Comms.Serial.ErrorReceivedEventArgs">
-            <summary>
-            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event.
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.ErrorReceivedEventArgs.#ctor(AndyB.Comms.Serial.SerialErrors)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.ErrorReceivedEventArgs"/> with
-            the specified event type.
-            </summary>
-            <param name="eventType">The event type that caused this event.</param>
-        </member>
-        <member name="P:AndyB.Comms.Serial.ErrorReceivedEventArgs.EventType">
-            <summary>
-            Gets/sets the event type
-            </summary>
-            <remarks>This property contains information about the event type that caused the 
-            <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event.</remarks>
-            <value>One of the <see cref="T:AndyB.Comms.Serial.SerialErrors"/> values.</value>
-        </member>
-        <member name="T:AndyB.Comms.Serial.SerialException">
-            <summary>
-            The exception that is thrown when a serial port error occurs. 
-            </summary>
-            <remarks><para>A <see cref="T:AndyB.Comms.Serial.SerialException"/> is thrown by the <see cref="T:AndyB.Comms.Serial.SerialPort"/> classes when an error 
-            occurs with the port.</para>
-            <para>The inherited constructor for the <see cref="T:AndyB.Comms.Serial.SerialException"/> class sets the <see cref="P:System.Runtime.InteropServices.ExternalException.ErrorCode"/>
-            property to the last operating system serial port error that occurred. For more information about 
-            serial port error codes, see the Windows API error code documentation on MSDN.</para>
-            </remarks>
-        </member>
-        <member name="T:AndyB.Comms.Serial.SerialPinChange">
-            <summary>
-            Specifies the type of change that occurred on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
-            </summary>
-            <remarks><para>This enumeration is used with the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.
-            </para>
-            <para>A serial port pin changes state when it is asserted or unasserted.</para>
-            </remarks>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialPinChange.CtsChanged">
-            <summary>
-            The Clear to Send (CTS) signal changed state. This signal is used to indicate whether data
-            can be send over the serial port.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialPinChange.DsrChanged">
-            <summary>
-            The Data Set Ready (DSR) signal changed state. This signal is used to indicate whether the
-            device on the serial port is ready.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialPinChange.CDChanged">
-            <summary>
-            The Carrier Detect (CD) signal changed state. This signal is used to indicate whether a modem
-            is connected to a working phone line and data carrier signal.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialPinChange.Ring">
-            <summary>
-            A Ring Indicator (RI) was detected.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialPinChange.Break">
-            <summary>
-            A break was detected on input.
-            </summary>
-        </member>
-        <member name="T:AndyB.Comms.Serial.SerialPinChangedEventArgs">
-            <summary>
-            Provides data for the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.
-            </summary>
-            <remarks>This class is used with the <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event.</remarks>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPinChangedEventArgs.#ctor(AndyB.Comms.Serial.SerialPinChange)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPinChangedEventArgs"/>
-            with the supplied <see cref="T:AndyB.Comms.Serial.SerialPinChange"/> event
-            </summary>
-            <param name="eventCode"></param>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPinChangedEventArgs.EventType">
-            <summary>
-            Gets the serial pin event.
+            The hardware detected a parity error.
             </summary>
         </member>
         <member name="T:AndyB.Comms.Serial.SerialPort">
             <summary>
-            Represents a serial port resource
+            Implements a serial port object.
             </summary>
+            
+            <remarks><para>The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class provides a rich set of methods and properties for serial 
+            communications.</para>
+            
+            <para>If you perform multiple asynchronous operations on a <see cref="T:AndyB.Comms.Serial.SerialPort"/>, they do not 
+            necessarily complete in the order in which they are started.</para>
+            </remarks>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.BaudRate">
+        <member name="F:AndyB.Comms.Serial.SerialPort.InfiniteTimeout">
             <summary>
-            Gets or sets the serial baud rate.
+            Indicates that no time-out should occur.
             </summary>
-            <exception cref="T:System.ArgumentOutOfRangeException">The baud rate is less than or equal to zero,
-            or is greater than the maximum allowable rate for the device.</exception>
-            <exception cref="T:System.InvalidOperationException">The port is in an invalid state.</exception>
-            <exception cref="T:System.InvalidOperationException">An attempt to set the state of the underlying port
-            failed. For example, the parameters passed from the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object were
-            invalid.</exception>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.DataBits">
-            <summary>
-            Gets/sets the number of databits.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.Parity">
-            <summary>
-            Gets/sets the parity checking scheme.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.PortName">
-            <summary>
-            Gets/sets the port name.
-            </summary>
-            <exception cref="T:System.ArgumentNullException">Value cannot be <c>null</c> or empty.</exception>
-            <exception cref="T:System.ArgumentException">Value cannot start with '\\".</exception>
-            <exception cref="T:System.InvalidOperationException">Cannot change the port name whilst its open.</exception>
-            <value>A <see cref="T:System.String"/> that is a valid port name. (i.e. COM1, COM2)</value>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.StopBits">
-            <summary>
-            Gets/sets the number of stop bits.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.DtrControl">
-            <summary>
-            Gets/sets the control of the DTR handshake.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.RtsControl">
-            <summary>
-            Gets/sets the control of the RTS handshake.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.IsOpen">
-            <summary>
-            Gets a value indicating the open or closed status of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
-            </summary>
-            <value><c>true</c> if the serial port is open; otherwise <c>false</c>.</value>
-            <exception cref="T:System.ArgumentNullException">The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> passed is a <c>null</c> string.</exception>
-            <exception cref="T:System.ArgumentException">The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> passed is an empty string.</exception>
-            <remarks>The <see cref="P:AndyB.Comms.Serial.SerialPort.IsOpen"/> property tracks whether the port is open for use by the caller, not
-            whether the port is open by any application.</remarks>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.SetDtr">
-            <summary>
-            Sets the DTR pin of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.ClrDtr">
-            <summary>
-            Clears the DTR pin of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.SetRts">
-            <summary>
-            Sets the RTS pin of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.ClrRts">
-            <summary>
-            Clears the RTS pin of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.SetXon">
-            <summary>
-            Sets the XON state of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.SetXoff">
-            <summary>
-            Clears the XOFF state of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.SetBrk">
-            <summary>
-            Sets the break condition of this communications port.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.ModemPinState">
-            <summary>
-            Gets the state of the modem pins.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.ClrBrk">
-            <summary>
-            Clears the break condition of this communications port
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Port must be open.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.GetStatus">
-            <summary>
-            Gets the status of the serial port from the ClearError function.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.ComponentModel.IContainer)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class using the specified <see cref="T:System.ComponentModel.IContainer"/>
-            object.
-            </summary>
-            <param name="container">An interface to a <see cref="T:System.ComponentModel.IContainer"/>.</param>
-            <exception cref="T:System.IO.IOException">The specified port could not be found or opened.</exception>
-            <remarks>This constructor uses default property values when none are specified. For example, the <see cref="P:AndyB.Comms.Serial.SerialPort.DataBits"/>
-            property defaults to 8, the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> property defaults to <see cref="F:AndyB.Comms.Serial.Parity.None"/>, the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/>
-            property defaults to <see cref="F:AndyB.Comms.Serial.StopBits.One"/>, and a default port name of COM1.</remarks>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,System.Int32,AndyB.Comms.Serial.Parity,AndyB.Comms.Serial.StopBits)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class with the
-            specified baud rate, data bits, parity scheme and stop bits.
-            </summary>
-            <param name="portName">The port name.</param>
-            <param name="baudRate">The baud rate.</param>
-            <param name="dataBits">The number of data bits.</param>
-            <param name="parity">The parity checking scheme.</param>
-            <param name="stopBits">The number of stop bits.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,System.Int32,AndyB.Comms.Serial.Parity)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class
-            with the specified baud rate, data bits, parity scheme and one stop bit.
-            </summary>
-            <param name="portName">The port name.</param>
-            <param name="baudRate">The baud rate.</param>
-            <param name="dataBits">The number of data bits.</param>
-            <param name="parity">The parity checking scheme.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32,System.Int32)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class
-            with the specified baud rate and data bits, no parity and one stop bit.
-            </summary>
-            <param name="portName">The port name.</param>
-            <param name="baudRate">The baud rate.</param>
-            <param name="dataBits">The number of data bits.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,System.Int32)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class
-            with the specified baud rate, 8 data bits, no parity and one stop bit.
-            </summary>
-            <param name="portName">The port name.</param>
-            <param name="baudRate">The baud rate.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class
-            with the specified port name, 8 data bits, no parity and one stop bit.
-            </summary>
-            <param name="portName">The port name.</param>
+            <remarks>This value is used with the ReadTimeout and WriteTimeout properties.</remarks>
         </member>
         <member name="M:AndyB.Comms.Serial.SerialPort.#ctor">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class
-            with default values: 9600 baud, 8 data bits, no parity and one stop bit.
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class.
             </summary>
-            <remarks>This constructor uses default property values when none are specified. For example, the <see cref="P:AndyB.Comms.Serial.SerialPort.DataBits"/>
-            property defaults to 8, the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> property defaults to <see cref="F:AndyB.Comms.Serial.Parity.None"/>, the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/>
-            property defaults to <see cref="F:AndyB.Comms.Serial.StopBits.One"/>, and a default port name of COM1.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,AndyB.Comms.Serial.Baudrate)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+            <param name="baudRate">One of the <see cref="T:AndyB.Comms.Serial.Baudrate"/> enumeration values representing the baudrate
+            of the line.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,AndyB.Comms.Serial.Baudrate,AndyB.Comms.Serial.DataBits)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+            <param name="baudRate">One of the <see cref="T:AndyB.Comms.Serial.Baudrate"/> enumeration values representing the baudrate
+            of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,AndyB.Comms.Serial.Baudrate,AndyB.Comms.Serial.DataBits,AndyB.Comms.Serial.ParityBit)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+            <param name="baudRate">One of the <see cref="T:AndyB.Comms.Serial.Baudrate"/> enumeration values representing the baudrate
+            of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+            <param name="parity">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> enumeration values representing the
+            type of parity present.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(System.String,AndyB.Comms.Serial.Baudrate,AndyB.Comms.Serial.DataBits,AndyB.Comms.Serial.ParityBit,AndyB.Comms.Serial.StopBits)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> with the specified portname.
+            </summary>
+            <param name="portName">A <see cref="T:System.String"/> containing the comm port to use for subsequent
+            operations.</param>
+            <param name="baudRate">One of the <see cref="T:AndyB.Comms.Serial.Baudrate"/> enumeration values representing the baudrate
+            of the line.</param>
+            <param name="dataBits">One of the <see cref="T:AndyB.Comms.Serial.DataBits"/> enumeration values representing the number of
+            data bits.</param>
+            <param name="parity">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> enumeration values representing the
+            type of parity present.</param>
+            <param name="stopBits">One of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> enumeration values representing the
+            number of stop bits.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.#ctor(AndyB.Comms.Serial.SerialPortConfig)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> class with the specified configuration class.
+            </summary>
+            <param name="config">The serial port configuration object.</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.BaudRate">
+            <summary>
+            Gets/Sets the baud rate
+            </summary>
+            <value>One of the <see cref="T:AndyB.Comms.Serial.Baudrate"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Databits">
+            <summary>
+            Gets/Sets the word length of the UART
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Databits"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Parity">
+            <summary>
+            Gets/Sets the parity
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.StopBits">
+            <summary>
+            Gets/Sets the number of of stop bits
+            </summary>
+            <value>One of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> values.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.Settings">
+            <summary>
+            Gets the current port settings as a reference to a <see cref="T:AndyB.Comms.Serial.SerialSettings"/> object.
+            </summary>
+            <value>The current serial port setting as a <see cref="T:AndyB.Comms.Serial.SerialSettings"/>.</value>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.CtsState">
+            <summary>
+            Returns the status of the CTS pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.DsrState">
+            <summary>
+            Returns the status of the DSR pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RlsdState">
+            <summary>
+            Returns the status of the RLSD pin
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RingState">
+            <summary>
+            Returns the status of the ring indicator pin
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.ResetCounters">
+            <summary>
+            Resets the error counters.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.BreakCount">
+            <summary>
+            Gets the number of breaks that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of received breaks.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.FramingErrorCount">
+            <summary>
+            Gets the number of framing errors that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of framing errors.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.OverrunErrorCount">
+            <summary>
+            Gets the number of overruns that have occurred.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of received breaks.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.ParityErrorCount">
+            <summary>
+            Gets the number of parity errors that have been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of parity errors.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RingCount">
+            <summary>
+            Gets the number of rings that has been received.
+            </summary>
+            <value>An <see cref="T:System.Int32"/> containing the count of rings.</value>
+            <remarks>The count can be reset by called <see cref="M:AndyB.Comms.Serial.SerialPort.ResetCounters"/> method.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.PortName">
+            <summary>
+            Gets or sets the name of the com port, including but not limited to all available COM ports.
+            </summary>
+            <exception cref="T:System.ArgumentException"><para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a value with a length of zero.</para>
+            <para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a value that starts with "\\".</para>
+            <para>The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> was not not valid.</para></exception>
+            <exception cref="T:System.ArgumentNullException">The <see cref="P:AndyB.Comms.Serial.SerialPort.PortName"/> property was set to a null reference.</exception>
+            <exception cref="T:System.InvalidOperationException">The port is already open.</exception>
+            <remarks>The list of valid port names can be obtained using the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method.</remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Connect">
+            <summary>
+            Establishes a serial port connection.
+            </summary>
+            <returns><c>true if the port was opened; otherwise <c>false</c></c></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Disconnect">
+            <summary>
+            Closes the <see cref="T:AndyB.Comms.Serial.SerialPort"/> connection and releases all associated resources. 
+            </summary>
+            <remarks>The <see cref="M:AndyB.Comms.Serial.SerialPort.Disconnect"/> method closes the connection and releases all managed and 
+            unmanaged resources associated with the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. Upon closing, the 
+            <see cref="P:AndyB.Comms.Serial.SerialPort.IsConnected"/> property is set to <c>false</c>.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.IsConnected">
+            <summary>
+            Gets a value that indicates whether a <see cref="T:AndyB.Comms.Serial.SerialPort"/> is connected.
+            </summary>
+            <value><c>true</c> if the <see cref="T:AndyB.Comms.Serial.SerialPort"/> is connected; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Receives data from a <see cref="T:AndyB.Comms.Serial.SerialPort"/> into a receive buffer.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that is the storage location 
+            for the received data. </param>
+            <param name="offset">The offset in the buffer array to begin reading.</param>
+            <param name="size">The number of bytes to read.</param>
+            <returns>The number of bytes received.</returns>
+            <remarks><para>The <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method reads data into the <paramref name="buffer"/>
+            parameter and returns the number of bytes successfully read. </para>
+            <para>This overload only requires you to provide a receive buffer. The buffer offset defaults to 0, and
+            the size defaults to the length of the buffer parameter.</para>
+            <para>You must either call <see cref="M:AndyB.Comms.Serial.SerialPort.Connect"/> to establish a connection prior to calling 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/>. </para>
+            <para>If no data is available for reading, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will block until 
+            data is available, unless a time-out value was set by using <see cref="P:AndyB.Comms.Serial.SerialPort.RxTimeout"/>. 
+            If the time-out value was exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> call will throw a 
+            <see cref="T:AndyB.Comms.Serial.CommsException"/>. If you are in non-blocking mode, and there is no data 
+            available in the in the buffer, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will complete immediately 
+            and throw a <see cref="T:AndyB.Comms.Serial.CommsException"/>.</para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends data to a connected <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+            <param name="buffer">An array of type <see cref="T:System.Byte"/> that contains the data to be sent. </param>
+            <param name="offset">The offset in the buffer array to begin writing.</param>
+            <param name="size">The number of bytes to write.</param>
+            <returns>The number of bytes sent to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. </returns>
+            <remarks><para>Send synchronously sends data to the port and returns the number of bytes successfully 
+            sent. </para>
+            <para>This overload requires a buffer that contains the data you want to send. The buffer offset defaults to 0, 
+            and the number of bytes to send defaults to the size of the buffer.</para>
+            <para>You must call <see cref="M:AndyB.Comms.Serial.SerialPort.Connect"/> before calling this method, or <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> will 
+            throw a <see cref="T:AndyB.Comms.Serial.CommsException"/>.</para>
+            <para><see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> will block until all of the bytes in the buffer are sent, unless a time-out 
+            was set by using <see cref="P:AndyB.Comms.Serial.SerialPort.TxTimeout"/>. If the time-out value was exceeded, the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/>. A successful completion of the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method means that the underlying system has 
+            had room to buffer your data for a send. </para>
+            </remarks>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.SendExt(AndyB.Comms.Serial.Interop.ExtCodes)">
+            <summary>
+            Sends an extended function to the serial port.
+            </summary>
+            <param name="code">Extended function code.</param>
+            <returns><c>true</c> if function exectued successfully.</returns>
+            <remarks>Sends one of the set/reset commands to the underlying UART of the
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.  Use one of the <see cref="!:ExtCodes"/> enumeration
+            values for the required function.</remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RxTimeout">
+            <summary>
+            Gets or sets a value that specifies the amount of time after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/>
+            call will time out. 
+            </summary>
+            <value>The time-out value, in milliseconds. The default value is 0, which indicates an infinite 
+            time-out period.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Receive(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.Serial.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.TxTimeout">
+            <summary>
+            Gets or sets a value that specifies the amount of time after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/>
+            call will time out. 
+            </summary>
+            <value>The time-out value, in milliseconds. If you set the property with a value between 1 and 499,
+            the value will be changed to 100.  The default value is 0, which indicates an infinite 
+            time-out period.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.Serial.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RxIntervalTimout">
+            <summary>
+            Gets or sets a value that specifies the amount of time between second and
+            subsequent characters after which a synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> call will time out.
+            </summary>
+            <value>The time-out value, in milliseconds. The default value is 0, which indicates the property is
+            not used.</value>
+            <remarks>This option applies to synchronous <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> calls only. If the time-out period 
+            is exceeded, the <see cref="M:AndyB.Comms.Serial.SerialPort.Send(System.Byte[],System.Int32,System.Int32)"/> method will throw a <see cref="T:AndyB.Comms.Serial.CommsException"/>.
+            </remarks>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.DtrDsrFlowControl">
+            <summary>
+            Enables or disables DTR/DSR flow control
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.RtsCtsFlowControl">
+            <summary>
+            Enables or disables RTS/CTS flow control
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XoffCharacter">
+            <summary>
+            Gets/Sets the XOFF character
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XonCharacter">
+            <summary>
+            Gets/Sets the XON character
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.XonXoffFlowControl">
+            <summary>
+            Enables or disables xon/xoff flow control
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.RxFlush">
+            <summary>
+            Empties the receive queue
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.TxFlush">
+            <summary>
+            Empties the transmit queue
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.UpdateDCB">
+            <summary>
+            Updates the device control block, but only if connected. If not
+            connected we can wait until open is called
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Dispose">
+            <summary>
+            Releases the managed resources used by the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
+            </summary>
+            <remarks><para>Call <see cref="M:System.IDisposable.Dispose"/> when you are finished using the 
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/>. The <see cref="M:System.IDisposable.Dispose"/> method leaves the 
+            <see cref="T:AndyB.Comms.Serial.SerialPort"/> in an unusable state. After calling <see cref="M:System.IDisposable.Dispose"/>, 
+            you must release all references to the <see cref="T:AndyB.Comms.Serial.SerialPort"/> so the garbage collector can 
+            reclaim the memory that the <see cref="T:AndyB.Comms.Serial.SerialPort"/> was occupying. For more information, see 
+            Cleaning Up Unmanaged Resources and Implementing a Dispose Method.</para>
+            <para>Note: Always call <see cref="M:System.IDisposable.Dispose"/> before you release your last 
+            reference to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>. Otherwise, the resources it is using will not be freed 
+            until the garbage collector calls the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object's <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> method.</para>
+            </remarks>
         </member>
         <member name="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)">
-            <inheritdoc/>
+            <summary>
+            Releases the managed resources used by the <see cref="T:AndyB.Comms.Serial.SerialPort"/>, and optionally disposes of the
+            managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; 
+            <c>false</c> to releases only unmanaged resources.</param>
+            <remarks><para>This method is called by the public <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> method and the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> method. <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> invokes the protected 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)"/> method with the disposing parameter set to <c>true</c>.
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Finalize"/> invokes <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose(System.Boolean)"/> with disposing set to <c>false</c>.</para>
+            <para>When the disposing parameter is <c>true</c>, this method releases all resources held by any 
+            managed objects that this <see cref="T:AndyB.Comms.Serial.SerialPort"/> references. This method invokes the 
+            <see cref="M:AndyB.Comms.Serial.SerialPort.Dispose"/> method of each referenced object.</para>
+            </remarks>
         </member>
         <member name="M:AndyB.Comms.Serial.SerialPort.Finalize">
             <summary>
-            Finaliser / Destructor
+            Use C# destructor syntax for finalization code.
+            This destructor will run only if the Dispose method 
+            does not get called.
+            It gives your base class the opportunity to finalize.
+            Do not provide destructors in types derived from this class.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.Open">
+        <member name="M:AndyB.Comms.Serial.SerialPort.ReceiveThread(System.Threading.CancellationToken)">
             <summary>
-            Opens a new serial port connection.
-            </summary>
-            <exception cref="T:System.UnauthorizedAccessException">Access is denied to the port.</exception>
-            <exception cref="T:System.UnauthorizedAccessException">The current process, or another process on this system already
-            has the specified COM port open either by a <see cref="T:AndyB.Comms.Serial.SerialPort"/> instance or in
-            unmanaged code.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">One or more properties for this instance are invalid. For
-            example, the <see cref="P:AndyB.Comms.Serial.SerialPort.Parity"/>, <see cref="P:AndyB.Comms.Serial.SerialPort.DataBits"/>, or <see cref="T:AndyB.Comms.Serial.Handshake"/> properties are
-            not valid values; the <see cref="P:AndyB.Comms.Serial.SerialPort.BaudRate"/> is less than or equal to zero; the <see cref="!:ReadTimeout"/> or
-            <see cref="!:WriteTimeout"/> property is less than zero and is not <see cref="!:InfiniteTimeout"/>.</exception>
-            <exception cref="T:System.ArgumentException">The port name does not begin with "COM".</exception>
-            <exception cref="T:System.ArgumentException">The file type of the port is not supported.</exception>
-            <exception cref="T:System.IO.IOException">The port is in an invalid state.</exception>
-            <exception cref="T:System.IO.IOException">An attempt to set the state of the underlying port failed. For example,
-            the parameters passed from this <see cref="T:AndyB.Comms.Serial.SerialPort"/> object were invalid.</exception>
-            <remarks><para>
-            Only one open connection can exist per <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.</para>
-            <para>The best practice for any application is to wait for some amount of time after calling the <see cref="M:AndyB.Comms.Serial.SerialPort.Close"/>
-            method before attempting to call the <see cref="M:AndyB.Comms.Serial.SerialPort.Open"/> method, as the port may not be closed instantly.</para></remarks>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.Close">
-            <summary>
-            Disconnects the serial port resource
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.Write(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes the supplied bytes to the serial port.
-            </summary>
-            <param name="bytes">The array of bytes to send.</param>
-            <param name="offset">The offset in the byte aray at which to start writing.</param>
-            <param name="count">The number of bytes to write.</param>
-            <returns><c>true</c> if successful; <c>false</c> otherwise.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)">
-            <summary>
-            Begins an asynchronous write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.
-            </summary>
-            <param name="bytes">An array of type <see cref="T:System.Byte"/> that contains the data
-            to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</param>
-            <param name="offset">The location in the buffer to being sending the data.</param>
-            <param name="count">The number of bytes to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/></param>
-            <param name="callback">The <see cref="T:System.AsyncCallback"/> delegate that is
-            executed when <see cref="M:AndyB.Comms.Serial.SerialPort.BeginWrite(System.Byte[],System.Int32,System.Int32,System.AsyncCallback,System.Object)"/> completes.</param>
-            <param name="state">An object that contains any additional user-defined data.</param>
-            <returns>An <see cref="T:System.IAsyncResult"/> that represents the synchronous call.</returns>
-            <exception cref="T:System.ArgumentNullException">The <paramref name="bytes"/> parameter is <c>null</c>.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="offset"/> parameter is less than 0.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="offset"/> parameter is greater then the length of <paramref name="bytes"/>.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="count"/> parameter is less is 0.</exception>
-            <exception cref="T:System.ArgumentOutOfRangeException">The <paramref name="count"/> parameter is greater than the length of
-            <paramref name="bytes"/> minus the value of <paramref name="offset"/>.</exception>
-            <exception cref="T:System.InvalidOperationException">The <see cref="T:AndyB.Comms.Serial.SerialPort"/> is closed.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EndWrite(System.IAsyncResult)">
-            <summary>
-            Handles the end of an asynchronous write.
-            </summary>
-            <param name="ia">The <see cref="T:System.IAsyncResult"/> that represents the asynchronous call.</param>
-            <exception cref="T:System.ArgumentException">The <paramref name="ia"/> parameter is <c>null</c>.</exception>
-            <exception cref="T:System.InvalidOperationException">The <see cref="T:AndyB.Comms.Serial.SerialPort"/> is closed.</exception>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.WriteAsync(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes data to the <see cref="T:AndyB.Comms.Serial.SerialPort"/> from the specified range
-            of a <see cref="T:System.Byte"/> array as an asynchronous operation.
-            </summary>
-            <param name="buffer">A <see cref="T:System.Byte"/> array that contains the data to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</param>
-            <param name="offset">The location in <paramref name="buffer"/> from which to start writing data.</param>
-            <param name="count">The number of bytes in <paramref name="buffer"/> to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</param>
-            <returns>A task that represents the asynchronous write operation.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.WriteAsync2(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Writes data to the <see cref="T:AndyB.Comms.Serial.SerialPort"/> from the specified range
-            of a <see cref="T:System.Byte"/> array as an asynchronous operation.
-            </summary>
-            <param name="buffer">A <see cref="T:System.Byte"/> array that contains the data to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</param>
-            <param name="offset">The location in <paramref name="buffer"/> from which to start writing data.</param>
-            <param name="count">The number of bytes in <paramref name="buffer"/> to write to the <see cref="T:AndyB.Comms.Serial.SerialPort"/>.</param>
-            <returns>A task that represents the asynchronous write operation.</returns>
-        </member>
-        <member name="E:AndyB.Comms.Serial.SerialPort.PinChanged">
-            <summary>
-            The delegate that will be called when a modem pin change event is raised.
-            </summary>
-            <remarks><para>Serial pin changed events can be caused by any of the items in the 
-            <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> enumeration. Because the operating system determines whether to raise 
-            this event or not, not all events may be reported. As part of the event, the new value of the pin is 
-            set.</para>
-            <para>The <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event is raised when a <see cref="!:SerialDevice"/> object enters the 
-            BreakState, but not when the port exits the BreakState. This behaviour does not apply to other values 
-            in the <see cref="!:ModemPinEvent"/> enumeration.</para>
-            <para><see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/>, <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/>, and <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> events 
-            may be called out of order, and there may be a slight delay between when the underlying stream reports 
-            the error and when the event handler is executed. Only one event handler can execute at a time.</para>
-            <para>The <see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/> event is raised on a secondary thread.</para>
-            <para>For more information about handling events, see Consuming Events.</para>
-            </remarks>
-        </member>
-        <member name="E:AndyB.Comms.Serial.SerialPort.DataReceived">
-            <summary>
-            The delegate that will be called when data is received from the device.
-            </summary>
-            <remarks><para>Serial received events are caused by data being received on the serial port.</para>
-            <para><see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/>, <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/>, and <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> events 
-            may be called out of order, and there may be a slight delay between when the underlying stream reports 
-            the error and when the event handler is executed. Only one event handler can execute at a time.</para>
-            <para>The <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event is raised on a secondary thread.</para>
-            <para>For more information about handling events, see Consuming Events.</para>
-            </remarks>
-        </member>
-        <member name="E:AndyB.Comms.Serial.SerialPort.ErrorReceived">
-            <summary>
-            The delegate that will be called when an receive error condition is detected.
-            </summary>
-            <remarks><para>Error events can be caused by any of the items in the 
-            <see cref="!:SerialError"/> enumeration. Because the operating system determines whether to raise 
-            this event or not, not all events may be reported.</para>
-            <para><see cref="E:AndyB.Comms.Serial.SerialPort.PinChanged"/>, <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/>, and <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> events 
-            may be called out of order, and there may be a slight delay between when the underlying stream reports 
-            the error and when the event handler is executed. Only one event handler can execute at a time.</para>
-            <para>The <see cref="E:AndyB.Comms.Serial.SerialPort.ErrorReceived"/> event is raised on a secondary thread.</para>
-            <para>For more information about handling events, see Consuming Events.</para>
-            </remarks>
-        </member>
-        <member name="E:AndyB.Comms.Serial.SerialPort.TransmitCompleted">
-            <summary>
-            The delegate that will be called when transmission is completed.
-            </summary>
-            <remarks><para>Transmit complete events are caused by the UART transmit buffer going empty.</para>
-            <para>The <see cref="E:AndyB.Comms.Serial.SerialPort.TransmitCompleted"/> event is raised on a secondary thread.</para>
-            <para>For more information about handling events, see Consuming Events.</para>
-            </remarks>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.OnPinChanged(AndyB.Comms.Serial.ModemPinState)">
-            <summary>
-            Method that will be called when one of the modem pins change.
-            </summary>
-            <param name="modem">The modem pin event that caused this event.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.OnDataReceived(System.Byte[])">
-            <summary>
-            Method that will be called when data is received by the device.
-            </summary>
-            <param name="buffer">A buffer containing the received data.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.OnErrorReceived(AndyB.Comms.Serial.SerialErrors)">
-            <summary>
-            Method that will be called when error is received by the device.
-            </summary>
-            <param name="error">One of the <see cref="!:SerialError"/> enumeration values.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.OnTransmitComplete">
-            <summary>
-            Method that will be called when the UART transmit buffer becomes empty.
+            Background thread procedure.
             </summary>
         </member>
         <member name="M:AndyB.Comms.Serial.SerialPort.GetPortNames">
@@ -1309,168 +1350,114 @@
             Gets an array of serial port names for the current computer.
             </summary>
             <returns>An array of serial port names for the current computer.</returns>
-            <exception cref="T:System.ComponentModel.Win32Exception">The serial port names could not be queried.</exception>
-            <remarks><para>The order of port names returned from <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> is not specified.
-            </para>
-            <para>Use the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method to query the current computer for a list of valid serial
-            port names. For example, you can use this method to determine whether COM1 and COM2 are valid serial
-            ports for the current computer.</para>
-            <para>The port names are obtained from the system registry (for example), HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\SERIALCOMM).
-            If the registry contains stale or otherwise incorrect data then the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method will return
-            incorrect data.</para>
+            <remarks><para>The order of port names returned from <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> is not specified.</para>
+            <para>Use the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method to query the current computer for a list of 
+            valid serial port names. For example, you can use this method to determine whether COM1 and COM2 
+            are valid serial ports for the current computer.</para>
+            <para>In Windows 98 environments, the port names are obtained from the system registry 
+            (HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\SERIALCOMM). If the registry contains stale or otherwise 
+            incorrect data then the <see cref="M:AndyB.Comms.Serial.SerialPort.GetPortNames"/> method will return incorrect data.</para>
             </remarks>
         </member>
-        <member name="T:AndyB.Comms.Serial.SerialPort.EventThreadRunner">
+        <member name="M:AndyB.Comms.Serial.SerialPort.TxEmpty(System.Action)">
             <summary>
-            Private class to handle the event loop
+            Sets the action delegate to be called on transmitter empty
+            </summary>
+            <param name="callback">The transmitter empty action delegate</param>
+            <returns>A reference to this object to enable method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.RxBytes(System.Action{System.Byte[]})">
+            <summary>
+            Sets the action delegate to be called on received bytes
+            </summary>
+            <param name="callback">The received bytes action delegate</param>
+            <returns>A reference to this object to enable method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.ModemEvent(System.Action{AndyB.Comms.Serial.ModemPinState})">
+            <summary>
+            Sets the action delegate to be called on modem pin changed event
+            </summary>
+            <param name="callback">The model pin changed event action delegate</param>
+            <returns>A reference to this object to enable method chaining</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.ErrorEvent(System.Action{AndyB.Comms.Serial.SerialError})">
+            <summary>
+            Sets the action delegate to be called on received error events
+            </summary>
+            <param name="callback">The received error event action delegate</param>
+            <returns>A reference to this object to enable method chaining</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialPort.IsTxReady">
+            <inheritdoc/>
+        </member>
+        <member name="M:AndyB.Comms.Serial.SerialPort.Write(System.Byte[],System.Int32,System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AndyB.Comms.Serial.SerialPortConfig">
+            <summary>
+            Object to encapsulate a serial port configuration.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialPort.EventThreadRunner.Shutdown">
+        <member name="P:AndyB.Comms.Serial.SerialPortConfig.Name">
             <summary>
-            Set to cause the loop to stop
+            Gets/set the port name.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EventThreadRunner.#ctor(AndyB.Comms.Serial.SerialPort)">
+        <member name="P:AndyB.Comms.Serial.SerialPortConfig.Baudrate">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialPort.EventThreadRunner"/> object
-            for the supplied <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
-            </summary>
-            <param name="port"></param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EventThreadRunner.WaitForEvents(System.Threading.CancellationToken)">
-            <summary>
-            Wait for comm events.  This will block
+            Gets/sets the baud rate.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EventThreadRunner.Stop">
+        <member name="P:AndyB.Comms.Serial.SerialPortConfig.DataBits">
             <summary>
-            Stops the event runner thread
+            Gets/sets the number of data bits.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EventThreadRunner.OnError(AndyB.Comms.Serial.SerialErrors)">
+        <member name="P:AndyB.Comms.Serial.SerialPortConfig.Parity">
             <summary>
-            Handles an error event
-            </summary>
-            <param name="error">The status received from ClearError.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialPort.EventThreadRunner.OnPinChanged(AndyB.Comms.Serial.WinEvents)">
-            <summary>
-            Handles an modem pin change event.
-            </summary>
-            <param name="evt">The modem pin event.</param>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.WaitEvent">
-            <summary>
-            Gets/set the manual reset event.
+            Gets/sets the parity bit.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.AsyncState">
+        <member name="P:AndyB.Comms.Serial.SerialPortConfig.StopBits">
             <summary>
-            Gets the user's state object
+            Gets/sets the stop bits.
             </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.AsyncWaitHandle">
-            <summary>
-            Gets/sets the asynchronous wait handle
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.CompletedSynchronously">
-            <summary>
-            Returns <c>true</c> if the user callback was called by the thread that
-            called BeginRead or BeginWrite.  If we use an async delegate or
-            threadpool thread internally, this will be <c>false</c>.  This is
-            used by code to determine whether a successive call to BeginRead needs
-            to be done on their main thread or in their callback to avoid a
-            stack overflow on many reads or writes.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.IsCompleted">
-            <summary>
-            Gets/set if the asynchronous operation has completed.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.UserCallback">
-            <summary>
-            Gets/set the delegrate that will be called when the operation completes.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.Overlapped">
-            <summary>
-            Gets/set the point to the native overlapped structure.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.IsWrite">
-            <summary>
-            Gets/sets if this asynchronous operation is a write.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.ErrorCode">
-            <summary>
-            Gets/sets the windows error code
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialPortAsyncResult.NumBytes">
-            <summary>
-            Gets/sets the number of bytes transferred.
-            </summary>
-        </member>
-        <member name="T:AndyB.Comms.Serial.SerialData">
-            <summary>
-            Specifies the type of character that was received on the <see cref="T:AndyB.Comms.Serial.SerialPort"/>
-            object.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialData.Chars">
-            <summary>
-            A character was received and placed in the input buffer.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.SerialData.Eof">
-            <summary>
-            The end of file character was received and placed in the input buffer.
-            </summary>
-        </member>
-        <member name="T:AndyB.Comms.Serial.SerialDataReceivedEventArgs">
-            <summary>
-            Prepares data for the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialDataReceivedEventArgs.EventType">
-            <summary>
-            Gets or sets the event type.
-            </summary>
-            <value>One of the <see cref="T:AndyB.Comms.Serial.SerialData"/> items.</value>
-            <remarks>This property provides information about the event type that
-            caused the <see cref="E:AndyB.Comms.Serial.SerialPort.DataReceived"/> event.</remarks>
         </member>
         <member name="T:AndyB.Comms.Serial.SerialSettings">
             <summary>
             A class of settings used with the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialSettings.PortName">
-            <summary>
-            Gets/Sets the port name.
-            </summary>
-        </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.Baudrate">
             <summary>
-            Gets/Sets the baudrate of the <see cref="!:SerialDevice"/> object.
+            Gets/Sets the baudrate of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
             </summary>
         </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.DataBits">
             <summary>
-            Gets/Sets the number of databits of the <see cref="!:SerialDevice"/> object.
+            Gets/Sets the numnber of databits of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
             </summary>
         </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.Parity">
             <summary>
-            Gets/Sets the parity setting of the <see cref="!:SerialDevice"/> object.
+            Gets/Sets the parity setting of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
             </summary>
         </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.StopBits">
             <summary>
             Gets/Sets the stopbits of the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowCts">
+            <summary>
+            Get/Set CTS(in)/RTS(out) hardware flow control. If true, transmission 
+            is halted unless CTS is asserted by the remote station (default: false)
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowDsr">
+            <summary>
+            Get/Set DSR(in)/DTR(out) hardware flow control. If true, transmission 
+            is halted unless DSR is asserted by the remote station (default: false)
             </summary>
         </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.DtrControl">
@@ -1480,331 +1467,878 @@
         </member>
         <member name="P:AndyB.Comms.Serial.SerialSettings.RtsControl">
             <summary>
-            Gets/Set the RTS flow control model (default: Disable)
+            Get/Set the RTS flow control mode (default: Disable)
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.SerialStatus">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.RxDsrSense">
             <summary>
-            Class that indicates the status of a serial port.
+            Get/Set the DSR sensitivity flag. If true, received characters are ignored 
+            unless DSR is asserted by the remote station (default: false)
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.CtsHold">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxContinue">
             <summary>
-            Gets the status of CTS holding.
+            Get/Set the TX continue flag. If false, transmission is suspended when this 
+            station has sent Xoff to the remote station. If false, the remote station
+            treats any character as an Xon.(default: true)
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.DsrHold">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.TxFlowXoff">
             <summary>
-            Gets the status of DSR holding.
+            Get/Set the transmitter software flow control flag.(default: false)
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.RlsdHold">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.RxFlowXoff">
             <summary>
-            Gets the status of RLSD holding.
+            Gets/Set the received software flow control flag (default: false)
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.XoffHold">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.XonChar">
             <summary>
-            Gets the status of XOFF holding.
+            Get/Set the XON flow control character.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.XoffSent">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.XoffChar">
             <summary>
-            Gets the status of XOFF send flag.
+            Get/Set the XOFF flow control character.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.Eof">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.ErrorChar">
             <summary>
-            Gets the status of EOF flag.
+            Get/Set the error character.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.TxIm">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.EofChar">
             <summary>
-            Gets the status of TX Immediate flag.
+            Get/Set the end-of-file character.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.InQueue">
+        <member name="P:AndyB.Comms.Serial.SerialSettings.EventChar">
             <summary>
-            Gets the number of bytes in the receive queue.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.OutQueue">
-            <summary>
-            Gets the number of bytes in the transmit queue.
-            </summary>
-            <remarks>This value will always be zero for a non-overlapped write.</remarks>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.Break">
-            <summary>
-            Received break condition.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.Frame">
-            <summary>
-            Framing error on receive.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.Overrun">
-            <summary>
-            Received character buffer overrun.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.RxOver">
-            <summary>
-            Input buffer overrun.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.RxParity">
-            <summary>
-            Received parity error detected.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.SerialStatus.TxFull">
-            <summary>
-            Transmit buffer full.
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialStatus.#ctor">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialStatus"/> object.
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.SerialStatus.#ctor(AndyB.Comms.Serial.SerialErrors,AndyB.Comms.Serial.Win32Status.COMMSTAT)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.SerialStatus"/> object
+            Get/Set the event signalling character.
             </summary>
         </member>
         <member name="T:AndyB.Comms.Serial.StopBits">
             <summary>
-            Specifies the number of bits used on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object.
+            Enumeration of the available stop bits
             </summary>
-            <remarks><para>You use this enumeration when setting the value of the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/>
-            property on the <see cref="T:AndyB.Comms.Serial.SerialPort"/> object. Stop bits separate each unit of data transmission
-            on an asynchronous serial connection. They are also send continuously when no data is available
-            for transmission.
-            </para>
-            <para>The <see cref="T:AndyB.Comms.Serial.SerialPort"/> class throws an <see cref="T:System.ArgumentOutOfRangeException"/>
-            exception when you set the <see cref="P:AndyB.Comms.Serial.SerialPort.StopBits"/> property to <see cref="!:None"/>.</para>
-            </remarks>
+            <remarks>Do not re-arrange or change these values, as they have to match
+            the values used by the Win32 API</remarks>
         </member>
         <member name="F:AndyB.Comms.Serial.StopBits.One">
             <summary>
-            One stop bit is used.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.StopBits.Two">
-            <summary>
-            Two stop bits are used.
+            Line is asserted for 1 bit duration at end of each character
             </summary>
         </member>
         <member name="F:AndyB.Comms.Serial.StopBits.OnePointFive">
             <summary>
-            1.5 stop bits are used.
+            Line is asserted for 1.5 bit duration at end of each character
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Dcb">
+        <member name="F:AndyB.Comms.Serial.StopBits.Two">
             <summary>
-            Wrapper for port DCB methods
+            Line is asserted for 2 bit duration at end of each character
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Dcb.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Comm">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Dcb"/> with the supplied
-            comm port handle.
+            Base com port class. Contains methods for the most basic
+            operations - i.e. opening, closing, reading, writing
             </summary>
-            <param name="handle">The comm port handle.</param>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Dcb.Dispose">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Comm.PURGE_TXABORT">
             <summary>
-            Disposes of this comm port instance.
+            Terminates all outstanding overlapped write operations and returns 
+            immediately, even if the write operations have not been completed.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Dcb.Initialise(AndyB.Comms.Serial.SerialSettings)">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Comm.PURGE_RXABORT">
             <summary>
-            Initialises the DCB structure ready for use.
+            Terminates all outstanding overlapped read operations and returns 
+            immediately, even if the read operations have not been completed.
             </summary>
-            <param name="settings">A <see cref="T:AndyB.Comms.Serial.SerialSettings"/> object to
-            initialise the DCB from.</param>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Escape">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Comm.PURGE_TXCLEAR">
+            <summary>
+            Clears the output buffer (if the device driver has one).
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Comm.PURGE_RXCLEAR">
+            <summary>
+            Clears the input buffer (if the device driver has one).
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.CreateFile(System.String,System.UInt32,System.UInt32,System.IntPtr,System.UInt32,System.UInt32,System.IntPtr)">
+            <summary>
+            The CreateFile function creates or opens any of the following 
+            objects and returns a handle that can be used to access the object: 
+            Consoles, Communications resources, Directories (open only), 
+            Disk devices, Files, Mailslots, Pipes 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.CloseHandle(System.IntPtr)">
+            <summary>
+            The CloseHandle function closes an open object handle.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)">
+            <summary>
+            The ReadFile function reads data from a file, starting at the 
+            position indicated by the file pointer. After the read operation 
+            has been completed, the file pointer is adjusted by the number 
+            of bytes actually read, unless the file handle is created with the 
+            overlapped attribute. If the file handle is created for overlapped 
+            input and output (I/O), the application must adjust the position of 
+            the file pointer after the read operation. 
+            This function is designed for both synchronous and asynchronous 
+            operation. The ReadFileEx function is designed solely for asynchronous 
+            operation. It lets an application perform other processing during a 
+            file read operation.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.WriteFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)">
+            <summary>
+            The WriteFile function writes data to a file and is designed for both 
+            synchronous and asynchronous operation. The function starts writing data 
+            to the file at the position indicated by the file pointer. After the write 
+            operation has been completed, the file pointer is adjusted by the number of 
+            bytes actually written, except when the file is opened with FILE_FLAG_OVERLAPPED. 
+            If the file handle was created for overlapped input and output (I/O), the 
+            application must adjust the position of the file pointer after the write 
+            operation is finished. 
+            This function is designed for both synchronous and asynchronous operation. 
+            The WriteFileEx function is designed solely for asynchronous operation. 
+            It lets an application perform other processing during a file write operation.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.CancelIo(System.IntPtr)">
+            <summary>
+            The CancelIo function cancels all pending input and output 
+            (I/O) operations that were issued by the calling thread for 
+            the specified file handle. The function does not cancel I/O 
+            operations issued for the file handle by other threads. 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.PurgeComm(System.IntPtr,System.UInt32)">
+            <summary>
+            The PurgeComm function discards all characters from the output or input 
+            buffer of a specified communications resource. It can also terminate any 
+            pending read or write operations on the resource. 
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.TransmitCommChar(System.IntPtr,System.Byte)">
+            <summary>
+            The TransmitCommChar function transmits a specified character ahead of 
+            any pending data in the output buffer of the specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.GetLastError">
+            <summary>
+            Gets the last error from 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Comm._handle">
+            <summary>
+            Com device handle.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Open(System.String)">
+            <summary>
+            Create and open a comm file object.
+            </summary>
+            <param name="portName">Device name - i.e. "COM1".</param>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Close">
+            <summary>
+            Closes an open object handle.
+            </summary>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)">
+            <summary>
+            Read data from a comm object. 
+            </summary>
+            <param name="buf">Buffer into which data is read.</param>
+            <param name="nToRead">Number of bytes to read.</param>
+            <param name="nRead">Number of byutes actually read.</param>
+            <returns>True if executed successfully.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)">
+            <overloads>
+            <summary>
+            Write data to a comm object.
+            </summary>
+            <returns>True if executed successfully.</returns>
+            </overloads>
+            <param name="buf">Buffer to write from</param>
+            <param name="nToSend">Number to buyes to send.</param>
+            <param name="nSent">Number of actually bytes sent.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Write(System.String,System.UInt32@)">
+            <inheritdoc/>
+            <param name="buf">Buffer to write from</param>
+            <param name="nSent">Number of actually bytes sent.</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Flush">
+            <summary>
+            Discards all characters from the comm objects I/O buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.FlushRx">
+            <summary>
+            Discards all characters from the comm objects receive buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.FlushTx">
+            <summary>
+            Discards all characters from the comm objects transmit buffers.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Comm.Cancel">
+            <summary>
+            Cancel all pending I/O operations issued for the comm object.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Comm.Handle">
+            <summary>
+            Get the com port file handle.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Dcb">
+            <summary>
+            Wrapper class controlling access to the DCB structure and
+            kernel32.dll functions: GetCommState(), SetCommState().
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DTR_CONTROL_DISABLE">
+            <summary>
+            Disables the DTR line when the device is opened and leaves it disabled.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DTR_CONTROL_ENABLE">
+            <summary>
+            Enables the DTR line when the device is opened and leaves it on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DTR_CONTROL_HANDSHAKE">
+            <summary>
+            Enables DTR handshaking. If handshaking is enabled, it is an error for the 
+            application to adjust the line by using the EscapeCommFunction function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.RTS_CONTROL_DISABLE">
+            <summary>
+            Disables the RTS line when the device is opened and leaves it disabled.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.RTS_CONTROL_ENABLE">
+            <summary>
+            Enables the RTS line when the device is opened and leaves it on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.RTS_CONTROL_HANDSHAKE">
+            <summary>
+            Enables RTS handshaking. The driver raises the RTS line when the 
+            "type-ahead" (input) buffer is less than one-half full and lowers the 
+            RTS line when the buffer is more than three-quarters full. If handshaking 
+            is enabled, it is an error for the application to adjust the line by using 
+            the EscapeCommFunction function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.RTS_CONTROL_TOGGLE">
+            <summary>
+            Windows NT/2000/XP: Specifies that the RTS line will be high if bytes are 
+            available for transmission. After all buffered bytes have been sent, the 
+            RTS line will be low.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Dcb.DCB">
+            <summary>
+            The DCB structure defines the control setting for a serial communications device. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.dcbLength">
+            <summary>
+            Length, in bytes, of the DCB structure
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.baudRate">
+            <summary>
+            Baud rate at which the communications device operates.
+            Supported Rates: 110, 300, 600, 1200, 2400, 4800, 9600
+            14400, 19200, 38400, 56000, 57600, 115200, 128000, 256000
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.bitfield">
+            <summary>
+            Packed bitfield from win32 struct. 
+            </summary>
+            fBinary:1 - Indicates whether binary mode is enabled. 
+            Windows does not support nonbinary mode transfers, so this member must be TRUE.
+              
+            fParity:1 - Indicates whether parity checking is enabled. 
+            If this member is TRUE, parity checking is performed and errors are reported. 
+            
+            fOutxCtsFlow:1 - Indicates whether the CTS (clear-to-send) signal is monitored 
+            for output flow control. If this member is TRUE and CTS is turned off, output 
+            is suspended until CTS is sent again. 
+            
+            fOutxDsrFlow:1 - Indicates whether the DSR (data-set-ready) signal is monitored 
+            for output flow control. If this member is TRUE and DSR is turned off, output is 
+            suspended until DSR is sent again. 
+            
+            fDtrControl:2 - DTR (data-terminal-ready) flow control. This member can be one 
+            of the following values. 
+            	DTR_CONTROL_DISABLE		Disables the DTR line when the device is opened and
+            							leaves it disabled. 
+            	DTR_CONTROL_ENABLE		Enables the DTR line when the device is opened and
+            							leaves it on. 
+            	DTR_CONTROL_HANDSHAKE	Enables DTR handshaking. If handshaking is enabled,
+            							it is an error for the application to adjust the line
+            							by using the EscapeCommFunction function. 
+            
+            fDsrSensitivity:1 - Indicates whether the communications driver is sensitive to 
+            the state of the DSR signal. If this member is TRUE, the driver ignores any bytes 
+            received, unless the DSR modem input line is high. 
+            
+            fTXContinueOnXoff:1 - Indicates whether transmission stops when the input buffer 
+            is full and the driver has transmitted the XoffChar character. If this member is 
+            TRUE, transmission continues after the input buffer has come within XoffLim bytes 
+            of being full and the driver has transmitted the XoffChar character to stop 
+            receiving bytes. If this member is FALSE, transmission does not continue until 
+            the input buffer is within XonLim bytes of being empty and the driver has 
+            transmitted the XonChar character to resume reception. 
+            
+            fOutX:1 - Indicates whether XON/XOFF flow control is used during transmission. 
+            If this member is TRUE, transmission stops when the XoffChar character is received 
+            and starts again when the XonChar character is received.
+            
+            fInX:1 -  Indicates whether XON/XOFF flow control is used during reception. 
+            If this member is TRUE, the XoffChar character is sent when the input buffer 
+            comes within XoffLim bytes of being full, and the XonChar character is sent 
+            when the input buffer comes within XonLim bytes of being empty. 
+            
+            fErrorChar: 1 -  Indicates whether bytes received with parity errors are replaced 
+            with the character specified by the ErrorChar member. If this member is TRUE and 
+            the fParity member is TRUE, replacement occurs.
+            
+            fNull:1 - Indicates whether null bytes are discarded. If this member is TRUE, 
+            null bytes are discarded when received.
+            
+            fRtsControl:2 - RTS (request-to-send) flow control. This member can be one of the 
+            following values.
+            	RTS_CONTROL_DISABLE		Disables the RTS line when the device is opened and 
+            							leaves it disabled. 
+            	RTS_CONTROL_ENABLE		Enables the RTS line when the device is opened and 
+            							leaves it on. 
+            	RTS_CONTROL_HANDSHAKE	Enables RTS handshaking. The driver raises the RTS line
+            							when the "type-ahead" (input) buffer is less than 1/2 
+            							full and lowers the RTS line when the buffer is more than
+            							three-quarters full. If handshaking is enabled, it is 
+            							an error for the application to adjust the line by using
+            							the EscapeCommFunction function.
+            	RTS_CONTROL_TOGGLE		Windows NT/2000/XP: Specifies that the RTS line will be
+            							high if bytes are available for transmission. After all
+            							buffered bytes have been sent, the RTS line will be low. 
+            
+            fAbortOnError:1 - Indicates whether read and write operations are terminated if an 
+            error occurs. If this member is TRUE, the driver terminates all read and write 
+            operations with an error status if an error occurs. The driver will not accept 
+            any further communications operations until the application has acknowledged the 
+            error by calling the ClearCommError function.
+            
+            fDummy2:17 - Reserved; do not use. 
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.wReserved">
+            <summary>
+            Reserved; must be zero.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.xonLim">
+            <summary>
+            Minimum number of bytes allowed in the input buffer before flow control 
+            is activated to inhibit the sender. Note that the sender may transmit 
+            characters after the flow control signal has been activated, so this value 
+            should never be zero. This assumes that either XON/XOFF, RTS, or DTR input 
+            flow control is specified in fInX, fRtsControl, or fDtrControl.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.xoffLim">
+            <summary>
+            Maximum number of bytes allowed in the input buffer before flow control 
+            is activated to allow transmission by the sender. This assumes that either 
+            XON/XOFF, RTS, or DTR input flow control is specified in fInX, fRtsControl, 
+            or fDtrControl. The maximum number of bytes allowed is calculated by 
+            subtracting this value from the size, in bytes, of the input buffer.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.byteSize">
+            <summary>
+            Number of bits in the bytes transmitted and received. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.prtyByte">
+            <summary>
+            Parity scheme to be used. This member can be one of the following values.
+            Even, Mark, None, Odd, Space 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.stopBits">
+            <summary>
+            Number of stop bits to be used. This member can be 1, 1.5, or 2 stop bits.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.xonChar">
+            <summary>
+            Value of the XON character for both transmission and reception. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.xoffChar">
+            <summary>
+            Value of the XOFF character for both transmission and reception. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.errorChar">
+            <summary>
+            Value of the character used to replace bytes received with a parity error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.eofChar">
+            <summary>
+            Value of the character used to signal the end of data.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.evtChar">
+            <summary>
+            Value of the character used to signal an event.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Dcb.DCB.wReserved1">
+            <summary>
+            Reserved; do not use.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.GetCommState(System.IntPtr,AndyB.Comms.Serial.Interop.Win32Dcb.DCB@)">
+            <summary>
+            The GetCommState function retrieves the current control settings for 
+            a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.SetCommState(System.IntPtr,AndyB.Comms.Serial.Interop.Win32Dcb.DCB@)">
+            <summary>
+            The SetCommState function configures a communications device according to the 
+            specifications in a device control block (a DCB structure). The function 
+            reinitializes all hardware and control settings, but it does not empty output 
+            or input queues.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.#ctor(System.IntPtr)">
+            <summary>
+            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Interop.Win32Dcb"/> class
+            for the supplied file handle
+            </summary>
+            <param name="handle">THe operating system handle for the port</param>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.Get">
+            <summary>
+            Read the device control settings to the class DCB structure.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.Set">
+            <summary>
+            Write the device control settings from the class DCB structure.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.BaudRate">
+            <summary>
+            Get/Set the line speed in bits/second.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.DataBits">
+            <summary>
+            Get/Set the data character size in bits.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.ParityBit">
+            <summary>
+            Get/Set the data character parity.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.StopBits">
+            <summary>
+            Get/Set the number of character stop bits.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.XonChar">
+            <summary>
+            Get/Set the XON flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.XoffChar">
+            <summary>
+            Get/Set the XOFF flow control character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.ErrorChar">
+            <summary>
+            Get/Set the error character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.EofChar">
+            <summary>
+            Get/Set the end-of-file character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.EventChar">
+            <summary>
+            Get/Sets the event signalling character.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.TxFlowCts">
+            <summary>
+            Gets/sets whether CTS flow control is enabled
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Dcb.SetBitField(System.Int32,System.Boolean)">
+            <summary>
+            Sets/Clears the specified bit of the bitfield
+            </summary>
+            <param name="bit">The bit number</param>
+            <param name="value">The value to set/clear</param>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.TxFlowDsr">
+            <summary>
+            Gets/sets whether DSR flow control is enabled
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.DtrControl">
+            <summary>
+            Gets/set DTR flow control
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.RxDsrSense">
+            <summary>
+            Gets/Sets DSR sensitivity
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.TxContinue">
+            <summary>
+            Gets/sets if tx continues after a XOFF
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.TxFlowXoff">
+            <summary>
+            Gets/Sets if tx xon/xoff is enabled
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Dcb.RxFlowXoff">
+            <summary>
+            Gets/Sets if rx xon/xoff is enabled
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.ExtCodes">
+            <summary>
+            Extended function codes.
+            </summary>
+            <remarks>Codes for use with the EscapeCommFunction.</remarks>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.SETXOFF">
+            <summary>
+            Causes transmission to act as if an XOFF character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.SETXON">
+            <summary>
+            Causes transmission to act as if an XON character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.SETRTS">
+            <summary>
+            Sends the RTS (request-to-send) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.CLRRTS">
+            <summary>
+            Clears the RTS (request-to-send) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.SETDTR">
+            <summary>
+            Sends the DTR (data-terminal-ready) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.CLRDTR">
+            <summary>
+            Clears the DTR (data-terminal-ready) signal.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.RESETDEV">
+            <summary>
+            Reset device if possible.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.SETBREAK">
+            <summary>
+            Suspends character transmission and places the transmission 
+            line in a break state until the ClearCommBreak function is 
+            called (or EscapeCommFunction is called with the CLRBREAK 
+            extended function code). The SETBREAK extended function code 
+            is identical to the SetCommBreak function. Note that this 
+            extended function does not flush data that has not been 
+            transmitted.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.ExtCodes.CLRBREAK">
+            <summary>
+            Restores character transmission and places the transmission 
+            line in a nonbreak state. The CLRBREAK extended function code 
+            is identical to the ClearCommBreak function. 
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Escape">
             <summary>
             Wrapper class controlling access to the 
             kernel32.dll function: EscapeCommFunction().
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Escape.EscapeCommFunction(System.IntPtr,System.UInt32)">
+            <summary>
+            The EscapeCommFunction function directs a specified communications 
+            device to perform an extended function.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Escape.#ctor(System.IntPtr)">
             <summary>
             Default constructor.
             </summary>
-            <param name="handle">Comm device handle.</param>
+            <param name="handle">Com device handle.</param>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.SetDtr">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Escape.ExtFunc(AndyB.Comms.Serial.Interop.ExtCodes)">
             <summary>
-            Asserts the DTR pin.
+            Directs the comm object to perform an extended function.
             </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
+            <param name="code">Escape function code.</param>
+            <returns>True if successful.</returns>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.ClrDtr">
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Events">
             <summary>
-            Clears the DTR pin.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.SetRts">
-            <summary>
-            Asserts the RTS pin.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.ClrRts">
-            <summary>
-            Clears the RTS pin.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.SetXon">
-            <summary>
-            Sends a XON condition on transmission.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.SetXoff">
-            <summary>
-            Sends a XOFF condition on transmission.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.SetBreak">
-            <summary>
-            Sets the transmit line to break.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.ClrBreak">
-            <summary>
-            Clears the transmit line break.
-            </summary>
-            <returns><c>true</c> if the function succeeds; otherwise <c>false</c></returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Escape.EscapeCommFunction(Microsoft.Win32.SafeHandles.SafeFileHandle,System.UInt32)">
-            <summary>
-            Control port functions.
+            Wrapper class controlling access to the kernel32.dll 
+            functions: SetCommMask(), WaitCommEvent().
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Event">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_RXCHAR">
             <summary>
-            Class to encapsulate the windows API WaitCommEvent and SetCommEvent functions.
+            A character was received and placed in the input buffer.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_RXFLAG">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Event"/> class
-            with the handle.
-            </summary>
-            <param name="handle">A valid handle to the open resource.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.SetMask(System.UInt32)">
-            <summary>
-            Sets the event mask
-            </summary>
-            <param name="mask">The watch event mask.</param>
-            <returns><c>true</c> if successful.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.Wait">
-            <summary>
-            Waits for an event to occur on the comm object
-            </summary>
-            <returns>The event mask</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.Cancel">
-            <summary>
-            Cancels any waits
+            The event character was received and placed in the input buffer. 
+            The event character is specified in the device's DCB structure, 
+            which is applied to a serial port by using the SetCommState function.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.Dispose">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_TXEMPTY">
             <summary>
-            Disposes of our unmanaged resources
+            The last character in the output buffer was sent.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Event.Finalize">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_CTS">
             <summary>
-            Destructor (finaliser). Free event pointer memory.
+            The CTS (clear-to-send) signal changed state.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Modem">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_DSR">
             <summary>
-            Class to encapsulate the Win32 Kernel functions controlling
-            access to the modem structure and kernel32.dll function: GetCommStatus
+            The DSR (data-set-ready) signal changed state.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Modem.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_RLSD">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Modem"/> for the
-            supplied comm port handle.
+            The RLSD (receive-line-signal-detect) signal changed state.
             </summary>
-            <param name="handle"></param>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Modem.UpdateStatus">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_BREAK">
+            <summary>
+            A break was detected on input.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_ERR">
+            <summary>
+            A line-status error occurred. Line-status errors are 
+            CE_FRAME, CE_OVERRUN, CE_IOE, CE_TXFULL, CE_RXOVER and CE_RXPARITY.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_RING">
+            <summary>
+            A ring indicator was detected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_DEFAULT">
+            <summary>
+            Default mask.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events.EV_MODEM">
+            <summary>
+            Modem signal stat mask.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.GetCommMask(System.IntPtr,System.IntPtr@)">
+            <summary>
+            The GetCommMask function retrieves the value of the event mask 
+            for a specified communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.SetCommMask(System.IntPtr,System.UInt32)">
+            <summary>
+            The SetCommMask function specifies a set of events to be monitored 
+            for a communications device.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.WaitCommEvent(System.IntPtr,System.IntPtr,System.IntPtr)">
+            <summary>
+            The WaitCommEvent function waits for an event to occur 
+            for a specified communications device. The set of events 
+            that are monitored by this function is contained in the 
+            event mask associated with the device handle. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Events._eventPointer">
+            <summary>
+            Event memory pointer.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.#ctor(System.IntPtr)">
+            <summary>
+            Default constructor. Initializes the class members.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.Finalize">
+            <summary>
+            Destructor. Free event pointer memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.Get(System.UInt32@)">
+            <summary>
+            Get the event mask.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.Set(System.UInt32)">
+            <summary>
+            Set the event mask.
+            </summary>
+            <param name="watchEvents">Watch event mask.</param>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Events.Wait(System.UInt32@)">
+            <summary>
+            Waits for an event to occur on the comm object.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Modem">
+            <summary>
+            Wrapper class controlling access to the modem structure and
+            kernel32.dll function: GetCommModemStatus
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Modem.MS_CTS_ON">
+            <summary>
+            The CTS (clear-to-send) signal is on
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Modem.MS_DSR_ON">
+            <summary>
+            The DSR (data-set-ready) signal is on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Modem.MS_RING_ON">
+            <summary>
+            The ring indicator signal is on.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Modem.MS_RLSD_ON">
+            <summary>
+            The RLSD (receive-line-signal-detect) signal is on.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Modem.GetCommModemStatus(System.IntPtr,System.UInt32@)">
+            <summary>
+            Retrieves the modem control-register value.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Modem.#ctor(System.IntPtr)">
+            <summary>
+            Default modem status constructor.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Modem.UpdateStatus">
             <summary>
             Gets the modem control register value.
             </summary>
             <returns><c>true</c> if successful; otherwise <c>false</c> if any errors detected.</returns>
-            <remarks>The <see cref="M:AndyB.Comms.Serial.Win32Modem.UpdateStatus"/> method updates the status of the modem pins of
+            <remarks>The <see cref="M:AndyB.Comms.Serial.Interop.Win32Modem.UpdateStatus"/> method updates the status of the modem pins of
             the UART (CTS, DSR, RLSD and RI).  The port must have been opened and a valid
             handle supplied to the default constructor otherwise the function will fail. Applications can
             get the status of the bits from the individual XxxState methods.</remarks>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Modem.Status">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Modem.Status">
             <summary>
             Get the modem status register value.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Overlap">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Modem.CtsState">
+            <summary>
+            Get the Clear To Send signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Modem.DsrState">
+            <summary>
+            Get the Data Set Ready signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Modem.RlsdState">
+            <summary>
+            Get the Receive Line Status Detection signal.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Modem.RingState">
+            <summary>
+            Get the Ring Detection signal.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Overlap">
             <summary>
             Wrapper class controlling access to the OVERLAPPED structure and
             kernel32.dll function: GetOverlappedResult()
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Overlap.MemPtr">
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED">
             <summary>
-            Get/Set the overlap structure memory pointer.
+            The OVERLAPPED structure contains information used in asynchronous I/O.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Overlap.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle,Microsoft.Win32.SafeHandles.SafeWaitHandle)">
-            <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Overlap"/> class with
-            the supplied comm port handle and event handle.
-            </summary>
-            <param name="handle">The comm port handle.</param>
-            <param name="evHandle">The event handle.</param>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Overlap.Finalize">
-            <summary>
-            Destructor. Free overlap memory.
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Overlap.Get(System.UInt32@,System.Boolean)">
-            <summary>
-            Updates the class overlap structure (in memory).
-            </summary>
-            <returns>True if read update successful.</returns>
-        </member>
-        <member name="P:AndyB.Comms.Serial.Win32Overlap.Fault">
-            <summary>
-            Gets the latest fault string.
-            </summary>
-        </member>
-        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.Internal">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED.internalLow">
             <summary>
             Reserved for operating system use. 
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.InternalHigh">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED.internalHigh">
             <summary>
             Reserved for operating system use.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.Offset">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED.offset">
             <summary>
             Specifies a file position at which to start the transfer. 
             The file position is a byte offset from the start of the file. 
@@ -1813,181 +2347,371 @@
             or writing to named pipes and communications devices and should be zero.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.OffsetHigh">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED.offsetHigh">
             <summary>
             Specifies the high word of the byte offset at which to start the transfer. 
             This member is ignored when reading from or writing to named pipes and 
             communications devices and should be zero.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Overlap.OVERLAPPED.hEvent">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.OVERLAPPED.hEvent">
             <summary>
-            Handle to an event set to the signalled state when the operation has 
+            Handle to an event set to the signaled state when the operation has 
             been completed. The calling process must set this member either to 
             zero or a valid event handle before calling any overlapped functions. 
             To create an event object, use the CreateEvent function. Functions 
-            such as WriteFile set the event to the non-signalled state before they 
+            such as WriteFile set the event to the nonsignaled state before they 
             begin an I/O operation.
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Overlap.GetOverlappedResult(Microsoft.Win32.SafeHandles.SafeFileHandle,System.IntPtr,System.UInt32@,System.Boolean)">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Overlap.GetOverlappedResult(System.IntPtr,System.IntPtr,System.UInt32@,System.Boolean)">
             <summary>
-            Status Functions.
+            The GetOverlappedResult function retrieves the results 
+            of an overlapped operation on the specified file, named 
+            pipe, or communications device.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Status">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.ol">
+            <summary>
+            Overlap structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Overlap.memPtr">
+            <summary>
+            Pointer to overlap struct in memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Overlap.Finalize">
+            <summary>
+            Destructor. Free overlap memory.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Overlap.Get(System.UInt32@,System.Boolean)">
+            <summary>
+            Updates the class overlap structure (in memory).
+            </summary>
+            <returns>True if read update successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Overlap.MemPtr">
+            <summary>
+            Get/Set the overlap structure memory pointer.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Overlap.Fault">
+            <summary>
+            Get the last class fault description string.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Status">
             <summary>
             Wrapper class controlling access to the COMMSTAT and flag structures and
             kernel32.dll function: ClearCommError()
             </summary>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Status.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_RXOVER">
             <summary>
-            Initialises a new instance of the <see cref="T:AndyB.Comms.Serial.Win32Status"/> class with the 
-            supplied comm port handle.
+            An input buffer overflow has occurred. 
+            There is either no room in the input buffer, 
+            or a character was received after the EOF character.
             </summary>
-            <param name="handle">The comm port handle.</param>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Status.Clear">
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_OVERRUN">
+            <summary>
+            A character-buffer overrun has occurred. 
+            The next character is lost.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_RXPARITY">
+            <summary>
+            The hardware detected a parity error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_FRAME">
+            <summary>
+            The hardware detected a framing error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_BREAK">
+            <summary>
+            The hardware detected a break condition
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_TXFULL">
+            <summary>
+            The application tried to transmit a 
+            character, but the output buffer was full.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_PTO">
+            <summary>
+            Windows 95/98/Me: A time-out occurred on a parallel device.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_IOE">
+            <summary>
+            An I/O error occurred during communications with the device.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_DNS">
+            <summary>
+            Windows 95/98/Me: A parallel device is not selected.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_OOP">
+            <summary>
+            Windows 95/98/Me: A parallel device signaled that it is out of paper.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CE_MODE">
+            <summary>
+            The requested mode is not supported, or the file handle 
+            parameter is invalid. If this value is specified, it is the only valid error.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.CTS_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            for the CTS (clear-to-send) signal to be sent. 
+            If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.DSR_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            for the DSR (data-set-ready) signal to be sent. 
+            If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.RLSD_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting for 
+            the RLSD (receive-line-signal-detect) signal 
+            to be sent. If this member is TRUE, transmission is waiting.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.XOFF_HOLD_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            because the XOFF character was received. 
+            If this member is TRUE, transmission is waiting. 
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.XOFF_SENT_BIT">
+            <summary>
+            Indicates whether transmission is waiting 
+            because the XOFF character was transmitted. 
+            If this member is TRUE, transmission is waiting. 
+            Transmission halts when the XOFF character is 
+            transmitted to a system that takes the next 
+            character as XON, regardless of the actual character.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.EOF_BIT">
+            <summary>
+            Indicates whether the end-of-file (EOF) character 
+            has been received. If this member is TRUE, the 
+            EOF character has been received.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.TRIM_BIT">
+            <summary>
+            If this member is TRUE, there is a character 
+            queued for transmission that has come to the 
+            communications device by way of the TransmitCommChar 
+            function. The communications device transmits such a 
+            character ahead of other characters in the device's output buffer.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Status.COMMSTAT">
+            <summary>
+            The COMMSTAT structure contains information about a communications 
+            device. This structure is filled by the ClearCommError function.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.COMMSTAT.bitfield">
+            <summary>
+            Packed status bitfield.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.COMMSTAT.cbInQue">
+            <summary>
+            Number of bytes received by the serial provider 
+            but not yet read by a ReadFile operation.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.COMMSTAT.cbOutQue">
+            <summary>
+            Number of bytes of user data remaining to be 
+            transmitted for all write operations. This value 
+            will be zero for a nonoverlapped write.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Status.COMMERRS">
+            <summary>
+            ClearCommError() lpErrors parameter converted to flags.
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Status.COMMHOLD">
+            <summary>
+            COMMSTAT structure's bitfield member converted to flags.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Status.ClearCommError(System.IntPtr,System.UInt32@,System.IntPtr)">
+            <summary>
+            The ClearCommError function retrieves information about a 
+            communications error and reports the current status of a 
+            communications device. The function is called when a 
+            communications error occurs, and it clears the device's 
+            error flag to enable additional input and output (I/O) operations.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.cs">
+            <summary>
+            COMMSTAT structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status._error">
+            <summary>
+            COMMERRS structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status._state">
+            <summary>
+            COMMHOLD structure.
+            </summary>
+        </member>
+        <member name="F:AndyB.Comms.Serial.Interop.Win32Status.ready">
+            <summary>
+            Number of chars ready to read.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Status.#ctor(System.IntPtr)">
+            <summary>
+            Default constructor. Creates the class structures.
+            </summary>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Status.Clear">
             <summary>
             Update status and clear errors.
             </summary>
             <returns>True if successful.</returns>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Status.Errors">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.State">
             <summary>
-            Gets the enumeration of communication errors.
+            Get a copy of the state record.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Status.Holds">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.Errs">
             <summary>
-            Gets the enumeration of communication holds.
+            Get a copy of the error record.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Status.InQueue">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.CtsHold">
             <summary>
-            Gets the number of bytes in the receive queue.
+            Output is blocked by CTS handshaking.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Status.OutQueue">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.DsrHold">
             <summary>
-            Gets the number of bytes in the transmit queue.
-            </summary>
-            <remarks>This value will always be zero for a non-overlapped write.</remarks>
-        </member>
-        <member name="T:AndyB.Comms.Serial.Win32Status.CommHold">
-            <summary>
-            An enumeration of the various hold status.
+            Output is blocked by DRS handshaking.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.CtsHold">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.RlsdHold">
             <summary>
-            CTS holding.
+            Output is blocked by RLSD handshaking.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.DsrHold">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.XoffHold">
             <summary>
-            DSR holding.
+            Output is blocked because software handshaking is enabled and XOFF was received.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.RlsdHold">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.XoffSent">
             <summary>
-            RLSD holding.
+            Output was blocked because XOFF was sent and this station is not yet ready to receive.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.XoffHold">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.ImmediateWaiting">
             <summary>
-            XOFF holding.
+            There is a character waiting for transmission in the immediate buffer.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.XoffSent">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.RxQueCount">
             <summary>
-            XOFF sent.
+            Number of bytes waiting in the receive queue.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.Eof">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.TxQueCount">
             <summary>
-            EOF received.
+            Number of bytes waiting for transmission.
             </summary>
         </member>
-        <member name="F:AndyB.Comms.Serial.Win32Status.CommHold.TxIm">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.Status">
             <summary>
-            TX Immediate detected.
+            Get a copy of the error status.
             </summary>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Timeout">
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Status.Ready">
+            <summary>
+            RX queue ready count
+            </summary>
+        </member>
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Timeout">
             <summary>
             Wrapper class controlling access to the COMMTIMEOUTS structure and
             kernel32.dll functions: GetCommTimeouts(...), SetCommTimeouts(...)
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadInterval">
+        <member name="T:AndyB.Comms.Serial.Interop.Win32Timeout.COMMTIMEOUTS">
             <summary>
-            Get/Set the ReadIntervalTimeout member.
+            The COMMTIMEOUTS structure is used in the SetCommTimeouts and GetCommTimeouts 
+            functions to set and query the time-out parameters for a communications device. 
+            The parameters determine the behaviour of ReadFile, WriteFile, ReadFileEx, and 
+            WriteFileEx operations on the device.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadConstant">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.GetCommTimeouts(System.IntPtr,AndyB.Comms.Serial.Interop.Win32Timeout.COMMTIMEOUTS@)">
             <summary>
-            Get/Set the ReadTotalTimeoutConstant member.
+            The GetCommTimeouts function retrieves the time-out parameters for
+            all read and write operations on a specified communications device.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Timeout.ReadMultiplier">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.SetCommTimeouts(System.IntPtr,AndyB.Comms.Serial.Interop.Win32Timeout.COMMTIMEOUTS@)">
             <summary>
-            Get/Set the ReadTotalTimeoutMultiplier member.
+            The SetCommTimeouts function sets the time-out parameters for all read and 
+            write operations on a specified communications device.
             </summary>
         </member>
-        <member name="P:AndyB.Comms.Serial.Win32Timeout.WriteConstant">
-            <summary>
-            Get/Set the WriteTotalTimeoutConstant member.
-            </summary>
-        </member>
-        <member name="P:AndyB.Comms.Serial.Win32Timeout.WriteMultiplier">
-            <summary>
-            Get/Set the WriteTotalTimeoutMultiplier member.
-            </summary>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Timeout.Get">
-            <summary>
-            Update the class timeout structure for this port instance.
-            </summary>
-            <returns>True if read update successful.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Timeout.Set">
-            <summary>
-            Update the port timeouts from this instance's current timeout structure.
-            </summary>
-            <returns>True if write update successful.</returns>
-        </member>
-        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle)">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.#ctor(System.IntPtr)">
             <summary>
             Timeouts constructor. Creates and initializes the class structure.
             </summary>
-            <remarks>This overload sets the timeouts so that <see cref="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/>
+            <remarks>This overload sets the timeouts so that <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/>
             returns immediately with the bytes already read from the port and
-            <see cref="M:AndyB.Comms.Serial.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately.</remarks>
+            <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.Write(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately.</remarks>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle,System.UInt32,System.UInt32)">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.#ctor(System.IntPtr,System.UInt32,System.UInt32)">
             <summary>
             Timeouts constructor. Creates and initializes the class structure.
             </summary>
             <remarks>This overload allows the caller to set the write timeouts, whilst
-            <see cref="M:AndyB.Comms.Serial.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately with the bytes already read.</remarks>
+            <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.Read(System.Byte[],System.UInt32,System.UInt32@)"/> returns immediately with the bytes already read.</remarks>
         </member>
-        <member name="M:AndyB.Comms.Serial.Win32Timeout.#ctor(Microsoft.Win32.SafeHandles.SafeFileHandle,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.#ctor(System.IntPtr,System.UInt32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
             <summary>
             Timeouts constructor. Creates and initializes the class structure.
             </summary>
-            <param name="handle">Comms port handle created by <see cref="!:Win32Comm.Open"/> method.</param>
+            <param name="handle">Comms port handle created by <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.Open(System.String)"/> method.</param>
             <param name="rit">Read interval timeout in milliseconds.</param>
             <param name="rttm">Read total timeout multiplier in milliseconds.</param>
-            <param name="rttc">Read total timeout contant in milliseconds.</param>
+            <param name="rttc">Read total timeout constant in milliseconds.</param>
             <param name="wttc">Write total timeout constant in milliseconds.</param>
             <param name="wttm">Write total timeout multiplier in milliseconds.</param>
             <remarks><para>
             ReadIntervalTimeout is the maximum time allowed to elapse between the arrival of 
-            two bytes on the communications line, in milliseconds. During a <see cref="M:AndyB.Comms.Serial.Win32Comm.ReadFile(Microsoft.Win32.SafeHandles.SafeFileHandle,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> 
+            two bytes on the communications line, in milliseconds. During a <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> 
             operation, the time period begins when the first byte is received. If the interval between the 
-            arrival of any two bytes exceeds this amount, the <see cref="M:AndyB.Comms.Serial.Win32Comm.ReadFile(Microsoft.Win32.SafeHandles.SafeFileHandle,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> operation 
+            arrival of any two bytes exceeds this amount, the <see cref="M:AndyB.Comms.Serial.Interop.Win32Comm.ReadFile(System.IntPtr,System.Byte[],System.UInt32,System.UInt32@,System.IntPtr)"/> operation 
             is completed and any buffered data is returned. A value of zero indicates that interval 
             time-outs are not used.
             </para>
@@ -2018,12 +2742,41 @@
             </para>
             </remarks>
         </member>
-        <member name="T:AndyB.Comms.Serial.Win32Timeout.COMMTIMEOUTS">
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.Get">
             <summary>
-            The COMMTIMEOUTS structure is used in the SetCommTimeouts and GetCommTimeouts 
-            functions to set and query the time-out parameters for a communications device. 
-            The parameters determine the behaviour of ReadFile, WriteFile, ReadFileEx, and 
-            WriteFileEx operations on the device.
+            Update the class timeout structure for this port instance.
+            </summary>
+            <returns>True if read update successful.</returns>
+        </member>
+        <member name="M:AndyB.Comms.Serial.Interop.Win32Timeout.Set">
+            <summary>
+            Update the port timeouts from this instance's current timeout structure.
+            </summary>
+            <returns>True if write update successful.</returns>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Timeout.ReadInterval">
+            <summary>
+            Get/Set the readIntervalTimeout member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Timeout.ReadConstant">
+            <summary>
+            Get/Set the readTotalTimeoutConstant member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Timeout.ReadMultiplier">
+            <summary>
+            Get/Set the readTotalTimeoutMultiplier member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Timeout.WriteConstant">
+            <summary>
+            Get/Set the writeTotalTimeoutConstant member.
+            </summary>
+        </member>
+        <member name="P:AndyB.Comms.Serial.Interop.Win32Timeout.WriteMultiplier">
+            <summary>
+            Get/Set the writeTotalTimeoutMultiplier member.
             </summary>
         </member>
         <member name="T:AndyB.Comms.Properties.SR">

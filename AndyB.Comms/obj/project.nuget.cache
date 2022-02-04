@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dLnZFeuHC5SAsR4SxYb29FOZGUEXTdp1Fs+T8yfaE7nzWijgs7hwkf7Y34Mfl6KS7neQxALuPRDPso3NxvHx2Q==",
+  "dgSpecHash": "lwUM7byCZDm3N9cRjWmao+uMMMNgQvRt8ADVYj0PiiV6MHuNoR4xXgOCD7CCZ1B4Ql8KzQNK8jzkOTRvEFDHcQ==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyb\\.nuget\\packages\\andyb.commons\\5.1.1\\andyb.commons.5.1.1.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.12\\nlog.4.7.12.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

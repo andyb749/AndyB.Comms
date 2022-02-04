@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	internal class Win32Com
 	{
 
@@ -251,5 +252,5 @@ namespace AndyB.Comms.Comm
 		}
 
 	}
-
+#endif
 }

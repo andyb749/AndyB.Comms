@@ -1,8 +1,9 @@
 ﻿using System;
 using AndyB.Win32;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
 	/// <summary>
 	/// An enumeration of the errors codes.
 	/// </summary>
@@ -39,4 +40,5 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		TxFull = Win32Status.CE_TXFULL
 	}
+#endif
 }

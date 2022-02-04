@@ -1,8 +1,9 @@
 ﻿using System;
 using AndyB.Win32;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     /// <summary>
     /// Specifies the type of change that occurred on the <see cref="SerialPort"/> object.
     /// </summary>
@@ -68,4 +69,5 @@ namespace AndyB.Comms.Serial
     }
 
     //public delegate void SerialPinChangedEventHandler(object sender, SerialPinChangedEventArgs e);
+#endif
 }

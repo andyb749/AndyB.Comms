@@ -51,11 +51,26 @@ namespace SerialTestApp
             this.uxDTR = new Krypton.Toolkit.KryptonButton();
             this.uxClear = new Krypton.Toolkit.KryptonButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label8 = new Krypton.Toolkit.KryptonLabel();
+            this.uxErrorChars = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
+            this.uxPackedValue = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
+            this.uxEventChar = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            this.uxEofChar = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
+            this.uxErrorChar = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
+            this.uxXoffChar = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
+            this.uxXonChar = new Krypton.Toolkit.KryptonTextBox();
+            this.kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             this.uxRxFlowXoff = new Krypton.Toolkit.KryptonTextBox();
+            this.uxRtsControl = new Krypton.Toolkit.KryptonTextBox();
             this.uxTxFlowXoff = new Krypton.Toolkit.KryptonTextBox();
             this.uxTxContinue = new Krypton.Toolkit.KryptonTextBox();
             this.uxRxDsrSense = new Krypton.Toolkit.KryptonTextBox();
-            this.uxRtsControl = new Krypton.Toolkit.KryptonTextBox();
             this.uxDtrControl = new Krypton.Toolkit.KryptonTextBox();
             this.uxTxFlowDsr = new Krypton.Toolkit.KryptonTextBox();
             this.uxTxFlowCts = new Krypton.Toolkit.KryptonTextBox();
@@ -66,7 +81,6 @@ namespace SerialTestApp
             this.label11 = new Krypton.Toolkit.KryptonLabel();
             this.label10 = new Krypton.Toolkit.KryptonLabel();
             this.label9 = new Krypton.Toolkit.KryptonLabel();
-            this.label8 = new Krypton.Toolkit.KryptonLabel();
             this.label7 = new Krypton.Toolkit.KryptonLabel();
             this.label6 = new Krypton.Toolkit.KryptonLabel();
             this.label5 = new Krypton.Toolkit.KryptonLabel();
@@ -77,6 +91,12 @@ namespace SerialTestApp
             this.uxBaud = new Krypton.Toolkit.KryptonTextBox();
             this.uxRefresh3 = new Krypton.Toolkit.KryptonButton();
             this.uxToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.uxTxXOff = new System.Windows.Forms.CheckBox();
+            this.uxTxXon = new System.Windows.Forms.CheckBox();
+            this.uxRxXon = new System.Windows.Forms.CheckBox();
+            this.uxParityReplace = new System.Windows.Forms.CheckBox();
+            this.uxDiscardNull = new System.Windows.Forms.CheckBox();
+            this.uxAbortOnError = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label14 = new Krypton.Toolkit.KryptonLabel();
             this.label13 = new Krypton.Toolkit.KryptonLabel();
@@ -121,6 +141,7 @@ namespace SerialTestApp
             this.uxDataBits = new Krypton.Toolkit.KryptonComboBox();
             this.uxParityBits = new Krypton.Toolkit.KryptonComboBox();
             this.uxStopBits = new Krypton.Toolkit.KryptonComboBox();
+            this.uxDsrSense = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxPorts)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -140,9 +161,9 @@ namespace SerialTestApp
             // 
             this.uxLog.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uxLog.FormattingEnabled = true;
-            this.uxLog.Location = new System.Drawing.Point(0, 403);
+            this.uxLog.Location = new System.Drawing.Point(0, 628);
             this.uxLog.Name = "uxLog";
-            this.uxLog.Size = new System.Drawing.Size(870, 124);
+            this.uxLog.Size = new System.Drawing.Size(915, 124);
             this.uxLog.TabIndex = 0;
             // 
             // groupBox1
@@ -337,7 +358,7 @@ namespace SerialTestApp
             // 
             // uxClear
             // 
-            this.uxClear.Location = new System.Drawing.Point(6, 374);
+            this.uxClear.Location = new System.Drawing.Point(6, 467);
             this.uxClear.Name = "uxClear";
             this.uxClear.Size = new System.Drawing.Size(75, 23);
             this.uxClear.TabIndex = 4;
@@ -346,11 +367,28 @@ namespace SerialTestApp
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.uxAbortOnError);
+            this.groupBox4.Controls.Add(this.uxDiscardNull);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.uxErrorChars);
+            this.groupBox4.Controls.Add(this.kryptonLabel7);
+            this.groupBox4.Controls.Add(this.uxPackedValue);
+            this.groupBox4.Controls.Add(this.kryptonLabel6);
+            this.groupBox4.Controls.Add(this.uxEventChar);
+            this.groupBox4.Controls.Add(this.kryptonLabel5);
+            this.groupBox4.Controls.Add(this.uxEofChar);
+            this.groupBox4.Controls.Add(this.kryptonLabel4);
+            this.groupBox4.Controls.Add(this.uxErrorChar);
+            this.groupBox4.Controls.Add(this.kryptonLabel3);
+            this.groupBox4.Controls.Add(this.uxXoffChar);
+            this.groupBox4.Controls.Add(this.kryptonLabel2);
+            this.groupBox4.Controls.Add(this.uxXonChar);
+            this.groupBox4.Controls.Add(this.kryptonLabel1);
             this.groupBox4.Controls.Add(this.uxRxFlowXoff);
+            this.groupBox4.Controls.Add(this.uxRtsControl);
             this.groupBox4.Controls.Add(this.uxTxFlowXoff);
             this.groupBox4.Controls.Add(this.uxTxContinue);
             this.groupBox4.Controls.Add(this.uxRxDsrSense);
-            this.groupBox4.Controls.Add(this.uxRtsControl);
             this.groupBox4.Controls.Add(this.uxDtrControl);
             this.groupBox4.Controls.Add(this.uxTxFlowDsr);
             this.groupBox4.Controls.Add(this.uxTxFlowCts);
@@ -361,7 +399,6 @@ namespace SerialTestApp
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label5);
@@ -373,23 +410,159 @@ namespace SerialTestApp
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(212, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(185, 317);
+            this.groupBox4.Size = new System.Drawing.Size(185, 563);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Settings";
             // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(9, 510);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 20);
+            this.label8.TabIndex = 9;
+            this.label8.Values.Text = "RTS Control";
+            // 
+            // uxErrorChars
+            // 
+            this.uxErrorChars.Location = new System.Drawing.Point(94, 453);
+            this.uxErrorChars.Name = "uxErrorChars";
+            this.uxErrorChars.ReadOnly = true;
+            this.uxErrorChars.Size = new System.Drawing.Size(72, 23);
+            this.uxErrorChars.TabIndex = 40;
+            this.uxToolTip.SetToolTip(this.uxErrorChars, "RX XON/XOFF Enabled");
+            // 
+            // kryptonLabel7
+            // 
+            this.kryptonLabel7.Location = new System.Drawing.Point(9, 453);
+            this.kryptonLabel7.Name = "kryptonLabel7";
+            this.kryptonLabel7.Size = new System.Drawing.Size(76, 20);
+            this.kryptonLabel7.TabIndex = 39;
+            this.kryptonLabel7.Values.Text = "Error Chars?";
+            // 
+            // uxPackedValue
+            // 
+            this.uxPackedValue.Location = new System.Drawing.Point(94, 247);
+            this.uxPackedValue.Name = "uxPackedValue";
+            this.uxPackedValue.ReadOnly = true;
+            this.uxPackedValue.Size = new System.Drawing.Size(72, 23);
+            this.uxPackedValue.TabIndex = 38;
+            this.uxToolTip.SetToolTip(this.uxPackedValue, "If true, transmission is halted unless CTS is asserted");
+            // 
+            // kryptonLabel6
+            // 
+            this.kryptonLabel6.Location = new System.Drawing.Point(9, 250);
+            this.kryptonLabel6.Name = "kryptonLabel6";
+            this.kryptonLabel6.Size = new System.Drawing.Size(88, 20);
+            this.kryptonLabel6.TabIndex = 37;
+            this.kryptonLabel6.Values.Text = "Packed Values";
+            // 
+            // uxEventChar
+            // 
+            this.uxEventChar.Location = new System.Drawing.Point(94, 221);
+            this.uxEventChar.Name = "uxEventChar";
+            this.uxEventChar.ReadOnly = true;
+            this.uxEventChar.Size = new System.Drawing.Size(72, 23);
+            this.uxEventChar.TabIndex = 36;
+            this.uxToolTip.SetToolTip(this.uxEventChar, "Number of stop bits");
+            // 
+            // kryptonLabel5
+            // 
+            this.kryptonLabel5.Location = new System.Drawing.Point(9, 224);
+            this.kryptonLabel5.Name = "kryptonLabel5";
+            this.kryptonLabel5.Size = new System.Drawing.Size(69, 20);
+            this.kryptonLabel5.TabIndex = 35;
+            this.kryptonLabel5.Values.Text = "Event Char";
+            // 
+            // uxEofChar
+            // 
+            this.uxEofChar.Location = new System.Drawing.Point(94, 194);
+            this.uxEofChar.Name = "uxEofChar";
+            this.uxEofChar.ReadOnly = true;
+            this.uxEofChar.Size = new System.Drawing.Size(72, 23);
+            this.uxEofChar.TabIndex = 34;
+            this.uxToolTip.SetToolTip(this.uxEofChar, "Number of stop bits");
+            // 
+            // kryptonLabel4
+            // 
+            this.kryptonLabel4.Location = new System.Drawing.Point(9, 197);
+            this.kryptonLabel4.Name = "kryptonLabel4";
+            this.kryptonLabel4.Size = new System.Drawing.Size(61, 20);
+            this.kryptonLabel4.TabIndex = 33;
+            this.kryptonLabel4.Values.Text = "EOF Char";
+            // 
+            // uxErrorChar
+            // 
+            this.uxErrorChar.Location = new System.Drawing.Point(94, 168);
+            this.uxErrorChar.Name = "uxErrorChar";
+            this.uxErrorChar.ReadOnly = true;
+            this.uxErrorChar.Size = new System.Drawing.Size(72, 23);
+            this.uxErrorChar.TabIndex = 32;
+            this.uxToolTip.SetToolTip(this.uxErrorChar, "Number of stop bits");
+            // 
+            // kryptonLabel3
+            // 
+            this.kryptonLabel3.Location = new System.Drawing.Point(9, 171);
+            this.kryptonLabel3.Name = "kryptonLabel3";
+            this.kryptonLabel3.Size = new System.Drawing.Size(65, 20);
+            this.kryptonLabel3.TabIndex = 31;
+            this.kryptonLabel3.Values.Text = "Error Char";
+            // 
+            // uxXoffChar
+            // 
+            this.uxXoffChar.Location = new System.Drawing.Point(94, 142);
+            this.uxXoffChar.Name = "uxXoffChar";
+            this.uxXoffChar.ReadOnly = true;
+            this.uxXoffChar.Size = new System.Drawing.Size(72, 23);
+            this.uxXoffChar.TabIndex = 30;
+            this.uxToolTip.SetToolTip(this.uxXoffChar, "Number of stop bits");
+            // 
+            // kryptonLabel2
+            // 
+            this.kryptonLabel2.Location = new System.Drawing.Point(9, 145);
+            this.kryptonLabel2.Name = "kryptonLabel2";
+            this.kryptonLabel2.Size = new System.Drawing.Size(68, 20);
+            this.kryptonLabel2.TabIndex = 29;
+            this.kryptonLabel2.Values.Text = "XOFF Char";
+            // 
+            // uxXonChar
+            // 
+            this.uxXonChar.Location = new System.Drawing.Point(94, 116);
+            this.uxXonChar.Name = "uxXonChar";
+            this.uxXonChar.ReadOnly = true;
+            this.uxXonChar.Size = new System.Drawing.Size(72, 23);
+            this.uxXonChar.TabIndex = 28;
+            this.uxToolTip.SetToolTip(this.uxXonChar, "Number of stop bits");
+            // 
+            // kryptonLabel1
+            // 
+            this.kryptonLabel1.Location = new System.Drawing.Point(9, 119);
+            this.kryptonLabel1.Name = "kryptonLabel1";
+            this.kryptonLabel1.Size = new System.Drawing.Size(65, 20);
+            this.kryptonLabel1.TabIndex = 27;
+            this.kryptonLabel1.Values.Text = "XON Char";
+            // 
             // uxRxFlowXoff
             // 
-            this.uxRxFlowXoff.Location = new System.Drawing.Point(94, 282);
+            this.uxRxFlowXoff.Location = new System.Drawing.Point(94, 427);
             this.uxRxFlowXoff.Name = "uxRxFlowXoff";
             this.uxRxFlowXoff.ReadOnly = true;
             this.uxRxFlowXoff.Size = new System.Drawing.Size(72, 23);
             this.uxRxFlowXoff.TabIndex = 26;
             this.uxToolTip.SetToolTip(this.uxRxFlowXoff, "RX XON/XOFF Enabled");
             // 
+            // uxRtsControl
+            // 
+            this.uxRtsControl.Location = new System.Drawing.Point(94, 507);
+            this.uxRtsControl.Name = "uxRtsControl";
+            this.uxRtsControl.ReadOnly = true;
+            this.uxRtsControl.Size = new System.Drawing.Size(72, 23);
+            this.uxRtsControl.TabIndex = 22;
+            this.uxToolTip.SetToolTip(this.uxRtsControl, "RTS Control mode");
+            // 
             // uxTxFlowXoff
             // 
-            this.uxTxFlowXoff.Location = new System.Drawing.Point(94, 258);
+            this.uxTxFlowXoff.Location = new System.Drawing.Point(94, 403);
             this.uxTxFlowXoff.Name = "uxTxFlowXoff";
             this.uxTxFlowXoff.ReadOnly = true;
             this.uxTxFlowXoff.Size = new System.Drawing.Size(72, 23);
@@ -398,7 +571,7 @@ namespace SerialTestApp
             // 
             // uxTxContinue
             // 
-            this.uxTxContinue.Location = new System.Drawing.Point(94, 234);
+            this.uxTxContinue.Location = new System.Drawing.Point(94, 377);
             this.uxTxContinue.Name = "uxTxContinue";
             this.uxTxContinue.ReadOnly = true;
             this.uxTxContinue.Size = new System.Drawing.Size(72, 23);
@@ -407,25 +580,16 @@ namespace SerialTestApp
             // 
             // uxRxDsrSense
             // 
-            this.uxRxDsrSense.Location = new System.Drawing.Point(94, 210);
+            this.uxRxDsrSense.Location = new System.Drawing.Point(94, 352);
             this.uxRxDsrSense.Name = "uxRxDsrSense";
             this.uxRxDsrSense.ReadOnly = true;
             this.uxRxDsrSense.Size = new System.Drawing.Size(72, 23);
             this.uxRxDsrSense.TabIndex = 23;
             this.uxToolTip.SetToolTip(this.uxRxDsrSense, "If true, characters are ignored unless DSR is asserted");
             // 
-            // uxRtsControl
-            // 
-            this.uxRtsControl.Location = new System.Drawing.Point(94, 186);
-            this.uxRtsControl.Name = "uxRtsControl";
-            this.uxRtsControl.ReadOnly = true;
-            this.uxRtsControl.Size = new System.Drawing.Size(72, 23);
-            this.uxRtsControl.TabIndex = 22;
-            this.uxToolTip.SetToolTip(this.uxRtsControl, "RTS Control mode");
-            // 
             // uxDtrControl
             // 
-            this.uxDtrControl.Location = new System.Drawing.Point(94, 162);
+            this.uxDtrControl.Location = new System.Drawing.Point(94, 325);
             this.uxDtrControl.Name = "uxDtrControl";
             this.uxDtrControl.ReadOnly = true;
             this.uxDtrControl.Size = new System.Drawing.Size(72, 23);
@@ -434,7 +598,7 @@ namespace SerialTestApp
             // 
             // uxTxFlowDsr
             // 
-            this.uxTxFlowDsr.Location = new System.Drawing.Point(94, 138);
+            this.uxTxFlowDsr.Location = new System.Drawing.Point(94, 299);
             this.uxTxFlowDsr.Name = "uxTxFlowDsr";
             this.uxTxFlowDsr.ReadOnly = true;
             this.uxTxFlowDsr.Size = new System.Drawing.Size(72, 23);
@@ -443,7 +607,7 @@ namespace SerialTestApp
             // 
             // uxTxFlowCts
             // 
-            this.uxTxFlowCts.Location = new System.Drawing.Point(94, 114);
+            this.uxTxFlowCts.Location = new System.Drawing.Point(94, 273);
             this.uxTxFlowCts.Name = "uxTxFlowCts";
             this.uxTxFlowCts.ReadOnly = true;
             this.uxTxFlowCts.Size = new System.Drawing.Size(72, 23);
@@ -479,7 +643,7 @@ namespace SerialTestApp
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(9, 282);
+            this.label12.Location = new System.Drawing.Point(9, 427);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 20);
             this.label12.TabIndex = 13;
@@ -487,7 +651,7 @@ namespace SerialTestApp
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(9, 261);
+            this.label11.Location = new System.Drawing.Point(9, 406);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 20);
             this.label11.TabIndex = 12;
@@ -495,7 +659,7 @@ namespace SerialTestApp
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(9, 237);
+            this.label10.Location = new System.Drawing.Point(9, 380);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(77, 20);
             this.label10.TabIndex = 11;
@@ -503,23 +667,15 @@ namespace SerialTestApp
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(9, 213);
+            this.label9.Location = new System.Drawing.Point(9, 355);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 20);
             this.label9.TabIndex = 10;
             this.label9.Values.Text = "RX DSR Sense";
             // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(9, 189);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 20);
-            this.label8.TabIndex = 9;
-            this.label8.Values.Text = "RTS Control";
-            // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(9, 165);
+            this.label7.Location = new System.Drawing.Point(9, 328);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 20);
             this.label7.TabIndex = 8;
@@ -527,7 +683,7 @@ namespace SerialTestApp
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(9, 141);
+            this.label6.Location = new System.Drawing.Point(9, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 7;
@@ -535,7 +691,7 @@ namespace SerialTestApp
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(9, 117);
+            this.label5.Location = new System.Drawing.Point(9, 276);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 20);
             this.label5.TabIndex = 6;
@@ -584,12 +740,84 @@ namespace SerialTestApp
             // 
             // uxRefresh3
             // 
-            this.uxRefresh3.Location = new System.Drawing.Point(212, 326);
+            this.uxRefresh3.Location = new System.Drawing.Point(212, 599);
             this.uxRefresh3.Name = "uxRefresh3";
             this.uxRefresh3.Size = new System.Drawing.Size(75, 23);
             this.uxRefresh3.TabIndex = 0;
             this.uxRefresh3.Values.Text = "Refresh";
             this.uxRefresh3.Click += new System.EventHandler(this.UxRefresh3_Click);
+            // 
+            // uxTxXOff
+            // 
+            this.uxTxXOff.AutoSize = true;
+            this.uxTxXOff.Location = new System.Drawing.Point(756, 180);
+            this.uxTxXOff.Name = "uxTxXOff";
+            this.uxTxXOff.Size = new System.Drawing.Size(66, 19);
+            this.uxTxXOff.TabIndex = 18;
+            this.uxTxXOff.Text = "TX XOff";
+            this.uxToolTip.SetToolTip(this.uxTxXOff, "TX Continue on XOff");
+            this.uxTxXOff.UseVisualStyleBackColor = true;
+            this.uxTxXOff.CheckedChanged += new System.EventHandler(this.uxTxXOff_CheckedChanged);
+            // 
+            // uxTxXon
+            // 
+            this.uxTxXon.AutoSize = true;
+            this.uxTxXon.Location = new System.Drawing.Point(756, 199);
+            this.uxTxXon.Name = "uxTxXon";
+            this.uxTxXon.Size = new System.Drawing.Size(94, 19);
+            this.uxTxXon.TabIndex = 19;
+            this.uxTxXon.Text = "TX XOn/XOff";
+            this.uxToolTip.SetToolTip(this.uxTxXon, "Use XON/XOFF on transmission");
+            this.uxTxXon.UseVisualStyleBackColor = true;
+            this.uxTxXon.CheckedChanged += new System.EventHandler(this.uxTxXon_CheckedChanged);
+            // 
+            // uxRxXon
+            // 
+            this.uxRxXon.AutoSize = true;
+            this.uxRxXon.Location = new System.Drawing.Point(756, 219);
+            this.uxRxXon.Name = "uxRxXon";
+            this.uxRxXon.Size = new System.Drawing.Size(95, 19);
+            this.uxRxXon.TabIndex = 20;
+            this.uxRxXon.Text = "RX XOn/XOff";
+            this.uxToolTip.SetToolTip(this.uxRxXon, "RX Continue on XOff");
+            this.uxRxXon.UseVisualStyleBackColor = true;
+            this.uxRxXon.CheckedChanged += new System.EventHandler(this.uxRxXon_CheckedChanged);
+            // 
+            // uxParityReplace
+            // 
+            this.uxParityReplace.AutoSize = true;
+            this.uxParityReplace.Location = new System.Drawing.Point(756, 240);
+            this.uxParityReplace.Name = "uxParityReplace";
+            this.uxParityReplace.Size = new System.Drawing.Size(100, 19);
+            this.uxParityReplace.TabIndex = 21;
+            this.uxParityReplace.Text = "Parity Replace";
+            this.uxToolTip.SetToolTip(this.uxParityReplace, " Parity errors are replaced with the error character");
+            this.uxParityReplace.UseVisualStyleBackColor = true;
+            this.uxParityReplace.CheckedChanged += new System.EventHandler(this.uxParityReplace_CheckedChanged);
+            // 
+            // uxDiscardNull
+            // 
+            this.uxDiscardNull.AutoSize = true;
+            this.uxDiscardNull.Location = new System.Drawing.Point(71, 479);
+            this.uxDiscardNull.Name = "uxDiscardNull";
+            this.uxDiscardNull.Size = new System.Drawing.Size(93, 17);
+            this.uxDiscardNull.TabIndex = 22;
+            this.uxDiscardNull.Text = "Discard Nulls";
+            this.uxToolTip.SetToolTip(this.uxDiscardNull, "Discard Null characters");
+            this.uxDiscardNull.UseVisualStyleBackColor = true;
+            this.uxDiscardNull.CheckedChanged += new System.EventHandler(this.uxDiscardNull_CheckedChanged);
+            // 
+            // uxAbortOnError
+            // 
+            this.uxAbortOnError.AutoSize = true;
+            this.uxAbortOnError.Location = new System.Drawing.Point(61, 536);
+            this.uxAbortOnError.Name = "uxAbortOnError";
+            this.uxAbortOnError.Size = new System.Drawing.Size(102, 17);
+            this.uxAbortOnError.TabIndex = 23;
+            this.uxAbortOnError.Text = "Abort On Error";
+            this.uxToolTip.SetToolTip(this.uxAbortOnError, "Abort on errors");
+            this.uxAbortOnError.UseVisualStyleBackColor = true;
+            this.uxAbortOnError.CheckedChanged += new System.EventHandler(this.uxAbortOnError_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -611,7 +839,7 @@ namespace SerialTestApp
             this.groupBox5.Controls.Add(this.uxCtsHold);
             this.groupBox5.Location = new System.Drawing.Point(403, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(332, 193);
+            this.groupBox5.Size = new System.Drawing.Size(347, 193);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Status";
@@ -884,7 +1112,7 @@ namespace SerialTestApp
             this.groupBox7.Controls.Add(this.uxDtrHandshake);
             this.groupBox7.Controls.Add(this.uxDtrEnabled);
             this.groupBox7.Controls.Add(this.uxDtrDisabled);
-            this.groupBox7.Location = new System.Drawing.Point(757, 13);
+            this.groupBox7.Location = new System.Drawing.Point(403, 450);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(99, 89);
             this.groupBox7.TabIndex = 8;
@@ -911,7 +1139,7 @@ namespace SerialTestApp
             // 
             // uxDtrDisabled
             // 
-            this.uxDtrDisabled.Location = new System.Drawing.Point(6, 16);
+            this.uxDtrDisabled.Location = new System.Drawing.Point(6, 15);
             this.uxDtrDisabled.Name = "uxDtrDisabled";
             this.uxDtrDisabled.Size = new System.Drawing.Size(70, 20);
             this.uxDtrDisabled.TabIndex = 0;
@@ -920,14 +1148,14 @@ namespace SerialTestApp
             // 
             // uxTxBuffer
             // 
-            this.uxTxBuffer.Location = new System.Drawing.Point(306, 374);
+            this.uxTxBuffer.Location = new System.Drawing.Point(303, 599);
             this.uxTxBuffer.Name = "uxTxBuffer";
             this.uxTxBuffer.Size = new System.Drawing.Size(410, 23);
             this.uxTxBuffer.TabIndex = 9;
             // 
             // uxSend
             // 
-            this.uxSend.Location = new System.Drawing.Point(722, 374);
+            this.uxSend.Location = new System.Drawing.Point(719, 599);
             this.uxSend.Name = "uxSend";
             this.uxSend.Size = new System.Drawing.Size(75, 23);
             this.uxSend.TabIndex = 10;
@@ -955,7 +1183,7 @@ namespace SerialTestApp
             "300",
             "110",
             "75"});
-            this.uxBaudrate.Location = new System.Drawing.Point(781, 266);
+            this.uxBaudrate.Location = new System.Drawing.Point(306, 572);
             this.uxBaudrate.Name = "uxBaudrate";
             this.uxBaudrate.Size = new System.Drawing.Size(75, 21);
             this.uxBaudrate.TabIndex = 11;
@@ -967,7 +1195,7 @@ namespace SerialTestApp
             this.groupBox8.Controls.Add(this.uxRtsHandshake);
             this.groupBox8.Controls.Add(this.uxRtsEnabled);
             this.groupBox8.Controls.Add(this.uxRtsDisabled);
-            this.groupBox8.Location = new System.Drawing.Point(757, 108);
+            this.groupBox8.Location = new System.Drawing.Point(403, 355);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(99, 89);
             this.groupBox8.TabIndex = 9;
@@ -1004,7 +1232,7 @@ namespace SerialTestApp
             // uxDsrEnable
             // 
             this.uxDsrEnable.AutoSize = true;
-            this.uxDsrEnable.Location = new System.Drawing.Point(757, 210);
+            this.uxDsrEnable.Location = new System.Drawing.Point(756, 37);
             this.uxDsrEnable.Name = "uxDsrEnable";
             this.uxDsrEnable.Size = new System.Drawing.Size(109, 19);
             this.uxDsrEnable.TabIndex = 12;
@@ -1015,7 +1243,7 @@ namespace SerialTestApp
             // uxCtsEnable
             // 
             this.uxCtsEnable.AutoSize = true;
-            this.uxCtsEnable.Location = new System.Drawing.Point(757, 241);
+            this.uxCtsEnable.Location = new System.Drawing.Point(756, 12);
             this.uxCtsEnable.Name = "uxCtsEnable";
             this.uxCtsEnable.Size = new System.Drawing.Size(108, 19);
             this.uxCtsEnable.TabIndex = 13;
@@ -1033,7 +1261,7 @@ namespace SerialTestApp
             "7",
             "6",
             "5"});
-            this.uxDataBits.Location = new System.Drawing.Point(781, 295);
+            this.uxDataBits.Location = new System.Drawing.Point(387, 572);
             this.uxDataBits.Name = "uxDataBits";
             this.uxDataBits.Size = new System.Drawing.Size(75, 21);
             this.uxDataBits.TabIndex = 14;
@@ -1051,7 +1279,7 @@ namespace SerialTestApp
             "Even",
             "Mark",
             "Space"});
-            this.uxParityBits.Location = new System.Drawing.Point(781, 322);
+            this.uxParityBits.Location = new System.Drawing.Point(468, 572);
             this.uxParityBits.Name = "uxParityBits";
             this.uxParityBits.Size = new System.Drawing.Size(75, 21);
             this.uxParityBits.TabIndex = 15;
@@ -1067,18 +1295,34 @@ namespace SerialTestApp
             "One",
             "Two",
             "OnePointFive"});
-            this.uxStopBits.Location = new System.Drawing.Point(781, 349);
+            this.uxStopBits.Location = new System.Drawing.Point(549, 570);
             this.uxStopBits.Name = "uxStopBits";
             this.uxStopBits.Size = new System.Drawing.Size(75, 21);
             this.uxStopBits.TabIndex = 16;
             this.uxStopBits.Text = "One";
             this.uxStopBits.SelectedIndexChanged += new System.EventHandler(this.uxStopBits_SelectedIndexChanged);
             // 
+            // uxDsrSense
+            // 
+            this.uxDsrSense.AutoSize = true;
+            this.uxDsrSense.Location = new System.Drawing.Point(756, 160);
+            this.uxDsrSense.Name = "uxDsrSense";
+            this.uxDsrSense.Size = new System.Drawing.Size(103, 19);
+            this.uxDsrSense.TabIndex = 17;
+            this.uxDsrSense.Text = "DSR Sensitivity";
+            this.uxDsrSense.UseVisualStyleBackColor = true;
+            this.uxDsrSense.CheckedChanged += new System.EventHandler(this.uxDsrSense_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 527);
+            this.ClientSize = new System.Drawing.Size(915, 752);
+            this.Controls.Add(this.uxParityReplace);
+            this.Controls.Add(this.uxRxXon);
+            this.Controls.Add(this.uxTxXon);
+            this.Controls.Add(this.uxTxXOff);
+            this.Controls.Add(this.uxDsrSense);
             this.Controls.Add(this.uxStopBits);
             this.Controls.Add(this.uxParityBits);
             this.Controls.Add(this.uxDataBits);
@@ -1219,6 +1463,27 @@ namespace SerialTestApp
         private Krypton.Toolkit.KryptonComboBox uxDataBits;
         private Krypton.Toolkit.KryptonComboBox uxParityBits;
         private Krypton.Toolkit.KryptonComboBox uxStopBits;
+        private System.Windows.Forms.CheckBox uxDsrSense;
+        private System.Windows.Forms.CheckBox uxTxXOff;
+        private System.Windows.Forms.CheckBox uxTxXon;
+        private System.Windows.Forms.CheckBox uxRxXon;
+        private System.Windows.Forms.CheckBox uxParityReplace;
+        private System.Windows.Forms.CheckBox uxDiscardNull;
+        private System.Windows.Forms.CheckBox uxAbortOnError;
+        private Krypton.Toolkit.KryptonTextBox uxEventChar;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private Krypton.Toolkit.KryptonTextBox uxEofChar;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
+        private Krypton.Toolkit.KryptonTextBox uxErrorChar;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
+        private Krypton.Toolkit.KryptonTextBox uxXoffChar;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
+        private Krypton.Toolkit.KryptonTextBox uxXonChar;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonTextBox uxPackedValue;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel6;
+        private Krypton.Toolkit.KryptonTextBox uxErrorChars;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel7;
     }
 }
 

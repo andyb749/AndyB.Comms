@@ -1,8 +1,9 @@
 ﻿using System;
 using AndyB.Win32;
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
     /// <summary>
     /// Specifies the type of character that was received on the <see cref="SerialPort"/>
     /// object.
@@ -44,4 +45,5 @@ namespace AndyB.Comms.Serial
     }
 
     //public delegate void SerialDataReceivedEventHandler(object sender, SerialDataReceivedEventArgs e);
+#endif
 }

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.OldSerial
 {
+#if false
 #if false
 	/// <summary>
 	/// Provides data for the <see cref="SerialDevice.Connected"/> event.
@@ -99,4 +100,5 @@ namespace AndyB.Comms.Serial
 		/// <value>One of the <see cref="SerialErrors"/> values.</value>
 		public SerialErrors EventType { get; private set; }
     }
+#endif
 }

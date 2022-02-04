@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Represents the status of the modem control input signals.
 	/// </summary>
@@ -28,5 +29,5 @@ namespace AndyB.Comms.Comm
 		/// </summary>
 		public bool ring { get { return ((status & Win32Com.MS_RING_ON) != 0); } }
 	}
-
+#endif
 }

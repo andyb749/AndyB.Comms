@@ -8,50 +8,37 @@ namespace AndyB.Comms.Serial
 	/// <summary>
 	/// A class of settings used with the <see cref="SerialPort"/> object.
 	/// </summary>
-	public class SerialSettings
+	internal class SerialSettings
 	{
 		/// <summary>
 		/// Gets/Sets the port name.
 		/// </summary>
-		public string PortName { get; set; }
-
+		public string Name { get; set; }
 
 		/// <summary>
-		/// Gets/Sets the baudrate of the <see cref="SerialDevice"/> object.
+		/// Gets/Sets the baud rate of the <see cref="SerialPort"/> object.
 		/// </summary>
-		public int Baudrate { get; set; } = 9600;
+		public BaudRate Baudrate { get; set; } = BaudRate.Baud9600;
 
 
 		/// <summary>
-		/// Gets/Sets the number of databits of the <see cref="SerialDevice"/> object.
+		/// Gets/Sets the number of data bits of the <see cref="SerialPort"/> object.
 		/// </summary>
-		public int DataBits { get; set; } = 8;
+		public DataBits DataBits { get; set; } = DataBits.Eight;
 
 
 		/// <summary>
-		/// Gets/Sets the parity setting of the <see cref="SerialDevice"/> object.
+		/// Gets/Sets the parity setting of the <see cref="SerialPort"/> object.
 		/// </summary>
-		public Parity Parity { get; set; } = Parity.None;
+		public ParityBit Parity { get; set; } = ParityBit.None;
 
 
 		/// <summary>
-		/// Gets/Sets the stopbits of the <see cref="SerialPort"/> object.
+		/// Gets/Sets the stop bits of the <see cref="SerialPort"/> object.
 		/// </summary>
 		public StopBits StopBits { get; set; } = StopBits.One;
 
 
-		/// <summary>
-		/// Get/Set the DTR flow control mode (default: Disable)
-		/// </summary>
-		public PinStates DtrControl { get; set; } = PinStates.Disable;
-
-
-		/// <summary>
-		/// Gets/Set the RTS flow control model (default: Disable)
-		/// </summary>
-		public PinStates RtsControl { get; set; } = PinStates.Disable;
-
-#if false
 		/// <summary>
 		/// Get/Set CTS(in)/RTS(out) hardware flow control. If true, transmission 
 		/// is halted unless CTS is asserted by the remote station (default: false)
@@ -67,9 +54,15 @@ namespace AndyB.Comms.Serial
 
 
 		/// <summary>
+		/// Get/Set the DTR flow control mode (default: Disable)
+		/// </summary>
+		public PinStates DtrControl { get; set; } = PinStates.Disable;
+
+
+		/// <summary>
 		/// Get/Set the RTS flow control mode (default: Disable)
 		/// </summary>
-		public _PinStates RtsControl { get; set; } = _PinStates.Disable;
+		public PinStates RtsControl { get; set; } = PinStates.Disable;
 
 
 		/// <summary>
@@ -126,6 +119,5 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		internal byte EventChar { get; set; } = (byte)'?';
 
-#endif
 	}
 }

@@ -1,5 +1,6 @@
-﻿namespace AndyB.Comms.Serial
+﻿namespace AndyB.Comms.OldSerial
 {
+#if false
 	/// <summary>
 	/// Specifies the control protocol used in establishing a serial port communication
 	/// for a <see cref="SerialPort"/> object.
@@ -33,5 +34,5 @@
 		/// </summary>
 		RequestToSendXOnXOff
 	};
-
+#endif
 }

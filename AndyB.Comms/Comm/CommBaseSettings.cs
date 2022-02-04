@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Set the public fields to supply settings to CommBase.
 	/// </summary>
@@ -189,5 +190,5 @@ namespace AndyB.Comms.Comm
 			}
 		}
 	}
-
+#endif
 }

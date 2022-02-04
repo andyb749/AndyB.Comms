@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Uses for RTS or DTR pins
 	/// </summary>
@@ -26,5 +27,5 @@ namespace AndyB.Comms.Comm
 		/// </summary>
 		none = 0
 	};
-
+#endif
 }

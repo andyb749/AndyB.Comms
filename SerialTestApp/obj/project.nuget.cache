@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "60vBB6G4GVVoFZ7da2hZUsZDEcmB/xGcbK65NEqLGRPx8KTSyB/vwhPlH+m91AZ1xRQABVm0bpiRUggdEngE8w==",
+  "dgSpecHash": "4fpcULscBQXotJffKnSPm8Gp3oR/QQjZfvCcOzRqjCXUBKt4IcVYph7eRkn1eZ5bMVD6ZEckHPmLCq4D0psHHw==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,6 @@
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.ribbon\\5.550.2108.1\\krypton.ribbon.5.550.2108.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.toolkit\\5.550.2108.1\\krypton.toolkit.5.550.2108.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.workspace\\5.550.2108.1\\krypton.workspace.5.550.2108.1.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",

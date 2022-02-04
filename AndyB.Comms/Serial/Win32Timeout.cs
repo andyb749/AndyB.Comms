@@ -1,90 +1,60 @@
-﻿using System;
+using System;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.Serial.Interop
 {
 	/// <summary>
 	/// Wrapper class controlling access to the COMMTIMEOUTS structure and
 	/// kernel32.dll functions: GetCommTimeouts(...), SetCommTimeouts(...)
 	/// </summary>
-	public class Win32Timeout
-    {
-		private COMMTIMEOUTS _ct;
-		SafeFileHandle _handle;
-
-
+	internal class Win32Timeout
+	{
 		/// <summary>
-		/// Get/Set the ReadIntervalTimeout member.
+		/// The COMMTIMEOUTS structure is used in the SetCommTimeouts and GetCommTimeouts 
+		/// functions to set and query the time-out parameters for a communications device. 
+		/// The parameters determine the behaviour of ReadFile, WriteFile, ReadFileEx, and 
+		/// WriteFileEx operations on the device.
 		/// </summary>
-		internal uint ReadInterval
+		[StructLayout(LayoutKind.Sequential)]
+		protected internal struct COMMTIMEOUTS
 		{
-			get => _ct.ReadIntervalTimeout;
-			set => _ct.ReadIntervalTimeout = value;
+			internal UInt32 readIntervalTimeout;
+			internal UInt32 readTotalTimeoutMultiplier;
+			internal UInt32 readTotalTimeoutConstant;
+			internal UInt32 writeTotalTimeoutMultiplier;
+			internal UInt32 writeTotalTimeoutConstant;
 		}
 
 
 		/// <summary>
-		/// Get/Set the ReadTotalTimeoutConstant member.
+		/// The GetCommTimeouts function retrieves the time-out parameters for
+		/// all read and write operations on a specified communications device.
 		/// </summary>
-		internal uint ReadConstant
-		{
-			get => _ct.ReadTotalTimeoutConstant;
-			set => _ct.ReadTotalTimeoutConstant = value;
-		}
-
-		/// <summary>
-		/// Get/Set the ReadTotalTimeoutMultiplier member.
-		/// </summary>
-		internal uint ReadMultiplier
-		{
-			get => _ct.ReadTotalTimeoutMultiplier;
-			set => _ct.ReadTotalTimeoutMultiplier = value;
-		}
-
-		/// <summary>
-		/// Get/Set the WriteTotalTimeoutConstant member.
-		/// </summary>
-		internal uint WriteConstant
-		{
-			get => _ct.WriteTotalTimeoutConstant;
-			set => _ct.WriteTotalTimeoutConstant = value;
-		}
-
-		/// <summary>
-		/// Get/Set the WriteTotalTimeoutMultiplier member.
-		/// </summary>
-		internal uint WriteMultiplier
-		{
-			get => _ct.WriteTotalTimeoutMultiplier;
-			set => _ct.WriteTotalTimeoutMultiplier = value;
-		}
+		[DllImport("kernel32.dll")]
+		private static extern Boolean GetCommTimeouts
+		(
+			IntPtr hFile,
+			out COMMTIMEOUTS lpCommTimeouts
+		);
 
 
 		/// <summary>
-		/// Update the class timeout structure for this port instance.
+		/// The SetCommTimeouts function sets the time-out parameters for all read and 
+		/// write operations on a specified communications device.
 		/// </summary>
-		/// <returns>True if read update successful.</returns>
-		internal void Get()
-		{
-			if (GetCommTimeouts(_handle, out _ct) == false)
-			{
-				throw new SerialException();
-			}
-		}
+		[DllImport("kernel32.dll")]
+		internal static extern Boolean SetCommTimeouts
+		(
+			IntPtr hFile,
+			[In] ref COMMTIMEOUTS lpCommTimeouts
+		);
 
-		/// <summary>
-		/// Update the port timeouts from this instance's current timeout structure.
-		/// </summary>
-		/// <returns>True if write update successful.</returns>
-		internal void Set()
-		{
-			if (SetCommTimeouts(_handle, ref _ct) == false)
-			{
-				throw new SerialException();
-			}
-		}
+
+
+
+		COMMTIMEOUTS _ct;
+		IntPtr _handle = IntPtr.Zero;
 
 
 		/// <summary>
@@ -92,8 +62,8 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		/// <remarks>This overload sets the timeouts so that <see cref="Win32Comm.Read"/>
 		/// returns immediately with the bytes already read from the port and
-		/// <see cref="Win32Comm.Write"/> returns immediately.</remarks>
-		internal Win32Timeout(SafeFileHandle handle)
+		/// <see cref="Win32Comm.Write(byte[], uint, out uint)"/> returns immediately.</remarks>
+		internal Win32Timeout(IntPtr handle)
 			: this(handle, uint.MaxValue, 0, 0, 0, 0)
 		{
 		}
@@ -104,8 +74,7 @@ namespace AndyB.Comms.Serial
 		/// </summary>
 		/// <remarks>This overload allows the caller to set the write timeouts, whilst
 		/// <see cref="Win32Comm.Read"/> returns immediately with the bytes already read.</remarks>
-		internal Win32Timeout(SafeFileHandle handle, uint wttc, uint wttm) 
-			: this(handle, uint.MaxValue, 0, 0, wttc, wttm)
+		internal Win32Timeout(IntPtr handle, uint wttc, uint wttm) : this(handle, uint.MaxValue, 0, 0, wttc, wttm)
 		{
 		}
 
@@ -116,7 +85,7 @@ namespace AndyB.Comms.Serial
 		/// <param name="handle">Comms port handle created by <see cref="Win32Comm.Open"/> method.</param>
 		/// <param name="rit">Read interval timeout in milliseconds.</param>
 		/// <param name="rttm">Read total timeout multiplier in milliseconds.</param>
-		/// <param name="rttc">Read total timeout contant in milliseconds.</param>
+		/// <param name="rttc">Read total timeout constant in milliseconds.</param>
 		/// <param name="wttc">Write total timeout constant in milliseconds.</param>
 		/// <param name="wttm">Write total timeout multiplier in milliseconds.</param>
 		/// <remarks><para>
@@ -153,53 +122,107 @@ namespace AndyB.Comms.Serial
 		/// indicates that total time-outs are not used for write operations.
 		/// </para>
 		/// </remarks>
-		internal Win32Timeout(SafeFileHandle handle, uint rit, uint rttc, uint rttm, uint wttc, uint wttm)
+		internal Win32Timeout(IntPtr handle, uint rit, uint rttc, uint rttm, uint wttc, uint wttm)
 		{
 			_handle = handle;
 
-			_ct.ReadIntervalTimeout = rit;
-			_ct.ReadTotalTimeoutConstant = rttc;
-			_ct.ReadTotalTimeoutMultiplier = rttm;
+			_ct.readIntervalTimeout = rit;
+			_ct.readTotalTimeoutConstant = rttc;
+			_ct.readTotalTimeoutMultiplier = rttm;
 			if (wttm == 0)
 			{
-				if (System.Environment.OSVersion.Platform == System.PlatformID.Win32NT)
-					_ct.WriteTotalTimeoutMultiplier = 0;
+				if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+					_ct.writeTotalTimeoutMultiplier = 0;
 				else
-					_ct.WriteTotalTimeoutMultiplier = 10000;
+					_ct.writeTotalTimeoutMultiplier = 10000;
 			}
 			else
 			{
-				_ct.WriteTotalTimeoutMultiplier = wttm;
+				_ct.writeTotalTimeoutMultiplier = wttm;
 			}
-			_ct.WriteTotalTimeoutConstant = wttc;
+			_ct.writeTotalTimeoutConstant = wttc;
 			Set();
 		}
 
 
-		#region Win32 Interop
+
 
 		/// <summary>
-		/// The COMMTIMEOUTS structure is used in the SetCommTimeouts and GetCommTimeouts 
-		/// functions to set and query the time-out parameters for a communications device. 
-		/// The parameters determine the behaviour of ReadFile, WriteFile, ReadFileEx, and 
-		/// WriteFileEx operations on the device.
+		/// Update the class timeout structure for this port instance.
 		/// </summary>
-		[StructLayout(LayoutKind.Sequential)]
-		internal struct COMMTIMEOUTS
+		/// <returns>True if read update successful.</returns>
+		internal void Get()
 		{
-			internal UInt32 ReadIntervalTimeout;
-			internal UInt32 ReadTotalTimeoutMultiplier;
-			internal UInt32 ReadTotalTimeoutConstant;
-			internal UInt32 WriteTotalTimeoutMultiplier;
-			internal UInt32 WriteTotalTimeoutConstant;
+			if (GetCommTimeouts(_handle, out _ct) == false)
+			{
+				throw new CommsException();
+			}
 		}
 
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean GetCommTimeouts(SafeFileHandle hFile, out COMMTIMEOUTS lpCommTimeouts);
 
-		[DllImport("kernel32.dll")]
-		internal static extern Boolean SetCommTimeouts(SafeFileHandle hFile, [In] ref COMMTIMEOUTS lpCommTimeouts);
+		/// <summary>
+		/// Update the port timeouts from this instance's current timeout structure.
+		/// </summary>
+		/// <returns>True if write update successful.</returns>
+		internal void Set()
+		{
+			if (SetCommTimeouts(_handle, ref _ct) == false)
+			{
+				throw new CommsException();
+			}
+		}
 
-		#endregion
+
+
+
+		/// <summary>
+		/// Get/Set the readIntervalTimeout member.
+		/// </summary>
+		internal uint ReadInterval
+		{
+			get { return _ct.readIntervalTimeout; }
+			set { _ct.readIntervalTimeout = value; }
+		}
+
+
+		/// <summary>
+		/// Get/Set the readTotalTimeoutConstant member.
+		/// </summary>
+		internal uint ReadConstant
+		{
+			get { return _ct.readTotalTimeoutConstant; }
+			set { _ct.readTotalTimeoutConstant = value; }
+		}
+
+
+		/// <summary>
+		/// Get/Set the readTotalTimeoutMultiplier member.
+		/// </summary>
+		internal uint ReadMultiplier
+		{
+			get { return _ct.readTotalTimeoutMultiplier; }
+			set { _ct.readTotalTimeoutMultiplier = value; }
+		}
+
+
+		/// <summary>
+		/// Get/Set the writeTotalTimeoutConstant member.
+		/// </summary>
+		internal uint WriteConstant
+		{
+			get { return _ct.writeTotalTimeoutConstant; }
+			set { _ct.writeTotalTimeoutConstant = value; }
+		}
+
+
+		/// <summary>
+		/// Get/Set the writeTotalTimeoutMultiplier member.
+		/// </summary>
+		internal uint WriteMultiplier
+		{
+			get { return _ct.writeTotalTimeoutMultiplier; }
+			set { _ct.writeTotalTimeoutMultiplier = value; }
+		}
+
 	}
 }

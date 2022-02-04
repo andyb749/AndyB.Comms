@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace AndyB.Comms.Comm
 {
+#if false
     internal partial class Win32Comm
     {
         public const UInt32 ERROR_SUCCESS = 0;
@@ -35,4 +36,5 @@ namespace AndyB.Comms.Comm
         public const UInt32 ERROR_DLL_NOT_FOUND = 1157;
         public const UInt32 ERROR_CANCELLED = 1223;
     }
+#endif
 }

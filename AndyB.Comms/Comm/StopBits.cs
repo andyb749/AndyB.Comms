@@ -4,6 +4,7 @@ using System.Text;
 
 namespace AndyB.Comms.Comm
 {
+#if false
 	/// <summary>
 	/// Stop bit settings
 	/// </summary>
@@ -22,5 +23,5 @@ namespace AndyB.Comms.Comm
 		/// </summary>
 		two = 2
 	};
-
+#endif
 }

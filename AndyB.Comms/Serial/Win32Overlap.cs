@@ -1,64 +1,115 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System;
 using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 
 
-namespace AndyB.Comms.Serial
+namespace AndyB.Comms.Serial.Interop
 {
-#if true
 	/// <summary>
 	/// Wrapper class controlling access to the OVERLAPPED structure and
 	/// kernel32.dll function: GetOverlappedResult()
 	/// </summary>
-	public class Win32Overlap : IDisposable
-    {
-		private readonly SafeFileHandle _handle;
-		private readonly OVERLAPPED _ol;
+	internal class Win32Overlap
+	{
+		/// <summary>
+		/// The OVERLAPPED structure contains information used in asynchronous I/O.
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
+		protected internal struct OVERLAPPED
+		{
+			/// <summary>
+			/// Reserved for operating system use. 
+			/// </summary>
+			internal UIntPtr internalLow;
+
+			/// <summary>
+			/// Reserved for operating system use.
+			/// </summary>
+			internal UIntPtr internalHigh;
+
+			/// <summary>
+			/// Specifies a file position at which to start the transfer. 
+			/// The file position is a byte offset from the start of the file. 
+			/// The calling process sets this member before calling the ReadFile 
+			/// or WriteFile function. This member is ignored when reading from 
+			/// or writing to named pipes and communications devices and should be zero.
+			/// </summary>
+			internal UInt32 offset;
+
+			/// <summary>
+			/// Specifies the high word of the byte offset at which to start the transfer. 
+			/// This member is ignored when reading from or writing to named pipes and 
+			/// communications devices and should be zero.
+			/// </summary>
+			internal UInt32 offsetHigh;
+
+			/// <summary>
+			/// Handle to an event set to the signaled state when the operation has 
+			/// been completed. The calling process must set this member either to 
+			/// zero or a valid event handle before calling any overlapped functions. 
+			/// To create an event object, use the CreateEvent function. Functions 
+			/// such as WriteFile set the event to the nonsignaled state before they 
+			/// begin an I/O operation.
+			/// </summary>
+			internal IntPtr hEvent;
+		}
 
 
 		/// <summary>
-		/// Get/Set the overlap structure memory pointer.
+		/// The GetOverlappedResult function retrieves the results 
+		/// of an overlapped operation on the specified file, named 
+		/// pipe, or communications device.
 		/// </summary>
-		internal IntPtr MemPtr { get; set; }
+		[DllImport("kernel32.dll", SetLastError = true)]
+		private static extern Boolean GetOverlappedResult
+		(
+			IntPtr hFile,
+			IntPtr lpOverlapped,
+			out UInt32 nNumberOfBytesTransferred,
+			Boolean bWait
+		);
 
+
+		private IntPtr handle;
+		/// <summary>
+		/// Overlap structure.
+		/// </summary>
+		private OVERLAPPED ol;
 
 		/// <summary>
-		/// Initialises a new instance of the <see cref="Win32Overlap"/> class with
-		/// the supplied comm port handle and event handle.
+		/// Pointer to overlap struct in memory.
 		/// </summary>
-		/// <param name="handle">The comm port handle.</param>
-		/// <param name="evHandle">The event handle.</param>
-		public Win32Overlap (SafeFileHandle handle, SafeWaitHandle evHandle)
-        {
-			_handle = handle;
+		private IntPtr memPtr;
+		private string fault;
 
-			// Create and init overlap structure
-			_ol = new OVERLAPPED();
-			_ol.Offset = 0;
-			_ol.OffsetHigh = 0;
-			_ol.hEvent = evHandle.DangerousGetHandle();
+
+		internal Win32Overlap(IntPtr handle, IntPtr evHandle)
+		{
+			this.handle = handle;
+
+			// Create, init overlap.
+			this.ol = new OVERLAPPED();
+			this.ol.offset = 0;
+			this.ol.offsetHigh = 0;
+			this.ol.hEvent = evHandle;
 
 			// Create memory pointer & copy to unmanaged memory.
-			if (!evHandle.IsInvalid)
-            {
-				MemPtr = Marshal.AllocHGlobal(Marshal.SizeOf(_ol));
-				Marshal.StructureToPtr(_ol, MemPtr, true);
-            }
-        }
+			if (evHandle != IntPtr.Zero)
+			{
+				this.memPtr = Marshal.AllocHGlobal(Marshal.SizeOf(this.ol));
+				Marshal.StructureToPtr(this.ol, this.memPtr, false);
+			}
+			return;
+		}
 
 
 		/// <summary>
 		/// Destructor. Free overlap memory.
 		/// </summary>
 		~Win32Overlap()
-        {
-			if (MemPtr != IntPtr.Zero)
-			{
-				Marshal.FreeHGlobal(MemPtr);
-				MemPtr = IntPtr.Zero;
-			}
+		{
+			if (this.memPtr != IntPtr.Zero)
+				Marshal.FreeHGlobal(this.memPtr);
+			return;
 		}
 
 
@@ -66,14 +117,14 @@ namespace AndyB.Comms.Serial
 		/// Updates the class overlap structure (in memory).
 		/// </summary>
 		/// <returns>True if read update successful.</returns>
-		public bool Get(out uint nSent, bool wait)
+		internal bool Get(out uint nSent, bool wait)
 		{
-			if (GetOverlappedResult(_handle, MemPtr, out nSent, wait) == false)
+			if (GetOverlappedResult(this.handle, this.memPtr, out nSent, wait) == false)
 			{
 				int error = Marshal.GetLastWin32Error();
 				if (error != Win32Comm.ERROR_IO_PENDING)
 				{
-					Fault = "GetOverlappedResult() Failed. System Returned Error Code: " +
+					this.fault = "GetOverlappedResult() Failed. System Returned Error Code: " +
 						error.ToString();
 					return false;
 				}
@@ -83,67 +134,21 @@ namespace AndyB.Comms.Serial
 
 
 		/// <summary>
-		/// Gets the latest fault string.
+		/// Get/Set the overlap structure memory pointer.
 		/// </summary>
-		public string Fault { get; set; }
-
-		public void Dispose()
-        {
-			Marshal.FreeHGlobal(MemPtr);
-			GC.SuppressFinalize(this);
-        }
-
-#region Win32 Interop
-
-		[StructLayout(LayoutKind.Sequential)]
-		internal struct OVERLAPPED
+		internal IntPtr MemPtr
 		{
-			/// <summary>
-			/// Reserved for operating system use. 
-			/// </summary>
-			internal UIntPtr Internal;
-
-			/// <summary>
-			/// Reserved for operating system use.
-			/// </summary>
-			internal UIntPtr InternalHigh;
-
-			/// <summary>
-			/// Specifies a file position at which to start the transfer. 
-			/// The file position is a byte offset from the start of the file. 
-			/// The calling process sets this member before calling the ReadFile 
-			/// or WriteFile function. This member is ignored when reading from 
-			/// or writing to named pipes and communications devices and should be zero.
-			/// </summary>
-			internal UInt32 Offset;
-
-			/// <summary>
-			/// Specifies the high word of the byte offset at which to start the transfer. 
-			/// This member is ignored when reading from or writing to named pipes and 
-			/// communications devices and should be zero.
-			/// </summary>
-			internal UInt32 OffsetHigh;
-
-			/// <summary>
-			/// Handle to an event set to the signalled state when the operation has 
-			/// been completed. The calling process must set this member either to 
-			/// zero or a valid event handle before calling any overlapped functions. 
-			/// To create an event object, use the CreateEvent function. Functions 
-			/// such as WriteFile set the event to the non-signalled state before they 
-			/// begin an I/O operation.
-			/// </summary>
-			internal IntPtr hEvent;
+			get { return this.memPtr; }
+			set { this.memPtr = value; }
 		}
 
 
 		/// <summary>
-		/// Status Functions.
+		/// Get the last class fault description string.
 		/// </summary>
-		[DllImport("kernel32.dll", SetLastError = true)]
-		internal static extern Boolean GetOverlappedResult(SafeFileHandle hFile, IntPtr lpOverlapped,
-			out UInt32 nNumberOfBytesTransferred, Boolean bWait);
-
-#endregion
+		internal string Fault
+		{
+			get { return this.fault; }
+		}
 	}
-#endif
 }

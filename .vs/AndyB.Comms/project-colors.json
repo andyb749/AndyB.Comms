@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "4b51d91f-7ed6-4da0-baeb-9ab7fb5b4e31": {
+      "ProjectGuid": "4b51d91f-7ed6-4da0-baeb-9ab7fb5b4e31",
+      "DisplayName": "SerialTestApp",
+      "ColorIndex": 0
+    },
+    "30ca6b13-99cd-405d-b85f-92931dda1924": {
+      "ProjectGuid": "30ca6b13-99cd-405d-b85f-92931dda1924",
+      "DisplayName": "AndyB.Comms",
+      "ColorIndex": 1
+    },
+    "2214d815-ed35-46a5-897f-e38a4e053350": {
+      "ProjectGuid": "2214d815-ed35-46a5-897f-e38a4e053350",
+      "DisplayName": "BaseTerm",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
