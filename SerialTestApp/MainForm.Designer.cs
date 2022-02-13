@@ -42,21 +42,42 @@ namespace SerialTestApp
             this.uxRLSD = new SerialTestApp.Controls.LedControl();
             this.uxCTS = new SerialTestApp.Controls.LedControl();
             this.uxDSR = new SerialTestApp.Controls.LedControl();
-            this.uxRefreshModem = new Krypton.Toolkit.KryptonButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.uxReset = new Krypton.Toolkit.KryptonButton();
             this.uxBreak = new Krypton.Toolkit.KryptonButton();
             this.uxXonXoff = new Krypton.Toolkit.KryptonButton();
             this.uxRTS = new Krypton.Toolkit.KryptonButton();
             this.uxDTR = new Krypton.Toolkit.KryptonButton();
             this.uxClear = new Krypton.Toolkit.KryptonButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.uxStopBits = new Krypton.Toolkit.KryptonComboBox();
+            this.uxParityReplace = new System.Windows.Forms.CheckBox();
+            this.uxParityBits = new Krypton.Toolkit.KryptonComboBox();
+            this.uxAbortOnError = new System.Windows.Forms.CheckBox();
+            this.uxDataBits = new Krypton.Toolkit.KryptonComboBox();
+            this.uxRxXon = new System.Windows.Forms.CheckBox();
+            this.uxBaudrate = new Krypton.Toolkit.KryptonComboBox();
+            this.uxDiscardNull = new System.Windows.Forms.CheckBox();
+            this.uxTxXon = new System.Windows.Forms.CheckBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.uxRtsToggle = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxRtsHandshake = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxRtsEnabled = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxRtsDisabled = new Krypton.Toolkit.KryptonRadioButton();
             this.label8 = new Krypton.Toolkit.KryptonLabel();
+            this.uxTxXOff = new System.Windows.Forms.CheckBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.uxDtrToggle = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxDtrHandshake = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxDtrEnabled = new Krypton.Toolkit.KryptonRadioButton();
+            this.uxDtrDisabled = new Krypton.Toolkit.KryptonRadioButton();
             this.uxErrorChars = new Krypton.Toolkit.KryptonTextBox();
+            this.uxDsrSense = new System.Windows.Forms.CheckBox();
             this.kryptonLabel7 = new Krypton.Toolkit.KryptonLabel();
             this.uxPackedValue = new Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             this.uxEventChar = new Krypton.Toolkit.KryptonTextBox();
+            this.uxDsrEnable = new System.Windows.Forms.CheckBox();
+            this.uxCtsEnable = new System.Windows.Forms.CheckBox();
             this.kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             this.uxEofChar = new Krypton.Toolkit.KryptonTextBox();
             this.kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
@@ -91,12 +112,6 @@ namespace SerialTestApp
             this.uxBaud = new Krypton.Toolkit.KryptonTextBox();
             this.uxRefresh3 = new Krypton.Toolkit.KryptonButton();
             this.uxToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.uxTxXOff = new System.Windows.Forms.CheckBox();
-            this.uxTxXon = new System.Windows.Forms.CheckBox();
-            this.uxRxXon = new System.Windows.Forms.CheckBox();
-            this.uxParityReplace = new System.Windows.Forms.CheckBox();
-            this.uxDiscardNull = new System.Windows.Forms.CheckBox();
-            this.uxAbortOnError = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label14 = new Krypton.Toolkit.KryptonLabel();
             this.label13 = new Krypton.Toolkit.KryptonLabel();
@@ -125,36 +140,27 @@ namespace SerialTestApp
             this.uxRxInterval = new Krypton.Toolkit.KryptonTextBox();
             this.label15 = new Krypton.Toolkit.KryptonLabel();
             this.uxRxTimeout = new Krypton.Toolkit.KryptonTextBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.uxDtrHandshake = new Krypton.Toolkit.KryptonRadioButton();
-            this.uxDtrEnabled = new Krypton.Toolkit.KryptonRadioButton();
-            this.uxDtrDisabled = new Krypton.Toolkit.KryptonRadioButton();
             this.uxTxBuffer = new Krypton.Toolkit.KryptonTextBox();
             this.uxSend = new Krypton.Toolkit.KryptonButton();
-            this.uxBaudrate = new Krypton.Toolkit.KryptonComboBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.uxRtsHandshake = new Krypton.Toolkit.KryptonRadioButton();
-            this.uxRtsEnabled = new Krypton.Toolkit.KryptonRadioButton();
-            this.uxRtsDisabled = new Krypton.Toolkit.KryptonRadioButton();
-            this.uxDsrEnable = new System.Windows.Forms.CheckBox();
-            this.uxCtsEnable = new System.Windows.Forms.CheckBox();
-            this.uxDataBits = new Krypton.Toolkit.KryptonComboBox();
-            this.uxParityBits = new Krypton.Toolkit.KryptonComboBox();
-            this.uxStopBits = new Krypton.Toolkit.KryptonComboBox();
-            this.uxDsrSense = new System.Windows.Forms.CheckBox();
+            this.uxRead = new Krypton.Toolkit.KryptonButton();
+            this.uxDtrRts = new Krypton.Toolkit.KryptonCheckBox();
+            this.uxRtsCts = new Krypton.Toolkit.KryptonCheckBox();
+            this.uxDtrEnable = new Krypton.Toolkit.KryptonCheckBox();
+            this.uxRtsEnable = new Krypton.Toolkit.KryptonCheckBox();
+            this.uxPurge = new Krypton.Toolkit.KryptonButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxPorts)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxStopBits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxParityBits)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataBits)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.uxBaudrate)).BeginInit();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataBits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxParityBits)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxStopBits)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // uxLog
@@ -163,7 +169,7 @@ namespace SerialTestApp
             this.uxLog.FormattingEnabled = true;
             this.uxLog.Location = new System.Drawing.Point(0, 628);
             this.uxLog.Name = "uxLog";
-            this.uxLog.Size = new System.Drawing.Size(915, 124);
+            this.uxLog.Size = new System.Drawing.Size(892, 124);
             this.uxLog.TabIndex = 0;
             // 
             // groupBox1
@@ -236,10 +242,9 @@ namespace SerialTestApp
             this.groupBox2.Controls.Add(this.uxRLSD);
             this.groupBox2.Controls.Add(this.uxCTS);
             this.groupBox2.Controls.Add(this.uxDSR);
-            this.groupBox2.Controls.Add(this.uxRefreshModem);
             this.groupBox2.Location = new System.Drawing.Point(0, 118);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(106, 171);
+            this.groupBox2.Size = new System.Drawing.Size(106, 102);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Modem Signals";
@@ -288,37 +293,18 @@ namespace SerialTestApp
             this.uxDSR.TabIndex = 1;
             this.uxDSR.Values.Text = "DSR";
             // 
-            // uxRefreshModem
-            // 
-            this.uxRefreshModem.Location = new System.Drawing.Point(6, 105);
-            this.uxRefreshModem.Name = "uxRefreshModem";
-            this.uxRefreshModem.Size = new System.Drawing.Size(75, 23);
-            this.uxRefreshModem.TabIndex = 0;
-            this.uxRefreshModem.Values.Text = "Refresh";
-            this.uxRefreshModem.Click += new System.EventHandler(this.UxRefreshModem_Click);
-            // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.uxReset);
             this.groupBox3.Controls.Add(this.uxBreak);
             this.groupBox3.Controls.Add(this.uxXonXoff);
             this.groupBox3.Controls.Add(this.uxRTS);
             this.groupBox3.Controls.Add(this.uxDTR);
             this.groupBox3.Location = new System.Drawing.Point(112, 118);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(94, 171);
+            this.groupBox3.Size = new System.Drawing.Size(94, 143);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Handshakes";
-            // 
-            // uxReset
-            // 
-            this.uxReset.Location = new System.Drawing.Point(7, 135);
-            this.uxReset.Name = "uxReset";
-            this.uxReset.Size = new System.Drawing.Size(75, 23);
-            this.uxReset.TabIndex = 4;
-            this.uxReset.Values.Text = "RESET";
-            this.uxReset.Click += new System.EventHandler(this.UxReset_Click);
             // 
             // uxBreak
             // 
@@ -358,7 +344,7 @@ namespace SerialTestApp
             // 
             // uxClear
             // 
-            this.uxClear.Location = new System.Drawing.Point(6, 467);
+            this.uxClear.Location = new System.Drawing.Point(813, 599);
             this.uxClear.Name = "uxClear";
             this.uxClear.Size = new System.Drawing.Size(75, 23);
             this.uxClear.TabIndex = 4;
@@ -367,14 +353,27 @@ namespace SerialTestApp
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.uxStopBits);
+            this.groupBox4.Controls.Add(this.uxParityReplace);
+            this.groupBox4.Controls.Add(this.uxParityBits);
             this.groupBox4.Controls.Add(this.uxAbortOnError);
+            this.groupBox4.Controls.Add(this.uxDataBits);
+            this.groupBox4.Controls.Add(this.uxRxXon);
+            this.groupBox4.Controls.Add(this.uxBaudrate);
             this.groupBox4.Controls.Add(this.uxDiscardNull);
+            this.groupBox4.Controls.Add(this.uxTxXon);
+            this.groupBox4.Controls.Add(this.groupBox8);
             this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.uxTxXOff);
+            this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.uxErrorChars);
+            this.groupBox4.Controls.Add(this.uxDsrSense);
             this.groupBox4.Controls.Add(this.kryptonLabel7);
             this.groupBox4.Controls.Add(this.uxPackedValue);
             this.groupBox4.Controls.Add(this.kryptonLabel6);
             this.groupBox4.Controls.Add(this.uxEventChar);
+            this.groupBox4.Controls.Add(this.uxDsrEnable);
+            this.groupBox4.Controls.Add(this.uxCtsEnable);
             this.groupBox4.Controls.Add(this.kryptonLabel5);
             this.groupBox4.Controls.Add(this.uxEofChar);
             this.groupBox4.Controls.Add(this.kryptonLabel4);
@@ -410,10 +409,198 @@ namespace SerialTestApp
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.Location = new System.Drawing.Point(212, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(185, 563);
+            this.groupBox4.Size = new System.Drawing.Size(290, 619);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Settings";
+            // 
+            // uxStopBits
+            // 
+            this.uxStopBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.uxStopBits.DropDownWidth = 75;
+            this.uxStopBits.IntegralHeight = false;
+            this.uxStopBits.Items.AddRange(new object[] {
+            "One",
+            "Two",
+            "OnePointFive"});
+            this.uxStopBits.Location = new System.Drawing.Point(172, 93);
+            this.uxStopBits.Name = "uxStopBits";
+            this.uxStopBits.Size = new System.Drawing.Size(75, 21);
+            this.uxStopBits.TabIndex = 16;
+            this.uxStopBits.Text = "One";
+            this.uxStopBits.SelectedIndexChanged += new System.EventHandler(this.UxStopBits_SelectedIndexChanged);
+            // 
+            // uxParityReplace
+            // 
+            this.uxParityReplace.AutoSize = true;
+            this.uxParityReplace.Location = new System.Drawing.Point(174, 122);
+            this.uxParityReplace.Name = "uxParityReplace";
+            this.uxParityReplace.Size = new System.Drawing.Size(97, 17);
+            this.uxParityReplace.TabIndex = 21;
+            this.uxParityReplace.Text = "Parity Replace";
+            this.uxToolTip.SetToolTip(this.uxParityReplace, " Parity errors are replaced with the error character");
+            this.uxParityReplace.UseVisualStyleBackColor = true;
+            this.uxParityReplace.CheckedChanged += new System.EventHandler(this.UxParityReplace_CheckedChanged);
+            // 
+            // uxParityBits
+            // 
+            this.uxParityBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.uxParityBits.DropDownWidth = 75;
+            this.uxParityBits.IntegralHeight = false;
+            this.uxParityBits.Items.AddRange(new object[] {
+            "None",
+            "Odd",
+            "Even",
+            "Mark",
+            "Space"});
+            this.uxParityBits.Location = new System.Drawing.Point(172, 69);
+            this.uxParityBits.Name = "uxParityBits";
+            this.uxParityBits.Size = new System.Drawing.Size(75, 21);
+            this.uxParityBits.TabIndex = 15;
+            this.uxParityBits.Text = "None";
+            this.uxParityBits.SelectedIndexChanged += new System.EventHandler(this.UxParityBits_SelectedIndexChanged);
+            // 
+            // uxAbortOnError
+            // 
+            this.uxAbortOnError.AutoSize = true;
+            this.uxAbortOnError.Location = new System.Drawing.Point(61, 536);
+            this.uxAbortOnError.Name = "uxAbortOnError";
+            this.uxAbortOnError.Size = new System.Drawing.Size(102, 17);
+            this.uxAbortOnError.TabIndex = 23;
+            this.uxAbortOnError.Text = "Abort On Error";
+            this.uxToolTip.SetToolTip(this.uxAbortOnError, "Abort on errors");
+            this.uxAbortOnError.UseVisualStyleBackColor = true;
+            this.uxAbortOnError.CheckedChanged += new System.EventHandler(this.UxAbortOnError_CheckedChanged);
+            // 
+            // uxDataBits
+            // 
+            this.uxDataBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.uxDataBits.DropDownWidth = 75;
+            this.uxDataBits.IntegralHeight = false;
+            this.uxDataBits.Items.AddRange(new object[] {
+            "8",
+            "7",
+            "6",
+            "5"});
+            this.uxDataBits.Location = new System.Drawing.Point(172, 45);
+            this.uxDataBits.Name = "uxDataBits";
+            this.uxDataBits.Size = new System.Drawing.Size(75, 21);
+            this.uxDataBits.TabIndex = 14;
+            this.uxDataBits.Text = "8";
+            this.uxDataBits.SelectedIndexChanged += new System.EventHandler(this.UxDataBits_SelectedIndexChanged);
+            // 
+            // uxRxXon
+            // 
+            this.uxRxXon.AutoSize = true;
+            this.uxRxXon.Location = new System.Drawing.Point(172, 431);
+            this.uxRxXon.Name = "uxRxXon";
+            this.uxRxXon.Size = new System.Drawing.Size(91, 17);
+            this.uxRxXon.TabIndex = 20;
+            this.uxRxXon.Text = "RX XOn/XOff";
+            this.uxToolTip.SetToolTip(this.uxRxXon, "RX Continue on XOff");
+            this.uxRxXon.UseVisualStyleBackColor = true;
+            this.uxRxXon.CheckedChanged += new System.EventHandler(this.UxRxXon_CheckedChanged);
+            // 
+            // uxBaudrate
+            // 
+            this.uxBaudrate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.uxBaudrate.DropDownWidth = 75;
+            this.uxBaudrate.IntegralHeight = false;
+            this.uxBaudrate.Items.AddRange(new object[] {
+            "128000",
+            "115200",
+            "57600",
+            "38400",
+            "19200",
+            "14400",
+            "9600",
+            "7200",
+            "4800",
+            "1800",
+            "1200",
+            "600",
+            "300",
+            "110",
+            "75"});
+            this.uxBaudrate.Location = new System.Drawing.Point(172, 20);
+            this.uxBaudrate.Name = "uxBaudrate";
+            this.uxBaudrate.Size = new System.Drawing.Size(75, 21);
+            this.uxBaudrate.TabIndex = 11;
+            this.uxBaudrate.Text = "9600";
+            this.uxBaudrate.SelectedIndexChanged += new System.EventHandler(this.UxBaudrate_SelectedIndexChanged);
+            // 
+            // uxDiscardNull
+            // 
+            this.uxDiscardNull.AutoSize = true;
+            this.uxDiscardNull.Location = new System.Drawing.Point(71, 479);
+            this.uxDiscardNull.Name = "uxDiscardNull";
+            this.uxDiscardNull.Size = new System.Drawing.Size(93, 17);
+            this.uxDiscardNull.TabIndex = 22;
+            this.uxDiscardNull.Text = "Discard Nulls";
+            this.uxToolTip.SetToolTip(this.uxDiscardNull, "Discard Null characters");
+            this.uxDiscardNull.UseVisualStyleBackColor = true;
+            this.uxDiscardNull.CheckedChanged += new System.EventHandler(this.UxDiscardNull_CheckedChanged);
+            // 
+            // uxTxXon
+            // 
+            this.uxTxXon.AutoSize = true;
+            this.uxTxXon.Location = new System.Drawing.Point(172, 406);
+            this.uxTxXon.Name = "uxTxXon";
+            this.uxTxXon.Size = new System.Drawing.Size(90, 17);
+            this.uxTxXon.TabIndex = 19;
+            this.uxTxXon.Text = "TX XOn/XOff";
+            this.uxToolTip.SetToolTip(this.uxTxXon, "Use XON/XOFF on transmission");
+            this.uxTxXon.UseVisualStyleBackColor = true;
+            this.uxTxXon.CheckedChanged += new System.EventHandler(this.UxTxXon_CheckedChanged);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.uxRtsToggle);
+            this.groupBox8.Controls.Add(this.uxRtsHandshake);
+            this.groupBox8.Controls.Add(this.uxRtsEnabled);
+            this.groupBox8.Controls.Add(this.uxRtsDisabled);
+            this.groupBox8.Location = new System.Drawing.Point(169, 454);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(99, 115);
+            this.groupBox8.TabIndex = 9;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "RTS Control";
+            // 
+            // uxRtsToggle
+            // 
+            this.uxRtsToggle.Location = new System.Drawing.Point(6, 82);
+            this.uxRtsToggle.Name = "uxRtsToggle";
+            this.uxRtsToggle.Size = new System.Drawing.Size(60, 20);
+            this.uxRtsToggle.TabIndex = 3;
+            this.uxRtsToggle.Values.Text = "Toggle";
+            this.uxRtsToggle.CheckedChanged += new System.EventHandler(this.uxRtsToggle_CheckedChanged);
+            // 
+            // uxRtsHandshake
+            // 
+            this.uxRtsHandshake.Location = new System.Drawing.Point(6, 59);
+            this.uxRtsHandshake.Name = "uxRtsHandshake";
+            this.uxRtsHandshake.Size = new System.Drawing.Size(83, 20);
+            this.uxRtsHandshake.TabIndex = 2;
+            this.uxRtsHandshake.Values.Text = "Handshake";
+            this.uxRtsHandshake.CheckedChanged += new System.EventHandler(this.UxRtsHandshake_CheckedChanged);
+            // 
+            // uxRtsEnabled
+            // 
+            this.uxRtsEnabled.Location = new System.Drawing.Point(6, 39);
+            this.uxRtsEnabled.Name = "uxRtsEnabled";
+            this.uxRtsEnabled.Size = new System.Drawing.Size(66, 20);
+            this.uxRtsEnabled.TabIndex = 1;
+            this.uxRtsEnabled.Values.Text = "Enabled";
+            this.uxRtsEnabled.CheckedChanged += new System.EventHandler(this.UxRtsEnabled_CheckedChanged);
+            // 
+            // uxRtsDisabled
+            // 
+            this.uxRtsDisabled.Location = new System.Drawing.Point(6, 16);
+            this.uxRtsDisabled.Name = "uxRtsDisabled";
+            this.uxRtsDisabled.Size = new System.Drawing.Size(70, 20);
+            this.uxRtsDisabled.TabIndex = 0;
+            this.uxRtsDisabled.Values.Text = "Disabled";
+            this.uxRtsDisabled.CheckedChanged += new System.EventHandler(this.UxRtsDisabled_CheckedChanged);
             // 
             // label8
             // 
@@ -423,6 +610,67 @@ namespace SerialTestApp
             this.label8.TabIndex = 9;
             this.label8.Values.Text = "RTS Control";
             // 
+            // uxTxXOff
+            // 
+            this.uxTxXOff.AutoSize = true;
+            this.uxTxXOff.Location = new System.Drawing.Point(172, 381);
+            this.uxTxXOff.Name = "uxTxXOff";
+            this.uxTxXOff.Size = new System.Drawing.Size(64, 17);
+            this.uxTxXOff.TabIndex = 18;
+            this.uxTxXOff.Text = "TX XOff";
+            this.uxToolTip.SetToolTip(this.uxTxXOff, "TX Continue on XOff");
+            this.uxTxXOff.UseVisualStyleBackColor = true;
+            this.uxTxXOff.CheckedChanged += new System.EventHandler(this.UxTxXOff_CheckedChanged);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.uxDtrToggle);
+            this.groupBox7.Controls.Add(this.uxDtrHandshake);
+            this.groupBox7.Controls.Add(this.uxDtrEnabled);
+            this.groupBox7.Controls.Add(this.uxDtrDisabled);
+            this.groupBox7.Location = new System.Drawing.Point(172, 152);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(99, 117);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "DTR Control";
+            // 
+            // uxDtrToggle
+            // 
+            this.uxDtrToggle.Location = new System.Drawing.Point(5, 86);
+            this.uxDtrToggle.Name = "uxDtrToggle";
+            this.uxDtrToggle.Size = new System.Drawing.Size(60, 20);
+            this.uxDtrToggle.TabIndex = 3;
+            this.uxDtrToggle.Values.Text = "Toggle";
+            this.uxDtrToggle.CheckedChanged += new System.EventHandler(this.uxDtrToggle_CheckedChanged);
+            // 
+            // uxDtrHandshake
+            // 
+            this.uxDtrHandshake.Location = new System.Drawing.Point(5, 62);
+            this.uxDtrHandshake.Name = "uxDtrHandshake";
+            this.uxDtrHandshake.Size = new System.Drawing.Size(83, 20);
+            this.uxDtrHandshake.TabIndex = 2;
+            this.uxDtrHandshake.Values.Text = "Handshake";
+            this.uxDtrHandshake.CheckedChanged += new System.EventHandler(this.UxDtrHandshake_CheckedChanged);
+            // 
+            // uxDtrEnabled
+            // 
+            this.uxDtrEnabled.Location = new System.Drawing.Point(6, 39);
+            this.uxDtrEnabled.Name = "uxDtrEnabled";
+            this.uxDtrEnabled.Size = new System.Drawing.Size(66, 20);
+            this.uxDtrEnabled.TabIndex = 1;
+            this.uxDtrEnabled.Values.Text = "Enabled";
+            this.uxDtrEnabled.CheckedChanged += new System.EventHandler(this.UxDtrEnabled_CheckedChanged);
+            // 
+            // uxDtrDisabled
+            // 
+            this.uxDtrDisabled.Location = new System.Drawing.Point(6, 15);
+            this.uxDtrDisabled.Name = "uxDtrDisabled";
+            this.uxDtrDisabled.Size = new System.Drawing.Size(70, 20);
+            this.uxDtrDisabled.TabIndex = 0;
+            this.uxDtrDisabled.Values.Text = "Disabled";
+            this.uxDtrDisabled.CheckedChanged += new System.EventHandler(this.UxDtrDisabled_CheckedChanged);
+            // 
             // uxErrorChars
             // 
             this.uxErrorChars.Location = new System.Drawing.Point(94, 453);
@@ -431,6 +679,17 @@ namespace SerialTestApp
             this.uxErrorChars.Size = new System.Drawing.Size(72, 23);
             this.uxErrorChars.TabIndex = 40;
             this.uxToolTip.SetToolTip(this.uxErrorChars, "RX XON/XOFF Enabled");
+            // 
+            // uxDsrSense
+            // 
+            this.uxDsrSense.AutoSize = true;
+            this.uxDsrSense.Location = new System.Drawing.Point(172, 355);
+            this.uxDsrSense.Name = "uxDsrSense";
+            this.uxDsrSense.Size = new System.Drawing.Size(101, 17);
+            this.uxDsrSense.TabIndex = 17;
+            this.uxDsrSense.Text = "DSR Sensitivity";
+            this.uxDsrSense.UseVisualStyleBackColor = true;
+            this.uxDsrSense.CheckedChanged += new System.EventHandler(this.UxDsrSense_CheckedChanged);
             // 
             // kryptonLabel7
             // 
@@ -465,6 +724,28 @@ namespace SerialTestApp
             this.uxEventChar.Size = new System.Drawing.Size(72, 23);
             this.uxEventChar.TabIndex = 36;
             this.uxToolTip.SetToolTip(this.uxEventChar, "Number of stop bits");
+            // 
+            // uxDsrEnable
+            // 
+            this.uxDsrEnable.AutoSize = true;
+            this.uxDsrEnable.Location = new System.Drawing.Point(172, 303);
+            this.uxDsrEnable.Name = "uxDsrEnable";
+            this.uxDsrEnable.Size = new System.Drawing.Size(108, 17);
+            this.uxDsrEnable.TabIndex = 12;
+            this.uxDsrEnable.Text = "DSR Handshake";
+            this.uxDsrEnable.UseVisualStyleBackColor = true;
+            this.uxDsrEnable.CheckedChanged += new System.EventHandler(this.UxDsrEnable_CheckedChanged);
+            // 
+            // uxCtsEnable
+            // 
+            this.uxCtsEnable.AutoSize = true;
+            this.uxCtsEnable.Location = new System.Drawing.Point(172, 276);
+            this.uxCtsEnable.Name = "uxCtsEnable";
+            this.uxCtsEnable.Size = new System.Drawing.Size(106, 17);
+            this.uxCtsEnable.TabIndex = 13;
+            this.uxCtsEnable.Text = "CTS Handshake";
+            this.uxCtsEnable.UseVisualStyleBackColor = true;
+            this.uxCtsEnable.CheckedChanged += new System.EventHandler(this.UxCtsEnable_CheckedChanged);
             // 
             // kryptonLabel5
             // 
@@ -740,84 +1021,12 @@ namespace SerialTestApp
             // 
             // uxRefresh3
             // 
-            this.uxRefresh3.Location = new System.Drawing.Point(212, 599);
+            this.uxRefresh3.Location = new System.Drawing.Point(119, 295);
             this.uxRefresh3.Name = "uxRefresh3";
             this.uxRefresh3.Size = new System.Drawing.Size(75, 23);
             this.uxRefresh3.TabIndex = 0;
             this.uxRefresh3.Values.Text = "Refresh";
             this.uxRefresh3.Click += new System.EventHandler(this.UxRefresh3_Click);
-            // 
-            // uxTxXOff
-            // 
-            this.uxTxXOff.AutoSize = true;
-            this.uxTxXOff.Location = new System.Drawing.Point(756, 180);
-            this.uxTxXOff.Name = "uxTxXOff";
-            this.uxTxXOff.Size = new System.Drawing.Size(66, 19);
-            this.uxTxXOff.TabIndex = 18;
-            this.uxTxXOff.Text = "TX XOff";
-            this.uxToolTip.SetToolTip(this.uxTxXOff, "TX Continue on XOff");
-            this.uxTxXOff.UseVisualStyleBackColor = true;
-            this.uxTxXOff.CheckedChanged += new System.EventHandler(this.uxTxXOff_CheckedChanged);
-            // 
-            // uxTxXon
-            // 
-            this.uxTxXon.AutoSize = true;
-            this.uxTxXon.Location = new System.Drawing.Point(756, 199);
-            this.uxTxXon.Name = "uxTxXon";
-            this.uxTxXon.Size = new System.Drawing.Size(94, 19);
-            this.uxTxXon.TabIndex = 19;
-            this.uxTxXon.Text = "TX XOn/XOff";
-            this.uxToolTip.SetToolTip(this.uxTxXon, "Use XON/XOFF on transmission");
-            this.uxTxXon.UseVisualStyleBackColor = true;
-            this.uxTxXon.CheckedChanged += new System.EventHandler(this.uxTxXon_CheckedChanged);
-            // 
-            // uxRxXon
-            // 
-            this.uxRxXon.AutoSize = true;
-            this.uxRxXon.Location = new System.Drawing.Point(756, 219);
-            this.uxRxXon.Name = "uxRxXon";
-            this.uxRxXon.Size = new System.Drawing.Size(95, 19);
-            this.uxRxXon.TabIndex = 20;
-            this.uxRxXon.Text = "RX XOn/XOff";
-            this.uxToolTip.SetToolTip(this.uxRxXon, "RX Continue on XOff");
-            this.uxRxXon.UseVisualStyleBackColor = true;
-            this.uxRxXon.CheckedChanged += new System.EventHandler(this.uxRxXon_CheckedChanged);
-            // 
-            // uxParityReplace
-            // 
-            this.uxParityReplace.AutoSize = true;
-            this.uxParityReplace.Location = new System.Drawing.Point(756, 240);
-            this.uxParityReplace.Name = "uxParityReplace";
-            this.uxParityReplace.Size = new System.Drawing.Size(100, 19);
-            this.uxParityReplace.TabIndex = 21;
-            this.uxParityReplace.Text = "Parity Replace";
-            this.uxToolTip.SetToolTip(this.uxParityReplace, " Parity errors are replaced with the error character");
-            this.uxParityReplace.UseVisualStyleBackColor = true;
-            this.uxParityReplace.CheckedChanged += new System.EventHandler(this.uxParityReplace_CheckedChanged);
-            // 
-            // uxDiscardNull
-            // 
-            this.uxDiscardNull.AutoSize = true;
-            this.uxDiscardNull.Location = new System.Drawing.Point(71, 479);
-            this.uxDiscardNull.Name = "uxDiscardNull";
-            this.uxDiscardNull.Size = new System.Drawing.Size(93, 17);
-            this.uxDiscardNull.TabIndex = 22;
-            this.uxDiscardNull.Text = "Discard Nulls";
-            this.uxToolTip.SetToolTip(this.uxDiscardNull, "Discard Null characters");
-            this.uxDiscardNull.UseVisualStyleBackColor = true;
-            this.uxDiscardNull.CheckedChanged += new System.EventHandler(this.uxDiscardNull_CheckedChanged);
-            // 
-            // uxAbortOnError
-            // 
-            this.uxAbortOnError.AutoSize = true;
-            this.uxAbortOnError.Location = new System.Drawing.Point(61, 536);
-            this.uxAbortOnError.Name = "uxAbortOnError";
-            this.uxAbortOnError.Size = new System.Drawing.Size(102, 17);
-            this.uxAbortOnError.TabIndex = 23;
-            this.uxAbortOnError.Text = "Abort On Error";
-            this.uxToolTip.SetToolTip(this.uxAbortOnError, "Abort on errors");
-            this.uxAbortOnError.UseVisualStyleBackColor = true;
-            this.uxAbortOnError.CheckedChanged += new System.EventHandler(this.uxAbortOnError_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -837,7 +1046,7 @@ namespace SerialTestApp
             this.groupBox5.Controls.Add(this.uxRlsdHold);
             this.groupBox5.Controls.Add(this.uxDsrHold);
             this.groupBox5.Controls.Add(this.uxCtsHold);
-            this.groupBox5.Location = new System.Drawing.Point(403, 3);
+            this.groupBox5.Location = new System.Drawing.Point(508, 6);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(347, 193);
             this.groupBox5.TabIndex = 6;
@@ -1020,7 +1229,7 @@ namespace SerialTestApp
             this.groupBox6.Controls.Add(this.uxRxInterval);
             this.groupBox6.Controls.Add(this.label15);
             this.groupBox6.Controls.Add(this.uxRxTimeout);
-            this.groupBox6.Location = new System.Drawing.Point(403, 198);
+            this.groupBox6.Location = new System.Drawing.Point(508, 201);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(347, 127);
             this.groupBox6.TabIndex = 7;
@@ -1033,7 +1242,7 @@ namespace SerialTestApp
             this.uxTxMultiplier.Name = "uxTxMultiplier";
             this.uxTxMultiplier.Size = new System.Drawing.Size(74, 23);
             this.uxTxMultiplier.TabIndex = 9;
-            this.uxTxMultiplier.Leave += new System.EventHandler(this.uxTxMultiplier_Leave);
+            this.uxTxMultiplier.Leave += new System.EventHandler(this.UxTxMultiplier_Leave);
             // 
             // uxRxMultiplier
             // 
@@ -1041,7 +1250,7 @@ namespace SerialTestApp
             this.uxRxMultiplier.Name = "uxRxMultiplier";
             this.uxRxMultiplier.Size = new System.Drawing.Size(74, 23);
             this.uxRxMultiplier.TabIndex = 8;
-            this.uxRxMultiplier.Leave += new System.EventHandler(this.uxRxMultiplier_Leave);
+            this.uxRxMultiplier.Leave += new System.EventHandler(this.UxRxMultiplier_Leave);
             // 
             // label19
             // 
@@ -1107,232 +1316,89 @@ namespace SerialTestApp
             this.uxRxTimeout.TabIndex = 0;
             this.uxRxTimeout.Leave += new System.EventHandler(this.UxRxTimeout_Leave);
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.uxDtrHandshake);
-            this.groupBox7.Controls.Add(this.uxDtrEnabled);
-            this.groupBox7.Controls.Add(this.uxDtrDisabled);
-            this.groupBox7.Location = new System.Drawing.Point(403, 450);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(99, 89);
-            this.groupBox7.TabIndex = 8;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "DTR Control";
-            // 
-            // uxDtrHandshake
-            // 
-            this.uxDtrHandshake.Location = new System.Drawing.Point(5, 62);
-            this.uxDtrHandshake.Name = "uxDtrHandshake";
-            this.uxDtrHandshake.Size = new System.Drawing.Size(83, 20);
-            this.uxDtrHandshake.TabIndex = 2;
-            this.uxDtrHandshake.Values.Text = "Handshake";
-            this.uxDtrHandshake.CheckedChanged += new System.EventHandler(this.UxDtrHandshake_CheckedChanged);
-            // 
-            // uxDtrEnabled
-            // 
-            this.uxDtrEnabled.Location = new System.Drawing.Point(6, 39);
-            this.uxDtrEnabled.Name = "uxDtrEnabled";
-            this.uxDtrEnabled.Size = new System.Drawing.Size(66, 20);
-            this.uxDtrEnabled.TabIndex = 1;
-            this.uxDtrEnabled.Values.Text = "Enabled";
-            this.uxDtrEnabled.CheckedChanged += new System.EventHandler(this.UxDtrEnabled_CheckedChanged);
-            // 
-            // uxDtrDisabled
-            // 
-            this.uxDtrDisabled.Location = new System.Drawing.Point(6, 15);
-            this.uxDtrDisabled.Name = "uxDtrDisabled";
-            this.uxDtrDisabled.Size = new System.Drawing.Size(70, 20);
-            this.uxDtrDisabled.TabIndex = 0;
-            this.uxDtrDisabled.Values.Text = "Disabled";
-            this.uxDtrDisabled.CheckedChanged += new System.EventHandler(this.UxDtrDisabled_CheckedChanged);
-            // 
             // uxTxBuffer
             // 
-            this.uxTxBuffer.Location = new System.Drawing.Point(303, 599);
+            this.uxTxBuffer.Location = new System.Drawing.Point(508, 334);
             this.uxTxBuffer.Name = "uxTxBuffer";
-            this.uxTxBuffer.Size = new System.Drawing.Size(410, 23);
+            this.uxTxBuffer.Size = new System.Drawing.Size(380, 23);
             this.uxTxBuffer.TabIndex = 9;
             // 
             // uxSend
             // 
-            this.uxSend.Location = new System.Drawing.Point(719, 599);
+            this.uxSend.Location = new System.Drawing.Point(813, 363);
             this.uxSend.Name = "uxSend";
             this.uxSend.Size = new System.Drawing.Size(75, 23);
             this.uxSend.TabIndex = 10;
             this.uxSend.Values.Text = "Send";
             this.uxSend.Click += new System.EventHandler(this.UxSend_Click);
             // 
-            // uxBaudrate
+            // uxRead
             // 
-            this.uxBaudrate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.uxBaudrate.DropDownWidth = 75;
-            this.uxBaudrate.IntegralHeight = false;
-            this.uxBaudrate.Items.AddRange(new object[] {
-            "128000",
-            "115200",
-            "57600",
-            "38400",
-            "19200",
-            "14400",
-            "9600",
-            "7200",
-            "4800",
-            "1800",
-            "1200",
-            "600",
-            "300",
-            "110",
-            "75"});
-            this.uxBaudrate.Location = new System.Drawing.Point(306, 572);
-            this.uxBaudrate.Name = "uxBaudrate";
-            this.uxBaudrate.Size = new System.Drawing.Size(75, 21);
-            this.uxBaudrate.TabIndex = 11;
-            this.uxBaudrate.Text = "9600";
-            this.uxBaudrate.SelectedIndexChanged += new System.EventHandler(this.UxBaudrate_SelectedIndexChanged);
+            this.uxRead.Location = new System.Drawing.Point(732, 363);
+            this.uxRead.Name = "uxRead";
+            this.uxRead.Size = new System.Drawing.Size(75, 23);
+            this.uxRead.TabIndex = 11;
+            this.uxRead.Values.Text = "Read";
+            this.uxRead.Click += new System.EventHandler(this.uxRead_Click);
             // 
-            // groupBox8
+            // uxDtrRts
             // 
-            this.groupBox8.Controls.Add(this.uxRtsHandshake);
-            this.groupBox8.Controls.Add(this.uxRtsEnabled);
-            this.groupBox8.Controls.Add(this.uxRtsDisabled);
-            this.groupBox8.Location = new System.Drawing.Point(403, 355);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(99, 89);
-            this.groupBox8.TabIndex = 9;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "RTS Control";
+            this.uxDtrRts.Location = new System.Drawing.Point(540, 473);
+            this.uxDtrRts.Name = "uxDtrRts";
+            this.uxDtrRts.Size = new System.Drawing.Size(134, 20);
+            this.uxDtrRts.TabIndex = 12;
+            this.uxDtrRts.Values.Text = "DTR RTS Handshake";
+            this.uxDtrRts.CheckedChanged += new System.EventHandler(this.uxDtrRts_CheckedChanged);
             // 
-            // uxRtsHandshake
+            // uxRtsCts
             // 
-            this.uxRtsHandshake.Location = new System.Drawing.Point(5, 62);
-            this.uxRtsHandshake.Name = "uxRtsHandshake";
-            this.uxRtsHandshake.Size = new System.Drawing.Size(83, 20);
-            this.uxRtsHandshake.TabIndex = 2;
-            this.uxRtsHandshake.Values.Text = "Handshake";
-            this.uxRtsHandshake.CheckedChanged += new System.EventHandler(this.UxRtsHandshake_CheckedChanged);
+            this.uxRtsCts.Location = new System.Drawing.Point(540, 499);
+            this.uxRtsCts.Name = "uxRtsCts";
+            this.uxRtsCts.Size = new System.Drawing.Size(132, 20);
+            this.uxRtsCts.TabIndex = 13;
+            this.uxRtsCts.Values.Text = "RTS CTS Handshake";
+            this.uxRtsCts.CheckedChanged += new System.EventHandler(this.uxRtsCts_CheckedChanged);
             // 
-            // uxRtsEnabled
+            // uxDtrEnable
             // 
-            this.uxRtsEnabled.Location = new System.Drawing.Point(6, 39);
-            this.uxRtsEnabled.Name = "uxRtsEnabled";
-            this.uxRtsEnabled.Size = new System.Drawing.Size(66, 20);
-            this.uxRtsEnabled.TabIndex = 1;
-            this.uxRtsEnabled.Values.Text = "Enabled";
-            this.uxRtsEnabled.CheckedChanged += new System.EventHandler(this.UxRtsEnabled_CheckedChanged);
+            this.uxDtrEnable.Location = new System.Drawing.Point(682, 473);
+            this.uxDtrEnable.Name = "uxDtrEnable";
+            this.uxDtrEnable.Size = new System.Drawing.Size(86, 20);
+            this.uxDtrEnable.TabIndex = 14;
+            this.uxDtrEnable.Values.Text = "DTR Enable";
+            this.uxDtrEnable.CheckedChanged += new System.EventHandler(this.uxDtrEnable_CheckedChanged);
             // 
-            // uxRtsDisabled
+            // uxRtsEnable
             // 
-            this.uxRtsDisabled.Location = new System.Drawing.Point(6, 16);
-            this.uxRtsDisabled.Name = "uxRtsDisabled";
-            this.uxRtsDisabled.Size = new System.Drawing.Size(70, 20);
-            this.uxRtsDisabled.TabIndex = 0;
-            this.uxRtsDisabled.Values.Text = "Disabled";
-            this.uxRtsDisabled.CheckedChanged += new System.EventHandler(this.UxRtsDisabled_CheckedChanged);
+            this.uxRtsEnable.Location = new System.Drawing.Point(682, 499);
+            this.uxRtsEnable.Name = "uxRtsEnable";
+            this.uxRtsEnable.Size = new System.Drawing.Size(84, 20);
+            this.uxRtsEnable.TabIndex = 15;
+            this.uxRtsEnable.Values.Text = "RTS Enable";
+            this.uxRtsEnable.CheckedChanged += new System.EventHandler(this.uxRtsEnable_CheckedChanged);
             // 
-            // uxDsrEnable
+            // uxPurge
             // 
-            this.uxDsrEnable.AutoSize = true;
-            this.uxDsrEnable.Location = new System.Drawing.Point(756, 37);
-            this.uxDsrEnable.Name = "uxDsrEnable";
-            this.uxDsrEnable.Size = new System.Drawing.Size(109, 19);
-            this.uxDsrEnable.TabIndex = 12;
-            this.uxDsrEnable.Text = "DSR Handshake";
-            this.uxDsrEnable.UseVisualStyleBackColor = true;
-            this.uxDsrEnable.CheckedChanged += new System.EventHandler(this.UxDsrEnable_CheckedChanged);
-            // 
-            // uxCtsEnable
-            // 
-            this.uxCtsEnable.AutoSize = true;
-            this.uxCtsEnable.Location = new System.Drawing.Point(756, 12);
-            this.uxCtsEnable.Name = "uxCtsEnable";
-            this.uxCtsEnable.Size = new System.Drawing.Size(108, 19);
-            this.uxCtsEnable.TabIndex = 13;
-            this.uxCtsEnable.Text = "CTS Handshake";
-            this.uxCtsEnable.UseVisualStyleBackColor = true;
-            this.uxCtsEnable.CheckedChanged += new System.EventHandler(this.UxCtsEnable_CheckedChanged);
-            // 
-            // uxDataBits
-            // 
-            this.uxDataBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.uxDataBits.DropDownWidth = 75;
-            this.uxDataBits.IntegralHeight = false;
-            this.uxDataBits.Items.AddRange(new object[] {
-            "8",
-            "7",
-            "6",
-            "5"});
-            this.uxDataBits.Location = new System.Drawing.Point(387, 572);
-            this.uxDataBits.Name = "uxDataBits";
-            this.uxDataBits.Size = new System.Drawing.Size(75, 21);
-            this.uxDataBits.TabIndex = 14;
-            this.uxDataBits.Text = "8";
-            this.uxDataBits.SelectedIndexChanged += new System.EventHandler(this.uxDataBits_SelectedIndexChanged);
-            // 
-            // uxParityBits
-            // 
-            this.uxParityBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.uxParityBits.DropDownWidth = 75;
-            this.uxParityBits.IntegralHeight = false;
-            this.uxParityBits.Items.AddRange(new object[] {
-            "None",
-            "Odd",
-            "Even",
-            "Mark",
-            "Space"});
-            this.uxParityBits.Location = new System.Drawing.Point(468, 572);
-            this.uxParityBits.Name = "uxParityBits";
-            this.uxParityBits.Size = new System.Drawing.Size(75, 21);
-            this.uxParityBits.TabIndex = 15;
-            this.uxParityBits.Text = "None";
-            this.uxParityBits.SelectedIndexChanged += new System.EventHandler(this.uxParityBits_SelectedIndexChanged);
-            // 
-            // uxStopBits
-            // 
-            this.uxStopBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.uxStopBits.DropDownWidth = 75;
-            this.uxStopBits.IntegralHeight = false;
-            this.uxStopBits.Items.AddRange(new object[] {
-            "One",
-            "Two",
-            "OnePointFive"});
-            this.uxStopBits.Location = new System.Drawing.Point(549, 570);
-            this.uxStopBits.Name = "uxStopBits";
-            this.uxStopBits.Size = new System.Drawing.Size(75, 21);
-            this.uxStopBits.TabIndex = 16;
-            this.uxStopBits.Text = "One";
-            this.uxStopBits.SelectedIndexChanged += new System.EventHandler(this.uxStopBits_SelectedIndexChanged);
-            // 
-            // uxDsrSense
-            // 
-            this.uxDsrSense.AutoSize = true;
-            this.uxDsrSense.Location = new System.Drawing.Point(756, 160);
-            this.uxDsrSense.Name = "uxDsrSense";
-            this.uxDsrSense.Size = new System.Drawing.Size(103, 19);
-            this.uxDsrSense.TabIndex = 17;
-            this.uxDsrSense.Text = "DSR Sensitivity";
-            this.uxDsrSense.UseVisualStyleBackColor = true;
-            this.uxDsrSense.CheckedChanged += new System.EventHandler(this.uxDsrSense_CheckedChanged);
+            this.uxPurge.Location = new System.Drawing.Point(650, 361);
+            this.uxPurge.Name = "uxPurge";
+            this.uxPurge.Size = new System.Drawing.Size(76, 25);
+            this.uxPurge.TabIndex = 16;
+            this.uxPurge.Values.Text = "Purge";
+            this.uxPurge.Click += new System.EventHandler(this.uxPurge_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 752);
-            this.Controls.Add(this.uxParityReplace);
-            this.Controls.Add(this.uxRxXon);
-            this.Controls.Add(this.uxTxXon);
-            this.Controls.Add(this.uxTxXOff);
-            this.Controls.Add(this.uxDsrSense);
-            this.Controls.Add(this.uxStopBits);
-            this.Controls.Add(this.uxParityBits);
-            this.Controls.Add(this.uxDataBits);
-            this.Controls.Add(this.uxCtsEnable);
-            this.Controls.Add(this.uxDsrEnable);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.uxBaudrate);
+            this.ClientSize = new System.Drawing.Size(892, 752);
+            this.Controls.Add(this.uxPurge);
+            this.Controls.Add(this.uxRtsEnable);
+            this.Controls.Add(this.uxDtrEnable);
+            this.Controls.Add(this.uxRtsCts);
+            this.Controls.Add(this.uxDtrRts);
+            this.Controls.Add(this.uxRead);
             this.Controls.Add(this.uxSend);
             this.Controls.Add(this.uxTxBuffer);
-            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
@@ -1353,18 +1419,18 @@ namespace SerialTestApp
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxStopBits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxParityBits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDataBits)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxBaudrate)).EndInit();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uxBaudrate)).EndInit();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uxDataBits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxParityBits)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.uxStopBits)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1384,11 +1450,9 @@ namespace SerialTestApp
         private Controls.LedControl uxRLSD;
         private Controls.LedControl uxCTS;
         private Controls.LedControl uxDSR;
-        private Krypton.Toolkit.KryptonButton uxRefreshModem;
         private System.Windows.Forms.GroupBox groupBox3;
         private Krypton.Toolkit.KryptonButton uxRTS;
         private Krypton.Toolkit.KryptonButton uxDTR;
-        private Krypton.Toolkit.KryptonButton uxReset;
         private Krypton.Toolkit.KryptonButton uxBreak;
         private Krypton.Toolkit.KryptonButton uxXonXoff;
         private Krypton.Toolkit.KryptonButton uxClear;
@@ -1484,6 +1548,14 @@ namespace SerialTestApp
         private Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private Krypton.Toolkit.KryptonTextBox uxErrorChars;
         private Krypton.Toolkit.KryptonLabel kryptonLabel7;
+        private Krypton.Toolkit.KryptonRadioButton uxRtsToggle;
+        private Krypton.Toolkit.KryptonRadioButton uxDtrToggle;
+        private Krypton.Toolkit.KryptonButton uxRead;
+        private Krypton.Toolkit.KryptonCheckBox uxDtrRts;
+        private Krypton.Toolkit.KryptonCheckBox uxRtsCts;
+        private Krypton.Toolkit.KryptonCheckBox uxDtrEnable;
+        private Krypton.Toolkit.KryptonCheckBox uxRtsEnable;
+        private Krypton.Toolkit.KryptonButton uxPurge;
     }
 }
 

@@ -118,82 +118,85 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ArgumentNull_Array" xml:space="preserve">
-    <value />
+    <value>Array cannot be null.</value>
   </data>
   <data name="ArgumentNull_Buffer" xml:space="preserve">
-    <value />
+    <value>Buffer cannot be null.</value>
   </data>
   <data name="ArgumentOutOfRange_Bounds_Lower_Upper" xml:space="preserve">
-    <value />
+    <value>Argument must be between {0} and {1}.</value>
   </data>
   <data name="ArgumentOutOfRange_Enum" xml:space="preserve">
-    <value />
+    <value>Enum value was out of legal range.</value>
   </data>
   <data name="ArgumentOutOfRange_NeedNonNegNumRequired" xml:space="preserve">
-    <value />
+    <value>Non-negative number required.</value>
   </data>
   <data name="ArgumentOutOfRange_NeedPosNum" xml:space="preserve">
-    <value />
+    <value>Positive number required.</value>
   </data>
   <data name="ArgumentOutOfRange_OffsetOut" xml:space="preserve">
-    <value />
+    <value>Either offset did not refer to a position in the string, or there is an insufficient length of destination character array.</value>
   </data>
   <data name="ArgumentOutOfRange_Timeout" xml:space="preserve">
-    <value />
+    <value>The timeout must be greater than or equal to -1.</value>
   </data>
   <data name="ArgumentOutOfRange_WriteTimeout" xml:space="preserve">
-    <value />
+    <value>The timeout must be either a positive number or -1.The timeout must be either a positive number or -1.</value>
   </data>
   <data name="Argument_InvalidOffLen" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Argument_InvalidOffLen)" xml:space="preserve">
-    <value />
+    <value>Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection.</value>
   </data>
   <data name="Arg_InvalidSerialPort" xml:space="preserve">
-    <value />
+    <value>The given port name does not start with COM/com or does not resolve to a valid serial port.</value>
   </data>
   <data name="Arg_InvalidSerialPortExtended" xml:space="preserve">
-    <value />
+    <value>The given port name is invalid.  It may be a valid port, but not a serial port.</value>
   </data>
   <data name="Arg_SecurityException" xml:space="preserve">
-    <value />
+    <value>The port name cannot start with '\\'.</value>
   </data>
   <data name="Arg_WrongAsyncResult" xml:space="preserve">
-    <value />
+    <value>IAsyncResult object did not come from the corresponding async method on this type.</value>
   </data>
   <data name="BaseStream_Invalid_Not_Open" xml:space="preserve">
-    <value />
+    <value>The BaseStream is only available when the port is open.</value>
+  </data>
+  <data name="CanSetWhenDtrDsrHandshake" xml:space="preserve">
+    <value>Cannot set the state of DTR when DTR/DSR handshaking enabled.</value>
+  </data>
+  <data name="CanSetWhenRtsCtsHandshake" xml:space="preserve">
+    <value>Cannot set the state of RTS when RTS/CTS handshaking enabled.</value>
   </data>
   <data name="Cant_be_set_when_open" xml:space="preserve">
-    <value />
+    <value>'{0}' cannot be set while the port is open.</value>
   </data>
   <data name="IndexOutOfRange_IORaceCondition" xml:space="preserve">
-    <value />
+    <value>Probable I/O race condition detected while copying memory.  The I/O package is not thread safe by default.  In multithreaded applications, a stream must be accessed in a thread-safe way, such as a thread-safe wrapper returned by TextReader's or TextWriter's Synchronized methods.  This also applies to classes like StreamWriter and StreamReader.</value>
   </data>
   <data name="InvalidNullEmptyArgument" xml:space="preserve">
-    <value />
+    <value>Argument {0} cannot be null or zero-length.</value>
   </data>
   <data name="InvalidOperation_EndReadCalledMultiple" xml:space="preserve">
-    <value />
+    <value>EndRead can only be called once for each asynchronous operation.</value>
   </data>
   <data name="InvalidOperation_EndWriteCalledMultiple" xml:space="preserve">
-    <value />
+    <value>EndWrite can only be called once for each asynchronous operation.</value>
   </data>
   <data name="In_Break_State" xml:space="preserve">
-    <value />
+    <value>The port is in the break state and cannot be written to.</value>
   </data>
   <data name="IO_BindHandleFailed" xml:space="preserve">
-    <value />
+    <value>BindHandle for ThreadPool failed on this handle.</value>
   </data>
   <data name="IO_EOF_ReadBeyondEOF" xml:space="preserve">
-    <value />
+    <value>Unable to read beyond the end of the stream.</value>
   </data>
   <data name="IO_OperationAborted" xml:space="preserve">
-    <value />
+    <value>The I/O operation has been aborted because of either a thread exit or an application request.</value>
   </data>
   <data name="IO_PathTooLong" xml:space="preserve">
-    <value />
+    <value>The specified port name is too long.  The port name must be less than 260 characters.</value>
   </data>
   <data name="IO_PortNotFound" xml:space="preserve">
     <value>Serial port not found.</value>
@@ -202,31 +205,31 @@
     <value>Serial port %0 not found.</value>
   </data>
   <data name="IO_SharingViolation_File" xml:space="preserve">
-    <value />
+    <value>The process cannot access the port '{0}' because it is being used by another process.</value>
   </data>
   <data name="IO_SharingViolation_NoFileName" xml:space="preserve">
-    <value />
+    <value>The process cannot access the port because it is being used by another process.</value>
   </data>
   <data name="IO_UnknownError" xml:space="preserve">
-    <value />
+    <value>Unknown Error '{0}'.</value>
   </data>
   <data name="Max_Baud" xml:space="preserve">
-    <value />
+    <value>The maximum baud rate for the device is {0}.</value>
   </data>
   <data name="NotSupportedEncoding" xml:space="preserve">
-    <value />
+    <value>SerialPort does not support encoding '{0}'.  The supported encodings include ASCIIEncoding, UTF8Encoding, UnicodeEncoding, UTF32Encoding, and most single or double byte code pages.  For a complete list please see the documentation.</value>
   </data>
   <data name="NotSupported_UnseekableStream" xml:space="preserve">
-    <value />
+    <value>Stream does not support seeking.</value>
   </data>
   <data name="PortNameEmpty_String" xml:space="preserve">
-    <value />
+    <value>The PortName cannot be empty.</value>
   </data>
   <data name="Port_already_open" xml:space="preserve">
-    <value />
+    <value>The port is already open.</value>
   </data>
   <data name="Port_not_open" xml:space="preserve">
-    <value />
+    <value>The port is closed.</value>
   </data>
   <data name="UnauthorizedAccess_IODenied_NoPathName" xml:space="preserve">
     <value>Authorised access to path %0.</value>
@@ -235,6 +238,6 @@
     <value>Authorised access to path</value>
   </data>
   <data name="Write_timed_out" xml:space="preserve">
-    <value />
+    <value>The write timed out.</value>
   </data>
 </root>

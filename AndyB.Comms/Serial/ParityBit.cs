@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace AndyB.Comms.Serial
 {
+	using Interop;
+
 	/// <summary>
-	/// Enumeration of the available parity settings
+	/// Enumeration of the available parity settings.
 	/// </summary>
 	/// <remarks>Do not re-arrange or change these values, as they have to match
 	/// the values used by the Win32 API</remarks>
@@ -14,27 +14,27 @@ namespace AndyB.Comms.Serial
 		/// <summary>
 		/// Characters do not have a parity bit.
 		/// </summary>
-		None = 0,
+		None = Kernel32.NOPARITY,
 
 		/// <summary>
 		/// Set if there are an odd number of 1s in the character.
 		/// </summary>
-		Odd = 1,
+		Odd = Kernel32.ODDPARITY,
 
 		/// <summary>
 		/// Set if there are an even number of 1s in the character.
 		/// </summary>
-		Even = 2,
+		Even = Kernel32.EVENPARITY,
 
 		/// <summary>
 		/// The parity bit is always 1.
 		/// </summary>
-		Mark = 3,
+		Mark = Kernel32.MARKPARITY,
 
 		/// <summary>
 		/// The parity bit is always 0.
 		/// </summary>
-		Space = 4
+		Space = Kernel32.SPACEPARITY
 	};
 
 

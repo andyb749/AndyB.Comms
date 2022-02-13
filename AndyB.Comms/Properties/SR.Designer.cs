@@ -19,7 +19,7 @@ namespace AndyB.Comms.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class SR {
@@ -61,7 +61,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The given port name does not start with COM/com or does not resolve to a valid serial port..
         /// </summary>
         internal static string Arg_InvalidSerialPort {
             get {
@@ -70,7 +70,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The given port name is invalid.  It may be a valid port, but not a serial port..
         /// </summary>
         internal static string Arg_InvalidSerialPortExtended {
             get {
@@ -79,7 +79,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The port name cannot start with &apos;\\&apos;..
         /// </summary>
         internal static string Arg_SecurityException {
             get {
@@ -88,7 +88,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to IAsyncResult object did not come from the corresponding async method on this type..
         /// </summary>
         internal static string Arg_WrongAsyncResult {
             get {
@@ -97,7 +97,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Offset and length were out of bounds for the array or count is greater than the number of elements from index to the end of the source collection..
         /// </summary>
         internal static string Argument_InvalidOffLen {
             get {
@@ -106,16 +106,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string Argument_InvalidOffLen_ {
-            get {
-                return ResourceManager.GetString("Argument_InvalidOffLen)", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Array cannot be null..
         /// </summary>
         internal static string ArgumentNull_Array {
             get {
@@ -124,7 +115,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Buffer cannot be null..
         /// </summary>
         internal static string ArgumentNull_Buffer {
             get {
@@ -133,7 +124,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Argument must be between {0} and {1}..
         /// </summary>
         internal static string ArgumentOutOfRange_Bounds_Lower_Upper {
             get {
@@ -142,7 +133,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Enum value was out of legal range..
         /// </summary>
         internal static string ArgumentOutOfRange_Enum {
             get {
@@ -151,7 +142,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Non-negative number required..
         /// </summary>
         internal static string ArgumentOutOfRange_NeedNonNegNumRequired {
             get {
@@ -160,7 +151,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Positive number required..
         /// </summary>
         internal static string ArgumentOutOfRange_NeedPosNum {
             get {
@@ -169,7 +160,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Either offset did not refer to a position in the string, or there is an insufficient length of destination character array..
         /// </summary>
         internal static string ArgumentOutOfRange_OffsetOut {
             get {
@@ -178,7 +169,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The timeout must be greater than or equal to -1..
         /// </summary>
         internal static string ArgumentOutOfRange_Timeout {
             get {
@@ -187,7 +178,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The timeout must be either a positive number or -1.The timeout must be either a positive number or -1..
         /// </summary>
         internal static string ArgumentOutOfRange_WriteTimeout {
             get {
@@ -196,7 +187,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The BaseStream is only available when the port is open..
         /// </summary>
         internal static string BaseStream_Invalid_Not_Open {
             get {
@@ -205,7 +196,25 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Cannot set the state of DTR when DTR/DSR handshaking enabled..
+        /// </summary>
+        internal static string CanSetWhenDtrDsrHandshake {
+            get {
+                return ResourceManager.GetString("CanSetWhenDtrDsrHandshake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot set the state of RTS when RTS/CTS handshaking enabled..
+        /// </summary>
+        internal static string CanSetWhenRtsCtsHandshake {
+            get {
+                return ResourceManager.GetString("CanSetWhenRtsCtsHandshake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &apos;{0}&apos; cannot be set while the port is open..
         /// </summary>
         internal static string Cant_be_set_when_open {
             get {
@@ -214,7 +223,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The port is in the break state and cannot be written to..
         /// </summary>
         internal static string In_Break_State {
             get {
@@ -223,7 +232,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Probable I/O race condition detected while copying memory.  The I/O package is not thread safe by default.  In multithreaded applications, a stream must be accessed in a thread-safe way, such as a thread-safe wrapper returned by TextReader&apos;s or TextWriter&apos;s Synchronized methods.  This also applies to classes like StreamWriter and StreamReader..
         /// </summary>
         internal static string IndexOutOfRange_IORaceCondition {
             get {
@@ -232,7 +241,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Argument {0} cannot be null or zero-length..
         /// </summary>
         internal static string InvalidNullEmptyArgument {
             get {
@@ -241,7 +250,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to EndRead can only be called once for each asynchronous operation..
         /// </summary>
         internal static string InvalidOperation_EndReadCalledMultiple {
             get {
@@ -250,7 +259,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to EndWrite can only be called once for each asynchronous operation..
         /// </summary>
         internal static string InvalidOperation_EndWriteCalledMultiple {
             get {
@@ -259,7 +268,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to BindHandle for ThreadPool failed on this handle..
         /// </summary>
         internal static string IO_BindHandleFailed {
             get {
@@ -268,7 +277,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Unable to read beyond the end of the stream..
         /// </summary>
         internal static string IO_EOF_ReadBeyondEOF {
             get {
@@ -277,7 +286,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The I/O operation has been aborted because of either a thread exit or an application request..
         /// </summary>
         internal static string IO_OperationAborted {
             get {
@@ -286,7 +295,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The specified port name is too long.  The port name must be less than 260 characters..
         /// </summary>
         internal static string IO_PathTooLong {
             get {
@@ -313,7 +322,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The process cannot access the port &apos;{0}&apos; because it is being used by another process..
         /// </summary>
         internal static string IO_SharingViolation_File {
             get {
@@ -322,7 +331,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The process cannot access the port because it is being used by another process..
         /// </summary>
         internal static string IO_SharingViolation_NoFileName {
             get {
@@ -331,7 +340,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Unknown Error &apos;{0}&apos;..
         /// </summary>
         internal static string IO_UnknownError {
             get {
@@ -340,7 +349,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The maximum baud rate for the device is {0}..
         /// </summary>
         internal static string Max_Baud {
             get {
@@ -349,7 +358,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Stream does not support seeking..
         /// </summary>
         internal static string NotSupported_UnseekableStream {
             get {
@@ -358,7 +367,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to SerialPort does not support encoding &apos;{0}&apos;.  The supported encodings include ASCIIEncoding, UTF8Encoding, UnicodeEncoding, UTF32Encoding, and most single or double byte code pages.  For a complete list please see the documentation..
         /// </summary>
         internal static string NotSupportedEncoding {
             get {
@@ -367,7 +376,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The port is already open..
         /// </summary>
         internal static string Port_already_open {
             get {
@@ -376,7 +385,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The port is closed..
         /// </summary>
         internal static string Port_not_open {
             get {
@@ -385,7 +394,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The PortName cannot be empty..
         /// </summary>
         internal static string PortNameEmpty_String {
             get {
@@ -412,7 +421,7 @@ namespace AndyB.Comms.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to The write timed out..
         /// </summary>
         internal static string Write_timed_out {
             get {

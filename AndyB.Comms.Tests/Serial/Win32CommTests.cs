@@ -8,10 +8,10 @@ namespace AndyB.Comms.Tests.Serial
 {
     using AndyB.Comms.Serial;
 
-
+#if false
     public class Win32CommTests
     {
-        private static string Port = "COM13";
+//        private static string Port = "COM13";
 
 #if false
         [Fact]
@@ -49,4 +49,5 @@ namespace AndyB.Comms.Tests.Serial
 #endif
         }
     }
+#endif
 }

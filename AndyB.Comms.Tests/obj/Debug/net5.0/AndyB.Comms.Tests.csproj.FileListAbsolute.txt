@@ -11,7 +11,6 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.C
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.Comms.Tests.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\ref\AndyB.Comms.Tests.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.Comms.Tests.pdb
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.Commons.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microsoft.TestPlatform.CoreUtilities.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -21,11 +20,8 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microso
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microsoft.VisualStudio.TestPlatform.Common.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Microsoft.Win32.SystemEvents.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\Newtonsoft.Json.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\NLog.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\NuGet.Frameworks.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\System.CodeDom.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\System.Drawing.Common.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\System.Management.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\System.Security.Permissions.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\System.Windows.Extensions.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\xunit.abstractions.dll
@@ -100,7 +96,6 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\zh-Hant
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.Comms.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Debug\net5.0\AndyB.Comms.pdb

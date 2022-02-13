@@ -24,11 +24,12 @@
     <Topic id="ca30a67c-b343-4a05-8c79-94e0542836d4" visible="True" />
     <Topic id="73a8d099-13eb-4011-9845-f7813cba6331" visible="True" />
   </Topic>
-  <Topic id="a9f49a4c-0657-4429-bf29-c5f8dcc9cc6e" visible="True" isSelected="true" title="Serial Communications">
+  <Topic id="a9f49a4c-0657-4429-bf29-c5f8dcc9cc6e" visible="True" title="Serial Communications">
     <HelpKeywords>
       <HelpKeyword index="K" term="serial" />
     </HelpKeywords>
   </Topic>
+  <Topic id="cdc3ec70-22e4-4063-a87c-585a71948a13" visible="True" isSelected="true" />
   <Topic id="5a1ccdf9-ea57-45cc-9bc2-b1f55111c61e" visible="True" title="Known Issues and FAQ" />
   <Topic id="02484de3-45fe-4105-93ac-fe7dd3b2fc7b" visible="True" />
   <Topic id="868eb86f-0cb2-457d-8cce-42a83b8e6683" visible="True" />

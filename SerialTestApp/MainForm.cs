@@ -26,27 +26,34 @@ namespace SerialTestApp
             _port = new SerialPort();
 
             //_port.Connected += Port_Connected;
-            //_port.ErrorReceived += Port_ErrorReceived;
-            //_port.DataReceived += Port_DataReceived;
-            //_port.PinChanged += Port_PinChanged;
-            //_port.TransmitCompleted += Port_TransmitCompleted;
+            _port.TxEmpty += (o, e)=> Log($"Transmitter empty");
+            _port.DataReceived += (o, e) => Log($"Data received {e.EventType}");
+            _port.ErrorReceived += (o, e) =>
+            {
+                Log($"Error received {e.EventType}");
+            };
+            _port.PinChanged += (o, e) =>
+            {
+                Log($"Pin changed {e.EventType}, Modem status {e.ModemStatus}");
+                uxDSR.Checked = e.ModemStatus.HasFlag(ModemStatus.Dsr);
+                uxCTS.Checked = e.ModemStatus.HasFlag(ModemStatus.Cts);
+                uxRLSD.Checked = e.ModemStatus.HasFlag(ModemStatus.Rlsd);
+                uxRI.Checked = e.ModemStatus.HasFlag(ModemStatus.Ring);
+            };
         }
 
-        private readonly int[] _baudRates = new int[] { 300, 600, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115000 };
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             RefreshPorts();
-            RefreshTimeouts();
-            foreach (var baud in _baudRates)
-                uxBaudrate.Items.Add(baud);
             uxBaudrate.SelectedValue = _port.BaudRate;
         }
 
         private void UxConnect_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
-                _port.Disconnect();
+                _port.Close();
                 uxConnect.Text = "Connect";
                 uxRefresh.Enabled = true;
                 uxPorts.Enabled = true;
@@ -57,7 +64,7 @@ namespace SerialTestApp
                 if (string.IsNullOrEmpty(_port.PortName))
                     return;
 
-                _port.Connect();
+                _port.Open();
                 uxConnect.Text = "Disconnect";
                 uxRefresh.Enabled = false;
                 uxPorts.Enabled = false;
@@ -68,7 +75,7 @@ namespace SerialTestApp
 
         private void UxRefresh_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
                 return;
             RefreshPorts();
         }
@@ -88,10 +95,10 @@ namespace SerialTestApp
         private void RefreshTimeouts()
         {
             uxTxTimeout.Text = _port.TxTimeout.ToString();
-            //uxTxMultiplier.Text = _port.TxMultiplierTimeout.ToString();
+            uxTxMultiplier.Text = _port.TxMultiplierTimeout.ToString();
             uxRxTimeout.Text = _port.RxTimeout.ToString();
-            //uxRxInterval.Text = _port.RxIntervalTimeout.ToString();
-            //uxRxMultiplier.Text = _port.RxMultiplyTimeout.ToString();
+            uxRxInterval.Text = _port.RxIntervalTimeout.ToString();
+            uxRxMultiplier.Text = _port.RxMultiplierTimeout.ToString();
         }
 
 
@@ -110,28 +117,7 @@ namespace SerialTestApp
             }
         }
 
-#if false
-        private void Port_Connected(object sender, ConnectedEventArgs e)
-        {
-            if (e.IsConnected)
-                Log($"Serial port connected");
-            else
-                Log($"Serial port disconnected");
-        }
-#endif
 
-#if false
-        private void Port_ErrorReceived(object sender, ErrorReceivedEventArgs e)
-        {
-            Log($"Error received: {e.EventType}");
-        }
-#endif
-#if false
-        private void Port_TransmitCompleted(object sender, EventArgs e)
-        {
-            Log("Transmit completed");
-        }
-#endif
 #if false
         private void Port_PinChanged(object sender, PinChangedEventArgs e)
         {
@@ -141,7 +127,6 @@ namespace SerialTestApp
             Toggle(uxRLSD, e.PinState.HasFlag(ModemPinState.Rlsd));
             Toggle(uxRI, e.PinState.HasFlag(ModemPinState.Ring));
         }
-#endif
         private void Toggle(Controls.LedControl sender, bool state)
         {
             if (sender.InvokeRequired)
@@ -152,6 +137,7 @@ namespace SerialTestApp
             else
                 sender.Checked = state;
         }
+#endif
 
 #if false
         private void Port_DataReceived(object sender, DataReceivedEventArgs e)
@@ -165,23 +151,10 @@ namespace SerialTestApp
 
         private void UxPorts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!_port.IsConnected)
+            if (!_port.IsOpen)
             {
                 _port.PortName = _portNames.Values.ToArray()[uxPorts.SelectedIndex];
                 uxPortName.Text = _port.PortName;
-            }
-        }
-
-        private void UxRefreshModem_Click(object sender, EventArgs e)
-        {
-            if (_port.IsConnected)
-            {
-                var state = _port.ModemStatus;
-                // FIXME: check these names & namespace and duplication in events!
-                uxDSR.Checked = state.HasFlag(AndyB.Comms.Serial.Interop.ModemStat.Dsr);
-                uxCTS.Checked = state.HasFlag(AndyB.Comms.Serial.Interop.ModemStat.Cts);
-                uxRLSD.Checked = state.HasFlag(AndyB.Comms.Serial.Interop.ModemStat.RLSD);
-                uxRI.Checked = state.HasFlag(AndyB.Comms.Serial.Interop.ModemStat.Ring);
             }
         }
 
@@ -191,36 +164,29 @@ namespace SerialTestApp
         private bool _dtrState;
         private void UxDTR_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
                 _port.Dtr = _dtrState = !_dtrState;
         }
 
         private bool _rtsState;
         private void UxRTS_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
                 _port.Rts = _rtsState = !_rtsState;
         }
 
         private bool _xonXoffState;
         private void UxXonXoff_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
                 _port.XonXoff = _xonXoffState = !_xonXoffState;
         }
 
         private bool _breakState;
         private void UxBreak_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
                 _port.Break = _breakState = !_breakState;
-        }
-
-        private bool _resetState;
-        private void UxReset_Click(object sender, EventArgs e)
-        {
-            if (_port.IsConnected)
-                _port.Reset = _resetState = !_resetState;
         }
 
         #endregion
@@ -238,7 +204,7 @@ namespace SerialTestApp
             uxData.Text = _port.DataBits.ToString();
             uxParity.Text = _port.Parity.ToString();
             uxStop.Text = _port.StopBits.ToString();
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 // DCB
                 uxTxFlowCts.Text = _port.TxFlowCts.ToString();
@@ -259,18 +225,23 @@ namespace SerialTestApp
                 //uxErrorChars.Text = ;
                 //uxDiscardNull.Checked;
                 //uxAbortOnError.Checked;
-                //var status = _port.GetStatus();
-                //uxCtsHold.Checked = status.CtsHold;
-                //uxDsrHold.Checked = status.DsrHold;
-                //uxRlsdHold.Checked = status.RlsdHold;
-                //uxXoffHold.Checked = status.XoffHold;
-                //uxXoffSent.Checked = status.XoffSent;
-                //uxEof.Checked = status.Eof;
-                //uxTxIm.Checked = status.TxIm;
-                //uxRxQueue.Text = status.InQueue.ToString();
-                //uxTxQueue.Text = status.OutQueue.ToString();
+                var status = _port.PortStatus;
+                uxCtsHold.Checked = status.HasFlag(CommStatus.CtsHold);
+                uxDsrHold.Checked = status.HasFlag(CommStatus.DsrHold);
+                uxRlsdHold.Checked = status.HasFlag(CommStatus.RlsdHold);
+                uxXoffHold.Checked = status.HasFlag(CommStatus.XoffHold);
+                uxXoffSent.Checked = status.HasFlag(CommStatus.XoffSent);
+                uxEof.Checked = status.HasFlag(CommStatus.Eof);
+                uxTxIm.Checked = status.HasFlag(CommStatus.TxIm);
+                uxRxQueue.Text = _port.RxQueueCount.ToString();
+                uxTxQueue.Text = _port.TxQueueCount.ToString();
+
+                RefreshTimeouts();
             }
         }
+
+
+        #region Timeouts
 
         private void UxTxTimeout_Leave(object sender, EventArgs e)
         {
@@ -279,17 +250,18 @@ namespace SerialTestApp
             RefreshTimeouts();
         }
 
-        private void uxTxMultiplier_Leave(object sender, EventArgs e)
+
+        private void UxTxMultiplier_Leave(object sender, EventArgs e)
         {
-            //if (uint.TryParse(uxTxMultiplier.Text, out uint txTimeout))
-            //    _port.TxMultiplierTimeout = txTimeout;
+            if (uint.TryParse(uxTxMultiplier.Text, out uint txTimeout))
+                _port.TxMultiplierTimeout = txTimeout;
             RefreshTimeouts();
         }
 
         private void UxRxInterval_Leave(object sender, EventArgs e)
         {
-            //if (uint.TryParse(uxRxInterval.Text, out uint rxTimeout))
-            //    _port.RxIntervalTimeout = rxTimeout;
+            if (uint.TryParse(uxRxInterval.Text, out uint rxTimeout))
+                _port.RxIntervalTimeout = rxTimeout;
             RefreshTimeouts();
         }
 
@@ -300,46 +272,86 @@ namespace SerialTestApp
             RefreshTimeouts();
         }
 
-        private void uxRxMultiplier_Leave(object sender, EventArgs e)
+        private void UxRxMultiplier_Leave(object sender, EventArgs e)
         {
-            //if (uint.TryParse(uxRxMultiplier.Text, out uint rxTimeout))
-            //    _port.RxMultiplyTimeout = rxTimeout;
+            if (uint.TryParse(uxRxMultiplier.Text, out uint rxTimeout))
+                _port.RxMultiplierTimeout = rxTimeout;
             RefreshTimeouts();
         }
 
-        private const string txString = "The quick brown fox jumps over the lazy dog";
-        private void UxSend_Click(object sender, EventArgs e)
+        #endregion
+
+
+        private const string txString = "Quick brown fox jumps over the lazy dog";
+        private async void UxSend_Click(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 byte[] bytes;
                 if (string.IsNullOrEmpty(uxTxBuffer.Text))
                     bytes = Encoding.ASCII.GetBytes(txString);
                 else
                     bytes = Encoding.ASCII.GetBytes(uxTxBuffer.Text);
-                //                var ar = _port.BeginWrite(bytes, 0, bytes.Length, iar=>
-                //                {
-                //                    _logger.Debug("User callback called");                    
-                //                    _port.EndWrite(iar);
-                //                }
-                //                , null);
+                try
+                {
+                    //var ar = _port.BaseStream.BeginWrite(bytes, 0, bytes.Length, iar =>
+                    //{
+                    //    _logger.Debug("User callback called");
+                    //    _port.BaseStream.EndWrite(iar);
+                    //}, null);
 
-                //var ar = _port.BeginWrite(bytes, 0, bytes.Length, null, null);
-                //ar.AsyncWaitHandle.WaitOne();
-                //_port.EndWrite(ar);
+                    //var ar = _port.BaseStream.BeginWrite(bytes, 0, bytes.Length, null, null);
+                    //ar.AsyncWaitHandle.WaitOne();
+                    //_port.BaseStream.EndWrite(ar);
 
+                    //_port.BaseStream.Write(bytes, 0, bytes.Length);
+
+                    await _port.BaseStream.WriteAsync(bytes, 0, bytes.Length);
+                }
+                catch (TimeoutException)
+                {
+                    Log("Timedout in write");
+                }
+                catch (Exception ex)
+                {
+                    Log($"Exception {ex} in write");
+                }
+
+                //AsyncUtil.RunSync(() => _port.WriteAsync(bytes, 0, bytes.Length));
                 //var task = _port.WriteAsync(bytes, 0, bytes.Length);
                 //task.Wait();
-                _port.Write(bytes, 0, bytes.Length);
-//                var comp = ar.IsCompleted;
+                //var comp = ar.IsCompleted;
             }
         }
 
+
+        private void uxRead_Click(object sender, EventArgs e)
+        {
+            var buffer = new byte[256];
+            try
+            {
+                var count = _port.Read(buffer, 0, buffer.Length);
+                Log($"{count} bytes read from port");
+                Log(Encoding.ASCII.GetString(buffer, 0, count));
+            }
+            catch (TimeoutException)
+            {
+                Log($"Timedout in read");
+            }
+            catch (Exception ex)
+            {
+                Log($"Exception {ex} in read");
+            }
+        }
+
+
         #region DCB Controls
+
+        #region DTR Handshake Radio Buttons
 
         private void UxDtrDisabled_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxDtrDisabled.Checked)
                     _port.DtrControl = PinStates.Disable;
@@ -349,7 +361,7 @@ namespace SerialTestApp
 
         private void UxDtrEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxDtrEnabled.Checked)
                     _port.DtrControl = PinStates.Enable;
@@ -359,7 +371,7 @@ namespace SerialTestApp
 
         private void UxDtrHandshake_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxDtrHandshake.Checked)
                     _port.DtrControl = PinStates.Handshake;
@@ -367,9 +379,23 @@ namespace SerialTestApp
             }
         }
 
+        private void uxDtrToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                if (uxDtrToggle.Checked)
+                    _port.DtrControl = PinStates.Toggle;
+                UxRefresh3_Click(sender, e);
+            }
+        }
+
+        #endregion
+
+        #region RTS Radio Buttons
+
         private void UxRtsDisabled_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxRtsDisabled.Checked)
                     _port.RtsControl = PinStates.Disable;
@@ -379,7 +405,7 @@ namespace SerialTestApp
 
         private void UxRtsEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxRtsEnabled.Checked)
                     _port.RtsControl = PinStates.Enable;
@@ -389,7 +415,7 @@ namespace SerialTestApp
 
         private void UxRtsHandshake_CheckedChanged(object sender, EventArgs e)
         {
-            if (_port.IsConnected)
+            if (_port.IsOpen)
             {
                 if (uxRtsHandshake.Checked)
                     _port.RtsControl = PinStates.Handshake;
@@ -397,24 +423,33 @@ namespace SerialTestApp
             }
         }
 
-        #endregion
+        private void uxRtsToggle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                if (uxRtsToggle.Checked)
+                    _port.RtsControl = PinStates.Toggle;
+                UxRefresh3_Click(sender, e);
+            }
+        }
 
+        #endregion
 
         private void UxDsrEnable_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.TxFlowDsr = uxDsrEnable.Checked;
+            _port.TxFlowDsr = uxDsrEnable.Checked;
             UxRefresh3_Click(sender, e);
         }
 
         private void UxCtsEnable_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.TxFlowCts = uxCtsEnable.Checked;
+            _port.TxFlowCts = uxCtsEnable.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxDsrSense_CheckedChanged(object sender, EventArgs e)
+        private void UxDsrSense_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.RxDsrSensitivity = uxDsrSense.Checked;
+            _port.RxDsrSensitivity = uxDsrSense.Checked;
             UxRefresh3_Click(sender, e);
         }
 
@@ -424,59 +459,110 @@ namespace SerialTestApp
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxDataBits_SelectedIndexChanged(object sender, EventArgs e)
+        private void UxDataBits_SelectedIndexChanged(object sender, EventArgs e)
         {
             _port.DataBits = Enum.Parse<DataBits>(uxDataBits.Text);
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxParityBits_SelectedIndexChanged(object sender, EventArgs e)
+        private void UxParityBits_SelectedIndexChanged(object sender, EventArgs e)
         {
             _port.Parity = Enum.Parse<ParityBit>(uxParityBits.Text);
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxStopBits_SelectedIndexChanged(object sender, EventArgs e)
+        private void UxStopBits_SelectedIndexChanged(object sender, EventArgs e)
         {
             _port.StopBits = Enum.Parse<StopBits>(uxStopBits.Text);
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxTxXOff_CheckedChanged(object sender, EventArgs e)
+        private void UxTxXOff_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.TxContinue = uxTxXon.Checked;
+            _port.TxContinue = uxTxXon.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxTxXon_CheckedChanged(object sender, EventArgs e)
+        private void UxTxXon_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.TxFlowXoff = uxTxXon.Checked;
+            _port.TxFlowXoff = uxTxXon.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxRxXon_CheckedChanged(object sender, EventArgs e)
+        private void UxRxXon_CheckedChanged(object sender, EventArgs e)
         {
-            //_port.RxFlowXoff = uxRxXon.Checked;
+            _port.RxFlowXoff = uxRxXon.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxParityReplace_CheckedChanged(object sender, EventArgs e)
+        private void UxParityReplace_CheckedChanged(object sender, EventArgs e)
         {
+            // TODO:
             //_port.ParityReplace = uxParityReplace.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxDiscardNull_CheckedChanged(object sender, EventArgs e)
+        private void UxDiscardNull_CheckedChanged(object sender, EventArgs e)
         {
+            // TODO:
             //_port.DiscardNull = uxDiscardNull.Checked;
             UxRefresh3_Click(sender, e);
         }
 
-        private void uxAbortOnError_CheckedChanged(object sender, EventArgs e)
+        private void UxAbortOnError_CheckedChanged(object sender, EventArgs e)
         {
+            // TODO:
             //_port.AbortOnError = uxAbortOnError.Checked;
             UxRefresh3_Click(sender, e);
         }
 
+
+        #endregion
+
+        private void uxDtrRts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                var checkBox = sender as KryptonCheckBox;
+                _port.DtrDsrHandshake = checkBox.Checked;
+            }
+        }
+
+        private void uxRtsCts_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                var checkBox = sender as KryptonCheckBox;
+                _port.RtsCtsHandshake = checkBox.Checked;
+            }
+        }
+
+        private void uxDtrEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                var checkBox = sender as KryptonCheckBox;
+                _port.Dtr = checkBox.Checked;
+            }
+        }
+
+        private void uxRtsEnable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                var checkBox = sender as KryptonCheckBox;
+                _port.Rts = checkBox.Checked;
+            }
+
+        }
+
+        private void uxPurge_Click(object sender, EventArgs e)
+        {
+            if (_port.IsOpen)
+            {
+                _port.RxPurge();
+                _port.TxPurge();
+            }
+        }
     }
 }

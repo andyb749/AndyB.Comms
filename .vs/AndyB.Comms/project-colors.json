@@ -15,7 +15,17 @@
       "ProjectGuid": "2214d815-ed35-46a5-897f-e38a4e053350",
       "DisplayName": "BaseTerm",
       "ColorIndex": 2
+    },
+    "8afa1230-5950-4579-99fc-f0784f04f7c6": {
+      "ProjectGuid": "8afa1230-5950-4579-99fc-f0784f04f7c6",
+      "DisplayName": "AndyB.Comms.Tests",
+      "ColorIndex": 3
+    },
+    "9b714ad3-4dc0-4426-b60c-3e111b28bb9e": {
+      "ProjectGuid": "9b714ad3-4dc0-4426-b60c-3e111b28bb9e",
+      "DisplayName": "AndyB.Comms.Documentation",
+      "ColorIndex": 4
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 5
 }

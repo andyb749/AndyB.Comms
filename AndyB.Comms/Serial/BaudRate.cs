@@ -4,19 +4,30 @@ using System.Text;
 
 namespace AndyB.Comms.Serial
 {
+	using Interop;
+
+
 	/// <summary>
-	/// Baud rate settings.
-	/// Supported Rates: 110, 300, 600, 1200, 2400, 4800, 9600
-	/// 14400, 19200, 38400, 56000, 57600, 115200, 128000, 256000
+	/// Enumeration of baud rates.
 	/// </summary>
-	/// <remarks>Do not re-arrange or change these values, as they have to match
-	/// the values used by the Win32 API</remarks>
+	/// <remarks>Depending of the hardware, the system may reject a particular baud rate if it
+	/// exceeds the maximum value for the port.</remarks>
 	public enum BaudRate : int
 	{
+		/// <summary>
+		/// Specifies a baud rate of 75.
+		/// </summary>
+		Baud75 = 75,
+
 		/// <summary>
 		/// Specifies a baud rate of 110.
 		/// </summary>
 		Baud110 = 110,
+
+		/// <summary>
+		/// Specifies a baud rate of 150.
+		/// </summary>
+		Baud150 = 150,
 
 		/// <summary>
 		/// Specifies a baud rate of 300.
@@ -44,6 +55,11 @@ namespace AndyB.Comms.Serial
 		Baud4800 = 4800,
 
 		/// <summary>
+		/// Specifies a baud rate of 7200
+		/// </summary>
+		Baud7200 = 7200,
+
+		/// <summary>
 		/// Specifies a baud rate of 9600.
 		/// </summary>
 		Baud9600 = 9600,
@@ -66,7 +82,7 @@ namespace AndyB.Comms.Serial
 		/// <summary>
 		/// Specifies a baud rate of 56000.
 		/// </summary>
-		Baud56000 = 56000,
+		Baud56K = 56000,
 
 		/// <summary>
 		/// Specifies a baud rate of 57600.
@@ -81,7 +97,12 @@ namespace AndyB.Comms.Serial
 		/// <summary>
 		/// Specifies a baud rate of 128000.
 		/// </summary>
-		Baud128000 = 128000,
+		Baud128K = 128000,
+
+		/// <summary>
+		/// Specifies a baud rate of 134500.
+		/// </summary>
+		Baud134_5 = 134500,
 
 		/// <summary>
 		/// Specifies a baud rate of 256000.

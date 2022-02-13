@@ -15,15 +15,12 @@ D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Ser
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\SerialTestApp.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\ref\SerialTestApp.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\SerialTestApp.pdb
-D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\AndyB.Commons.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Krypton.Docking.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Krypton.Navigator.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Krypton.Ribbon.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Krypton.Toolkit.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\Krypton.Workspace.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\NLog.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\System.Management.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.0\System.Management.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\AndyB.Comms.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\AndyB.Comms.pdb
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Debug\net5.0-windows\AndyB.Comms.xml

@@ -1,15 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lwUM7byCZDm3N9cRjWmao+uMMMNgQvRt8ADVYj0PiiV6MHuNoR4xXgOCD7CCZ1B4Ql8KzQNK8jzkOTRvEFDHcQ==",
+  "dgSpecHash": "RIqxVvxrW4SzAOiK0NUh8FOk/OT5HLGiB+YIZcbbwMf3I0bZ/IuD2nJoqCfqeZASNato0j0CIuJR517sa7oxvg==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andyb\\.nuget\\packages\\andyb.commons\\5.1.1\\andyb.commons.5.1.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.12\\nlog.4.7.12.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",

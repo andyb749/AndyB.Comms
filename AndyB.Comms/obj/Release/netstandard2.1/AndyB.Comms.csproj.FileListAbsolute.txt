@@ -1,0 +1,12 @@
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Release\netstandard2.1\AndyB.Comms.deps.json
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Release\netstandard2.1\AndyB.Comms.dll
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Release\netstandard2.1\AndyB.Comms.pdb
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\bin\Release\netstandard2.1\AndyB.Comms.xml
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.Properties.SR.resources
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.csproj.GenerateResource.cache
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.GeneratedMSBuildEditorConfig.editorconfig
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.AssemblyInfoInputs.cache
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.AssemblyInfo.cs
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.csproj.CoreCompileInputs.cache
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.dll
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.pdb

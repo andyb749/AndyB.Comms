@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "4fpcULscBQXotJffKnSPm8Gp3oR/QQjZfvCcOzRqjCXUBKt4IcVYph7eRkn1eZ5bMVD6ZEckHPmLCq4D0psHHw==",
+  "dgSpecHash": "cW5kqJIyRstCVkRPU+EkOwHTCdrl5VsEel8kf3JHvw+1CrX6V0mlcdrDKLjBHhRKCJXtjkXGEaYGV9BDoyXIsA==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\andyb\\.nuget\\packages\\andyb.commons\\5.1.1\\andyb.commons.5.1.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.docking\\5.550.2108.1\\krypton.docking.5.550.2108.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.navigator\\5.550.2108.1\\krypton.navigator.5.550.2108.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.ribbon\\5.550.2108.1\\krypton.ribbon.5.550.2108.1.nupkg.sha512",
@@ -14,13 +13,12 @@
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\nlog\\4.7.12\\nlog.4.7.12.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.management\\5.0.0\\system.management.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
   ],
   "logs": []
 }

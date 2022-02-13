@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.1-alpha</Version>
+    <Version>0.0.3-beta</Version>
     <Authors>AndyB</Authors>
     <Description>Classes and interfaces for communications</Description>
-    <Copyright>Copyright © AndyB 1994-2021</Copyright>
+    <Copyright>Copyright © AndyB 1994-2022</Copyright>
     <OutputType>Library</OutputType>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>keyfile.snk</AssemblyOriginatorKeyFile>
@@ -24,13 +24,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AndyB.Commons" Version="5.1.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="4.7.12" />
-    <PackageReference Include="System.Management" Version="5.0.0" />
     <PackageReference Include="System.Security.Permissions" Version="5.0.0" />
   </ItemGroup>
 

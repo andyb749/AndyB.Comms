@@ -4,6 +4,8 @@ using System.Text;
 
 namespace AndyB.Comms.Serial
 {
+	using Interop;
+
 	/// <summary>
 	/// Enumeration of the available stop bits
 	/// </summary>
@@ -12,19 +14,19 @@ namespace AndyB.Comms.Serial
 	public enum StopBits : byte
 	{
 		/// <summary>
-		/// Line is asserted for 1 bit duration at end of each character
+		/// Line is asserted for 1 bit duration at end of each character.
 		/// </summary>
-		One = 0,
+		One = Kernel32.ONESTOPBIT,
 
 		/// <summary>
-		/// Line is asserted for 1.5 bit duration at end of each character
+		/// Line is asserted for 1.5 bit duration at end of each character.
 		/// </summary>
-		OnePointFive = 1,
+		OnePointFive = Kernel32.ONE5STOPBITS,
 
 		/// <summary>
-		/// Line is asserted for 2 bit duration at end of each character
+		/// Line is asserted for 2 bit duration at end of each character.
 		/// </summary>
-		Two = 2
+		Two = Kernel32.TWOSTOPBITS,
 	};
 
 

@@ -1,29 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace AndyB.Comms.Serial
 {
-	/// <summary>
-	/// Specifies errors that occur on the <see cref="SerialPort"/> object.
-	/// </summary>
-	/// <remarks>This enumeration can be useful when handling the <see cref="SerialPort.ErrorEvent(Action{SerialError})"/> event to 
-	/// detect and respond to errors when communicating data through a <see cref="SerialPort"/>.</remarks>
-	public enum SerialError
-	{
+    using Interop;
+
+    /// <summary>
+    /// Specifies errors that occur on the <see cref="SerialPort"/> object.
+    /// </summary>
+    /// <remarks>These value match those returned in the Win32 API and correspond to the CE_xxxx values. Do not modify.</remarks>
+    [Flags]
+	public enum SerialError : uint
+    {
+        /// <summary>
+        /// An input buffer overflow has occurred. 
+        /// There is either no room in the input buffer, 
+        /// or a character was received after the EOF character.
+        /// </summary>
+        RxOver = 0x0001,
+
+        /// <summary>
+        /// A character-buffer overrun has occurred. 
+        /// The next character is lost.
+        /// </summary>
+        Overrun = 0x0002,
+
+        /// <summary>
+        /// The hardware detected a parity error.
+        /// </summary>
+        RxParity = 0x0004,
+
+        /// <summary>
+        /// The hardware detected a framing error.
+        /// </summary>
+        Frame = 0x0008,
+
+        /// <summary>
+        /// The hardware detected a break condition
+        /// </summary>
+        Break = 0x0010,
+
+        /// <summary>
+        /// The application tried to transmit a 
+        /// character, but the output buffer was full.
+        /// </summary>
+        TxFull = 0x0100,
+    }
+
+
+    /// <summary>
+    /// Contains the data for the <see cref="SerialPort.ErrorReceived"/> event.
+    /// </summary>
+    public class SerialErrorReceivedEventArgs : EventArgs
+    {
 		/// <summary>
-		/// The hardware detected a framing error.
+		/// Gets the event type for this <see cref="SerialErrorReceivedEventArgs"/>.
 		/// </summary>
-		Frame,
+		public SerialError EventType { get; private set; }
 
 		/// <summary>
-		/// Either a character overrun in the UART was detected on the receive buffer was full.
+		/// Initialises a new instance of the <see cref="SerialErrorReceivedEventArgs"/>
+		/// with the supplied event type.
 		/// </summary>
-		Overrun,
-
-		/// <summary>
-		/// The hardware detected a parity error.
-		/// </summary>
-		Parity
-	}
+		/// <param name="eventType">The event type.</param>
+		public SerialErrorReceivedEventArgs(SerialError eventType) => EventType = eventType;
+    }
 }

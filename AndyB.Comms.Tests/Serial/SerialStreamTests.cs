@@ -9,8 +9,9 @@ namespace AndyB.Comms.Tests.Serial
 
     public class SerialStreamTests
     {
-        private static string portName = "COM14";
+        //private static string portName = "COM14";
 
+#if false
         [Fact]
         public void NullPortNameThrows ()
         {        
@@ -26,6 +27,7 @@ namespace AndyB.Comms.Tests.Serial
         [InlineData("readme.txt")]
         public void InvalidDeviceNameThrows(string name)
         {
+            name = null;
             Assert.Throws<ArgumentException>(() =>
             {
                 //new _SerialStream(name);
@@ -64,16 +66,21 @@ namespace AndyB.Comms.Tests.Serial
         [Fact]
         public void CanCreateStreamFromHandle()
         {
+            var h = new Microsoft.Win32.SafeHandles.SafeFileHandle(IntPtr.Zero, true);
+
+            var s = new FileStream(h, FileAccess.ReadWrite);
+
             // TODO:
         }
 
         [Fact]
         public void CanWriteSteam()
         {
-            //var target = new _SerialStream(portName);
-            var str = "THE QUICK FOX JUMPS OVER THE LAZY DOG";
-            var bytes = Encoding.ASCII.GetBytes(str);
+            //var target = new SerialStream(portName);
+            //var str = "THE QUICK FOX JUMPS OVER THE LAZY DOG";
+            //var bytes = Encoding.ASCII.GetBytes(str);
             //target.Write(bytes, 0, bytes.Length);
         }
+#endif
     }
 }

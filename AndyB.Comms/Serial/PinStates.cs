@@ -2,6 +2,8 @@
 
 namespace AndyB.Comms.Serial
 {
+	using Interop;
+
 	/// <summary>
 	/// RTS and DTR pin states.
 	/// </summary>
@@ -12,22 +14,21 @@ namespace AndyB.Comms.Serial
 		/// <summary>
 		/// Pin is never asserted.
 		/// </summary>
-		Disable,
+		Disable = (byte)Kernel32.RTS_CONTROL_DISABLE,
 
 		/// <summary>
 		/// Pin is asserted when port is open.
 		/// </summary>
-		Enable,
+		Enable = (byte)Kernel32.RTS_CONTROL_ENABLE,
 
 		/// <summary>
 		/// Pin is asserted when able to receive data.
 		/// </summary>
-		Handshake,
+		Handshake = (byte)Kernel32.RTS_CONTROL_HANDSHAKE,
 
 		/// <summary>
 		/// Pin (RTS only) is asserted when transmitting data.
 		/// </summary>
-		Toggle
+		Toggle = (byte)Kernel32.RTS_CONTROL_TOGGLE
 	};
-
 }

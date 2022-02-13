@@ -30,7 +30,7 @@
       <DocumentationSource sourceFile="..\AndyB.Comms\AndyB.Comms.csproj" xmlns="" />
     </DocumentationSources>
     <HelpTitle>AndyB.Comms Class Libraries</HelpTitle>
-    <HelpFileVersion>0.0.1</HelpFileVersion>
+    <HelpFileVersion>0.0.2</HelpFileVersion>
     <NamingMethod>Guid</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>True</RootNamespaceContainer>
@@ -38,7 +38,7 @@
     <MaximumGroupParts>2</MaximumGroupParts>
     <Preliminary>True</Preliminary>
     <HeaderText>Help version {%40HelpFileVersion}</HeaderText>
-    <CopyrightText>Copyright \xa9 1994 -2021, AndyB</CopyrightText>
+    <CopyrightText>Copyright \xa9 1994 -2022, AndyB</CopyrightText>
     <FeedbackEMailAddress>andyb749%40hotmail.com</FeedbackEMailAddress>
     <SdkLinkTarget>Blank</SdkLinkTarget>
     <HelpFileFormat>HtmlHelp1</HelpFileFormat>
@@ -102,6 +102,7 @@
     <None Include="Content\VersionHistory\VersionHistory.aml" />
     <None Include="Content\Walkthrough1.aml" />
     <None Include="Content\Welcome.aml" />
+    <None Include="Content\Win32Comms.aml" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />

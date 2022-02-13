@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="cdc3ec70-22e4-4063-a87c-585a71948a13" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>This page describes the implementation of the serial port object on Windows using the Comms API Functions.</para>
+    </introduction>
+
+    <section address="Section1">
+      <title>Initialisation.</title>
+      <content>
+        <!-- Uncomment this to create a sub-section outline
+        <autoOutline /> -->
+        <para>The C# class library uses P/Invoke and the Windows Comms Functions to interface with the serial ports.
+        The following steps are used in the initialisation:
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>CreateFile is called to open the port for <newTerm>overlapped</newTerm> operations.
+            This essentially means that the read/write/wait function calls are non-blocking.
+          </para>
+          </listItem>
+          <listItem>
+            <para>
+              GetCommProperties is called to get the driver's COMMPROP structure. COMMCONFIG contains
+              amongst other things, the maximum allowable baud rate and the device control block (DCB).
+            </para>
+          </listItem>
+          <listItem>
+            <para>GetCommState and SetCommState are called to initiate most of the communication port's
+            parameters including baud rate, data bits, parity and stop bits.</para>
+          </listItem>
+          <listItem>
+            <para>SetCommTimeout and GetCommTimeout are called to setup the port read and write timeouts.</para>
+          </listItem>
+        </list>
+      </content>
+      <!-- If a section contains a sections element, its content creates
+           sub-sections.  These are not collapsible.
+      <sections>
+          <section address="SubSection1">
+              <title>Sub-section 1</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+          <section address="SubSection2">
+              <title>Sub-section 2</title>
+              <content>
+                  <para>Sub-section content.</para>
+              </content>
+          </section>
+      </sections> -->
+    </section>
+
+    <relatedTopics>
+      <!-- One or more of the following:
+           - A local link
+           - An external link
+           - A code entity reference
+
+      <link xlink:href="Other Topic's ID"/>
+      <link xlink:href="Other Topic's ID">Link inner text</link>
+
+      <externalLink>
+          <linkText>Link text</linkText>
+          <linkAlternateText>Optional alternate link text</linkAlternateText>
+          <linkUri>URI</linkUri>
+      </externalLink>
+
+      <codeEntityReference>API member ID</codeEntityReference>
+
+      Examples:
+
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8270" />
+      <link xlink:href="00e97994-e9e6-46e0-b420-5be86b2f8278">Some other topic</link>
+
+      <externalLink>
+          <linkText>SHFB on GitHub</linkText>
+          <linkAlternateText>Go to GitHub</linkAlternateText>
+          <linkUri>https://GitHub.com/EWSoftware/SHFB</linkUri>
+      </externalLink>
+
+      <codeEntityReference>T:TestDoc.TestClass</codeEntityReference>
+      <codeEntityReference>P:TestDoc.TestClass.SomeProperty</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.#ctor(System.String,System.Int32)</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.ToString</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.FirstMethod</codeEntityReference>
+      <codeEntityReference>M:TestDoc.TestClass.SecondMethod(System.Int32,System.String)</codeEntityReference>
+      -->
+      <codeEntityReference>T:AndyB.Comms.Serial.SerialPort</codeEntityReference>
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
