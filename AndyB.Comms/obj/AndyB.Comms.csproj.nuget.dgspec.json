@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj": {
-      "version": "0.0.3-beta",
+      "version": "0.0.4-beta",
       "restore": {
         "projectUniqueName": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
         "projectName": "AndyB.Comms",
@@ -69,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

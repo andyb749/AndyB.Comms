@@ -2346,7 +2346,7 @@
             <list type="bullet">
             <item><para>Own the handle</para></item>
             <item><para>Are opened for asynchronous operation</para></item>
-            <item><para>Set access at the level of FileAccess.ReadWrite</para></item>
+            <item><para>Set _access at the level of FileAccess.ReadWrite</para></item>
             <item><para>Allow for reading and writing</para></item>
             <item><para>Disallow seeking, since they encapsulate a file of type FILE_TYPE_CHAR</para></item>
             </list></remarks>

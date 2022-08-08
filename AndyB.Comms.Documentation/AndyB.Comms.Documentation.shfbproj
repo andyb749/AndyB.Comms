@@ -15,7 +15,7 @@
     <!-- SHFB properties -->
     <FrameworkVersion>.NET Core/.NET Standard/.NET 5.0+</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
-    <HtmlHelpName>AndyB.Comms.Documentation</HtmlHelpName>
+    <HtmlHelpName>AndyB.Comms.{%40HelpFileVersion}</HtmlHelpName>
     <Language>en-US</Language>
     <TransformComponentArguments>
       <Argument Key="logoFile" Value="Help.png" xmlns="" />
@@ -30,7 +30,7 @@
       <DocumentationSource sourceFile="..\AndyB.Comms\AndyB.Comms.csproj" xmlns="" />
     </DocumentationSources>
     <HelpTitle>AndyB.Comms Class Libraries</HelpTitle>
-    <HelpFileVersion>0.0.2</HelpFileVersion>
+    <HelpFileVersion>0.0.4-alpha</HelpFileVersion>
     <NamingMethod>Guid</NamingMethod>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <RootNamespaceContainer>True</RootNamespaceContainer>
@@ -61,6 +61,42 @@
 <replace elements="/*//token" item="string(.)" /></component>
       </ComponentConfig>
     </ComponentConfigurations>
+    <PlugInConfigurations>
+      <PlugInConfig id="Output Deployment" enabled="True" xmlns="">
+        <configuration deleteAfterDeploy="false" verboseLogging="false">
+  <deploymentLocation id="help1x" location="c:\users\andyb\Desktop\Programming">
+    <userCredentials useDefault="true" userName="" password="" />
+    <proxyCredentials useProxy="false" proxyServer="">
+      <userCredentials useDefault="true" userName="" password="" />
+    </proxyCredentials>
+  </deploymentLocation>
+  <deploymentLocation id="helpViewer" location="" renameMSHA="false">
+    <userCredentials useDefault="true" userName="" password="" />
+    <proxyCredentials useProxy="false" proxyServer="">
+      <userCredentials useDefault="true" userName="" password="" />
+    </proxyCredentials>
+  </deploymentLocation>
+  <deploymentLocation id="website" location="">
+    <userCredentials useDefault="true" userName="" password="" />
+    <proxyCredentials useProxy="false" proxyServer="">
+      <userCredentials useDefault="true" userName="" password="" />
+    </proxyCredentials>
+  </deploymentLocation>
+  <deploymentLocation id="openXml" location="">
+    <userCredentials useDefault="true" userName="" password="" />
+    <proxyCredentials useProxy="false" proxyServer="">
+      <userCredentials useDefault="true" userName="" password="" />
+    </proxyCredentials>
+  </deploymentLocation>
+  <deploymentLocation id="markdown" location="">
+    <userCredentials useDefault="true" userName="" password="" />
+    <proxyCredentials useProxy="false" proxyServer="">
+      <userCredentials useDefault="true" userName="" password="" />
+    </proxyCredentials>
+  </deploymentLocation>
+</configuration>
+      </PlugInConfig>
+    </PlugInConfigurations>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in order for Visual Studio to perform
 			 the build.  The others are optional common platform types that may appear. -->

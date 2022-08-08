@@ -223,7 +223,7 @@
           }
         }
       },
-      "AndyB.Comms/0.0.3-beta": {
+      "AndyB.Comms/0.0.4-beta": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
@@ -761,7 +761,7 @@
         "version.txt"
       ]
     },
-    "AndyB.Comms/0.0.3-beta": {
+    "AndyB.Comms/0.0.4-beta": {
       "type": "project",
       "path": "../AndyB.Comms/AndyB.Comms.csproj",
       "msbuildProject": "../AndyB.Comms/AndyB.Comms.csproj"
@@ -769,7 +769,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "AndyB.Comms >= 0.0.3-beta",
+      "AndyB.Comms >= 0.0.4-beta",
       "Krypton.Docking >= 5.550.2108.1",
       "Krypton.Ribbon >= 5.550.2108.1",
       "NLog >= 4.7.12"
@@ -847,12 +847,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[5.0.13, 5.0.13]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -861,7 +855,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

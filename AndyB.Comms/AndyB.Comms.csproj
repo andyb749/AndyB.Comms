@@ -3,24 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.0.3-beta</Version>
+    <Version>0.0.4-beta</Version>
     <Authors>AndyB</Authors>
     <Description>Classes and interfaces for communications</Description>
     <Copyright>Copyright © AndyB 1994-2022</Copyright>
     <OutputType>Library</OutputType>
-    <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>keyfile.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.xml</DocumentationFile>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.xml</DocumentationFile>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <RepositoryUrl>https://github.com/AndyB749/AndyB.Comms</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Refactoring and code signing</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,5 +34,9 @@
       <LastGenOutput>SR.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(Configuration) == Release (start &quot;Signing Tool&quot; /WAIT signer.cmd $(OutDir)$(TargetFileName))" />
+  </Target>
 
 </Project>

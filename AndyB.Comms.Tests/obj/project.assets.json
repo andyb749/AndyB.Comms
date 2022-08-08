@@ -1799,7 +1799,7 @@
           "build/netcoreapp2.1/xunit.runner.visualstudio.props": {}
         }
       },
-      "AndyB.Comms/0.0.3-beta": {
+      "AndyB.Comms/0.0.4-beta": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
@@ -6337,7 +6337,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "AndyB.Comms/0.0.3-beta": {
+    "AndyB.Comms/0.0.4-beta": {
       "type": "project",
       "path": "../AndyB.Comms/AndyB.Comms.csproj",
       "msbuildProject": "../AndyB.Comms/AndyB.Comms.csproj"
@@ -6345,7 +6345,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "AndyB.Comms >= 0.0.3-beta",
+      "AndyB.Comms >= 0.0.4-beta",
       "Microsoft.NET.Test.Sdk >= 17.0.0",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
@@ -6437,7 +6437,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

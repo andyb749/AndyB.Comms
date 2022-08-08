@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cW5kqJIyRstCVkRPU+EkOwHTCdrl5VsEel8kf3JHvw+1CrX6V0mlcdrDKLjBHhRKCJXtjkXGEaYGV9BDoyXIsA==",
+  "dgSpecHash": "86qWpdbkfaEW4esej/EshhcZYVvlXjY+rlbYer2MZhU7aHf1D6fm4Ym3TtgLSlarceBTwB+WckyIpr6WNYiTvw==",
   "success": true,
   "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
   "expectedPackageFiles": [
@@ -17,8 +17,7 @@
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.13\\microsoft.netcore.app.host.win-x64.5.0.13.nupkg.sha512"
+    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

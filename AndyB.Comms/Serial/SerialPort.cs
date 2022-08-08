@@ -514,7 +514,7 @@ namespace AndyB.Comms.Serial
 		/// (HKEY_LOCAL_MACHINE\HARDWARE\DEVICEMAP\SERIALCOMM). If the registry contains stale or otherwise 
 		/// incorrect data then the <see cref="GetPortNames"/> method will return incorrect data.</para>
 		/// </remarks>
-		static public IDictionary<string, string> GetPortNames()
+		public static IDictionary<string, string> GetPortNames()
 		{
 			IDictionary<string, string> list = new Dictionary<string, string>();
 

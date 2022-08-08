@@ -23,16 +23,16 @@ namespace AndyB.Comms.Serial
     /// <list type="bullet">
     /// <item><para>Own the handle</para></item>
     /// <item><para>Are opened for asynchronous operation</para></item>
-    /// <item><para>Set access at the level of FileAccess.ReadWrite</para></item>
+    /// <item><para>Set _access at the level of FileAccess.ReadWrite</para></item>
     /// <item><para>Allow for reading and writing</para></item>
     /// <item><para>Disallow seeking, since they encapsulate a file of type FILE_TYPE_CHAR</para></item>
     /// </list></remarks>
     internal class SerialStream : Stream
     {
-        private const FileAccess access = FileAccess.ReadWrite;
+        private const FileAccess _access = FileAccess.ReadWrite;
         private readonly SerialPort _port;
         // called whenever any async i/o operation completes.
-        private unsafe static readonly IOCompletionCallback IOCallback = new IOCompletionCallback(SerialStream.AsyncFSCallback);
+        private static readonly unsafe IOCompletionCallback _ioCallback = new IOCompletionCallback(SerialStream.AsyncFSCallback);
 
 
         /// <summary>
@@ -46,13 +46,13 @@ namespace AndyB.Comms.Serial
         #region Stream Abstract and Overriden Methods
 
         /// <inheritdoc/>
-        public override bool CanRead => (access & FileAccess.Read) > 0;
+        public override bool CanRead => (_access & FileAccess.Read) > 0;
 
         /// <inheritdoc/>
         public override bool CanSeek => false;
 
         /// <inheritdoc/>
-        public override bool CanWrite => (access & FileAccess.Write) > 0;
+        public override bool CanWrite => (_access & FileAccess.Write) > 0;
 
         /// <inheritdoc/>
         public override long Length => throw new NotImplementedException();
@@ -91,7 +91,7 @@ namespace AndyB.Comms.Serial
 
 
         /// <inheritdoc/>
-        unsafe public override void Write(byte[] buffer, int offset, int count)
+        public override unsafe void Write(byte[] buffer, int offset, int count)
         {
             if (_port.InBreak)
                 throw new InvalidOperationException(SR.In_Break_State);
@@ -171,7 +171,7 @@ namespace AndyB.Comms.Serial
         }
 
 
-        unsafe private SerialPortAsyncResult BeginWriteCore(byte[] array, int offset, int numBytes, AsyncCallback userCallback, Object stateObject)
+        private unsafe SerialPortAsyncResult BeginWriteCore(byte[] array, int offset, int numBytes, AsyncCallback userCallback, Object stateObject)
         {
             // Create and store async stream class library specific data in the async result
             var asyncResult = new SerialPortAsyncResult
@@ -191,7 +191,7 @@ namespace AndyB.Comms.Serial
             var overlapped = new Overlapped(0, 0, IntPtr.Zero, asyncResult);
 
             // Pack the Overlapped class, and store it in the async result
-            var intOverlapped = overlapped.Pack(IOCallback, array);
+            var intOverlapped = overlapped.Pack(_ioCallback, array);
 
             asyncResult.Overlapped = intOverlapped;
 
@@ -280,7 +280,7 @@ namespace AndyB.Comms.Serial
         /// <exception cref="InvalidOperationException">The port is in break state.</exception>
         /// <exception cref="ArgumentNullException"><paramref name="asyncResult"/> is <c>null</c> or not a type of
         /// <see cref="SerialPortAsyncResult"/>.</exception>
-        public unsafe override void EndWrite(IAsyncResult asyncResult)
+        public override unsafe void EndWrite(IAsyncResult asyncResult)
         {
             if (!_port.IsAsync)
             {
@@ -427,7 +427,7 @@ namespace AndyB.Comms.Serial
         // Async companion to BeginRead.
         // Note, assumed IAsyncResult argument is of derived type SerialStreamAsyncResult,
         // and throws an exception if untrue.
-        public unsafe override int EndRead(IAsyncResult asyncResult)
+        public override unsafe int EndRead(IAsyncResult asyncResult)
         {
             if (!_port.IsAsync)
                 return base.EndRead(asyncResult);
@@ -494,7 +494,7 @@ namespace AndyB.Comms.Serial
         }
 
 
-        unsafe private SerialPortAsyncResult BeginReadCore(byte[] buffer, int offset, int numBytes, AsyncCallback userCallback, object stateObject)
+        private unsafe SerialPortAsyncResult BeginReadCore(byte[] buffer, int offset, int numBytes, AsyncCallback userCallback, object stateObject)
         {
             // Create and store async stream class library specific data in the async result
             var asyncResult = new SerialPortAsyncResult
@@ -515,7 +515,7 @@ namespace AndyB.Comms.Serial
             var overlapped = new Overlapped(0, 0, IntPtr.Zero, asyncResult);
 
             // Pack the Overlapped class, and store it in the async result
-            var intOverlapped = overlapped.Pack(IOCallback, buffer);
+            var intOverlapped = overlapped.Pack(_ioCallback, buffer);
 
             asyncResult.Overlapped = intOverlapped;
 
@@ -601,7 +601,7 @@ namespace AndyB.Comms.Serial
 
 
         // This is a the callback prompted when a thread completes any async I/O operation.
-        unsafe private static void AsyncFSCallback(uint errorCode, uint numBytes, NativeOverlapped* pOverlapped)
+        private static unsafe void AsyncFSCallback(uint errorCode, uint numBytes, NativeOverlapped* pOverlapped)
         {
             // Unpack overlapped
             var overlapped = Overlapped.Unpack(pOverlapped);

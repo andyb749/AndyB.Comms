@@ -10,3 +10,4 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\And
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.csproj.CoreCompileInputs.cache
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.pdb
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\obj\Release\netstandard2.1\AndyB.Comms.csproj.AssemblyReference.cache

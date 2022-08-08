@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "AndyB.Comms.Tests/1.0.0": {
         "dependencies": {
-          "AndyB.Comms": "0.0.3-beta",
+          "AndyB.Comms": "0.0.4-beta",
           "Microsoft.NET.Test.Sdk": "17.0.0",
           "coverlet.collector": "3.1.0",
           "xunit": "2.4.1",
@@ -1178,7 +1178,7 @@
         }
       },
       "xunit.runner.visualstudio/2.4.3": {},
-      "AndyB.Comms/0.0.3-beta": {
+      "AndyB.Comms/0.0.4-beta": {
         "dependencies": {
           "Microsoft.Win32.Registry": "5.0.0",
           "System.Security.Permissions": "5.0.0"
@@ -1888,7 +1888,7 @@
       "path": "xunit.runner.visualstudio/2.4.3",
       "hashPath": "xunit.runner.visualstudio.2.4.3.nupkg.sha512"
     },
-    "AndyB.Comms/0.0.3-beta": {
+    "AndyB.Comms/0.0.4-beta": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -19,7 +19,7 @@ namespace AndyB.Comms.Serial
         private IOCompletionCallback freeNativeOverlappedCallback;
 
 
-        unsafe private void WaitForCommEvent()
+        private unsafe void WaitForCommEvent()
         {
             bool doCleanup = false;
             int unused = 0;

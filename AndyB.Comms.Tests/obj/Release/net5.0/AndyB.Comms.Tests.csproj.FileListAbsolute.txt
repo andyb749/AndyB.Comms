@@ -9,7 +9,6 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\AndyB
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\AndyB.Comms.Tests.runtimeconfig.json
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\AndyB.Comms.Tests.runtimeconfig.dev.json
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\AndyB.Comms.Tests.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\ref\AndyB.Comms.Tests.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\AndyB.Comms.Tests.pdb
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\bin\Release\net5.0\Microsoft.TestPlatform.CoreUtilities.dll
@@ -110,3 +109,4 @@ D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\obj\Release\net5.0\AndyB
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\obj\Release\net5.0\ref\AndyB.Comms.Tests.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\obj\Release\net5.0\AndyB.Comms.Tests.pdb
 D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\obj\Release\net5.0\AndyB.Comms.Tests.genruntimeconfig.cache
+D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms.Tests\obj\Release\net5.0\refint\AndyB.Comms.Tests.dll

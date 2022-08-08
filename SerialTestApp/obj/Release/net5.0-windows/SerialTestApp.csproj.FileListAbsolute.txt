@@ -4,7 +4,6 @@ D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\S
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\SerialTestApp.runtimeconfig.json
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\SerialTestApp.runtimeconfig.dev.json
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\SerialTestApp.dll
-D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\ref\SerialTestApp.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\SerialTestApp.pdb
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\Krypton.Docking.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\bin\Release\net5.0-windows\Krypton.Navigator.dll
@@ -29,3 +28,4 @@ D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\obj\Release\net5.0-windows\S
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\obj\Release\net5.0-windows\ref\SerialTestApp.dll
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\obj\Release\net5.0-windows\SerialTestApp.pdb
 D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\obj\Release\net5.0-windows\SerialTestApp.genruntimeconfig.cache
+D:\andyb\Documents\GitHub\AndyB.Comms\SerialTestApp\obj\Release\net5.0-windows\refint\SerialTestApp.dll
