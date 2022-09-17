@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6MlfUgjG1FYregTqV8WMkjBUQX/D6NgoSUX+blFSs76wD26kA+REwaPDrKasCUoYF4geVi8tT8o8SGYAuCIKdQ==",
+  "dgSpecHash": "bBtuc4MzVwIHlOvp7EYRVhudTbhbEzmbB3lhuUOPeHQZbDLpSourpw6H98/7HaRFDs6E/h/+b5Ai9IewvkGrnA==",
   "success": true,
-  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
+  "projectFilePath": "D:\\andyb\\GitHub\\AndyB.Comms\\AndyB.Comms\\AndyB.Comms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",

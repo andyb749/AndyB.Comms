@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "86qWpdbkfaEW4esej/EshhcZYVvlXjY+rlbYer2MZhU7aHf1D6fm4Ym3TtgLSlarceBTwB+WckyIpr6WNYiTvw==",
+  "dgSpecHash": "PO9gnsnqOBv17cK3ghMOi7enAlI9lGLSgtRjSOVBmTD5hzdAaIl5Zl7bzldjmKPYViuj1SyXNAZolBxPMmCS5A==",
   "success": true,
-  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
+  "projectFilePath": "D:\\andyb\\GitHub\\AndyB.Comms\\SerialTestApp\\SerialTestApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.docking\\5.550.2108.1\\krypton.docking.5.550.2108.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\krypton.navigator\\5.550.2108.1\\krypton.navigator.5.550.2108.1.nupkg.sha512",
@@ -17,7 +17,8 @@
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.permissions\\5.0.0\\system.security.permissions.5.0.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\andyb\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\andyb.comms\\0.0.4-beta\\andyb.comms.0.0.4-beta.nupkg.sha512"
   ],
   "logs": []
 }

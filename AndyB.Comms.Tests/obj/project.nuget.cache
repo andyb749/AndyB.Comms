@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "g1kGWPClDMeNzg5jFYyJQ5dPxCRkVQALtcs3H7IhAGDp7ipy0DOrrCzfWXYj91UlYuZcuV7rUazn0oOvgl0rNw==",
+  "dgSpecHash": "4F/tooY/dhXusCUuP/Sa6kaCwrwEDU5W2cWRIn5mmNRZRXaKhV0JsawwedhbfrvXsuL9nWXfydQcq3uFVB4JcA==",
   "success": true,
-  "projectFilePath": "D:\\andyb\\Documents\\GitHub\\AndyB.Comms\\AndyB.Comms.Tests\\AndyB.Comms.Tests.csproj",
+  "projectFilePath": "D:\\andyb\\GitHub\\AndyB.Comms\\AndyB.Comms.Tests\\AndyB.Comms.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andyb\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\microsoft.codecoverage\\17.0.0\\microsoft.codecoverage.17.0.0.nupkg.sha512",
@@ -102,7 +102,8 @@
     "C:\\Users\\andyb\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\andyb\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\andyb\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
+    "C:\\Users\\andyb\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512",
+    "C:\\Users\\andyb\\.nuget\\packages\\andyb.comms\\0.0.4-beta\\andyb.comms.0.0.4-beta.nupkg.sha512"
   ],
   "logs": []
 }

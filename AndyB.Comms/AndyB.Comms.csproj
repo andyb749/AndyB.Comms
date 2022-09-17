@@ -8,7 +8,7 @@
     <Description>Classes and interfaces for communications</Description>
     <Copyright>Copyright © AndyB 1994-2022</Copyright>
     <OutputType>Library</OutputType>
-    <DocumentationFile>D:\andyb\Documents\GitHub\AndyB.Comms\AndyB.Comms\AndyB.Comms.xml</DocumentationFile>
+    <DocumentationFile></DocumentationFile>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <RepositoryUrl>https://github.com/AndyB749/AndyB.Comms</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
